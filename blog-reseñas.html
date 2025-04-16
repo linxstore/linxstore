@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog y Reseñas - Lynx</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'azul-profundo': '#162447',
+            'violeta-grisaceo': '#5F5B80',
+            'plateado-claro': '#E0E0E0',
+            'azul-electrico': '#1F75FE',
+            'azul-electrico-hover': '#0056b3',
+            'blanco-suave': '#F8F9FA',
+            'gris-texto': '#4A5568'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Estilos Adicionales */
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5; /* Fondo base neutro ligeramente gris */
+    }
+    /* Efecto hover para botones */
+    .btn-electrico {
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-electrico:hover {
+      background-color: #0056b3; /* azul-electrico-hover */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Efecto hover para tarjetas de artículo */
+    .article-card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .article-card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    /* Estilo para logo */
+    .header-logo {
+      max-height: 40px;
+    }
+    /* Estilo para paginación activa */
+    .pagination-active {
+      background-color: #1F75FE; /* azul-electrico */
+      color: #F8F9FA; /* blanco-suave */
+      border-color: #1F75FE;
+    }
+    .pagination-link {
+      color: #F8F9FA; /* blanco-suave */
+      transition: background-color 0.2s ease;
+    }
+    .pagination-link:hover {
+      background-color: #162447; /* azul-profundo */
+    }
+  </style>
+</head>
+<body class="bg-blanco-suave text-gris-texto">
+  <!-- Header -->
+  <header class="bg-azul-profundo shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div>
+        <a href="index.html">
+          <img src="https://placehold.co/150x50/162447/E0E0E0?text=LYNX+Logo"
+               alt="Logo Lynx"
+               class="header-logo w-auto"
+               onerror="this.onerror=null; this.src='https://placehold.co/150x50/162447/FFFFFF?text=Logo+Error';">
+        </a>
+      </div>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="index.html" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Inicio</a>
+        <a href="productos.html" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Productos</a>
+        <a href="#" class="text-blanco-suave font-semibold transition duration-300">Blog</a>
+        <a href="contacto.html" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Contacto</a>
+        <button class="bg-azul-electrico text-white font-bold py-2 px-5 rounded-lg btn-electrico">
+          Comienza Aquí
+        </button>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-plateado-claro focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden bg-azul-profundo px-6 pb-4">
+      <a href="index.html" class="block text-plateado-claro hover:text-blanco-suave py-2">Inicio</a>
+      <a href="productos.html" class="block text-plateado-claro hover:text-blanco-suave py-2">Productos</a>
+      <a href="#" class="block text-blanco-suave font-semibold py-2">Blog</a>
+      <a href="contacto.html" class="block text-plateado-claro hover:text-blanco-suave py-2">Contacto</a>
+      <button class="mt-4 w-full bg-azul-electrico text-white font-bold py-2 px-5 rounded-lg btn-electrico">
+        Comienza Aquí
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold text-azul-profundo mb-10 text-center">Nuestro Blog y Reseñas</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Artículo 1 -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden article-card-hover flex flex-col">
+        <a href="articulo-detalle.html">
+          <img src="https://placehold.co/600x400/162447/FFFFFF?text=Blog+Post+1" alt="Miniatura del Artículo 1" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+        </a>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="mb-2">
+            <span class="text-xs text-violeta-grisaceo font-semibold uppercase">Herramientas</span>
+            <span class="text-xs text-gray-500 ml-2">14 Abril, 2025</span>
+          </div>
+          <a href="articulo-detalle.html">
+            <h2 class="text-xl font-bold text-azul-profundo hover:text-azul-electrico transition duration-200 mb-3">Las 5 Mejores Herramientas de Productividad para 2025</h2>
+          </a>
+          <p class="text-gris-texto text-sm mb-4 flex-grow">
+            Descubre las herramientas que están revolucionando la forma en que trabajamos. Análisis detallado y comparativa.
+          </p>
+          <a href="articulo-detalle.html" class="mt-auto self-start bg-azul-electrico text-white font-semibold py-2 px-5 rounded-lg btn-electrico text-sm">
+            Leer más
+          </a>
+        </div>
+      </article>
+
+      <!-- Artículo 2 -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden article-card-hover flex flex-col">
+        <a href="articulo-detalle.html">
+          <img src="https://placehold.co/600x400/5F5B80/FFFFFF?text=Blog+Post+2" alt="Miniatura del Artículo 2" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+        </a>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="mb-2">
+            <span class="text-xs text-violeta-grisaceo font-semibold uppercase">Cursos Online</span>
+            <span class="text-xs text-gray-500 ml-2">12 Abril, 2025</span>
+          </div>
+          <a href="articulo-detalle.html">
+            <h2 class="text-xl font-bold text-azul-profundo hover:text-azul-electrico transition duration-200 mb-3">Reseña Completa: Curso de Marketing Digital Avanzado</h2>
+          </a>
+          <p class="text-gris-texto text-sm mb-4 flex-grow">
+            Analizamos a fondo uno de los cursos más populares del momento. ¿Vale la pena la inversión? Te lo contamos todo.
+          </p>
+          <a href="articulo-detalle.html" class="mt-auto self-start bg-azul-electrico text-white font-semibold py-2 px-5 rounded-lg btn-electrico text-sm">
+            Leer más
+          </a>
+        </div>
+      </article>
+
+      <!-- Artículo 3 -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden article-card-hover flex flex-col">
+        <a href="articulo-detalle.html">
+          <img src="https://placehold.co/600x400/1F75FE/FFFFFF?text=Blog+Post+3" alt="Miniatura del Artículo 3" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+        </a>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="mb-2">
+            <span class="text-xs text-violeta-grisaceo font-semibold uppercase">Estrategia</span>
+            <span class="text-xs text-gray-500 ml-2">10 Abril, 2025</span>
+          </div>
+          <a href="articulo-detalle.html">
+            <h2 class="text-xl font-bold text-azul-profundo hover:text-azul-electrico transition duration-200 mb-3">Cómo Elegir el Software Adecuado para tu Negocio</h2>
+          </a>
+          <p class="text-gris-texto text-sm mb-4 flex-grow">
+            Una guía paso a paso para no equivocarte al seleccionar las herramientas tecnológicas clave para tu empresa.
+          </p>
+          <a href="articulo-detalle.html" class="mt-auto self-start bg-azul-electrico text-white font-semibold py-2 px-5 rounded-lg btn-electrico text-sm">
+            Leer más
+          </a>
+        </div>
+      </article>
+
+      <!-- Artículo 4 -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden article-card-hover flex flex-col">
+        <a href="articulo-detalle.html">
+          <img src="https://placehold.co/600x400/162447/FFFFFF?text=Blog+Post+4" alt="Miniatura del Artículo 4" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+        </a>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="mb-2">
+            <span class="text-xs text-violeta-grisaceo font-semibold uppercase">Tutoriales</span>
+            <span class="text-xs text-gray-500 ml-2">8 Abril, 2025</span>
+          </div>
+          <a href="articulo-detalle.html">
+            <h2 class="text-xl font-bold text-azul-profundo hover:text-azul-electrico transition duration-200 mb-3">Guía Práctica: Primeros Pasos con la Herramienta Alfa</h2>
+          </a>
+          <p class="text-gris-texto text-sm mb-4 flex-grow">
+            Te guiamos en la configuración inicial y uso básico de una de nuestras herramientas recomendadas.
+          </p>
+          <a href="articulo-detalle.html" class="mt-auto self-start bg-azul-electrico text-white font-semibold py-2 px-5 rounded-lg btn-electrico text-sm">
+            Leer más
+          </a>
+        </div>
+      </article>
+
+      <!-- Artículo 5 -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden article-card-hover flex flex-col">
+        <a href="articulo-detalle.html">
+          <img src="https://placehold.co/600x400/5F5B80/FFFFFF?text=Blog+Post+5" alt="Miniatura del Artículo 5" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+        </a>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="mb-2">
+            <span class="text-xs text-violeta-grisaceo font-semibold uppercase">Opinión</span>
+            <span class="text-xs text-gray-500 ml-2">5 Abril, 2025</span>
+          </div>
+          <a href="articulo-detalle.html">
+            <h2 class="text-xl font-bold text-azul-profundo hover:text-azul-electrico transition duration-200 mb-3">Tendencias en E-learning para el Próximo Año</h2>
+          </a>
+          <p class="text-gris-texto text-sm mb-4 flex-grow">
+            Exploramos las novedades y el futuro del aprendizaje online. ¿Qué nos espera en el mundo de los cursos digitales?
+          </p>
+          <a href="articulo-detalle.html" class="mt-auto self-start bg-azul-electrico text-white font-semibold py-2 px-5 rounded-lg btn-electrico text-sm">
+            Leer más
+          </a>
+        </div>
+      </article>
+
+      <!-- Artículo 6 -->
+      <article class="bg-white rounded-lg shadow-md overflow-hidden article-card-hover flex flex-col">
+        <a href="articulo-detalle.html">
+          <img src="https://placehold.co/600x400/1F75FE/FFFFFF?text=Blog+Post+6" alt="Miniatura del Artículo 6" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+        </a>
+        <div class="p-6 flex flex-col flex-grow">
+          <div class="mb-2">
+            <span class="text-xs text-violeta-grisaceo font-semibold uppercase">Reseñas</span>
+            <span class="text-xs text-gray-500 ml-2">2 Abril, 2025</span>
+          </div>
+          <a href="articulo-detalle.html">
+            <h2 class="text-xl font-bold text-azul-profundo hover:text-azul-electrico transition duration-200 mb-3">Comparativa: Plataformas de Email Marketing</h2>
+          </a>
+          <p class="text-gris-texto text-sm mb-4 flex-grow">
+            Enfrentamos a los líderes del mercado. ¿Cuál es la mejor opción para tus campañas de email?
+          </p>
+          <a href="articulo-detalle.html" class="mt-auto self-start bg-azul-electrico text-white font-semibold py-2 px-5 rounded-lg btn-electrico text-sm">
+            Leer más
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Paginación -->
+    <div class="mt-12 flex justify-center items-center space-x-2 bg-violeta-grisaceo p-3 rounded-lg shadow-sm">
+      <a href="#" class="px-4 py-2 rounded-md pagination-link">&laquo; Anterior</a>
+      <a href="#" class="px-4 py-2 rounded-md border border-plateado-claro pagination-active">1</a>
+      <a href="#" class="px-4 py-2 rounded-md pagination-link">2</a>
+      <a href="#" class="px-4 py-2 rounded-md pagination-link">3</a>
+      <span class="text-blanco-suave">...</span>
+      <a href="#" class="px-4 py-2 rounded-md pagination-link">8</a>
+      <a href="#" class="px-4 py-2 rounded-md pagination-link">Siguiente &raquo;</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-azul-profundo text-blanco-suave pt-12 pb-8 mt-16">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <a href="index.html">
+            <img src="https://placehold.co/120x40/162447/E0E0E0?text=LYNX" alt="Logo Lynx Footer" class="w-auto mb-4" style="max-height: 30px;" onerror="this.onerror=null; this.src='https://placehold.co/120x40/162447/FFFFFF?text=Logo';">
+          </a>
+          <p class="text-sm text-opacity-80">Conectando tu mundo digital.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition duration-300" aria-label="Facebook">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition duration-300" aria-label="Twitter">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M..."/>
+              </svg>
+            </a>
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition duration-300" aria-label="Instagram">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M..."/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Navegación</h5>
+          <ul>
+            <li class="mb-2"><a href="index.html" class="hover:text-azul-electrico transition duration-300 text-sm">Inicio</a></li>
+            <li class="mb-2"><a href="productos.html" class="hover:text-azul-electrico transition duration-300 text-sm">Productos</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm font-semibold">Blog</a></li>
+            <li class="mb-2"><a href="contacto.html" class="hover:text-azul-electrico transition duration-300 text-sm">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Legal</h5>
+          <ul>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Política de Privacidad</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Términos y Condiciones</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Mapa del Sitio</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Contacto</h5>
+          <p class="text-sm mb-2 text-opacity-80">Email: info@lynx.com</p>
+          <p class="text-sm text-opacity-80">Teléfono: +1 234 567 890</p>
+          <p class="text-sm text-opacity-80">Dirección: 123 Calle Digital, Ciudad Web</p>
+        </div>
+      </div>
+      <div class="border-t border-plateado-claro border-opacity-20 pt-6 text-center text-sm text-opacity-70">
+        &copy; 2025 Lynx. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

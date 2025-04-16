@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Catálogo de Productos de Lynx – Herramientas digitales" />
+  <title>Productos - Lynx</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'azul-profundo': '#162447',
+            'violeta-grisaceo': '#5F5B80',
+            'plateado-claro': '#E0E0E0',
+            'azul-electrico': '#1F75FE',
+            'azul-electrico-hover': '#0056b3',
+            'blanco-suave': '#F8F9FA'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+    }
+    /* Efecto hover para botones */
+    .btn-electrico {
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-electrico:hover {
+      background-color: #0056b3; /* azul-electrico-hover */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* Efecto hover para tarjetas */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    /* Clase para la paginación activa (si la implementas) */
+    .pagination-active {
+      background-color: #1F75FE;
+      color: white;
+      border-color: #1F75FE;
+    }
+  </style>
+</head>
+<body class="bg-blanco-suave text-gray-800">
+  <!-- Header -->
+  <header class="bg-azul-profundo shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div>
+        <a href="index.html">
+          <img src="https://placehold.co/150x50/162447/E0E0E0?text=LYNX+Logo" alt="Logo Lynx" class="header-logo w-auto" onerror="this.onerror=null; this.src='https://placehold.co/150x50/162447/FFFFFF?text=Logo+Error';">
+        </a>
+      </div>
+      <div class="hidden md:flex space-x-6 items-center">
+        <a href="index.html" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Inicio</a>
+        <a href="productos.html" class="text-blanco-suave font-semibold transition duration-300">Productos</a>
+        <a href="#" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Reseñas</a>
+        <a href="#" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Blog</a>
+        <a href="#" class="text-plateado-claro hover:text-blanco-suave transition duration-300">Contacto</a>
+        <button class="bg-azul-electrico text-white font-bold py-2 px-5 rounded-lg btn-electrico">
+          Comienza Aquí
+        </button>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-plateado-claro focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden bg-azul-profundo px-6 pb-4">
+      <a href="index.html" class="block text-plateado-claro hover:text-blanco-suave py-2">Inicio</a>
+      <a href="productos.html" class="block text-blanco-suave font-semibold py-2">Productos</a>
+      <a href="#" class="block text-plateado-claro hover:text-blanco-suave py-2">Reseñas</a>
+      <a href="#" class="block text-plateado-claro hover:text-blanco-suave py-2">Blog</a>
+      <a href="#" class="block text-plateado-claro hover:text-blanco-suave py-2">Contacto</a>
+      <button class="mt-4 w-full bg-azul-electrico text-white font-bold py-2 px-5 rounded-lg btn-electrico">
+        Comienza Aquí
+      </button>
+    </div>
+  </header>
+
+  <!-- Main: Buscador y listado de productos dinámico -->
+  <main class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold text-azul-profundo mb-8 text-center md:text-left">Nuestro Catálogo</h1>
+    
+    <!-- Campo de búsqueda -->
+    <div class="w-full max-w-4xl mx-auto mb-10">
+      <input
+        id="search"
+        type="text"
+        placeholder="Buscar herramientas..."
+        class="w-full px-4 py-2 border rounded-lg shadow focus:outline-none"
+      />
+    </div>
+    
+    <!-- Contenedor de productos (se llenará con JS) -->
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    
+    <!-- Ejemplo de paginación (estática, puede ampliarse) -->
+    <div class="mt-12 flex justify-center items-center space-x-2 bg-violeta-grisaceo p-3 rounded-lg shadow-sm">
+      <a href="#" class="px-4 py-2 rounded-md text-blanco-suave hover:bg-azul-profundo transition duration-200">&laquo; Anterior</a>
+      <a href="#" class="px-4 py-2 rounded-md border border-plateado-claro pagination-active">1</a>
+      <a href="#" class="px-4 py-2 rounded-md text-blanco-suave hover:bg-azul-profundo transition duration-200">2</a>
+      <a href="#" class="px-4 py-2 rounded-md text-blanco-suave hover:bg-azul-profundo transition duration-200">3</a>
+      <span class="text-blanco-suave">...</span>
+      <a href="#" class="px-4 py-2 rounded-md text-blanco-suave hover:bg-azul-profundo transition duration-200">10</a>
+      <a href="#" class="px-4 py-2 rounded-md text-blanco-suave hover:bg-azul-profundo transition duration-200">Siguiente &raquo;</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-azul-profundo text-blanco-suave pt-12 pb-8 mt-16">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <a href="index.html">
+            <img src="https://placehold.co/120x40/162447/E0E0E0?text=LYNX" alt="Logo Lynx Footer" class="w-auto mb-4" style="max-height: 30px;" onerror="this.onerror=null; this.src='https://placehold.co/120x40/162447/FFFFFF?text=Logo';">
+          </a>
+          <p class="text-sm text-opacity-80">Conectando tu mundo digital.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition duration-300">
+              <!-- Ícono de Facebook (Ejemplo) -->
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+              </svg>
+            </a>
+            <!-- Íconos adicionales (Placeholder) -->
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition duration-300">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M..."/>
+              </svg>
+            </a>
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition duration-300">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M..."/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Navegación</h5>
+          <ul>
+            <li class="mb-2"><a href="index.html" class="hover:text-azul-electrico transition duration-300 text-sm">Inicio</a></li>
+            <li class="mb-2"><a href="productos.html" class="hover:text-azul-electrico transition duration-300 text-sm font-semibold">Productos</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Reseñas</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Blog</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Legal</h5>
+          <ul>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Política de Privacidad</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Términos y Condiciones</a></li>
+            <li class="mb-2"><a href="#" class="hover:text-azul-electrico transition duration-300 text-sm">Mapa del Sitio</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Contacto</h5>
+          <p class="text-sm mb-2 text-opacity-80">Email: info@lynx.com</p>
+          <p class="text-sm text-opacity-80">Teléfono: +1 234 567 890</p>
+          <p class="text-sm text-opacity-80">Dirección: 123 Calle Digital, Ciudad Web</p>
+        </div>
+      </div>
+      <div class="border-t border-plateado-claro border-opacity-20 pt-6 text-center text-sm text-opacity-70">
+        &copy; 2025 Lynx. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Menú móvil -->
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Script para productos y búsqueda -->
+  <script>
+    // Definición del array de productos
+    const productos = [
+      {
+        titulo: "Generador de códigos QR",
+        descripcion: "Genera códigos QR personalizados para compartir enlaces, textos o ubicaciones.",
+        imagen: "https://cdn-icons-png.flaticon.com/512/2919/2919592.png",
+        enlace: "#"
+      },
+      {
+        titulo: "Acortador de enlaces",
+        descripcion: "Acorta tus enlaces largos en segundos para compartirlos fácilmente.",
+        imagen: "https://cdn-icons-png.flaticon.com/512/5585/5585856.png",
+        enlace: "#"
+      },
+      {
+        titulo: "Conversor de texto",
+        descripcion: "Convierte textos a mayúsculas, minúsculas y otros formatos automáticamente.",
+        imagen: "https://cdn-icons-png.flaticon.com/512/610/610071.png",
+        enlace: "#"
+      },
+      {
+        titulo: "Contador de caracteres",
+        descripcion: "Cuenta caracteres y palabras en tiempo real mientras escribes.",
+        imagen: "https://cdn-icons-png.flaticon.com/512/942/942751.png",
+        enlace: "#"
+      }
+      // Agrega más productos según necesites
+    ];
+
+    const productList = document.getElementById("product-list");
+
+    // Función que genera las tarjetas de producto
+    function mostrarProductos(lista) {
+      productList.innerHTML = ""; // Limpiar contenedor
+      lista.forEach((producto) => {
+        const card = document.createElement("div");
+        card.className = "product-card bg-azul-profundo rounded-lg shadow-lg overflow-hidden border border-plateado-claro border-opacity-20 card-hover flex flex-col";
+        card.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.titulo}" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/FFFFFF?text=Error+Imagen';">
+          <div class="p-5 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-plateado-claro mb-2 text-center">${producto.titulo}</h3>
+            <p class="text-blanco-suave text-opacity-90 mb-4 text-sm flex-grow text-center">${producto.descripcion}</p>
+            <a href="${producto.enlace}" class="mt-auto inline-block bg-azul-electrico text-white font-semibold py-2 px-4 rounded-lg btn-electrico text-sm text-center">
+              Ver Detalles
+            </a>
+          </div>
+        `;
+        productList.appendChild(card);
+      });
+    }
+
+    // Mostrar todos los productos al inicio
+    mostrarProductos(productos);
+
+    // Búsqueda en tiempo real
+    document.getElementById("search").addEventListener("input", function (e) {
+      const texto = e.target.value.toLowerCase();
+      const filtrados = productos.filter((producto) =>
+        producto.titulo.toLowerCase().includes(texto)
+      );
+      mostrarProductos(filtrados);
+    });
+  </script>
+</body>
+</html>
