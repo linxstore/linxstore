@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lynx - Herramientas digitales para potenciar tu productividad. Soluciones tecnológicas gratuitas y fáciles de usar para tu negocio o uso personal.">
+    <title>Lynx - Herramientas Digitales para Aumentar tu Productividad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-profundo: #162447;
+            --azul-electrico: #1F75FE;
+            --azul-electrico-hover: #0056b3;
+            --blanco-suave: #F8F9FA;
+            --gris-texto: #4A5568;
+            --gris-oscuro: #2D3748;
+            --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            background-color: var(--blanco-suave);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Mejorado */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+            transition: var(--transicion);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            color: var(--gris-texto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--azul-electrico);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--azul-electrico);
+        }
+        
+        /* Hero Section Mejorada */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-profundo), #1F4068);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--azul-electrico);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--azul-electrico-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(31, 117, 254, 0.3);
+        }
+        
+        /* Sección de Herramientas */
+        .featured-tools {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--gris-oscuro);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--azul-electrico);
+            margin: 15px auto 0;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            text-align: center;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--azul-electrico);
+            margin-bottom: 20px;
+        }
+        
+        .tool-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gris-oscuro);
+        }
+        
+        .tool-description {
+            color: var(--gris-texto);
+            margin-bottom: 25px;
+        }
+        
+        .tool-button {
+            display: inline-block;
+            color: var(--azul-electrico);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        
+        .tool-button:hover {
+            color: var(--azul-electrico-hover);
+        }
+        
+        .tool-button::after {
+            content: '→';
+            margin-left: 5px;
+            transition: var(--transicion);
+        }
+        
+        .tool-button:hover::after {
+            margin-left: 10px;
+        }
+        
+        /* Sección del Blog */
+        .blog-section {
+            padding: 80px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--gris-oscuro);
+        }
+        
+        .blog-excerpt {
+            color: var(--gris-texto);
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--azul-electrico);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transicion);
+        }
+        
+        .read-more:hover i {
+            margin-left: 10px;
+        }
+        
+        /* Sección de Soporte */
+        .support-section {
+            background: linear-gradient(135deg, var(--azul-electrico), #3a86ff);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .section-title.white {
+            color: white;
+        }
+        
+        .section-title.white::after {
+            background: white;
+        }
+        
+        .support-text {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .support-button {
+            display: inline-block;
+            background: white;
+            color: var(--azul-electrico);
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        
+        .support-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Footer Mejorado */
+        .main-footer {
+            background-color: var(--gris-oscuro);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-link {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transicion);
+        }
+        
+        .footer-link:hover {
+            color: var(--azul-electrico);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+            }
+            
+            .main-nav {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html">
+                <img src="img/lynx-logo.png" alt="LYNX Tools" class="logo">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Inicio</a>
+                <a href="productos.html" class="nav-link">Herramientas</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="soporte.html" class="nav-link">Soporte</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Potencia tu productividad al máximo</h1>
+            <p class="hero-subtitle">Descubre herramientas digitales gratuitas, intuitivas y diseñadas para optimizar tu flujo de trabajo</p>
+            <a href="#herramientas" class="cta-button">Explorar herramientas</a>
+        </div>
+    </section>
+
+    <section id="herramientas" class="featured-tools">
+        <div class="container">
+            <h2 class="section-title">Nuestras Herramientas Estrella</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <i class="fas fa-link tool-icon"></i>
+                    <h3 class="tool-title">Acortador de enlaces</h3>
+                    <p class="tool-description">Transforma URLs largas en enlaces cortos y profesionales, perfectos para redes sociales y marketing.</p>
+                    <a href="productos.html#acortador" class="tool-button">Ver herramienta</a>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-qrcode tool-icon"></i>
+                    <h3 class="tool-title">Generador de QR</h3>
+                    <p class="tool-description">Crea códigos QR personalizados en segundos, con opciones de color y diseño avanzadas.</p>
+                    <a href="productos.html#generador-qr" class="tool-button">Ver herramienta</a>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-robot tool-icon"></i>
+                    <h3 class="tool-title">Analizador de texto con IA</h3>
+                    <p class="tool-description">Mejora tus escritos con análisis inteligente de gramática, estilo y claridad.</p>
+                    <a href="productos.html#analizador" class="tool-button">Ver herramienta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Aprende con Nuestro Blog</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="img/blog1.jpg" alt="Cómo elegir herramientas digitales" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">Guía Definitiva: Elegir las Mejores Herramientas Digitales</h3>
+                        <p class="blog-excerpt">Descubre cómo seleccionar las soluciones tecnológicas ideales para tus necesidades específicas.</p>
+                        <a href="blog.html#articulo1" class="read-more">Leer artículo</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="img/blog2.jpg" alt="Productividad y organización" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">10 Estrategias Comprobadas para Aumentar tu Productividad</h3>
+                        <p class="blog-excerpt">Técnicas efectivas respaldadas por ciencia para optimizar tu gestión del tiempo.</p>
+                        <a href="blog.html#articulo2" class="read-more">Leer artículo</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="img/blog3.jpg" alt="Digitalización diaria" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">Transformación Digital: Automatiza tu Rutina Diaria</h3>
+                        <p class="blog-excerpt">Implementa estas soluciones prácticas para simplificar tus tareas cotidianas.</p>
+                        <a href="blog.html#articulo3" class="read-more">Leer artículo</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="support-section">
+        <div class="container">
+            <h2 class="section-title white">¿Necesitas Ayuda o Tienes Preguntas?</h2>
+            <p class="support-text">Nuestro equipo de soporte está disponible para resolver tus dudas y ayudarte a sacar el máximo provecho de nuestras herramientas.</p>
+            <a href="soporte.html" class="support-button">Contactar Soporte</a>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Lynx</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Lynx. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
