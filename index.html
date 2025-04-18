@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lynx - Herramientas digitales para potenciar tu productividad. Soluciones tecnológicas gratuitas y fáciles de usar para tu negocio o uso personal.">
-    <title>Lynx - Herramientas Digitales para Aumentar tu Productividad</title>
+    <meta name="description" content="Productos digitales recomendados - Gana comisiones como afiliado Hotmart">
+    <title>Productos Digitales Recomendados | Afiliados Hotmart</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -35,7 +35,7 @@
             padding: 0 15px;
         }
         
-        /* Header Mejorado */
+        /* Header */
         .main-header {
             background-color: white;
             box-shadow: var(--sombra);
@@ -92,32 +92,63 @@
         .hero {
             background: linear-gradient(135deg, var(--azul-profundo), #1F4068);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(31, 117, 254, 0.2);
+            transform: rotate(45deg);
         }
         
         .hero-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 30px;
             opacity: 0.9;
+            position: relative;
+            z-index: 2;
         }
         
         .cta-button {
             display: inline-block;
             background-color: var(--azul-electrico);
             color: white;
-            padding: 12px 30px;
-            border-radius: 6px;
+            padding: 15px 40px;
+            border-radius: 30px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transicion);
+            position: relative;
+            z-index: 2;
+            font-size: 1.1rem;
         }
         
         .cta-button:hover {
@@ -126,9 +157,10 @@
             box-shadow: 0 6px 16px rgba(31, 117, 254, 0.3);
         }
         
-        /* Sección de Herramientas */
-        .featured-tools {
+        /* Sección de Productos */
+        .featured-products {
             padding: 80px 0;
+            background: var(--blanco-suave);
         }
         
         .section-title {
@@ -148,78 +180,13 @@
             margin: 15px auto 0;
         }
         
-        .tools-grid {
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
-        .tool-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-            text-align: center;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .tool-icon {
-            font-size: 2.5rem;
-            color: var(--azul-electrico);
-            margin-bottom: 20px;
-        }
-        
-        .tool-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--gris-oscuro);
-        }
-        
-        .tool-description {
-            color: var(--gris-texto);
-            margin-bottom: 25px;
-        }
-        
-        .tool-button {
-            display: inline-block;
-            color: var(--azul-electrico);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transicion);
-        }
-        
-        .tool-button:hover {
-            color: var(--azul-electrico-hover);
-        }
-        
-        .tool-button::after {
-            content: '→';
-            margin-left: 5px;
-            transition: var(--transicion);
-        }
-        
-        .tool-button:hover::after {
-            margin-left: 10px;
-        }
-        
-        /* Sección del Blog */
-        .blog-section {
-            padding: 80px 0;
-            background-color: #f5f7fa;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .blog-card {
+        .product-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
@@ -227,89 +194,118 @@
             transition: var(--transicion);
         }
         
-        .blog-card:hover {
-            transform: translateY(-5px);
+        .product-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
-        .blog-image {
+        .product-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
         
-        .blog-content {
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF5722;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-content {
             padding: 25px;
         }
         
-        .blog-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
             color: var(--gris-oscuro);
         }
         
-        .blog-excerpt {
+        .product-description {
             color: var(--gris-texto);
             margin-bottom: 20px;
         }
         
-        .read-more {
+        .product-price {
+            font-weight: bold;
             color: var(--azul-electrico);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
+            font-size: 1.3rem;
+            margin: 15px 0;
         }
         
-        .read-more i {
-            margin-left: 5px;
-            transition: var(--transicion);
-        }
-        
-        .read-more:hover i {
-            margin-left: 10px;
-        }
-        
-        /* Sección de Soporte */
-        .support-section {
-            background: linear-gradient(135deg, var(--azul-electrico), #3a86ff);
-            color: white;
+        .product-button {
+            display: block;
             text-align: center;
-            padding: 60px 0;
-        }
-        
-        .section-title.white {
+            background: var(--azul-electrico);
             color: white;
-        }
-        
-        .section-title.white::after {
-            background: white;
-        }
-        
-        .support-text {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-        
-        .support-button {
-            display: inline-block;
-            background: white;
-            color: var(--azul-electrico);
-            padding: 12px 30px;
+            padding: 12px;
             border-radius: 6px;
-            font-weight: 600;
             text-decoration: none;
             transition: var(--transicion);
+            font-weight: 600;
         }
         
-        .support-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
+        .product-button:hover {
+            background: var(--azul-electrico-hover);
         }
         
-        /* Footer Mejorado */
+        /* Testimonios */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .testimonial-card {
+            background: #F8F9FA;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gris-texto);
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info {
+            text-align: left;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            display: block;
+        }
+        
+        .author-role {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        /* Footer */
         .main-footer {
             background-color: var(--gris-oscuro);
             color: white;
@@ -353,7 +349,7 @@
             opacity: 0.8;
         }
         
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
             .main-header .container {
                 flex-direction: column;
@@ -366,11 +362,15 @@
             }
             
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .hero-subtitle {
                 font-size: 1.1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -379,103 +379,111 @@
     <header class="main-header">
         <div class="container">
             <a href="index.html">
-                <img src="img/logo.png" alt="LYNX Tools" class="logo">
+                <img src="https://via.placeholder.com/150x40?text=LOGO" alt="Afiliados Hotmart" class="logo">
             </a>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link active">Inicio</a>
-                <a href="productos.html" class="nav-link">Herramientas</a>
+                <a href="productos.html" class="nav-link">Productos</a>
                 <a href="blog.html" class="nav-link">Blog</a>
-                <a href="soporte.html" class="nav-link">Soporte</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title">Potencia tu productividad al máximo</h1>
-            <p class="hero-subtitle">Descubre herramientas digitales gratuitas, intuitivas y diseñadas para optimizar tu flujo de trabajo</p>
-            <a href="#herramientas" class="cta-button">Explorar herramientas</a>
+            <h1 class="hero-title">Descubre los <span style="color: #1F75FE;">Productos Digitales</span> Más Vendidos</h1>
+            <p class="hero-subtitle">Accede a herramientas exclusivas para potenciar tu negocio online. ¡Gana comisiones por cada venta!</p>
+            <a href="#productos" class="cta-button">Ver Productos</a>
         </div>
     </section>
 
-    <section id="herramientas" class="featured-tools">
+    <section id="productos" class="featured-products">
         <div class="container">
-            <h2 class="section-title">Nuestras Herramientas Estrella</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <i class="fas fa-link tool-icon"></i>
-                    <h3 class="tool-title">Acortador de enlaces</h3>
-                    <p class="tool-description">Transforma URLs largas en enlaces cortos y profesionales, perfectos para redes sociales y marketing.</p>
-                    <a href="productos.html#acortador" class="tool-button">Ver herramienta</a>
+            <h2 class="section-title">Productos Recomendados</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div style="position: relative;">
+                        <img src="https://via.placeholder.com/400x300?text=Producto+1" alt="Producto 1" class="product-image">
+                        <span class="product-badge">MÁS VENDIDO</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Curso de Marketing Digital</h3>
+                        <p class="product-description">Aprende a vender online desde cero con este curso certificado por expertos.</p>
+                        <div class="product-price">$49.99</div>
+                        <a href="TU_ENLACE_HOTMART_AQUÍ" class="product-button">Comprar Ahora</a>
+                    </div>
                 </div>
-                <div class="tool-card">
-                    <i class="fas fa-qrcode tool-icon"></i>
-                    <h3 class="tool-title">Generador de QR</h3>
-                    <p class="tool-description">Crea códigos QR personalizados en segundos, con opciones de color y diseño avanzadas.</p>
-                    <a href="productos.html#generador-qr" class="tool-button">Ver herramienta</a>
+                
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div style="position: relative;">
+                        <img src="https://via.placeholder.com/400x300?text=Producto+2" alt="Producto 2" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Plantillas Web Premium</h3>
+                        <p class="product-description">Pack de 50 plantillas editables para crear tu sitio web en minutos.</p>
+                        <div class="product-price">$29.99</div>
+                        <a href="TU_ENLACE_HOTMART_AQUÍ" class="product-button">Comprar Ahora</a>
+                    </div>
                 </div>
-                <div class="tool-card">
-                    <i class="fas fa-robot tool-icon"></i>
-                    <h3 class="tool-title">Analizador de texto con IA</h3>
-                    <p class="tool-description">Mejora tus escritos con análisis inteligente de gramática, estilo y claridad.</p>
-                    <a href="productos.html#analizador" class="tool-button">Ver herramienta</a>
+                
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div style="position: relative;">
+                        <img src="https://via.placeholder.com/400x300?text=Producto+3" alt="Producto 3" class="product-image">
+                        <span class="product-badge">NUEVO</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Guía de IA para Negocios</h3>
+                        <p class="product-description">Domina las herramientas de Inteligencia Artificial para automatizar tu trabajo.</p>
+                        <div class="product-price">$39.99</div>
+                        <a href="TU_ENLACE_HOTMART_AQUÍ" class="product-button">Comprar Ahora</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="blog-section">
+    <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">Aprende con Nuestro Blog</h2>
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <img src="img/blog1.jpg" alt="Cómo elegir herramientas digitales" class="blog-image">
-                    <div class="blog-content">
-                        <h3 class="blog-title">Guía Definitiva: Elegir las Mejores Herramientas Digitales</h3>
-                        <p class="blog-excerpt">Descubre cómo seleccionar las soluciones tecnológicas ideales para tus necesidades específicas.</p>
-                        <a href="blog.html#articulo1" class="read-more">Leer artículo</a>
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Compré el curso de marketing y en 2 semanas ya recuperé mi inversión. ¡Totalmente recomendado!"</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50?text=User" alt="Cliente" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">María G.</span>
+                        <span class="author-role">Emprendedora</span>
                     </div>
-                </article>
-                <article class="blog-card">
-                    <img src="img/blog2.jpg" alt="Productividad y organización" class="blog-image">
-                    <div class="blog-content">
-                        <h3 class="blog-title">10 Estrategias Comprobadas para Aumentar tu Productividad</h3>
-                        <p class="blog-excerpt">Técnicas efectivas respaldadas por ciencia para optimizar tu gestión del tiempo.</p>
-                        <a href="blog.html#articulo2" class="read-more">Leer artículo</a>
-                    </div>
-                </article>
-                <article class="blog-card">
-                    <img src="img/blog3.jpg" alt="Digitalización diaria" class="blog-image">
-                    <div class="blog-content">
-                        <h3 class="blog-title">Transformación Digital: Automatiza tu Rutina Diaria</h3>
-                        <p class="blog-excerpt">Implementa estas soluciones prácticas para simplificar tus tareas cotidianas.</p>
-                        <a href="blog.html#articulo3" class="read-more">Leer artículo</a>
-                    </div>
-                </article>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="support-section">
-        <div class="container">
-            <h2 class="section-title white">¿Necesitas Ayuda o Tienes Preguntas?</h2>
-            <p class="support-text">Nuestro equipo de soporte está disponible para resolver tus dudas y ayudarte a sacar el máximo provecho de nuestras herramientas.</p>
-            <a href="soporte.html" class="support-button">Contactar Soporte</a>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Las plantillas me salvaron la vida. Sin conocimientos técnicos pude lanzar mi página web profesional."</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50?text=User" alt="Cliente" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">Carlos R.</span>
+                        <span class="author-role">Freelancer</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">Lynx</div>
+                <div class="footer-logo">Afiliados Hotmart</div>
                 <div class="footer-links">
                     <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="footer-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="footer-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="footer-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <p class="copyright">&copy; 2025 Lynx. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. <br> Este sitio contiene enlaces de afiliado.</p>
         </div>
     </footer>
 </body>
