@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto - Lynx</title>
+  <meta name="description" content="Descripción detallada del producto Lynx con todas sus características y beneficios">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --azul-profundo: #162447;
+      --violeta-grisaceo: #5F5B80;
+      --plateado-claro: #E0E0E0;
+      --azul-electrico: #1F75FE;
+      --azul-electrico-hover: #0056b3;
+      --blanco-suave: #F8F9FA;
+      --gris-texto: #4A5568;
+      --gris-oscuro: #2D3748;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--blanco-suave);
+      color: var(--gris-oscuro);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--azul-electrico);
+      letter-spacing: 1px;
+      position: relative;
+    }
+    .logo-text::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--azul-electrico), var(--violeta-grisaceo));
+    }
+    .header {
+      background-color: var(--azul-profundo);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .nav-link {
+      color: var(--plateado-claro);
+      transition: all 0.3s ease;
+    }
+    .nav-link:hover {
+      color: var(--azul-electrico);
+    }
+    .current-page {
+      color: var(--azul-electrico) !important;
+      font-weight: 600;
+      position: relative;
+    }
+    .current-page::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--azul-electrico);
+    }
+    .btn-electrico {
+      transition: all 0.3s ease;
+      background-color: var(--azul-electrico);
+      color: white;
+    }
+    .btn-electrico:hover {
+      background-color: var(--azul-electrico-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .tab-button {
+      transition: all 0.3s ease;
+    }
+    .tab-button.active {
+      background-color: var(--azul-electrico);
+      color: var(--blanco-suave);
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .star-filled {
+      color: var(--azul-electrico);
+    }
+    .star-empty {
+      color: var(--plateado-claro);
+    }
+    .thumbnail {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .thumbnail:hover {
+      border-color: var(--azul-electrico);
+      opacity: 0.8;
+    }
+    .thumbnail.active {
+      border-color: var(--azul-electrico);
+      opacity: 1;
+    }
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .feature-icon {
+      color: var(--azul-electrico);
+      background-color: rgba(31, 117, 254, 0.1);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body class="bg-blanco-suave text-gris-oscuro">
+
+  <!-- Header Mejorado con Nuevo Logo -->
+  <header class="header sticky top-0 z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Nuevo Logo Textual Mejorado -->
+        <a href="index.html" class="logo-container">
+          <span class="logo-text">LYNX</span>
+        </a>
+        
+        <!-- Navegación Principal -->
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="productos.html" class="nav-link current-page">Productos</a>
+          <a href="#" class="nav-link">Reseñas</a>
+          <a href="#" class="nav-link">Blog</a>
+          <a href="#" class="nav-link">Contacto</a>
+          <a href="#" class="btn-electrico font-semibold py-2 px-5 rounded-lg">
+            Comienza Aquí
+          </a>
+        </nav>
+        
+        <!-- Botón Menú Móvil -->
+        <button id="mobile-menu-button" class="md:hidden text-plateado-claro focus:outline-none" aria-label="Abrir menú">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+      
+      <!-- Menú Móvil -->
+      <div id="mobile-menu" class="md:hidden hidden bg-azul-profundo pb-4 px-4">
+        <a href="index.html" class="block py-2 nav-link">Inicio</a>
+        <a href="productos.html" class="block py-2 nav-link current-page">Productos</a>
+        <a href="#" class="block py-2 nav-link">Reseñas</a>
+        <a href="#" class="block py-2 nav-link">Blog</a>
+        <a href="#" class="block py-2 nav-link">Contacto</a>
+        <a href="#" class="mt-3 inline-block btn-electrico font-semibold py-2 px-5 rounded-lg w-full text-center">
+          Comienza Aquí
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal Mejorado -->
+  <main class="container mx-auto px-4 sm:px-6 py-12">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Galería de Producto -->
+      <div class="w-full lg:w-1/2">
+        <div class="mb-6 border border-plateado-claro rounded-xl overflow-hidden shadow-lg bg-white">
+          <img id="main-product-image" src="https://placehold.co/800x800/162447/FFFFFF?text=Producto+Principal"
+               alt="Imagen Principal del Producto"
+               class="w-full h-auto object-cover p-4"
+               loading="lazy"
+               onerror="this.onerror=null; this.src='https://placehold.co/800x800/cccccc/FFFFFF?text=Error+Imagen'">
+        </div>
+        
+        <div class="flex flex-wrap gap-3 justify-center">
+          <img src="https://placehold.co/100x100/162447/FFFFFF?text=Thumb+1" 
+               alt="Miniatura 1" 
+               class="thumbnail active w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1"
+               data-image="https://placehold.co/800x800/162447/FFFFFF?text=Producto+Principal"
+               loading="lazy">
+          <img src="https://placehold.co/100x100/5F5B80/FFFFFF?text=Thumb+2" 
+               alt="Miniatura 2" 
+               class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1"
+               data-image="https://placehold.co/800x800/5F5B80/FFFFFF?text=Imagen+2"
+               loading="lazy">
+          <img src="https://placehold.co/100x100/1F75FE/FFFFFF?text=Thumb+3" 
+               alt="Miniatura 3" 
+               class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1"
+               data-image="https://placehold.co/800x800/1F75FE/FFFFFF?text=Imagen+3"
+               loading="lazy">
+        </div>
+      </div>
+      
+      <!-- Detalles del Producto -->
+      <div class="w-full lg:w-1/2">
+        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+          <h1 class="text-2xl sm:text-3xl font-bold text-azul-profundo mb-3" id="product-title">Nombre del Producto Increíblemente Detallado</h1>
+          
+          <div class="flex items-center mb-5">
+            <div class="flex text-lg mr-3" aria-label="Calificación del producto">
+              <span class="star-filled">&#9733;</span>
+              <span class="star-filled">&#9733;</span>
+              <span class="star-filled">&#9733;</span>
+              <span class="star-filled">&#9733;</span>
+              <span class="star-empty">&#9734;</span>
+            </div>
+            <a href="#reviews" class="text-sm text-violeta-grisaceo hover:text-azul-electrico transition">(15 Reseñas)</a>
+            <span class="mx-3 text-gray-400">|</span>
+            <span class="text-sm text-green-600 font-medium">
+              <i class="fas fa-check-circle mr-1"></i> En stock
+            </span>
+          </div>
+          
+          <div class="mb-6 border-t border-b border-plateado-claro py-4">
+            <p class="text-gris-oscuro leading-relaxed" id="product-description">
+              Esta es una descripción detallada del producto. Aquí puedes explicar sus características principales, cómo funciona, para quién es ideal y qué problemas resuelve.
+              <br><br>
+              Asegúrate de destacar los beneficios clave y por qué este producto es una excelente elección para el usuario.
+            </p>
+          </div>
+          
+          <div class="mb-6 flex items-center">
+            <span class="text-3xl font-bold text-azul-electrico">$99.99</span>
+            <span class="text-sm text-gray-500 line-through ml-3">$149.99</span>
+            <span class="ml-3 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">33% OFF</span>
+          </div>
+          
+          <div class="mb-6 flex flex-col sm:flex-row gap-3">
+            <div class="flex items-center border border-plateado-claro rounded-lg px-3 py-2">
+              <button class="text-gray-500 hover:text-azul-electrico px-2" id="decrease-qty">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input type="number" value="1" min="1" class="w-12 text-center border-0 focus:ring-0" id="product-qty">
+              <button class="text-gray-500 hover:text-azul-electrico px-2" id="increase-qty">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <a id="buy-now-button" href="#" 
+               class="flex-1 btn-electrico font-semibold py-3 px-6 rounded-lg text-center">
+              <i class="fas fa-shopping-cart mr-2"></i> Añadir al Carrito
+            </a>
+          </div>
+          
+          <div class="mb-6">
+            <div class="flex border-b border-plateado-claro">
+              <button class="tab-button active py-3 px-6 font-medium" data-tab="caracteristicas">
+                Características
+              </button>
+              <button class="tab-button py-3 px-6 font-medium" data-tab="beneficios">
+                Beneficios
+              </button>
+              <button class="tab-button py-3 px-6 font-medium" data-tab="faqs">
+                Preguntas Frecuentes
+              </button>
+            </div>
+            
+            <div class="p-4">
+              <div id="caracteristicas" class="tab-content active">
+                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Características Principales</h3>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-check text-xs"></i>
+                    </span>
+                    <span>Característica número uno muy importante con detalles adicionales</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-check text-xs"></i>
+                    </span>
+                    <span>Otra característica esencial para el usuario que destaca su valor</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-check text-xs"></i>
+                    </span>
+                    <span>Funcionalidad avanzada A con soporte extendido y actualizaciones</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-check text-xs"></i>
+                    </span>
+                    <span>Integración perfecta con sistema B y otras plataformas populares</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div id="beneficios" class="tab-content">
+                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Beneficios Clave</h3>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-bolt text-xs"></i>
+                    </span>
+                    <span>Ahorra hasta 10 horas semanales en tus tareas repetitivas</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-chart-line text-xs"></i>
+                    </span>
+                    <span>Incrementa tu productividad y resultados en un 200%</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-award text-xs"></i>
+                    </span>
+                    <span>Resultados profesionales garantizados con nuestro método</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div id="faqs" class="tab-content">
+                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Preguntas Frecuentes</h3>
+                <div class="space-y-4">
+                  <div>
+                    <p class="font-medium text-azul-profundo">
+                      <i class="fas fa-question-circle text-azul-electrico mr-2"></i>
+                      ¿Es difícil de instalar?
+                    </p>
+                    <p class="mt-1 text-sm text-gris-texto">No, la instalación es muy sencilla y viene con una guía paso a paso.</p>
+                  </div>
+                  <div>
+                    <p class="font-medium text-azul-profundo">
+                      <i class="fas fa-question-circle text-azul-electrico mr-2"></i>
+                      ¿Ofrecen soporte técnico?
+                    </p>
+                    <p class="mt-1 text-sm text-gris-texto">Sí, ofrecemos soporte técnico completo a través de email y chat.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap items-center justify-between pt-4 border-t border-plateado-claro">
+            <div class="flex items-center space-x-4 mb-3 sm:mb-0">
+              <span class="text-sm text-gray-600">Compartir:</span>
+              <a href="#" class="text-gray-500 hover:text-azul-electrico" aria-label="Compartir en Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-azul-electrico" aria-label="Compartir en Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
+                <i class="fas fa-shield-alt mr-1"></i> 30 Días Garantía
+              </span>
+              <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                <i class="fas fa-credit-card mr-1"></i> Pago Seguro
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Productos Relacionados -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-azul-profundo mb-6">Productos Relacionados</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="product-card bg-white p-4 rounded-lg shadow-md border border-plateado-claro">
+          <img src="https://placehold.co/300x300/162447/FFFFFF?text=Producto+1" 
+               alt="Producto Relacionado 1" 
+               class="w-full h-48 object-contain mb-4"
+               loading="lazy">
+          <h3 class="font-semibold text-lg mb-1 text-gris-oscuro">Generador de QR</h3>
+          <div class="flex items-center mb-2">
+            <div class="text-yellow-400 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(24)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-azul-electrico">$29.99</span>
+            <button class="text-azul-electrico hover:text-azul-electrico-hover">
+              <i class="fas fa-plus-circle text-xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-md border border-plateado-claro">
+          <img src="https://placehold.co/300x300/5F5B80/FFFFFF?text=Producto+2" 
+               alt="Producto Relacionado 2" 
+               class="w-full h-48 object-contain mb-4"
+               loading="lazy">
+          <h3 class="font-semibold text-lg mb-1 text-gris-oscuro">Acortador de Links</h3>
+          <div class="flex items-center mb-2">
+            <div class="text-yellow-400 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(18)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-azul-electrico">$19.99</span>
+            <button class="text-azul-electrico hover:text-azul-electrico-hover">
+              <i class="fas fa-plus-circle text-xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="product-card bg-white p-4 rounded-lg shadow-md border border-plateado-claro">
+          <img src="https://placehold.co/300x300/1F75FE/FFFFFF?text=Producto+3" 
+               alt="Producto Relacionado 3" 
+               class="w-full h-48 object-contain mb-4"
+               loading="lazy">
+          <h3 class="font-semibold text-lg mb-1 text-gris-oscuro">Conversor de Texto</h3>
+          <div class="flex items-center mb-2">
+            <div class="text-yellow-400 text-sm">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="text-xs text-gray-500 ml-1">(32)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-azul-electrico">$14.99</span>
+            <button class="text-azul-electrico hover:text-azul-electrico-hover">
+              <i class="fas fa-plus-circle text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Mejorado -->
+  <footer class="bg-azul-profundo text-white pt-12 pb-8 mt-16">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <a href="index.html" class="inline-block mb-4">
+            <span class="logo-text text-white">LYNX</span>
+          </a>
+          <p class="text-sm text-plateado-claro mb-4">Herramientas digitales para potenciar tu productividad.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Productos</h5>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Generador QR</a></li>
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Acortador Links</a></li>
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Conversor Texto</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Empresa</h5>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Sobre Nosotros</a></li>
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Blog</a></li>
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Soporte</h5>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Centro de Ayuda</a></li>
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Política de Privacidad</a></li>
+            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Términos de Servicio</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-plateado-claro border-opacity-20 pt-6 text-center text-sm text-plateado-claro">
+        <p>&copy; 2025 Lynx. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menú móvil
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Galería de imágenes
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('main-product-image');
+    
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        mainImage.src = this.dataset.image;
+        mainImage.alt = this.alt;
+        
+        thumbnails.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Pestañas
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const tabId = this.dataset.tab;
+        
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        tabContents.forEach(content => content.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Selector de cantidad
+    const decreaseBtn = document.getElementById('decrease-qty');
+    const increaseBtn = document.getElementById('increase-qty');
+    const quantityInput = document.getElementById('product-qty');
+    
+    decreaseBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      let value = parseInt(quantityInput.value);
+      if (value > 1) {
+        quantityInput.value = value - 1;
+      }
+    });
+    
+    increaseBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      let value = parseInt(quantityInput.value);
+      quantityInput.value = value + 1;
+    });
+
+    // Cargar datos del producto desde URL
+    document.addEventListener('DOMContentLoaded', function() {
+      const productos = [
+        {
+          id: "generador-qr",
+          titulo: "Generador de Códigos QR Premium",
+          descripcion: "Crea códigos QR personalizados con tu logo y colores. Ideal para marketing digital, menús de restaurante, enlaces a redes sociales y más. Compatible con todos los dispositivos móviles.",
+          imagen: "https://placehold.co/800x800/162447/FFFFFF?text=Generador+QR",
+          precio: 29.99,
+          precio_original: 49.99,
+          enlace: "#"
+        },
+        {
+          id: "acortador-enlaces",
+          titulo: "Acortador de Enlaces Profesional",
+          descripcion: "Acorta tus URLs largas en segundos y obtén estadísticas detalladas de clicks. Perfecto para campañas de marketing, redes sociales y seguimiento de tráfico.",
+          imagen: "https://placehold.co/800x800/5F5B80/FFFFFF?text=Acortador+Links",
+          precio: 19.99,
+          precio_original: 34.99,
+          enlace: "#"
+        }
+      ];
+
+      // Obtener ID del producto de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+
+      // Buscar producto
+      const producto = productos.find(p => p.id === productId);
+      
+      if (producto) {
+        // Actualizar datos del producto
+        document.title = producto.titulo + " | Lynx";
+        document.getElementById('product-title').textContent = producto.titulo;
+        document.getElementById('product-description').textContent = producto.descripcion;
+        document.getElementById('main-product-image').src = producto.imagen;
+        document.getElementById('main-product-image').alt = producto.titulo;
+        
+        // Actualizar precios
+        const precioElement = document.querySelector('.text-3xl.font-bold');
+        precioElement.textContent = `$${producto.precio.toFixed(2)}`;
+        precioElement.nextElementSibling.textContent = `$${producto.precio_original.toFixed(2)}`;
+        
+        // Calcular descuento
+        const descuento = Math.round((1 - producto.precio / producto.precio_original) * 100);
+        precioElement.nextElementSibling.nextElementSibling.textContent = `${descuento}% OFF`;
+        
+        // Actualizar enlace de compra
+        document.getElementById('buy-now-button').href = producto.enlace;
+      }
+    });
+  </script>
+</body>
+</html>
