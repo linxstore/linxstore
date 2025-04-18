@@ -1,2 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lynx - Herramientas Digitales</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="https://kit.fontawesome.com/tu_codigo_aqui.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>Lynx</h1>
+    <p>Explora herramientas digitales diseñadas para facilitar tu día a día.</p>
+  </header>
 
+  <section>
+    <h2>¿Qué es Lynx?</h2>
+    <p>Lynx es tu espacio centralizado para descubrir, usar y compartir herramientas digitales útiles que mejoran tu productividad, organización y creatividad.</p>
+  </section>
+
+  <section>
+    <h2>Algunas de nuestras herramientas</h2>
+    <ul>
+      <li>
+        <i class="fas fa-check-circle"></i>
+        <div>
+          <strong>Editor de texto online</strong>
+          <p>Escribe, guarda y exporta tus textos en línea fácilmente.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-calendar-alt"></i>
+        <div>
+          <strong>Planificador semanal</strong>
+          <p>Organiza tu semana con tareas, recordatorios y metas.</p>
+        </div>
+      </li>
+      <li>
+        <i class="fas fa-brain"></i>
+        <div>
+          <strong>Generador de ideas</strong>
+          <p>Inspírate con sugerencias creativas para tus proyectos.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>¿Por qué usar Lynx?</h2>
+    <p>Nuestra misión es ayudarte a aprovechar mejor tu tiempo con herramientas simples pero poderosas. Ya seas estudiante, emprendedor o profesional, Lynx tiene algo para ti.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Lynx. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
 
