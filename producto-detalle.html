@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle del Producto - Lynx</title>
-  <meta name="description" content="Descripción detallada del producto Lynx con todas sus características y beneficios">
+  <title>Detalle del Producto - Afiliados Hotmart</title>
+  <meta name="description" content="Descubre este increíble producto digital y comienza a ganar comisiones como afiliado">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,203 +13,240 @@
   <style>
     :root {
       --azul-profundo: #162447;
-      --violeta-grisaceo: #5F5B80;
-      --plateado-claro: #E0E0E0;
       --azul-electrico: #1F75FE;
       --azul-electrico-hover: #0056b3;
       --blanco-suave: #F8F9FA;
       --gris-texto: #4A5568;
       --gris-oscuro: #2D3748;
+      --destacado: #FF5722;
     }
+    
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--blanco-suave);
       color: var(--gris-oscuro);
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
+    
+    .header-gradient {
+      background: linear-gradient(135deg, var(--azul-profundo), #1F4068);
     }
-    .logo-text {
-      font-family: 'Inter', sans-serif;
-      font-weight: 800;
-      font-size: 1.75rem;
-      color: var(--azul-electrico);
-      letter-spacing: 1px;
-      position: relative;
-    }
-    .logo-text::after {
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, var(--azul-electrico), var(--violeta-grisaceo));
-    }
-    .header {
-      background-color: var(--azul-profundo);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .nav-link {
-      color: var(--plateado-claro);
-      transition: all 0.3s ease;
-    }
-    .nav-link:hover {
-      color: var(--azul-electrico);
-    }
-    .current-page {
-      color: var(--azul-electrico) !important;
-      font-weight: 600;
-      position: relative;
-    }
-    .current-page::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--azul-electrico);
-    }
+    
     .btn-electrico {
-      transition: all 0.3s ease;
       background-color: var(--azul-electrico);
-      color: white;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      position: relative;
+      overflow: hidden;
     }
+    
     .btn-electrico:hover {
       background-color: var(--azul-electrico-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(31, 117, 254, 0.3);
     }
+    
+    .btn-electrico::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
+    }
+    
+    .btn-electrico:hover::after {
+      left: 150%;
+    }
+    
+    .price-tag {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .price-tag::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 2px;
+      background: var(--tw-color-destacado);
+      transform: rotate(-5deg);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .product-card:hover .price-tag::before {
+      opacity: 1;
+    }
+    
+    .badge-hot {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
     .tab-button {
       transition: all 0.3s ease;
     }
+    
     .tab-button.active {
       background-color: var(--azul-electrico);
-      color: var(--blanco-suave);
+      color: white;
     }
+    
     .tab-content {
       display: none;
       animation: fadeIn 0.5s ease;
     }
+    
     .tab-content.active {
       display: block;
     }
-    .star-filled {
-      color: var(--azul-electrico);
-    }
-    .star-empty {
-      color: var(--plateado-claro);
-    }
-    .thumbnail {
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-    .thumbnail:hover {
-      border-color: var(--azul-electrico);
-      opacity: 0.8;
-    }
-    .thumbnail.active {
-      border-color: var(--azul-electrico);
-      opacity: 1;
-    }
-    .product-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
+    
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    
+    .thumbnail {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      border-color: var(--azul-electrico);
+      transform: scale(1.05);
+    }
+    
     .feature-icon {
-      color: var(--azul-electrico);
-      background-color: rgba(31, 117, 254, 0.1);
-      border-radius: 50%;
       width: 24px;
       height: 24px;
+      background-color: rgba(31, 117, 254, 0.1);
+      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-right: 8px;
+      color: var(--azul-electrico);
+    }
+    
+    .testimonial-card {
+      transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .guarantee-badge {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .guarantee-badge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(30deg);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      100% {
+        left: 150%;
+      }
     }
   </style>
 </head>
 <body class="bg-blanco-suave text-gris-oscuro">
 
-  <!-- Header Mejorado con Nuevo Logo -->
-  <header class="header sticky top-0 z-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Header Mejorado -->
+  <header class="header-gradient shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4">
       <div class="flex justify-between items-center py-4">
-        <!-- Nuevo Logo Textual Mejorado -->
-        <a href="index.html" class="logo-container">
-          <span class="logo-text">LYNX</span>
+        <a href="index.html" class="flex items-center">
+          <span class="text-2xl font-bold text-white">AFILIADOS<span class="text-azul-electrico">HOTMART</span></span>
         </a>
         
-        <!-- Navegación Principal -->
         <nav class="hidden md:flex space-x-8 items-center">
-          <a href="index.html" class="nav-link">Inicio</a>
-          <a href="productos.html" class="nav-link current-page">Productos</a>
-          <a href="#" class="nav-link">Reseñas</a>
-          <a href="#" class="nav-link">Blog</a>
-          <a href="#" class="nav-link">Contacto</a>
-          <a href="#" class="btn-electrico font-semibold py-2 px-5 rounded-lg">
-            Comienza Aquí
+          <a href="index.html" class="text-gray-300 hover:text-white transition">Inicio</a>
+          <a href="productos.html" class="text-white font-semibold">Productos</a>
+          <a href="#" class="text-gray-300 hover:text-white transition">Testimonios</a>
+          <a href="#" class="text-gray-300 hover:text-white transition">Blog</a>
+          <a href="#" class="btn-electrico font-semibold py-2 px-6 rounded-full text-white">
+            ¡Quiero Comisiones!
           </a>
         </nav>
         
-        <!-- Botón Menú Móvil -->
-        <button id="mobile-menu-button" class="md:hidden text-plateado-claro focus:outline-none" aria-label="Abrir menú">
+        <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
       
       <!-- Menú Móvil -->
       <div id="mobile-menu" class="md:hidden hidden bg-azul-profundo pb-4 px-4">
-        <a href="index.html" class="block py-2 nav-link">Inicio</a>
-        <a href="productos.html" class="block py-2 nav-link current-page">Productos</a>
-        <a href="#" class="block py-2 nav-link">Reseñas</a>
-        <a href="#" class="block py-2 nav-link">Blog</a>
-        <a href="#" class="block py-2 nav-link">Contacto</a>
-        <a href="#" class="mt-3 inline-block btn-electrico font-semibold py-2 px-5 rounded-lg w-full text-center">
-          Comienza Aquí
+        <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Inicio</a>
+        <a href="productos.html" class="block py-2 text-white font-semibold">Productos</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-white">Testimonios</a>
+        <a href="#" class="block py-2 text-gray-300 hover:text-white">Blog</a>
+        <a href="#" class="mt-3 inline-block btn-electrico font-semibold py-2 px-5 rounded-full w-full text-center text-white">
+          ¡Quiero Comisiones!
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Contenido Principal Mejorado -->
-  <main class="container mx-auto px-4 sm:px-6 py-12">
+  <!-- Contenido Principal -->
+  <main class="container mx-auto px-4 py-12">
+    <!-- Breadcrumbs -->
+    <div class="flex items-center text-sm text-gray-500 mb-6">
+      <a href="index.html" class="hover:text-azul-electrico">Inicio</a>
+      <span class="mx-2">/</span>
+      <a href="productos.html" class="hover:text-azul-electrico">Productos</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-400">Detalle del Producto</span>
+    </div>
+    
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- Galería de Producto -->
       <div class="w-full lg:w-1/2">
-        <div class="mb-6 border border-plateado-claro rounded-xl overflow-hidden shadow-lg bg-white">
-          <img id="main-product-image" src="https://placehold.co/800x800/162447/FFFFFF?text=Producto+Principal"
+        <div class="relative bg-white p-6 rounded-xl shadow-lg mb-6">
+          <div class="absolute top-4 left-4 z-10">
+            <span class="badge-hot bg-destacado text-white text-xs font-bold px-3 py-1 rounded-full">MÁS VENDIDO</span>
+          </div>
+          <img id="main-product-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                alt="Imagen Principal del Producto"
-               class="w-full h-auto object-cover p-4"
-               loading="lazy"
-               onerror="this.onerror=null; this.src='https://placehold.co/800x800/cccccc/FFFFFF?text=Error+Imagen'">
+               class="w-full h-auto object-contain rounded-lg"
+               loading="lazy">
         </div>
         
         <div class="flex flex-wrap gap-3 justify-center">
-          <img src="https://placehold.co/100x100/162447/FFFFFF?text=Thumb+1" 
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
                alt="Miniatura 1" 
-               class="thumbnail active w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1"
-               data-image="https://placehold.co/800x800/162447/FFFFFF?text=Producto+Principal"
+               class="thumbnail active w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1 shadow"
+               data-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                loading="lazy">
-          <img src="https://placehold.co/100x100/5F5B80/FFFFFF?text=Thumb+2" 
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
                alt="Miniatura 2" 
-               class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1"
-               data-image="https://placehold.co/800x800/5F5B80/FFFFFF?text=Imagen+2"
+               class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1 shadow"
+               data-image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                loading="lazy">
-          <img src="https://placehold.co/100x100/1F75FE/FFFFFF?text=Thumb+3" 
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" 
                alt="Miniatura 3" 
-               class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1"
-               data-image="https://placehold.co/800x800/1F75FE/FFFFFF?text=Imagen+3"
+               class="thumbnail w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg cursor-pointer bg-white p-1 shadow"
+               data-image="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
                loading="lazy">
         </div>
       </div>
@@ -217,160 +254,206 @@
       <!-- Detalles del Producto -->
       <div class="w-full lg:w-1/2">
         <div class="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
-          <h1 class="text-2xl sm:text-3xl font-bold text-azul-profundo mb-3" id="product-title">Nombre del Producto Increíblemente Detallado</h1>
+          <h1 class="text-2xl sm:text-3xl font-bold text-azul-profundo mb-3" id="product-title">Curso Completo de Marketing Digital</h1>
           
           <div class="flex items-center mb-5">
             <div class="flex text-lg mr-3" aria-label="Calificación del producto">
-              <span class="star-filled">&#9733;</span>
-              <span class="star-filled">&#9733;</span>
-              <span class="star-filled">&#9733;</span>
-              <span class="star-filled">&#9733;</span>
-              <span class="star-empty">&#9734;</span>
+              <span class="text-yellow-400">★</span>
+              <span class="text-yellow-400">★</span>
+              <span class="text-yellow-400">★</span>
+              <span class="text-yellow-400">★</span>
+              <span class="text-gray-300">★</span>
             </div>
-            <a href="#reviews" class="text-sm text-violeta-grisaceo hover:text-azul-electrico transition">(15 Reseñas)</a>
+            <a href="#reviews" class="text-sm text-gray-500 hover:text-azul-electrico transition">(142 Reseñas)</a>
             <span class="mx-3 text-gray-400">|</span>
             <span class="text-sm text-green-600 font-medium">
-              <i class="fas fa-check-circle mr-1"></i> En stock
+              <i class="fas fa-check-circle mr-1"></i> Disponible
             </span>
           </div>
           
-          <div class="mb-6 border-t border-b border-plateado-claro py-4">
+          <div class="mb-6 border-t border-b border-gray-200 py-4">
             <p class="text-gris-oscuro leading-relaxed" id="product-description">
-              Esta es una descripción detallada del producto. Aquí puedes explicar sus características principales, cómo funciona, para quién es ideal y qué problemas resuelve.
-              <br><br>
-              Asegúrate de destacar los beneficios clave y por qué este producto es una excelente elección para el usuario.
+              Domina las estrategias más efectivas de marketing digital en 2023 con este curso completo que incluye 12 módulos, 85 lecciones en video y materiales descargables. Aprende a crear campañas exitosas en redes sociales, Google Ads, email marketing y más, incluso si eres principiante.
             </p>
           </div>
           
           <div class="mb-6 flex items-center">
-            <span class="text-3xl font-bold text-azul-electrico">$99.99</span>
-            <span class="text-sm text-gray-500 line-through ml-3">$149.99</span>
-            <span class="ml-3 bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded">33% OFF</span>
+            <span class="text-3xl font-bold text-azul-electrico price-tag">$97.00</span>
+            <span class="text-lg text-gray-500 line-through ml-3">$197.00</span>
+            <span class="ml-3 bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full">51% OFF</span>
           </div>
           
-          <div class="mb-6 flex flex-col sm:flex-row gap-3">
-            <div class="flex items-center border border-plateado-claro rounded-lg px-3 py-2">
-              <button class="text-gray-500 hover:text-azul-electrico px-2" id="decrease-qty">
-                <i class="fas fa-minus"></i>
-              </button>
-              <input type="number" value="1" min="1" class="w-12 text-center border-0 focus:ring-0" id="product-qty">
-              <button class="text-gray-500 hover:text-azul-electrico px-2" id="increase-qty">
-                <i class="fas fa-plus"></i>
-              </button>
+          <!-- Contador de tiempo limitado -->
+          <div class="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div class="flex items-center justify-center mb-2">
+              <i class="fas fa-clock text-yellow-500 mr-2"></i>
+              <span class="font-semibold text-yellow-800">Oferta termina en:</span>
             </div>
-            <a id="buy-now-button" href="#" 
-               class="flex-1 btn-electrico font-semibold py-3 px-6 rounded-lg text-center">
-              <i class="fas fa-shopping-cart mr-2"></i> Añadir al Carrito
-            </a>
+            <div class="flex justify-center space-x-2 text-center">
+              <div class="bg-white rounded shadow px-3 py-2">
+                <span class="font-bold text-gray-800" id="countdown-hours">23</span>
+                <span class="block text-xs text-gray-500">Horas</span>
+              </div>
+              <div class="bg-white rounded shadow px-3 py-2">
+                <span class="font-bold text-gray-800" id="countdown-minutes">59</span>
+                <span class="block text-xs text-gray-500">Minutos</span>
+              </div>
+              <div class="bg-white rounded shadow px-3 py-2">
+                <span class="font-bold text-gray-800" id="countdown-seconds">59</span>
+                <span class="block text-xs text-gray-500">Segundos</span>
+              </div>
+            </div>
           </div>
           
+          <!-- Botón de compra principal -->
+          <a id="buy-now-button" href="TU_ENLACE_AFILIADO_HOTMART" 
+             class="block btn-electrico font-semibold py-4 px-6 rounded-lg text-white text-center mb-4 text-lg">
+            <i class="fas fa-bolt mr-2"></i> OBTENER ACCESO INMEDIATO
+          </a>
+          
+          <!-- Garantía destacada -->
+          <div class="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
+            <div class="flex items-center justify-center">
+              <div class="guarantee-badge bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-2 rounded-full inline-flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>
+                <span>Garantía de 7 días - 100% de reembolso</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Métodos de pago -->
           <div class="mb-6">
-            <div class="flex border-b border-plateado-claro">
+            <p class="text-center text-sm text-gray-500 mb-2">Métodos de pago aceptados:</p>
+            <div class="flex justify-center space-x-4">
+              <i class="fab fa-cc-visa text-2xl text-gray-700"></i>
+              <i class="fab fa-cc-mastercard text-2xl text-gray-700"></i>
+              <i class="fab fa-cc-paypal text-2xl text-gray-700"></i>
+              <i class="fas fa-credit-card text-2xl text-gray-700"></i>
+            </div>
+          </div>
+          
+          <!-- Pestañas de información -->
+          <div class="mb-6">
+            <div class="flex border-b border-gray-200">
               <button class="tab-button active py-3 px-6 font-medium" data-tab="caracteristicas">
-                Características
+                <i class="fas fa-list-ul mr-2"></i> Contenido
               </button>
               <button class="tab-button py-3 px-6 font-medium" data-tab="beneficios">
-                Beneficios
+                <i class="fas fa-star mr-2"></i> Beneficios
               </button>
               <button class="tab-button py-3 px-6 font-medium" data-tab="faqs">
-                Preguntas Frecuentes
+                <i class="fas fa-question-circle mr-2"></i> Preguntas
               </button>
             </div>
             
             <div class="p-4">
               <div id="caracteristicas" class="tab-content active">
-                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Características Principales</h3>
+                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Lo que incluye este curso:</h3>
                 <ul class="space-y-3">
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-check text-xs"></i>
                     </span>
-                    <span>Característica número uno muy importante con detalles adicionales</span>
+                    <span>12 módulos completos con 85 lecciones en video HD</span>
                   </li>
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-check text-xs"></i>
                     </span>
-                    <span>Otra característica esencial para el usuario que destaca su valor</span>
+                    <span>Guías descargables y plantillas editables</span>
                   </li>
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-check text-xs"></i>
                     </span>
-                    <span>Funcionalidad avanzada A con soporte extendido y actualizaciones</span>
+                    <span>Acceso a comunidad privada de estudiantes</span>
                   </li>
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-check text-xs"></i>
                     </span>
-                    <span>Integración perfecta con sistema B y otras plataformas populares</span>
+                    <span>Soporte directo con el instructor</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="feature-icon">
+                      <i class="fas fa-check text-xs"></i>
+                    </span>
+                    <span>Certificado de finalización</span>
                   </li>
                 </ul>
               </div>
               
               <div id="beneficios" class="tab-content">
-                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Beneficios Clave</h3>
+                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Beneficios exclusivos:</h3>
                 <ul class="space-y-3">
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-bolt text-xs"></i>
                     </span>
-                    <span>Ahorra hasta 10 horas semanales en tus tareas repetitivas</span>
+                    <span>Aprende a crear campañas que generen hasta $5,000/mes</span>
                   </li>
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-chart-line text-xs"></i>
                     </span>
-                    <span>Incrementa tu productividad y resultados en un 200%</span>
+                    <span>Métodos comprobados que han funcionado para más de 3,200 estudiantes</span>
                   </li>
                   <li class="flex items-start">
                     <span class="feature-icon">
                       <i class="fas fa-award text-xs"></i>
                     </span>
-                    <span>Resultados profesionales garantizados con nuestro método</span>
+                    <span>Acceso vitalicio a todas las actualizaciones futuras</span>
                   </li>
                 </ul>
               </div>
               
               <div id="faqs" class="tab-content">
-                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Preguntas Frecuentes</h3>
+                <h3 class="font-semibold mb-3 text-lg text-azul-profundo">Preguntas frecuentes:</h3>
                 <div class="space-y-4">
                   <div>
                     <p class="font-medium text-azul-profundo">
                       <i class="fas fa-question-circle text-azul-electrico mr-2"></i>
-                      ¿Es difícil de instalar?
+                      ¿Cuándo obtengo acceso al curso?
                     </p>
-                    <p class="mt-1 text-sm text-gris-texto">No, la instalación es muy sencilla y viene con una guía paso a paso.</p>
+                    <p class="mt-1 text-sm text-gris-texto">El acceso es inmediato después de la compra. Recibirás un email con tus credenciales.</p>
                   </div>
                   <div>
                     <p class="font-medium text-azul-profundo">
                       <i class="fas fa-question-circle text-azul-electrico mr-2"></i>
-                      ¿Ofrecen soporte técnico?
+                      ¿Hay requisitos previos?
                     </p>
-                    <p class="mt-1 text-sm text-gris-texto">Sí, ofrecemos soporte técnico completo a través de email y chat.</p>
+                    <p class="mt-1 text-sm text-gris-texto">No, el curso está diseñado para principiantes y avanzados.</p>
+                  </div>
+                  <div>
+                    <p class="font-medium text-azul-profundo">
+                      <i class="fas fa-question-circle text-azul-electrico mr-2"></i>
+                      ¿Cómo funciona la garantía?
+                    </p>
+                    <p class="mt-1 text-sm text-gris-texto">Si no estás satisfecho, envíanos un email en los primeros 7 días para un reembolso completo.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="flex flex-wrap items-center justify-between pt-4 border-t border-plateado-claro">
+          <!-- Compartir en redes -->
+          <div class="flex flex-wrap items-center justify-between pt-4 border-t border-gray-200">
             <div class="flex items-center space-x-4 mb-3 sm:mb-0">
               <span class="text-sm text-gray-600">Compartir:</span>
-              <a href="#" class="text-gray-500 hover:text-azul-electrico" aria-label="Compartir en Facebook">
+              <a href="#" class="text-gray-500 hover:text-blue-600" aria-label="Compartir en Facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="text-gray-500 hover:text-azul-electrico" aria-label="Compartir en Twitter">
+              <a href="#" class="text-gray-500 hover:text-blue-400" aria-label="Compartir en Twitter">
                 <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-red-600" aria-label="Compartir en Pinterest">
+                <i class="fab fa-pinterest-p"></i>
               </a>
             </div>
             
             <div class="flex items-center space-x-4">
-              <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                <i class="fas fa-shield-alt mr-1"></i> 30 Días Garantía
-              </span>
-              <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                <i class="fas fa-credit-card mr-1"></i> Pago Seguro
+              <span class="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                <i class="fas fa-lock mr-1"></i> Pago 100% Seguro
               </span>
             </div>
           </div>
@@ -378,137 +461,136 @@
       </div>
     </div>
     
-    <!-- Productos Relacionados -->
-    <section class="mt-16">
-      <h2 class="text-2xl font-bold text-azul-profundo mb-6">Productos Relacionados</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="product-card bg-white p-4 rounded-lg shadow-md border border-plateado-claro">
-          <img src="https://placehold.co/300x300/162447/FFFFFF?text=Producto+1" 
-               alt="Producto Relacionado 1" 
-               class="w-full h-48 object-contain mb-4"
-               loading="lazy">
-          <h3 class="font-semibold text-lg mb-1 text-gris-oscuro">Generador de QR</h3>
-          <div class="flex items-center mb-2">
-            <div class="text-yellow-400 text-sm">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
+    <!-- Sección de testimonios -->
+    <section id="reviews" class="mt-16 bg-gray-50 rounded-xl p-8">
+      <h2 class="text-2xl font-bold text-azul-profundo mb-8 text-center">Lo que dicen nuestros estudiantes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="testimonial-card bg-white p-6 rounded-lg shadow">
+          <div class="flex items-center mb-4">
+            <div class="text-yellow-400 text-lg mr-2">
+              ★★★★★
             </div>
-            <span class="text-xs text-gray-500 ml-1">(24)</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="font-bold text-azul-electrico">$29.99</span>
-            <button class="text-azul-electrico hover:text-azul-electrico-hover">
-              <i class="fas fa-plus-circle text-xl"></i>
-            </button>
+          <p class="text-gray-600 mb-4">"Este curso cambió completamente mi perspectiva del marketing digital. En solo 3 meses logré triplicar mis clientes."</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">María González</h4>
+              <p class="text-sm text-gray-500">Emprendedora</p>
+            </div>
           </div>
         </div>
         
-        <div class="product-card bg-white p-4 rounded-lg shadow-md border border-plateado-claro">
-          <img src="https://placehold.co/300x300/5F5B80/FFFFFF?text=Producto+2" 
-               alt="Producto Relacionado 2" 
-               class="w-full h-48 object-contain mb-4"
-               loading="lazy">
-          <h3 class="font-semibold text-lg mb-1 text-gris-oscuro">Acortador de Links</h3>
-          <div class="flex items-center mb-2">
-            <div class="text-yellow-400 text-sm">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
+        <div class="testimonial-card bg-white p-6 rounded-lg shadow">
+          <div class="flex items-center mb-4">
+            <div class="text-yellow-400 text-lg mr-2">
+              ★★★★★
             </div>
-            <span class="text-xs text-gray-500 ml-1">(18)</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="font-bold text-azul-electrico">$19.99</span>
-            <button class="text-azul-electrico hover:text-azul-electrico-hover">
-              <i class="fas fa-plus-circle text-xl"></i>
-            </button>
+          <p class="text-gray-600 mb-4">"Las estrategias de Facebook Ads que aprendí aquí me ayudaron a reducir mi costo por lead de $5 a $1.20. ¡Increíble!"</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Carlos Mendoza</h4>
+              <p class="text-sm text-gray-500">Consultor de Marketing</p>
+            </div>
           </div>
         </div>
         
-        <div class="product-card bg-white p-4 rounded-lg shadow-md border border-plateado-claro">
-          <img src="https://placehold.co/300x300/1F75FE/FFFFFF?text=Producto+3" 
-               alt="Producto Relacionado 3" 
-               class="w-full h-48 object-contain mb-4"
-               loading="lazy">
-          <h3 class="font-semibold text-lg mb-1 text-gris-oscuro">Conversor de Texto</h3>
-          <div class="flex items-center mb-2">
-            <div class="text-yellow-400 text-sm">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+        <div class="testimonial-card bg-white p-6 rounded-lg shadow">
+          <div class="flex items-center mb-4">
+            <div class="text-yellow-400 text-lg mr-2">
+              ★★★★★
             </div>
-            <span class="text-xs text-gray-500 ml-1">(32)</span>
           </div>
-          <div class="flex justify-between items-center">
-            <span class="font-bold text-azul-electrico">$14.99</span>
-            <button class="text-azul-electrico hover:text-azul-electrico-hover">
-              <i class="fas fa-plus-circle text-xl"></i>
-            </button>
+          <p class="text-gray-600 mb-4">"Vale cada centavo. La sección de email marketing sola justifica el precio del curso completo."</p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-semibold">Ana Rodríguez</h4>
+              <p class="text-sm text-gray-500">Dueña de Negocio</p>
+            </div>
           </div>
         </div>
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="#" class="inline-block bg-azul-electrico hover:bg-azul-electrico-hover text-white font-semibold py-3 px-6 rounded-lg">
+          Ver más testimonios
+        </a>
+      </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="mt-16 bg-gradient-to-r from-azul-profundo to-azul-electrico rounded-xl p-8 text-white text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">¿Listo para transformar tu negocio?</h2>
+      <p class="text-xl mb-6 max-w-2xl mx-auto">Obtén acceso inmediato al curso completo y comienza a ver resultados desde el primer día.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="TU_ENLACE_AFILIADO_HOTMART" class="btn-electrico font-semibold py-4 px-8 rounded-lg text-white text-lg">
+          <i class="fas fa-shopping-cart mr-2"></i> Comprar Ahora
+        </a>
+        <a href="#" class="bg-white text-azul-electrico font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 text-lg">
+          <i class="fas fa-question-circle mr-2"></i> Preguntas Frecuentes
+        </a>
       </div>
     </section>
   </main>
 
-  <!-- Footer Mejorado -->
-  <footer class="bg-azul-profundo text-white pt-12 pb-8 mt-16">
-    <div class="container mx-auto px-4 sm:px-6">
+  <!-- Footer -->
+  <footer class="bg-azul-profundo text-white pt-16 pb-8 mt-16">
+    <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
           <a href="index.html" class="inline-block mb-4">
-            <span class="logo-text text-white">LYNX</span>
+            <span class="text-2xl font-bold text-white">AFILIADOS<span class="text-azul-electrico">HOTMART</span></span>
           </a>
-          <p class="text-sm text-plateado-claro mb-4">Herramientas digitales para potenciar tu productividad.</p>
+          <p class="text-sm text-gray-300 mb-4">Los mejores productos digitales para recomendar y ganar comisiones.</p>
           <div class="flex space-x-4">
-            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition" aria-label="Facebook">
+            <a href="#" class="text-gray-300 hover:text-azul-electrico transition" aria-label="Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition" aria-label="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-plateado-claro hover:text-azul-electrico transition" aria-label="Instagram">
+            <a href="#" class="text-gray-300 hover:text-azul-electrico transition" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-azul-electrico transition" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
             </a>
           </div>
         </div>
         
         <div>
-          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Productos</h5>
+          <h5 class="text-lg font-semibold text-gray-300 mb-4">Productos</h5>
           <ul class="space-y-2">
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Generador QR</a></li>
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Acortador Links</a></li>
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Conversor Texto</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Cursos Online</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Software</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Ebooks</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Plantillas</a></li>
           </ul>
         </div>
         
         <div>
-          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Empresa</h5>
+          <h5 class="text-lg font-semibold text-gray-300 mb-4">Recursos</h5>
           <ul class="space-y-2">
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Sobre Nosotros</a></li>
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Blog</a></li>
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Contacto</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Blog</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Guía para Afiliados</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Materiales de Marketing</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Preguntas Frecuentes</a></li>
           </ul>
         </div>
         
         <div>
-          <h5 class="text-lg font-semibold text-plateado-claro mb-4">Soporte</h5>
+          <h5 class="text-lg font-semibold text-gray-300 mb-4">Legal</h5>
           <ul class="space-y-2">
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Centro de Ayuda</a></li>
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Política de Privacidad</a></li>
-            <li><a href="#" class="text-sm text-plateado-claro hover:text-azul-electrico transition">Términos de Servicio</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Términos de Servicio</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Política de Privacidad</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Política de Cookies</a></li>
+            <li><a href="#" class="text-sm text-gray-300 hover:text-azul-electrico transition">Descargo de Responsabilidad</a></li>
           </ul>
         </div>
       </div>
       
-      <div class="border-t border-plateado-claro border-opacity-20 pt-6 text-center text-sm text-plateado-claro">
-        <p>&copy; 2025 Lynx. Todos los derechos reservados.</p>
+      <div class="border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
+        <p>&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. Este sitio contiene enlaces de afiliado.</p>
       </div>
     </div>
   </footer>
@@ -549,45 +631,46 @@
       });
     });
 
-    // Selector de cantidad
-    const decreaseBtn = document.getElementById('decrease-qty');
-    const increaseBtn = document.getElementById('increase-qty');
-    const quantityInput = document.getElementById('product-qty');
+    // Contador regresivo
+    function updateCountdown() {
+      const now = new Date();
+      const endOfDay = new Date();
+      endOfDay.setHours(23, 59, 59, 999);
+      
+      const diff = endOfDay - now;
+      
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+    }
     
-    decreaseBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      let value = parseInt(quantityInput.value);
-      if (value > 1) {
-        quantityInput.value = value - 1;
-      }
-    });
-    
-    increaseBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      let value = parseInt(quantityInput.value);
-      quantityInput.value = value + 1;
-    });
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
     // Cargar datos del producto desde URL
     document.addEventListener('DOMContentLoaded', function() {
       const productos = [
         {
-          id: "generador-qr",
-          titulo: "Generador de Códigos QR Premium",
-          descripcion: "Crea códigos QR personalizados con tu logo y colores. Ideal para marketing digital, menús de restaurante, enlaces a redes sociales y más. Compatible con todos los dispositivos móviles.",
-          imagen: "https://placehold.co/800x800/162447/FFFFFF?text=Generador+QR",
-          precio: 29.99,
-          precio_original: 49.99,
-          enlace: "#"
+          id: "curso-marketing",
+          titulo: "Curso Completo de Marketing Digital",
+          descripcion: "Domina las estrategias más efectivas de marketing digital en 2023 con este curso completo que incluye 12 módulos, 85 lecciones en video y materiales descargables. Aprende a crear campañas exitosas en redes sociales, Google Ads, email marketing y más, incluso si eres principiante.",
+          imagen: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          precio: 97,
+          precio_original: 197,
+          enlace: "TU_ENLACE_AFILIADO_HOTMART"
         },
         {
-          id: "acortador-enlaces",
-          titulo: "Acortador de Enlaces Profesional",
-          descripcion: "Acorta tus URLs largas en segundos y obtén estadísticas detalladas de clicks. Perfecto para campañas de marketing, redes sociales y seguimiento de tráfico.",
-          imagen: "https://placehold.co/800x800/5F5B80/FFFFFF?text=Acortador+Links",
-          precio: 19.99,
-          precio_original: 34.99,
-          enlace: "#"
+          id: "plantillas-shopify",
+          titulo: "Plantillas Shopify Premium",
+          descripcion: "20 plantillas optimizadas para conversión listas para usar en tu tienda online. Diseños profesionales, responsive y fáciles de personalizar que aumentarán tus ventas desde el primer día.",
+          imagen: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+          precio: 47,
+          precio_original: 97,
+          enlace: "TU_ENLACE_AFILIADO_HOTMART"
         }
       ];
 
@@ -600,7 +683,7 @@
       
       if (producto) {
         // Actualizar datos del producto
-        document.title = producto.titulo + " | Lynx";
+        document.title = producto.titulo + " | Afiliados Hotmart";
         document.getElementById('product-title').textContent = producto.titulo;
         document.getElementById('product-description').textContent = producto.descripcion;
         document.getElementById('main-product-image').src = producto.imagen;
