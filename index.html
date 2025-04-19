@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Productos digitales recomendados - Gana comisiones como afiliado Hotmart">
+    <title>Productos Digitales Recomendados | Afiliados Hotmart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-profundo: #162447;
+            --azul-electrico: #1F75FE;
+            --azul-electrico-hover: #0056b3;
+            --blanco-suave: #F8F9FA;
+            --gris-texto: #4A5568;
+            --gris-oscuro: #2D3748;
+            --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transicion: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            background-color: var(--blanco-suave);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        .main-header {
+            background-color: white;
+            box-shadow: var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+            transition: var(--transicion);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            color: var(--gris-texto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--azul-electrico);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--azul-electrico);
+        }
+        
+        /* Hero Section Mejorada */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-profundo), #1F4068);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(31, 117, 254, 0.2);
+            transform: rotate(45deg);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--azul-electrico);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transicion);
+            position: relative;
+            z-index: 2;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--azul-electrico-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(31, 117, 254, 0.3);
+        }
+        
+        /* Sección de Productos */
+        .featured-products {
+            padding: 80px 0;
+            background: var(--blanco-suave);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--gris-oscuro);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--azul-electrico);
+            margin: 15px auto 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF5722;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--gris-oscuro);
+        }
+        
+        .product-description {
+            color: var(--gris-texto);
+            margin-bottom: 20px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--azul-electrico);
+            font-size: 1.3rem;
+            margin: 15px 0;
+        }
+        
+        .product-button {
+            display: block;
+            text-align: center;
+            background: var(--azul-electrico);
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: var(--transicion);
+            font-weight: 600;
+        }
+        
+        .product-button:hover {
+            background: var(--azul-electrico-hover);
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .testimonial-card {
+            background: #F8F9FA;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gris-texto);
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .author-info {
+            text-align: left;
+        }
+        
+        .author-name {
+            font-weight: bold;
+            display: block;
+        }
+        
+        .author-role {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: var(--gris-oscuro);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-link {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transicion);
+        }
+        
+        .footer-link:hover {
+            color: var(--azul-electrico);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+            }
+            
+            .main-nav {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html">
+                <img src="https://via.placeholder.com/150x40?text=LOGO" alt="Afiliados Hotmart" class="logo">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Inicio</a>
+                <a href="productos.html" class="nav-link">Productos</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contacto.html" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Descubre los <span style="color: #1F75FE;">Productos Digitales</span> Más Vendidos</h1>
+            <p class="hero-subtitle">Accede a herramientas exclusivas para potenciar tu negocio online. ¡Gana comisiones por cada venta!</p>
+            <a href="#productos" class="cta-button">Ver Productos</a>
+        </div>
+    </section>
+
+    <section id="productos" class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Productos Recomendados</h2>
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div style="position: relative;">
+                        <img src="https://via.placeholder.com/400x300?text=Producto+1" alt="Producto 1" class="product-image">
+                        <span class="product-badge">MÁS VENDIDO</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Curso de Marketing Digital</h3>
+                        <p class="product-description">Aprende a vender online desde cero con este curso certificado por expertos.</p>
+                        <div class="product-price">$49.99</div>
+                        <a href="TU_ENLACE_HOTMART_AQUÍ" class="product-button">Comprar Ahora</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div style="position: relative;">
+                        <img src="https://via.placeholder.com/400x300?text=Producto+2" alt="Producto 2" class="product-image">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Plantillas Web Premium</h3>
+                        <p class="product-description">Pack de 50 plantillas editables para crear tu sitio web en minutos.</p>
+                        <div class="product-price">$29.99</div>
+                        <a href="TU_ENLACE_HOTMART_AQUÍ" class="product-button">Comprar Ahora</a>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div style="position: relative;">
+                        <img src="https://via.placeholder.com/400x300?text=Producto+3" alt="Producto 3" class="product-image">
+                        <span class="product-badge">NUEVO</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Guía de IA para Negocios</h3>
+                        <p class="product-description">Domina las herramientas de Inteligencia Artificial para automatizar tu trabajo.</p>
+                        <div class="product-price">$39.99</div>
+                        <a href="TU_ENLACE_HOTMART_AQUÍ" class="product-button">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Compré el curso de marketing y en 2 semanas ya recuperé mi inversión. ¡Totalmente recomendado!"</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50?text=User" alt="Cliente" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">María G.</span>
+                        <span class="author-role">Emprendedora</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Las plantillas me salvaron la vida. Sin conocimientos técnicos pude lanzar mi página web profesional."</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50?text=User" alt="Cliente" class="author-avatar">
+                    <div class="author-info">
+                        <span class="author-name">Carlos R.</span>
+                        <span class="author-role">Freelancer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Afiliados Hotmart</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. <br> Este sitio contiene enlaces de afiliado.</p>
+        </div>
+    </footer>
+</body>
+  </html>
