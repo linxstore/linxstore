@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Afiliados Hotmart</title>
-    <!-- Mismos estilos que tu index.html para consistencia -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -30,7 +29,7 @@
             padding: 20px 0;
         }
         
-        /* Header (igual que index.html) */
+        /* Header */
         .main-header {
             background-color: white;
             box-shadow: var(--sombra);
@@ -45,6 +44,11 @@
         
         .logo {
             height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         .main-nav {
@@ -56,26 +60,55 @@
             color: var(--gris-texto);
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
         }
         
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
             color: var(--azul-electrico);
         }
         
-        /* Hero específico para contacto */
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--azul-electrico);
+        }
+        
+        /* Hero */
         .contact-hero {
             background: linear-gradient(135deg, var(--azul-profundo), #1F4068);
             color: white;
             padding: 80px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
         }
         
         .contact-title {
             font-size: 2.5rem;
+            font-weight: 700;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
         
-        /* Formulario de contacto */
+        /* Formulario */
         .contact-form {
             background: white;
             border-radius: 10px;
@@ -101,6 +134,13 @@
             border: 1px solid #ddd;
             border-radius: 6px;
             font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--azul-electrico);
+            box-shadow: 0 0 0 3px rgba(31, 117, 254, 0.2);
         }
         
         textarea {
@@ -117,11 +157,14 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 1rem;
+            display: inline-block;
         }
         
         .submit-btn:hover {
             background: #0056b3;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(31, 117, 254, 0.3);
         }
         
         /* Info de contacto */
@@ -138,6 +181,11 @@
             border-radius: 10px;
             box-shadow: var(--sombra);
             text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
         }
         
         .info-icon {
@@ -146,18 +194,25 @@
             margin-bottom: 15px;
         }
         
-        /* Footer (igual que index.html) */
+        /* Footer */
         .main-footer {
             background-color: #2D3748;
             color: white;
-            padding: 40px 0 20px;
+            padding: 50px 0 20px;
             margin-top: 80px;
         }
         
-        .footer-container {
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
         }
         
         .footer-links {
@@ -168,12 +223,25 @@
         .footer-link {
             color: white;
             font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--azul-electrico);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         @media (max-width: 768px) {
-            .header-container, .footer-container {
+            .header-container {
                 flex-direction: column;
-                text-align: center;
             }
             
             .main-nav {
@@ -181,21 +249,30 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header (coherente con index.html) -->
+    <!-- Header -->
     <header class="main-header">
         <div class="container header-container">
             <a href="index.html">
-                <img src="https://via.placeholder.com/150x40?text=LOGO" alt="Afiliados Hotmart" class="logo">
+                <img src="./assets/img/logo.png" alt="Afiliados Hotmart" class="logo">
             </a>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Inicio</a>
                 <a href="productos.html" class="nav-link">Productos</a>
                 <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contacto.html" class="nav-link" style="color: #1F75FE;">Contacto</a>
+                <a href="contacto.html" class="nav-link active">Contacto</a>
             </nav>
         </div>
     </header>
@@ -266,17 +343,17 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="container footer-container">
-            <div class="footer-logo">Afiliados Hotmart</div>
-            <div class="footer-links">
-                <a href="#" class="footer-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="footer-link"><i class="fab fa-whatsapp"></i></a>
-            </div>
-        </div>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Afiliados Hotmart</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
             <p class="copyright">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
-              </html>
+</html>
