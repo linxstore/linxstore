@@ -89,7 +89,7 @@
   </style>
 </head>
 <body>
-  <!-- Header mejorado -->
+  <!-- Header -->
   <header class="header fixed w-full z-50 py-3">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
       <div class="flex items-center space-x-2">
@@ -106,7 +106,6 @@
         <i class="fas fa-bars text-2xl"></i>
       </button>
     </div>
-    <!-- Menú móvil -->
     <div class="md:hidden hidden bg-azul-profundo px-4 py-3" id="mobile-menu">
       <a href="index.html" class="block py-2 nav-link">Inicio</a>
       <a href="productos.html" class="block py-2 nav-link">Herramientas</a>
@@ -115,7 +114,6 @@
     </div>
   </header>
 
-  <!-- Contenido principal mejorado -->
   <main class="pt-28 pb-16 px-4 sm:px-6 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h2 class="text-4xl font-bold text-azul-profundo mb-4">¿En qué podemos ayudarte?</h2>
@@ -123,7 +121,6 @@
     </div>
 
     <div class="grid md:grid-cols-2 gap-8 mb-16">
-      <!-- Sección FAQ mejorada -->
       <section class="section-card p-8 rounded-xl">
         <div class="flex items-center mb-6">
           <i class="fas fa-question-circle text-azul-electrico text-2xl mr-3"></i>
@@ -160,7 +157,6 @@
         </div>
       </section>
 
-      <!-- Formulario de contacto mejorado -->
       <section class="section-card p-8 rounded-xl">
         <div class="flex items-center mb-6">
           <i class="fas fa-envelope text-azul-electrico text-2xl mr-3"></i>
@@ -196,21 +192,21 @@
       </section>
     </div>
 
-    <!-- Métodos alternativos de contacto -->
+    <!-- Métodos de contacto -->
     <div class="bg-white rounded-xl shadow-md p-8 max-w-4xl mx-auto">
       <h3 class="text-2xl font-semibold text-azul-profundo mb-6 text-center">Otras formas de contactarnos</h3>
       <div class="grid sm:grid-cols-3 gap-6">
-        <div class="text-center p-4 rounded-lg hover:bg-blano-suave transition">
+        <div class="text-center p-4 rounded-lg hover:bg-blanco-suave transition">
           <i class="fas fa-envelope text-azul-electrico text-3xl mb-3"></i>
           <h4 class="font-medium text-lg mb-2">Correo electrónico</h4>
           <a href="mailto:soporte@lynx.com" class="text-azul-electrico hover:underline">soporte@lynx.com</a>
         </div>
-        <div class="text-center p-4 rounded-lg hover:bg-blano-suave transition">
+        <div class="text-center p-4 rounded-lg hover:bg-blanco-suave transition">
           <i class="fas fa-phone-alt text-azul-electrico text-3xl mb-3"></i>
           <h4 class="font-medium text-lg mb-2">Teléfono</h4>
           <a href="tel:+1234567890" class="text-azul-electrico hover:underline">+1 234 567 890</a>
         </div>
-        <div class="text-center p-4 rounded-lg hover:bg-blano-suave transition">
+        <div class="text-center p-4 rounded-lg hover:bg-blanco-suave transition">
           <i class="fas fa-comments text-azul-electrico text-3xl mb-3"></i>
           <h4 class="font-medium text-lg mb-2">Chat en vivo</h4>
           <p class="text-gray-600">Disponible 24/7</p>
@@ -219,7 +215,7 @@
     </div>
   </main>
 
-  <!-- Footer mejorado -->
+  <!-- Footer -->
   <footer class="footer py-12 px-4">
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
@@ -264,14 +260,12 @@
   </footer>
 
   <script>
-    // Menú móvil
     document.getElementById('mobile-menu-button').addEventListener('click', function() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
       this.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
     });
-    
-    // Animación para el formulario
+
     const form = document.querySelector('form');
     if(form) {
       form.addEventListener('submit', function(e) {
@@ -279,8 +273,7 @@
         const button = this.querySelector('button[type="submit"]');
         button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
         button.disabled = true;
-        
-        // Simulación de envío
+
         setTimeout(() => {
           button.innerHTML = '<i class="fas fa-check mr-2"></i> Mensaje Enviado';
           setTimeout(() => {
