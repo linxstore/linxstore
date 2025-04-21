@@ -1,124 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Productos digitales recomendados - Gana comisiones como afiliado Hotmart">
-    <title>Productos Digitales Recomendados | Afiliados Hotmart</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos Digitales Recomendados | Afiliados Hotmart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
-<body>
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html">
-                <img src="./assets/img/logo.png" alt="Afiliados Hotmart" class="logo">
-            </a>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link active">Inicio</a>
-                <a href="productos.html" class="nav-link">Productos</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contacto.html" class="nav-link">Contacto</a>
-            </nav>
-        </div>
-    </header>
+<body class="font-[Inter] bg-[var(--blanco-suave)] text-[var(--gris-oscuro)]">
 
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">Descubre los <span style="color: #1F75FE;">Productos Digitales</span> Más Vendidos</h1>
-            <p class="hero-subtitle">Accede a herramientas exclusivas para potenciar tu negocio online. ¡Gana comisiones por cada venta!</p>
-            <a href="#productos" class="cta-button">Ver Productos</a>
-        </div>
-    </section>
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-[var(--azul-profundo)] to-[#1F4068]">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html">
+        <img src="./assets/img/logo.png" alt="Afiliados Hotmart" class="h-10">
+      </a>
+      <nav class="space-x-4 text-white text-sm md:text-base">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-    <section id="productos" class="featured-products">
-        <div class="container">
-            <h2 class="section-title">Productos Recomendados</h2>
-            <div class="products-grid">
-                <!-- Producto 1 -->
-                <div class="product-card">
-                    <div style="position: relative;">
-                        <img src="./assets/img/productos/curso-marketing.jpg" alt="Curso Marketing Digital" class="product-image">
-                        <span class="product-badge">MÁS VENDIDO</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Curso de Marketing Digital</h3>
-                        <p class="product-description">Aprende a vender online desde cero con este curso certificado por expertos.</p>
-                        <div class="product-price">$49.99</div>
-                        <a href="#" class="product-button">Comprar Ahora</a>
-                    </div>
-                </div>
-                
-                <!-- Producto 2 -->
-                <div class="product-card">
-                    <div style="position: relative;">
-                        <img src="./assets/img/productos/plantillas-web.jpg" alt="Plantillas Web" class="product-image">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Plantillas Web Premium</h3>
-                        <p class="product-description">Pack de 50 plantillas editables para crear tu sitio web en minutos.</p>
-                        <div class="product-price">$29.99</div>
-                        <a href="#" class="product-button">Comprar Ahora</a>
-                    </div>
-                </div>
-                
-                <!-- Producto 3 -->
-                <div class="product-card">
-                    <div style="position: relative;">
-                        <img src="./assets/img/productos/guia-ia.jpg" alt="Guía IA" class="product-image">
-                        <span class="product-badge">NUEVO</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Guía de IA para Negocios</h3>
-                        <p class="product-description">Domina las herramientas de Inteligencia Artificial para automatizar tu trabajo.</p>
-                        <div class="product-price">$39.99</div>
-                        <a href="#" class="product-button">Comprar Ahora</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Hero -->
+  <section class="text-center py-12 px-4 bg-white">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4">Descubre los <span class="text-[var(--azul-electrico)]">Productos Digitales</span> Más Vendidos</h1>
+    <p class="text-lg md:text-xl mb-6">Accede a herramientas exclusivas para potenciar tu negocio online. ¡Gana comisiones por cada venta!</p>
+    <a href="#productos" class="bg-[var(--azul-electrico)] hover:bg-[var(--azul-electrico-hover)] text-white py-3 px-6 rounded-full font-semibold transition duration-300">Ver Productos</a>
+  </section>
 
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Compré el curso de marketing y en 2 semanas ya recuperé mi inversión. ¡Totalmente recomendado!"</p>
-                <div class="testimonial-author">
-                    <img src="./assets/img/testimonios/maria-g.jpg" alt="Cliente" class="author-avatar">
-                    <div class="author-info">
-                        <span class="author-name">María G.</span>
-                        <span class="author-role">Emprendedora</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Las plantillas me salvaron la vida. Sin conocimientos técnicos pude lanzar mi página web profesional."</p>
-                <div class="testimonial-author">
-                    <img src="./assets/img/testimonios/carlos-r.jpg" alt="Cliente" class="author-avatar">
-                    <div class="author-info">
-                        <span class="author-name">Carlos R.</span>
-                        <span class="author-role">Freelancer</span>
-                    </div>
-                </div>
-            </div>
+  <!-- Productos -->
+  <section id="productos" class="py-12 bg-[var(--blanco-suave)]">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl font-semibold text-center mb-8">Productos Recomendados</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Producto 1 -->
+        <div class="bg-white p-4 rounded-lg shadow product-card">
+          <div class="relative">
+            <img src="./assets/img/productos/curso-marketing.jpg" alt="Curso Marketing Digital" class="rounded">
+            <span class="absolute top-2 left-2 bg-[var(--destacado)] text-white text-xs px-2 py-1 rounded">MÁS VENDIDO</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-semibold text-lg">Curso de Marketing Digital</h3>
+            <p class="text-sm text-[var(--gris-texto)] mt-2">Aprende a vender online desde cero con este curso certificado por expertos.</p>
+            <div class="text-xl font-bold my-2 price-tag">$49.99</div>
+            <a href="#" class="inline-block btn-electrico text-white py-2 px-4 rounded mt-2">Comprar Ahora</a>
+          </div>
         </div>
-    </section>
 
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Afiliados Hotmart</div>
-                <div class="footer-links">
-                    <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="footer-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. <br> Este sitio contiene enlaces de afiliado.</p>
+        <!-- Producto 2 -->
+        <div class="bg-white p-4 rounded-lg shadow product-card">
+          <img src="./assets/img/productos/plantillas-web.jpg" alt="Plantillas Web" class="rounded">
+          <div class="mt-4">
+            <h3 class="font-semibold text-lg">Plantillas Web Premium</h3>
+            <p class="text-sm text-[var(--gris-texto)] mt-2">Pack de 50 plantillas editables para crear tu sitio web en minutos.</p>
+            <div class="text-xl font-bold my-2 price-tag">$29.99</div>
+            <a href="#" class="inline-block btn-electrico text-white py-2 px-4 rounded mt-2">Comprar Ahora</a>
+          </div>
         </div>
-    </footer>
+
+        <!-- Producto 3 -->
+        <div class="bg-white p-4 rounded-lg shadow product-card">
+          <div class="relative">
+            <img src="./assets/img/productos/guia-ia.jpg" alt="Guía IA" class="rounded">
+            <span class="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded">NUEVO</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-semibold text-lg">Guía de IA para Negocios</h3>
+            <p class="text-sm text-[var(--gris-texto)] mt-2">Domina las herramientas de Inteligencia Artificial para automatizar tu trabajo.</p>
+            <div class="text-xl font-bold my-2 price-tag">$39.99</div>
+            <a href="#" class="inline-block btn-electrico text-white py-2 px-4 rounded mt-2">Comprar Ahora</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-semibold mb-8">Lo que dicen nuestros clientes</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="testimonial-card p-6 border rounded shadow">
+          <p class="italic mb-4">"Compré el curso de marketing y en 2 semanas ya recuperé mi inversión. ¡Totalmente recomendado!"</p>
+          <div class="flex items-center justify-center gap-4">
+            <img src="./assets/img/testimonios/maria-g.jpg" class="w-12 h-12 rounded-full" alt="María G.">
+            <div>
+              <p class="font-semibold">María G.</p>
+              <p class="text-xs text-[var(--gris-texto)]">Emprendedora</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card p-6 border rounded shadow">
+          <p class="italic mb-4">"Las plantillas me salvaron la vida. Sin conocimientos técnicos pude lanzar mi página web profesional."</p>
+          <div class="flex items-center justify-center gap-4">
+            <img src="./assets/img/testimonios/carlos-r.jpg" class="w-12 h-12 rounded-full" alt="Carlos R.">
+            <div>
+              <p class="font-semibold">Carlos R.</p>
+              <p class="text-xs text-[var(--gris-texto)]">Freelancer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--azul-profundo)] text-white py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4 text-lg font-semibold">Afiliados Hotmart</div>
+      <div class="flex justify-center space-x-4 mb-4">
+        <a href="#" class="footer-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-link"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="text-sm">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. <br> Este sitio contiene enlaces de afiliado.</p>
+    </div>
+  </footer>
+
 </body>
-            </html>
+</html>
