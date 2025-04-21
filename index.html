@@ -1,125 +1,189 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Productos Digitales Recomendados | Afiliados Hotmart</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Las mejores herramientas digitales para afiliados. Productos recomendados con enlaces verificados y ofertas exclusivas.">
+  <title>Inicio | AfiliadosPro - Herramientas Digitales</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
-<body class="font-[Inter] bg-[var(--blanco-suave)] text-[var(--gris-oscuro)]">
-
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-[var(--azul-profundo)] to-[#1F4068]">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html">
-        <img src="./assets/img/logo.png" alt="Afiliados Hotmart" class="h-10">
+<body class="font-[Inter]">
+  <!-- Header (idéntico al del blog) -->
+  <header class="bg-[#162447] text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="./assets/img/logo.png" alt="Logo" class="h-10">
+        <span class="ml-2 text-xl font-bold hidden sm:inline">AFILIADOSPRO</span>
       </a>
-      <nav class="space-x-4 text-white text-sm md:text-base">
-        <a href="index.html" class="nav-link active">Inicio</a>
-        <a href="productos.html" class="nav-link">Productos</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="contacto.html" class="nav-link">Contacto</a>
+      
+      <!-- Menú Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-[#1f4068] font-semibold">Inicio</a>
+        <a href="productos.html" class="hover:text-[#1f4068] transition">Productos</a>
+        <a href="blog.html" class="hover:text-[#1f4068] transition">Blog</a>
+        <a href="contacto.html" class="hover:text-[#1f4068] transition">Contacto</a>
       </nav>
+      
+      <!-- Menú Mobile -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- Menú Mobile Desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#1f4068] px-4 py-2">
+      <a href="index.html" class="block py-2 text-white bg-[#162447] px-2 rounded">Inicio</a>
+      <a href="productos.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Productos</a>
+      <a href="blog.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Blog</a>
+      <a href="contacto.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Contacto</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="text-center py-12 px-4 bg-white">
-    <h1 class="text-3xl md:text-5xl font-bold mb-4">Descubre los <span class="text-[var(--azul-electrico)]">Productos Digitales</span> Más Vendidos</h1>
-    <p class="text-lg md:text-xl mb-6">Accede a herramientas exclusivas para potenciar tu negocio online. ¡Gana comisiones por cada venta!</p>
-    <a href="#productos" class="bg-[var(--azul-electrico)] hover:bg-[var(--azul-electrico-hover)] text-white py-3 px-6 rounded-full font-semibold transition duration-300">Ver Productos</a>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-[#162447] to-[#1f4068] text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Potencia tus Ganancias como Afiliado</h1>
+      <p class="text-xl max-w-2xl mx-auto">Descubre los productos digitales más vendidos y las estrategias más efectivas para 2025</p>
+      <div class="mt-8">
+        <a href="#productos-destacados" class="bg-[#2563eb] hover:bg-[#1e40af] px-8 py-3 rounded-lg font-medium inline-block">
+          Ver Productos <i class="fas fa-arrow-down ml-2"></i>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- Productos -->
-  <section id="productos" class="py-12 bg-[var(--blanco-suave)]">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-2xl font-semibold text-center mb-8">Productos Recomendados</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Producto 1 -->
-        <div class="bg-white p-4 rounded-lg shadow product-card">
-          <div class="relative">
-            <img src="./assets/img/productos/curso-marketing.jpg" alt="Curso Marketing Digital" class="rounded">
-            <span class="absolute top-2 left-2 bg-[var(--destacado)] text-white text-xs px-2 py-1 rounded">MÁS VENDIDO</span>
-          </div>
-          <div class="mt-4">
-            <h3 class="font-semibold text-lg">Curso de Marketing Digital</h3>
-            <p class="text-sm text-[var(--gris-texto)] mt-2">Aprende a vender online desde cero con este curso certificado por expertos.</p>
-            <div class="text-xl font-bold my-2 price-tag">$49.99</div>
-            <a href="#" class="inline-block btn-electrico text-white py-2 px-4 rounded mt-2">Comprar Ahora</a>
+  <!-- Productos Destacados -->
+  <section id="productos-destacados" class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-12">Productos Destacados</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Producto 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
+        <div class="relative">
+          <img src="./assets/img/productos/curso-marketing.jpg" alt="Curso Marketing Digital" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">TOP VENTAS</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Curso Completo de Marketing Digital</h3>
+          <p class="text-gray-600 mb-4">Domina las estrategias más efectivas para vender online desde cero.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-bold text-[#2563eb]">$49.99</span>
+            <a href="#" class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-4 py-2 rounded-lg font-medium affiliate-btn">
+              Ver Detalles
+            </a>
           </div>
         </div>
+      </div>
 
-        <!-- Producto 2 -->
-        <div class="bg-white p-4 rounded-lg shadow product-card">
-          <img src="./assets/img/productos/plantillas-web.jpg" alt="Plantillas Web" class="rounded">
-          <div class="mt-4">
-            <h3 class="font-semibold text-lg">Plantillas Web Premium</h3>
-            <p class="text-sm text-[var(--gris-texto)] mt-2">Pack de 50 plantillas editables para crear tu sitio web en minutos.</p>
-            <div class="text-xl font-bold my-2 price-tag">$29.99</div>
-            <a href="#" class="inline-block btn-electrico text-white py-2 px-4 rounded mt-2">Comprar Ahora</a>
+      <!-- Producto 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
+        <img src="./assets/img/productos/plantillas-web.jpg" alt="Plantillas Web" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Plantillas Web Premium</h3>
+          <p class="text-gray-600 mb-4">50 diseños profesionales listos para usar en tu negocio.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-bold text-[#2563eb]">$29.99</span>
+            <a href="#" class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-4 py-2 rounded-lg font-medium affiliate-btn">
+              Ver Detalles
+            </a>
           </div>
         </div>
+      </div>
 
-        <!-- Producto 3 -->
-        <div class="bg-white p-4 rounded-lg shadow product-card">
-          <div class="relative">
-            <img src="./assets/img/productos/guia-ia.jpg" alt="Guía IA" class="rounded">
-            <span class="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded">NUEVO</span>
-          </div>
-          <div class="mt-4">
-            <h3 class="font-semibold text-lg">Guía de IA para Negocios</h3>
-            <p class="text-sm text-[var(--gris-texto)] mt-2">Domina las herramientas de Inteligencia Artificial para automatizar tu trabajo.</p>
-            <div class="text-xl font-bold my-2 price-tag">$39.99</div>
-            <a href="#" class="inline-block btn-electrico text-white py-2 px-4 rounded mt-2">Comprar Ahora</a>
+      <!-- Producto 3 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
+        <div class="relative">
+          <img src="./assets/img/productos/guia-ia.jpg" alt="Guía IA" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">NUEVO</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Guía de IA para Negocios</h3>
+          <p class="text-gray-600 mb-4">Aprovecha la inteligencia artificial para automatizar tus ventas.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-2xl font-bold text-[#2563eb]">$39.99</span>
+            <a href="#" class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-4 py-2 rounded-lg font-medium affiliate-btn">
+              Ver Detalles
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section class="py-12 bg-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-semibold mb-8">Lo que dicen nuestros clientes</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="testimonial-card p-6 border rounded shadow">
-          <p class="italic mb-4">"Compré el curso de marketing y en 2 semanas ya recuperé mi inversión. ¡Totalmente recomendado!"</p>
-          <div class="flex items-center justify-center gap-4">
-            <img src="./assets/img/testimonios/maria-g.jpg" class="w-12 h-12 rounded-full" alt="María G.">
-            <div>
-              <p class="font-semibold">María G.</p>
-              <p class="text-xs text-[var(--gris-texto)]">Emprendedora</p>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card p-6 border rounded shadow">
-          <p class="italic mb-4">"Las plantillas me salvaron la vida. Sin conocimientos técnicos pude lanzar mi página web profesional."</p>
-          <div class="flex items-center justify-center gap-4">
-            <img src="./assets/img/testimonios/carlos-r.jpg" class="w-12 h-12 rounded-full" alt="Carlos R.">
-            <div>
-              <p class="font-semibold">Carlos R.</p>
-              <p class="text-xs text-[var(--gris-texto)]">Freelancer</p>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Newsletter -->
+  <section class="bg-[#162447] text-white py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">¿Quieres Ofertas Exclusivas?</h2>
+      <p class="max-w-2xl mx-auto mb-6">Suscríbete para recibir los mejores productos con descuentos especiales.</p>
+      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+        <input type="email" placeholder="Tu email" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
+        <button type="submit" class="bg-[#2563eb] hover:bg-[#1e40af] px-6 py-3 rounded-lg font-medium whitespace-nowrap">
+          Suscribirme <i class="fas fa-paper-plane ml-2"></i>
+        </button>
+      </form>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-[var(--azul-profundo)] text-white py-6">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-4 text-lg font-semibold">Afiliados Hotmart</div>
-      <div class="flex justify-center space-x-4 mb-4">
-        <a href="#" class="footer-link"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="footer-link"><i class="fab fa-twitter"></i></a>
+  <!-- Footer (idéntico al del blog) -->
+  <footer class="bg-[#0f172a] text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
+          <p class="text-gray-400">Las mejores herramientas y estrategias para afiliados digitales.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Enlaces</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a></li>
+            <li><a href="productos.html" class="text-gray-400 hover:text-white transition">Productos</a></li>
+            <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
+            <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="privacidad.html" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
+            <li><a href="cookies.html" class="text-gray-400 hover:text-white transition">Cookies</a></li>
+            <li><a href="afiliados.html" class="text-gray-400 hover:text-white transition">Disclosure de Afiliados</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contacto</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2"></i> hola@afiliadospro.com
+            </li>
+            <li class="flex space-x-4 mt-4">
+              <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <p class="text-sm">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. <br> Este sitio contiene enlaces de afiliado.</p>
+      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
+        <p>&copy; 2025 AfiliadosPro. Todos los derechos reservados.</p>
+      </div>
     </div>
   </footer>
 
+  <!-- Script para menú móvil -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
