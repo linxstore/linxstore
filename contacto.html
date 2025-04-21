@@ -1,106 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Afiliados Hotmart</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto | Afiliados Hotmart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
-<body>
-    <!-- Header -->
-    <header class="main-header">
-        <div class="container header-container">
-            <a href="index.html">
-                <img src="./assets/img/logo.png" alt="Afiliados Hotmart" class="logo">
-            </a>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link">Inicio</a>
-                <a href="productos.html" class="nav-link">Productos</a>
-                <a href="blog.html" class="nav-link">Blog</a>
-                <a href="contacto.html" class="nav-link active">Contacto</a>
-            </nav>
-        </div>
-    </header>
+<body class="font-[Inter] bg-[var(--blanco-suave)] text-[var(--gris-oscuro)]">
 
-    <!-- Hero Section -->
-    <section class="contact-hero">
-        <div class="container">
-            <h1 class="contact-title">¿Necesitas Ayuda?</h1>
-            <p>Contáctanos y te responderemos en menos de 24 horas</p>
-        </div>
-    </section>
-
-    <!-- Formulario -->
-    <div class="container">
-        <div class="contact-form">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Nombre completo</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Asunto</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Enviar Mensaje</button>
-            </form>
-        </div>
-        
-        <!-- Información de contacto -->
-        <div class="contact-info">
-            <div class="info-card">
-                <div class="info-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h3>Ubicación</h3>
-                <p>Ciudad de México, MX</p>
-            </div>
-            
-            <div class="info-card">
-                <div class="info-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email</h3>
-                <p>contacto@linxstore.com</p>
-            </div>
-            
-            <div class="info-card">
-                <div class="info-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <h3>Teléfono</h3>
-                <p>+52 55 1234 5678</p>
-            </div>
-        </div>
+  <!-- Header -->
+  <header class="bg-[var(--azul-profundo)] text-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html">
+        <img src="./assets/img/logo.png" alt="Afiliados Hotmart" class="h-10">
+      </a>
+      <nav class="space-x-4 text-sm md:text-base">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Afiliados Hotmart</div>
-                <div class="footer-links">
-                    <a href="#" class="footer-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="footer-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="footer-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados.</p>
+  <!-- Hero -->
+  <section class="bg-white py-12 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">¿Necesitas Ayuda?</h1>
+      <p class="text-lg md:text-xl text-[var(--gris-texto)]">Contáctanos y te responderemos en menos de 24 horas</p>
+    </div>
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section class="py-12 px-4 bg-[var(--blanco-suave)]">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="bg-white p-6 rounded-lg shadow">
+        <div class="mb-4">
+          <label for="name" class="block font-semibold mb-1">Nombre completo</label>
+          <input type="text" id="name" name="name" required class="w-full border border-gray-300 rounded px-4 py-2">
         </div>
-    </footer>
+        <div class="mb-4">
+          <label for="email" class="block font-semibold mb-1">Correo electrónico</label>
+          <input type="email" id="email" name="email" required class="w-full border border-gray-300 rounded px-4 py-2">
+        </div>
+        <div class="mb-4">
+          <label for="subject" class="block font-semibold mb-1">Asunto</label>
+          <input type="text" id="subject" name="subject" required class="w-full border border-gray-300 rounded px-4 py-2">
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block font-semibold mb-1">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
+        </div>
+        <button type="submit" class="bg-[var(--azul-electrico)] hover:bg-[var(--azul-electrico-hover)] text-white py-2 px-6 rounded-full font-semibold transition duration-300">Enviar Mensaje</button>
+      </form>
+
+      <!-- Información de contacto -->
+      <div class="flex flex-col justify-center gap-6">
+        <div class="flex items-center gap-4 bg-white p-4 rounded-lg shadow">
+          <i class="fas fa-map-marker-alt text-[var(--azul-electrico)] text-xl"></i>
+          <div>
+            <h3 class="font-semibold">Ubicación</h3>
+            <p class="text-sm">Ciudad de México, MX</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-white p-4 rounded-lg shadow">
+          <i class="fas fa-envelope text-[var(--azul-electrico)] text-xl"></i>
+          <div>
+            <h3 class="font-semibold">Email</h3>
+            <p class="text-sm">contacto@linxstore.com</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 bg-white p-4 rounded-lg shadow">
+          <i class="fas fa-phone-alt text-[var(--azul-electrico)] text-xl"></i>
+          <div>
+            <h3 class="font-semibold">Teléfono</h3>
+            <p class="text-sm">+52 55 1234 5678</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--azul-profundo)] text-white py-6">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="mb-4 text-lg font-semibold">Afiliados Hotmart</div>
+      <div class="flex justify-center space-x-4 mb-4">
+        <a href="#" class="footer-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-link"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="text-sm">&copy; 2023 Afiliados Hotmart. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
