@@ -1,6 +1,6 @@
-/* styles.css - Archivo único para todas las páginas */
+/* styles.css - Versión completa y corregida para Kiosc072 */
 :root {
-  /* Colores principales */
+  /* Colores */
   --cafe-oscuro: #4B382A;
   --cafe-claro: #D4A762;
   --beige: #F5E6CA;
@@ -10,20 +10,24 @@
   --gris-claro: #F3F4F6;
   
   /* Tipografía */
-  --fuente-principal: 'Inter', sans-serif;
+  --fuente: 'Inter', sans-serif;
   
   /* Efectos */
   --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transicion: all 0.3s ease;
 }
 
-/* Estilos base */
-body {
-  font-family: var(--fuente-principal);
-  background-color: var(--beige);
-  color: var(--texto);
+/* Reset y estilos base */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente);
+  background-color: var(--beige);
+  color: var(--texto);
   line-height: 1.6;
 }
 
@@ -48,7 +52,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
 }
 
 .logo {
@@ -69,29 +73,17 @@ body {
   display: none;
 }
 
-@media (min-width: 640px) {
-  .logo-text {
-    display: inline;
-  }
-}
-
 /* Navegación */
 .main-nav {
   display: none;
   gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
-  .main-nav {
-    display: flex;
-  }
-}
-
 .nav-link {
   color: var(--blanco);
   text-decoration: none;
   transition: var(--transicion);
-  padding: 0.5rem 0;
+  font-weight: 500;
 }
 
 .nav-link:hover {
@@ -111,12 +103,6 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
   display: block;
-}
-
-@media (min-width: 768px) {
-  .mobile-menu-btn {
-    display: none;
-  }
 }
 
 .mobile-menu {
@@ -151,65 +137,24 @@ body {
   background: linear-gradient(to right, var(--cafe-oscuro), var(--cafe-claro));
   color: var(--blanco);
   text-align: center;
-  padding: 5rem 1rem;
-}
-
-.hero-content {
-  max-width: 42rem;
-  margin: 0 auto;
+  padding: 4rem 1rem;
 }
 
 .hero-title {
-  font-size: 2.25rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-}
-
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Botones */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: var(--transicion);
-  text-align: center;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-primary {
-  background-color: var(--cafe-claro);
-  color: var(--blanco);
-}
-
-.btn-primary:hover {
-  background-color: var(--cafe-oscuro);
-}
-
-.btn-whatsapp {
-  background-color: #25D366;
-  color: var(--blanco);
-}
-
-.btn-whatsapp:hover {
-  background-color: #128C7E;
-}
-
-/* Sección de contacto */
+/* Sección de Contacto */
 .contact-container {
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .contact-card {
@@ -217,26 +162,14 @@ body {
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: var(--sombra);
-  max-width: 64rem;
+  max-width: 1000px;
   margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .contact-card {
-    display: flex;
-  }
 }
 
 .contact-info-section {
   background-color: var(--cafe-oscuro);
   color: var(--blanco);
-  padding: 2rem;
-}
-
-@media (min-width: 768px) {
-  .contact-info-section {
-    width: 50%;
-  }
+  padding: 1.5rem;
 }
 
 .contact-section-title {
@@ -249,12 +182,13 @@ body {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
+  align-items: flex-start;
 }
 
 .contact-icon {
-  margin-top: 0.25rem;
   color: var(--cafe-claro);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
 }
 
 .contact-item-title {
@@ -268,42 +202,36 @@ body {
 
 .social-title {
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .social-icons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
   background-color: var(--blanco);
   color: var(--cafe-oscuro);
   border-radius: 50%;
   transition: var(--transicion);
+  font-size: 1rem;
 }
 
 .social-link:hover {
-  background-color: var(--gris-claro);
+  transform: scale(1.1);
 }
 
 .whatsapp-section {
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-@media (min-width: 768px) {
-  .whatsapp-section {
-    width: 50%;
-  }
 }
 
 .whatsapp-icon {
@@ -326,6 +254,32 @@ body {
   text-align: center;
 }
 
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transicion);
+  border: none;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: var(--blanco);
+  width: 100%;
+  max-width: 250px;
+}
+
+.btn-whatsapp:hover {
+  background-color: #128C7E;
+}
+
 .whatsapp-note {
   font-size: 0.875rem;
   color: var(--texto);
@@ -337,19 +291,12 @@ body {
 .footer {
   background-color: var(--cafe-oscuro);
   color: var(--blanco);
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
 }
 
 .footer-grid {
   display: grid;
   gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .footer-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .footer-logo {
@@ -358,18 +305,18 @@ body {
 }
 
 .footer-title {
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
 }
 
 .footer-contact-list {
   list-style: none;
-  padding: 0;
 }
 
 .footer-contact-item {
@@ -377,12 +324,68 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
 }
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1.5rem;
+  margin-top: 1.5rem;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
-                                            }
+  font-size: 0.85rem;
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .logo-text {
+    display: inline;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-nav {
+    display: flex;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  .contact-card {
+    display: flex;
+  }
+  
+  .contact-info-section {
+    width: 50%;
+    padding: 2rem;
+  }
+  
+  .whatsapp-section {
+    width: 50%;
+    padding: 2rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 5rem 1rem;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  }
