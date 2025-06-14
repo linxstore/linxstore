@@ -6,6 +6,7 @@
   <title>Inicio | Kiosc072</title>
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
@@ -92,6 +93,7 @@
         <div class="product-card">
           <div class="product-image-container">
             <img src="./assets/img/productos/refresco.jpg" alt="Refresco en Lata" class="product-image">
+            <span class="product-badge">Oferta</span>
           </div>
           <div class="product-info">
             <h3 class="product-title">Refresco en Lata</h3>
@@ -122,6 +124,7 @@
         <div class="product-card">
           <div class="product-image-container">
             <img src="./assets/img/productos/jabon.jpg" alt="Jabón de Baño" class="product-image">
+            <span class="product-badge">Nuevo</span>
           </div>
           <div class="product-info">
             <h3 class="product-title">Jabón de Baño</h3>
@@ -174,18 +177,5 @@
   </footer>
 
   <script src="./js/main.js"></script>
-    // Menú móvil
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      menuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('show');
-        const icon = menuBtn.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      });
-    });
-  </script>
 </body>
 </html>
