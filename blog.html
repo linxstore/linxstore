@@ -3,30 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Descubre las mejores herramientas digitales para afiliados en 2025. Análisis detallados con enlaces verificados y ofertas exclusivas.">
-  <title>Blog para Afiliados | Las Mejores Herramientas Digitales</title>
+  <meta name="description" content="Novedades y promociones de Mi Tienda - Descubre nuestros productos envasados">
+  <title>Blog | Mi Tienda de Alimentos</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cafe-oscuro': '#4B382A',
+            'cafe-claro': '#D4A762',
+            'beige': '#F5E6CA',
+            'texto': '#333333',
+            'rojo': '#A44A3F'  // Para destacar promociones
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body>
+<body class="bg-beige font-sans antialiased">
   <!-- Header -->
-  <header class="bg-[#162447] text-white sticky top-0 z-50 shadow-lg">
+  <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        <span class="ml-2 text-xl font-bold hidden sm:inline">AFILIADOSPRO</span>
+        <span class="ml-2 text-xl font-bold hidden sm:inline">MI TIENDA</span>
       </a>
       
       <!-- Menú Desktop -->
       <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-[#1f4068] transition">Inicio</a>
-        <a href="productos.html" class="hover:text-[#1f4068] transition">Productos</a>
-        <a href="blog.html" class="text-[#1f4068] font-semibold">Blog</a>
-        <a href="contacto.html" class="hover:text-[#1f4068] transition">Contacto</a>
+        <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
+        <a href="productos.html" class="hover:text-cafe-claro transition">Productos</a>
+        <a href="blog.html" class="text-cafe-claro font-semibold">Blog</a>
+        <a href="contacto.html" class="hover:text-cafe-claro transition">Contacto</a>
       </nav>
       
       <!-- Menú Mobile -->
@@ -36,27 +54,19 @@
     </div>
     
     <!-- Menú Mobile Desplegable -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#1f4068] px-4 py-2">
-      <a href="index.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Productos</a>
-      <a href="blog.html" class="block py-2 text-white bg-[#162447] px-2 rounded">Blog</a>
-      <a href="contacto.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Contacto</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
+      <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
+      <a href="productos.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Productos</a>
+      <a href="blog.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Blog</a>
+      <a href="contacto.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Contacto</a>
     </div>
   </header>
 
   <!-- Hero Blog -->
-  <section class="bg-gradient-to-r from-[#162447] to-[#1f4068] text-white py-16 text-center">
+  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Blog para Afiliados</h1>
-      <p class="text-xl max-w-2xl mx-auto">Descubre las mejores herramientas y estrategias para ganar dinero como afiliado en 2025</p>
-      <div class="mt-8">
-        <form class="max-w-md mx-auto flex">
-          <input type="text" placeholder="Buscar artículos..." class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
-          <button type="submit" class="bg-[#2563eb] hover:bg-[#1e40af] px-6 py-3 rounded-r-lg font-medium">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Novedades y Promociones</h1>
+      <p class="text-xl max-w-2xl mx-auto">Descubre los últimos productos y ofertas en tu tienda favorita</p>
     </div>
   </section>
 
@@ -68,25 +78,24 @@
         <!-- Artículo Destacado -->
         <article class="bg-white rounded-xl shadow-md overflow-hidden mb-10 border border-gray-100">
           <div class="relative">
-            <img src="./assets/img/blog/destacado-herramientas.jpg" alt="Herramientas para afiliados" class="w-full h-64 md:h-80 object-cover">
-            <span class="affiliate-badge">OFERTA</span>
+            <img src="./assets/img/blog/promo-verano.jpg" alt="Promoción de verano" class="w-full h-64 md:h-80 object-cover">
+            <span class="absolute top-4 right-4 bg-rojo text-white px-3 py-1 rounded-full text-xs font-bold">PROMOCIÓN</span>
           </div>
           <div class="p-6">
             <div class="flex items-center text-sm text-gray-500 mb-3">
-              <span class="bg-[#1f4068] text-white px-2 py-1 rounded mr-3">Novedades</span>
-              <span><i class="far fa-calendar mr-1"></i> 15 Mayo 2025</span>
+              <span class="bg-cafe-claro text-cafe-oscuro px-2 py-1 rounded mr-3">Novedad</span>
+              <span><i class="far fa-calendar mr-1"></i> 15 Julio 2025</span>
               <span class="mx-2">•</span>
-              <span><i class="far fa-clock mr-1"></i> 8 min lectura</span>
+              <span><i class="far fa-clock mr-1"></i> 3 min lectura</span>
             </div>
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">Las 10 Mejores Herramientas para Afiliados en 2025</h2>
-            <p class="text-gray-600 mb-5">Descubre las herramientas que están generando más conversiones este año, con análisis detallados y enlaces con descuentos exclusivos.</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Oferta de Verano: Combos Refrescantes</h2>
+            <p class="text-gray-600 mb-5">Lata de refresco + galletas saladas a solo $25. ¡Perfecto para días calurosos! Válido hasta agotar existencias.</p>
             <div class="flex flex-wrap gap-3 mb-6">
-              <a href="#" class="text-sm bg-[#E9EBF8] text-[#1f4068] px-3 py-1 rounded-full">Herramientas</a>
-              <a href="#" class="text-sm bg-[#E9EBF8] text-[#1f4068] px-3 py-1 rounded-full">Productividad</a>
-              <a href="#" class="text-sm bg-[#E9EBF8] text-[#1f4068] px-3 py-1 rounded-full">Ofertas</a>
+              <span class="text-sm bg-beige text-cafe-oscuro px-3 py-1 rounded-full">Promoción</span>
+              <span class="text-sm bg-beige text-cafe-oscuro px-3 py-1 rounded-full">Refrescos</span>
             </div>
-            <a href="articulo-completo.html" class="inline-block bg-[#2563eb] text-white px-6 py-3 rounded-lg font-medium affiliate-btn">
-              Leer Artículo Completo <i class="fas fa-arrow-right ml-2"></i>
+            <a href="#" class="inline-block bg-cafe-oscuro hover:bg-cafe-claro text-white px-6 py-3 rounded-lg font-medium transition">
+              Ver Productos <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
         </article>
@@ -94,85 +103,85 @@
         <!-- Listado de Artículos -->
         <div class="grid md:grid-cols-2 gap-8">
           <!-- Artículo 1 -->
-          <article class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
             <a href="#">
-              <img src="./assets/img/blog/curso-seo.jpg" alt="Curso SEO" class="w-full h-48 object-cover">
+              <img src="./assets/img/blog/nuevas-galletas.jpg" alt="Nuevas galletas" class="w-full h-48 object-cover">
             </a>
             <div class="p-5">
               <div class="flex items-center text-sm text-gray-500 mb-2">
-                <span><i class="far fa-calendar mr-1"></i> 10 Mayo 2025</span>
+                <span><i class="far fa-calendar mr-1"></i> 10 Julio 2025</span>
                 <span class="mx-2">•</span>
-                <span><i class="far fa-clock mr-1"></i> 5 min</span>
+                <span><i class="far fa-clock mr-1"></i> 2 min</span>
               </div>
               <h3 class="text-xl font-bold mb-3">
-                <a href="#" class="hover:text-[#2563eb] transition">Cómo Vender Cursos Online como Afiliado</a>
+                <a href="#" class="hover:text-cafe-claro transition">¡Nuevas Galletas Integrales!</a>
               </h3>
-              <p class="text-gray-600 mb-4">Guía completa para promocionar cursos digitales y aumentar tus comisiones.</p>
-              <a href="#" class="text-[#2563eb] font-medium hover:underline inline-flex items-center">
-                Leer más <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              <p class="text-gray-600 mb-4">Descubre nuestra selección de galletas con fibra, perfectas para un snack saludable.</p>
+              <a href="#" class="text-cafe-oscuro font-medium hover:underline inline-flex items-center">
+                Ver productos <i class="fas fa-arrow-right ml-2 text-sm"></i>
               </a>
             </div>
           </article>
 
           <!-- Artículo 2 -->
-          <article class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
             <a href="#">
-              <img src="./assets/img/blog/email-marketing.jpg" alt="Email Marketing" class="w-full h-48 object-cover">
+              <img src="./assets/img/blog/conservacion.jpg" alt="Conservación" class="w-full h-48 object-cover">
             </a>
             <div class="p-5">
               <div class="flex items-center text-sm text-gray-500 mb-2">
-                <span><i class="far fa-calendar mr-1"></i> 5 Mayo 2025</span>
+                <span><i class="far fa-calendar mr-1"></i> 5 Julio 2025</span>
                 <span class="mx-2">•</span>
-                <span><i class="far fa-clock mr-1"></i> 7 min</span>
+                <span><i class="far fa-clock mr-1"></i> 4 min</span>
               </div>
               <h3 class="text-xl font-bold mb-3">
-                <a href="#" class="hover:text-[#2563eb] transition">Email Marketing para Afiliados: Guía 2025</a>
+                <a href="#" class="hover:text-cafe-claro transition">Cómo Conservar tus Snacks por Más Tiempo</a>
               </h3>
-              <p class="text-gray-600 mb-4">Las estrategias más efectivas para construir tu lista y vender más.</p>
-              <a href="#" class="text-[#2563eb] font-medium hover:underline inline-flex items-center">
+              <p class="text-gray-600 mb-4">Tips prácticos para mantener tus galletas y snacks crujientes.</p>
+              <a href="#" class="text-cafe-oscuro font-medium hover:underline inline-flex items-center">
                 Leer más <i class="fas fa-arrow-right ml-2 text-sm"></i>
               </a>
             </div>
           </article>
 
           <!-- Artículo 3 -->
-          <article class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
             <a href="#">
-              <img src="./assets/img/blog/redes-sociales.jpg" alt="Redes Sociales" class="w-full h-48 object-cover">
+              <img src="./assets/img/blog/refrescos.jpg" alt="Refrescos" class="w-full h-48 object-cover">
             </a>
             <div class="p-5">
               <div class="flex items-center text-sm text-gray-500 mb-2">
-                <span><i class="far fa-calendar mr-1"></i> 28 Abr 2025</span>
+                <span><i class="far fa-calendar mr-1"></i> 28 Jun 2025</span>
                 <span class="mx-2">•</span>
-                <span><i class="far fa-clock mr-1"></i> 6 min</span>
+                <span><i class="far fa-clock mr-1"></i> 3 min</span>
               </div>
               <h3 class="text-xl font-bold mb-3">
-                <a href="#" class="hover:text-[#2563eb] transition">Redes Sociales para Afiliados: Lo Que Funciona en 2025</a>
+                <a href="#" class="hover:text-cafe-claro transition">Nuevos Sabores de Refrescos</a>
               </h3>
-              <p class="text-gray-600 mb-4">Plataformas y tácticas para generar tráfico de calidad.</p>
-              <a href="#" class="text-[#2563eb] font-medium hover:underline inline-flex items-center">
-                Leer más <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              <p class="text-gray-600 mb-4">Prueba nuestras nuevas bebidas tropicales en lata.</p>
+              <a href="#" class="text-cafe-oscuro font-medium hover:underline inline-flex items-center">
+                Ver sabores <i class="fas fa-arrow-right ml-2 text-sm"></i>
               </a>
             </div>
           </article>
 
           <!-- Artículo 4 -->
-          <article class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
             <a href="#">
-              <img src="./assets/img/blog/analitica.jpg" alt="Analítica" class="w-full h-48 object-cover">
+              <img src="./assets/img/blog/combos.jpg" alt="Combos" class="w-full h-48 object-cover">
             </a>
             <div class="p-5">
               <div class="flex items-center text-sm text-gray-500 mb-2">
-                <span><i class="far fa-calendar mr-1"></i> 20 Abr 2025</span>
+                <span><i class="far fa-calendar mr-1"></i> 20 Jun 2025</span>
                 <span class="mx-2">•</span>
-                <span><i class="far fa-clock mr-1"></i> 9 min</span>
+                <span><i class="far fa-clock mr-1"></i> 2 min</span>
               </div>
               <h3 class="text-xl font-bold mb-3">
-                <a href="#" class="hover:text-[#2563eb] transition">Herramientas de Analítica que Todo Afiliado Debe Usar</a>
+                <a href="#" class="hover:text-cafe-claro transition">Combos para Fiestas</a>
               </h3>
-              <p class="text-gray-600 mb-4">Mide y optimiza tus campañas con estas soluciones.</p>
-              <a href="#" class="text-[#2563eb] font-medium hover:underline inline-flex items-center">
-                Leer más <i class="fas fa-arrow-right ml-2 text-sm"></i>
+              <p class="text-gray-600 mb-4">Paquetes especiales con descuento para tus reuniones.</p>
+              <a href="#" class="text-cafe-oscuro font-medium hover:underline inline-flex items-center">
+                Ver combos <i class="fas fa-arrow-right ml-2 text-sm"></i>
               </a>
             </div>
           </article>
@@ -181,7 +190,7 @@
         <!-- Paginación -->
         <div class="flex justify-center mt-12">
           <nav class="flex items-center space-x-2">
-            <a href="#" class="px-4 py-2 border rounded-lg bg-[#2563eb] text-white">
+            <a href="#" class="px-4 py-2 border rounded-lg bg-cafe-oscuro text-white">
               1
             </a>
             <a href="#" class="px-4 py-2 border rounded-lg hover:bg-gray-100">
@@ -204,27 +213,21 @@
           <h3 class="text-xl font-bold mb-4 border-b pb-2">Categorías</h3>
           <ul class="space-y-3">
             <li>
-              <a href="#" class="flex justify-between items-center hover:text-[#2563eb] transition">
-                <span>Herramientas</span>
-                <span class="bg-gray-100 px-2 py-1 rounded-full text-xs">12</span>
+              <a href="#" class="flex justify-between items-center hover:text-cafe-claro transition">
+                <span>Promociones</span>
+                <span class="bg-beige px-2 py-1 rounded-full text-xs">5</span>
               </a>
             </li>
             <li>
-              <a href="#" class="flex justify-between items-center hover:text-[#2563eb] transition">
-                <span>Estrategias</span>
-                <span class="bg-gray-100 px-2 py-1 rounded-full text-xs">8</span>
+              <a href="#" class="flex justify-between items-center hover:text-cafe-claro transition">
+                <span>Novedades</span>
+                <span class="bg-beige px-2 py-1 rounded-full text-xs">8</span>
               </a>
             </li>
             <li>
-              <a href="#" class="flex justify-between items-center hover:text-[#2563eb] transition">
-                <span>Ofertas</span>
-                <span class="bg-gray-100 px-2 py-1 rounded-full text-xs">5</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="flex justify-between items-center hover:text-[#2563eb] transition">
-                <span>Casos de Éxito</span>
-                <span class="bg-gray-100 px-2 py-1 rounded-full text-xs">3</span>
+              <a href="#" class="flex justify-between items-center hover:text-cafe-claro transition">
+                <span>Tips</span>
+                <span class="bg-beige px-2 py-1 rounded-full text-xs">3</span>
               </a>
             </li>
           </ul>
@@ -232,58 +235,59 @@
 
         <!-- Productos Destacados -->
         <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h3 class="text-xl font-bold mb-4 border-b pb-2">Productos Destacados</h3>
+          <h3 class="text-xl font-bold mb-4 border-b pb-2">Productos Populares</h3>
           <div class="space-y-4">
             <div class="flex items-start">
-              <img src="./assets/img/productos/mini-curso.jpg" alt="Curso" class="w-16 h-16 object-cover rounded mr-3">
+              <img src="./assets/img/productos/refresco-mini.jpg" alt="Refresco" class="w-16 h-16 object-cover rounded mr-3">
               <div>
                 <h4 class="font-semibold">
-                  <a href="#" class="hover:text-[#2563eb] transition">Curso de Afiliados Avanzado</a>
+                  <a href="#" class="hover:text-cafe-claro transition">Refresco Tropical 355ml</a>
                 </h4>
-                <div class="flex items-center mt-1">
-                  <div class="text-yellow-400 text-xs">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                  </div>
-                  <span class="text-xs text-gray-500 ml-1">(42)</span>
-                </div>
-                <p class="text-[#2563eb] font-bold text-sm mt-1">$49 <span class="text-gray-400 line-through text-xs">$99</span></p>
+                <p class="text-cafe-oscuro font-bold text-sm mt-1">$15 <span class="text-gray-400 text-xs">(por lata)</span></p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <img src="./assets/img/productos/galletas-mini.jpg" alt="Galletas" class="w-16 h-16 object-cover rounded mr-3">
+              <div>
+                <h4 class="font-semibold">
+                  <a href="#" class="hover:text-cafe-claro transition">Galletas Integrales</a>
+                </h4>
+                <p class="text-cafe-oscuro font-bold text-sm mt-1">$28 <span class="text-gray-400 text-xs">(paq. 200g)</span></p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Testimonios -->
+        <!-- Horario -->
         <div class="bg-white rounded-lg shadow-md p-6">
-          <h3 class="text-xl font-bold mb-4 border-b pb-2">Testimonios</h3>
-          <div class="space-y-4">
-            <div class="testimonial-card p-4 rounded">
-              <p class="italic mb-3">"Gracias a las estrategias de este blog, mis ingresos como afiliado aumentaron un 200% en 3 meses."</p>
-              <div class="flex items-center">
-                <img src="./assets/img/testimonios/user1.jpg" alt="Usuario" class="w-10 h-10 rounded-full mr-3">
-                <div>
-                  <p class="font-medium">Carlos M.</p>
-                  <p class="text-xs text-gray-500">Afiliado desde 2024</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h3 class="text-xl font-bold mb-4 border-b pb-2">Horario</h3>
+          <ul class="space-y-2">
+            <li class="flex justify-between">
+              <span>Lunes-Viernes</span>
+              <span class="font-medium">8:00 - 20:00</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Sábados</span>
+              <span class="font-medium">9:00 - 18:00</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Domingos</span>
+              <span class="font-medium">10:00 - 15:00</span>
+            </li>
+          </ul>
         </div>
       </aside>
     </div>
   </main>
 
   <!-- Newsletter -->
-  <section class="bg-[#162447] text-white py-12">
+  <section class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">¿Quieres Más Consejos para Afiliados?</h2>
-      <p class="max-w-2xl mx-auto mb-6">Suscríbete para recibir las últimas herramientas, ofertas exclusivas y estrategias directamente en tu email.</p>
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">¿Quieres saber primero de nuestras promociones?</h2>
+      <p class="max-w-2xl mx-auto mb-6">Suscríbete y recibe descuentos exclusivos en tu correo</p>
       <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
         <input type="email" placeholder="Tu email" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
-        <button type="submit" class="bg-[#2563eb] hover:bg-[#1e40af] px-6 py-3 rounded-lg font-medium whitespace-nowrap">
+        <button type="submit" class="bg-cafe-claro hover:bg-amber-600 text-cafe-oscuro px-6 py-3 rounded-lg font-medium whitespace-nowrap">
           Suscribirme <i class="fas fa-paper-plane ml-2"></i>
         </button>
       </form>
@@ -291,47 +295,36 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#0f172a] text-white py-12">
+  <footer class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <div>
           <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-          <p class="text-gray-400">Las mejores herramientas y estrategias para afiliados digitales.</p>
+          <p class="text-gray-300">Tu tienda de confianza para snacks y bebidas desde 2025.</p>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4">Enlaces</h4>
           <ul class="space-y-2">
-            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a></li>
-            <li><a href="productos.html" class="text-gray-400 hover:text-white transition">Productos</a></li>
-            <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
-            <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Legal</h4>
-          <ul class="space-y-2">
-            <li><a href="privacidad.html" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
-            <li><a href="cookies.html" class="text-gray-400 hover:text-white transition">Cookies</a></li>
-            <li><a href="afiliados.html" class="text-gray-400 hover:text-white transition">Disclosure de Afiliados</a></li>
+            <li><a href="index.html" class="text-gray-300 hover:text-white transition">Inicio</a></li>
+            <li><a href="productos.html" class="text-gray-300 hover:text-white transition">Productos</a></li>
+            <li><a href="blog.html" class="text-gray-300 hover:text-white transition">Blog</a></li>
+            <li><a href="contacto.html" class="text-gray-300 hover:text-white transition">Contacto</a></li>
           </ul>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4">Contacto</h4>
-          <ul class="space-y-2 text-gray-400">
+          <ul class="space-y-2 text-gray-300">
             <li class="flex items-center">
-              <i class="fas fa-envelope mr-2"></i> hola@afiliadospro.com
+              <i class="fas fa-map-marker-alt mr-2"></i> Av. Principal #123
             </li>
-            <li class="flex space-x-4 mt-4">
-              <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-2"></i> +52 55 1234 5678
             </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-        <p>&copy; 2025 AfiliadosPro. Todos los derechos reservados.</p>
+      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+        <p>&copy; 2025 Mi Tienda. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -348,4 +341,4 @@
     });
   </script>
 </body>
-  </html>
+                                                                         </html>
