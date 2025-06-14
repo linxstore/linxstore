@@ -29,7 +29,7 @@
   </script>
 </head>
 <body class="bg-beige font-sans antialiased">
-  <!-- Header consistente con todas las páginas -->
+  <!-- Header -->
   <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
@@ -40,7 +40,6 @@
       <nav class="hidden md:flex space-x-6">
         <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
         <a href="productos.html" class="hover:text-cafe-claro transition">Productos</a>
-        <a href="blog.html" class="hover:text-cafe-claro transition">Blog</a>
         <a href="contacto.html" class="text-cafe-claro font-semibold">Contacto</a>
       </nav>
       
@@ -52,12 +51,11 @@
     <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
       <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
       <a href="productos.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Productos</a>
-      <a href="blog.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Blog</a>
       <a href="contacto.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Contacto</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Resto del código permanece igual -->
   <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
     <div class="container mx-auto px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Contáctanos</h1>
@@ -134,7 +132,7 @@
     </div>
   </main>
 
-  <!-- Footer consistente -->
+  <!-- Footer -->
   <footer class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8">
@@ -164,17 +162,14 @@
     </div>
   </footer>
 
-  <!-- Script del menú móvil mejorado -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
       
-      // Toggle del menú móvil
       menuBtn.addEventListener('click', function() {
         mobileMenu.classList.toggle('hidden');
         
-        // Cambiar ícono entre hamburguesa y X
         const icon = menuBtn.querySelector('i');
         if (mobileMenu.classList.contains('hidden')) {
           icon.classList.remove('fa-times');
@@ -185,7 +180,6 @@
         }
       });
       
-      // Cerrar menú al hacer clic en un enlace (útil en móviles)
       document.querySelectorAll('#mobile-menu a').forEach(link => {
         link.addEventListener('click', function() {
           mobileMenu.classList.add('hidden');
