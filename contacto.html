@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contáctanos para resolver tus dudas sobre marketing de afiliados. Soporte rápido y personalizado.">
-    <title>Contacto | AfiliadosPro</title>
+    <meta name="description" content="Contacta a Kiosc072 - Servicio a domicilio 24 horas en Playa del Carmen">
+    <title>Contacto | Kiosc072</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
     <style>
         :root {
-            --azul-profundo: #162447;
-            --azul-electrico: #2563eb;
-            --blanco-suave: #f8fafc;
-            --gris-oscuro: #1e293b;
-            --gris-texto: #64748b;
+            --cafe-oscuro: #4B382A;
+            --cafe-claro: #D4A762;
+            --beige: #F5E6CA;
+            --rojo: #A44A3F;
+        }
+        .social-icon {
+            @apply text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300;
         }
     </style>
 </head>
-<body class="font-[Inter]">
-    <header class="bg-[#162447] text-white sticky top-0 z-50 shadow-lg">
+<body class="font-[Inter] bg-beige">
+    <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center">
                 <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-                <span class="ml-2 text-xl font-bold hidden sm:inline">AFILIADOSPRO</span>
+                <span class="ml-2 text-xl font-bold hidden sm:inline">KIOSC072</span>
             </a>
 
             <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="hover:text-[#1f4068] transition">Inicio</a>
-                <a href="productos.html" class="hover:text-[#1f4068] transition">Productos</a>
-                <a href="blog.html" class="hover:text-[#1f4068] transition">Blog</a>
-                <a href="contacto.html" class="text-[#1f4068] font-semibold">Contacto</a>
+                <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
+                <a href="productos.html" class="hover:text-cafe-claro transition">Productos</a>
+                <a href="blog.html" class="hover:text-cafe-claro transition">Blog</a>
+                <a href="contacto.html" class="text-cafe-claro font-semibold">Contacto</a>
             </nav>
 
             <button id="menu-btn" class="md:hidden text-white focus:outline-none">
@@ -41,151 +42,129 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-[#1f4068] px-4 py-2">
-            <a href="index.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Inicio</a>
-            <a href="productos.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Productos</a>
-            <a href="blog.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Blog</a>
-            <a href="contacto.html" class="block py-2 text-white bg-[#162447] px-2 rounded">Contacto</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
+            <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
+            <a href="productos.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Productos</a>
+            <a href="blog.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Blog</a>
+            <a href="contacto.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Contacto</a>
         </div>
     </header>
 
-    <section class="bg-gradient-to-r from-[#162447] to-[#1f4068] text-white py-16 text-center">
+    <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">¿Necesitas Ayuda?</h1>
-            <p class="text-xl max-w-2xl mx-auto">Contáctanos y te responderemos en menos de 24 horas</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Servicio a Domicilio 24H</h1>
+            <p class="text-xl max-w-2xl mx-auto">¡Llámanos y recibe tus productos en minutos!</p>
         </div>
     </section>
 
     <section class="container mx-auto px-4 py-12">
         <div class="flex flex-col lg:flex-row gap-8">
             <div class="lg:w-1/2 bg-white rounded-xl shadow-md p-6">
-                <h2 class="text-2xl font-bold mb-6">Envíanos un mensaje</h2>
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
-                    <div>
-                        <label for="name" class="block font-medium mb-1">Nombre completo</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2563eb]">
+                <h2 class="text-2xl font-bold mb-6">Información de contacto</h2>
+
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="bg-beige text-cafe-oscuro p-3 rounded-full">
+                        <i class="fas fa-map-marker-alt text-xl"></i>
                     </div>
                     <div>
-                        <label for="email" class="block font-medium mb-1">Correo electrónico</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2563eb]">
+                        <h3 class="font-semibold text-lg">Dirección</h3>
+                        <p class="text-gray-600">Calle 72 entre 29B y 29C, Playa del Carmen</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="bg-beige text-cafe-oscuro p-3 rounded-full">
+                        <i class="fas fa-phone-alt text-xl"></i>
                     </div>
                     <div>
-                        <label for="subject" class="block font-medium mb-1">Asunto</label>
-                        <input type="text" id="subject" name="subject" required
-                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2563eb]">
+                        <h3 class="font-semibold text-lg">Teléfonos</h3>
+                        <p class="text-gray-600">55 975 867</p>
+                        <p class="text-gray-600">54 833 899</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="bg-beige text-cafe-oscuro p-3 rounded-full">
+                        <i class="fas fa-clock text-xl"></i>
                     </div>
                     <div>
-                        <label for="message" class="block font-medium mb-1">Mensaje</label>
-                        <textarea id="message" name="message" rows="5" required
-                                  class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#2563eb]"></textarea>
+                        <h3 class="font-semibold text-lg">Horario</h3>
+                        <p class="text-gray-600">Abierto 24 horas</p>
                     </div>
-                    <button type="submit"
-                            class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full">
-                        Enviar Mensaje <i class="fas fa-paper-plane ml-2"></i>
-                    </button>
-                </form>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div class="bg-beige text-cafe-oscuro p-3 rounded-full">
+                        <i class="fas fa-truck text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Servicio a Domicilio</h3>
+                        <p class="text-gray-600">Zona: Playa del Carmen y alrededores</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="lg:w-1/2 space-y-6">
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h2 class="text-2xl font-bold mb-6">Información de contacto</h2>
-
-                    <div class="flex items-start gap-4 mb-6">
-                        <div class="bg-[#E9EBF8] text-[#2563eb] p-3 rounded-full">
-                            <i class="fas fa-map-marker-alt text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Ubicación</h3>
-                            <p class="text-gray-600">La Habana, Cuba</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-4 mb-6">
-                        <div class="bg-[#E9EBF8] text-[#2563eb] p-3 rounded-full">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Email</h3>
-                            <p class="text-gray-600">linx9707@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-4">
-                        <div class="bg-[#E9EBF8] text-[#2563eb] p-3 rounded-full">
-                            <i class="fas fa-phone-alt text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold text-lg">Teléfono</h3>
-                            <p class="text-gray-600">+53 58472672</p>
-                        </div>
-                    </div>
+            <div class="lg:w-1/2">
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                    <h2 class="text-2xl font-bold mb-6">Envíanos un WhatsApp</h2>
+                    <a href="https://wa.me/5255975867" class="block bg-green-500 hover:bg-green-600 text-white text-center px-6 py-4 rounded-lg font-medium transition duration-300">
+                        <i class="fab fa-whatsapp mr-2 text-xl"></i> Pedir por WhatsApp
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2 text-center">Responde en menos de 5 minutos</p>
                 </div>
 
                 <div class="bg-white rounded-xl shadow-md p-6">
                     <h3 class="font-semibold text-lg mb-4">Síguenos en redes</h3>
-                    <div class="flex space-x-4">
+                    <div class="flex justify-center space-x-4">
                         <a href="https://www.facebook.com/profile.php?id=61550303826129" class="social-icon bg-[#3b5998] hover:bg-[#344e86]">
                             <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com/TuCuentaDeTwitter" class="social-icon bg-[#1DA1F2] hover:bg-[#1991db]">
-                            <i class="fab fa-twitter"></i>
                         </a>
                         <a href="https://www.instagram.com/lynx7326?igsh=YzljYTk1ODg3Zg==" class="social-icon bg-[#E1306C] hover:bg-[#c91a56]">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/5358472672" class="social-icon bg-[#25D366] hover:bg-[#1da851]">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
                     </div>
+                </div>
+
+                <div class="mt-6 bg-white rounded-xl shadow-md overflow-hidden">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Calle%2072%20entre%2029B%20y%2029C%20Playa%20del%20Carmen&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="300"
+                        style="border:0;" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#0f172a] text-white py-12">
+    <footer class="bg-cafe-oscuro text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-3 gap-8">
                 <div>
                     <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-                    <p class="text-gray-400">Las mejores herramientas y estrategias para afiliados digitales.</p>
+                    <p class="text-gray-300">Tu tienda de conveniencia 24 horas en Playa del Carmen</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-semibold mb-4">Enlaces</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a></li>
-                        <li><a href="productos.html" class="text-gray-400 hover:text-white transition">Productos</a></li>
-                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
-                        <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="privacidad.html" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
-                        <li><a href="cookies.html" class="text-gray-400 hover:text-white transition">Cookies</a></li>
-                        <li><a href="afiliados.html" class="text-gray-400 hover:text-white transition">Disclosure de Afiliados</a></li>
+                    <h4 class="text-lg font-semibold mb-4">Horario</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Abierto 24 horas, 7 días a la semana</li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contacto</h4>
-                    <ul class="space-y-2 text-gray-400">
+                    <ul class="space-y-2 text-gray-300">
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i> linx9707@gmail.com
+                            <i class="fas fa-phone-alt mr-2"></i> 55 975 867 / 54 833 899
                         </li>
-                        <li class="flex space-x-4 mt-4">
-                            <a href="https://www.facebook.com/profile.php?id=61550303826129" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/lynx7326?igsh=YzljYTk1ODg3Zg==" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                            <a href="https://wa.me/5358472672" class="hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i> Calle 72 entre 29B y 29C
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; 2025 AfiliadosPro. Todos los derechos reservados.</p>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+                <p>&copy; 2025 Kiosc072. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -200,18 +179,5 @@
             });
         });
     </script>
-
-    <style>
-        .social-icon {
-            @apply text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300;
-        }
-        form input, form textarea {
-            transition: all 0.3s ease;
-        }
-        form input:focus, form textarea:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-    </style>
 </body>
-</html>
+                                                                                </html>
