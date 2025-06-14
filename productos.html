@@ -4,123 +4,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos | Kiosc072</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'cafe-oscuro': '#4B382A',
-            'cafe-claro': '#D4A762',
-            'beige': '#F5E6CA',
-            'texto': '#333333',
-            'acento': '#A44A3F'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 </head>
-<body class="bg-beige font-sans antialiased">
+<body>
   <!-- Header -->
-  <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        <span class="ml-2 text-xl font-bold hidden sm:inline">KIOSC072</span>
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.png" alt="Logo Kiosc072" class="logo-img">
+        <span class="logo-text">KIOSC072</span>
       </a>
       
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
-        <a href="productos.html" class="text-cafe-claro font-semibold">Productos</a>
-        <a href="contacto.html" class="hover:text-cafe-claro transition">Contacto</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="productos.html" class="nav-link active">Productos</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
       </nav>
       
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
+      <button id="menu-btn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
       </button>
     </div>
     
-    <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
-      <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Productos</a>
-      <a href="contacto.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Contacto</a>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html" class="mobile-menu-link">Inicio</a>
+      <a href="productos.html" class="mobile-menu-link active">Productos</a>
+      <a href="contacto.html" class="mobile-menu-link">Contacto</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestros Productos</h1>
-      <p class="text-xl max-w-2xl mx-auto">Todo lo que necesitas en un solo lugar</p>
+  <section class="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title">Nuestros Productos</h1>
+      <p class="hero-subtitle">Todo lo que necesitas en un solo lugar</p>
     </div>
   </section>
 
   <!-- Filtros de categoría -->
-  <div class="container mx-auto px-4 py-6 flex flex-wrap justify-center gap-3">
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="all">Todo</button>
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="bebidas">Bebidas</button>
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="alimentos">Alimentos</button>
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="aseo">Aseo</button>
+  <div class="category-filters container">
+    <button class="category-filter" data-category="all">Todo</button>
+    <button class="category-filter" data-category="bebidas">Bebidas</button>
+    <button class="category-filter" data-category="alimentos">Alimentos</button>
+    <button class="category-filter" data-category="aseo">Aseo</button>
   </div>
 
   <!-- Lista de productos -->
-  <main class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <main class="products-main container">
+    <div class="products-grid">
       <!-- Producto 1 - Refresco -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-        <div class="relative">
-          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="w-full h-48 object-cover">
-          <span class="absolute top-4 right-4 bg-acento text-white text-xs font-bold px-3 py-1 rounded-full">OFERTA</span>
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="product-image">
+          <span class="product-badge product-badge-offer">OFERTA</span>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Refresco en Lata</h3>
-          <p class="text-gray-600 mb-4">Variedad de sabores: Cola, Naranja, Limón</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-cafe-oscuro">$15.00</span>
-            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-              Agregar
-            </button>
+        <div class="product-info">
+          <h3 class="product-title">Refresco en Lata</h3>
+          <p class="product-description">Variedad de sabores: Cola, Naranja, Limón</p>
+          <div class="product-footer">
+            <span class="product-price">$15.00</span>
+            <button class="btn btn-product add-to-cart">Agregar</button>
           </div>
         </div>
       </div>
 
       <!-- Producto 2 - Galletas -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Galletas Diversas</h3>
-          <p class="text-gray-600 mb-4">Paquetes de 200g, variedad dulces y saladas</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-cafe-oscuro">$28.00</span>
-            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-              Agregar
-            </button>
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="product-image">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Galletas Diversas</h3>
+          <p class="product-description">Paquetes de 200g, variedad dulces y saladas</p>
+          <div class="product-footer">
+            <span class="product-price">$28.00</span>
+            <button class="btn btn-product add-to-cart">Agregar</button>
           </div>
         </div>
       </div>
 
       <!-- Producto 3 - Artículo de aseo -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-        <div class="relative">
-          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="w-full h-48 object-cover">
-          <span class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">NUEVO</span>
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="product-image">
+          <span class="product-badge product-badge-new">NUEVO</span>
         </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Jabón de Baño</h3>
-          <p class="text-gray-600 mb-4">Variedad de aromas, 90g por unidad</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-cafe-oscuro">$12.00</span>
-            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-              Agregar
-            </button>
+        <div class="product-info">
+          <h3 class="product-title">Jabón de Baño</h3>
+          <p class="product-description">Variedad de aromas, 90g por unidad</p>
+          <div class="product-footer">
+            <span class="product-price">$12.00</span>
+            <button class="btn btn-product add-to-cart">Agregar</button>
           </div>
         </div>
       </div>
@@ -128,18 +103,18 @@
   </main>
 
   <!-- Carrito Lateral -->
-  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
-    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-cafe-oscuro text-white">
-      <h2 class="text-xl font-bold">🛒 Tu Pedido</h2>
-      <button id="close-cart" class="text-white focus:outline-none">
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2 class="cart-title">🛒 Tu Pedido</h2>
+      <button id="close-cart" class="cart-close-btn">
         <i class="fas fa-times"></i>
       </button>
     </div>
-    <div class="p-4">
-      <ul id="cart-items"></ul>
-      <div class="border-t border-gray-200 pt-4 mt-4">
-        <p class="text-lg font-semibold">Total: $<span id="cart-total">0.00</span></p>
-        <button id="send-whatsapp" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg mt-4">
+    <div class="cart-content">
+      <ul id="cart-items" class="cart-items-list"></ul>
+      <div class="cart-summary">
+        <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+        <button id="send-whatsapp" class="btn btn-whatsapp">
           <i class="fab fa-whatsapp mr-2"></i> Enviar pedido
         </button>
       </div>
@@ -147,36 +122,39 @@
   </div>
 
   <!-- Botón flotante para abrir carrito -->
-  <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-cafe-oscuro hover:bg-cafe-claro text-white p-4 rounded-full shadow-lg z-40">
-    <i class="fas fa-shopping-cart text-xl"></i>
-    <span id="cart-count" class="absolute -top-2 -right-2 bg-acento text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+  <button id="open-cart-btn" class="cart-floating-btn">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count" class="cart-count-badge">0</span>
   </button>
 
   <!-- Footer -->
-  <footer class="bg-cafe-oscuro text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-          <p class="text-gray-300">Tu tienda de conveniencia en Playa del Carmen</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosc072" class="footer-logo">
+          <p class="footer-text">Tu tienda de conveniencia en Playa del Carmen</p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Horario</h3>
-          <p class="text-gray-300">Abierto 24 horas</p>
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Horario</h4>
+          <p class="footer-text">Abierto 24 horas</p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Contacto</h3>
-          <ul class="space-y-2 text-gray-300">
-            <li class="flex items-center">
-              <i class="fas fa-phone mr-2"></i> 55 975 867 / 54 833 899
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Contacto</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-map-marker-alt mr-2"></i> Calle 72 entre 29B y 29C
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
             </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+      
+      <div class="footer-bottom">
         <p>&copy; 2025 Kiosc072. Todos los derechos reservados.</p>
       </div>
     </div>
@@ -200,12 +178,12 @@
 
       cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+        li.className = 'cart-item';
         li.innerHTML = `
           <span>${item.name}</span>
-          <div class="flex items-center">
-            <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
-            <button class="remove-item text-red-500" data-index="${index}">
+          <div class="cart-item-price">
+            <span>$${item.price.toFixed(2)}</span>
+            <button class="remove-item" data-index="${index}">
               <i class="fas fa-trash"></i>
             </button>
           </div>
@@ -249,35 +227,37 @@
 
     // Menú móvil
     document.getElementById("menu-btn").addEventListener("click", function() {
-      document.getElementById("mobile-menu").classList.toggle("hidden");
+      document.getElementById("mobile-menu").classList.toggle("show");
+      const icon = this.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
     });
 
     // Carrito
     document.getElementById("open-cart-btn").addEventListener("click", function() {
-      document.getElementById("cart-sidebar").classList.remove("translate-x-full");
+      document.getElementById("cart-sidebar").classList.add("show");
     });
 
     document.getElementById("close-cart").addEventListener("click", function() {
-      document.getElementById("cart-sidebar").classList.add("translate-x-full");
+      document.getElementById("cart-sidebar").classList.remove("show");
     });
 
     // Botones "Agregar"
     document.querySelectorAll(".add-to-cart").forEach(button => {
       button.addEventListener("click", function() {
-        const productCard = this.closest(".bg-white");
-        const productName = productCard.querySelector("h3").textContent;
-        const productPrice = productCard.querySelector("span").textContent.replace("$", "");
+        const productCard = this.closest(".product-card");
+        const productName = productCard.querySelector(".product-title").textContent;
+        const productPrice = productCard.querySelector(".product-price").textContent.replace("$", "");
         
         addToCart(productName, productPrice);
         
         // Efecto visual
-        this.innerHTML = '<i class="fas fa-check mr-2"></i> ¡Agregado!';
-        this.classList.add("bg-green-500", "hover:bg-green-600");
+        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+        this.classList.add("btn-success");
         
         setTimeout(() => {
           this.innerHTML = 'Agregar';
-          this.classList.remove("bg-green-500", "hover:bg-green-600");
-          this.classList.add("bg-cafe-oscuro", "hover:bg-cafe-claro");
+          this.classList.remove("btn-success");
         }, 2000);
       });
     });
