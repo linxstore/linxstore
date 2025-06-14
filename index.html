@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Las mejores herramientas digitales para afiliados. Productos recomendados con enlaces verificados y ofertas exclusivas.">
-  <title>Inicio | AfiliadosPro - Herramientas Digitales</title>
+  <meta name="description" content="Menú digital de Mi Cafetería - Pedidos por WhatsApp">
+  <title>Menú | Mi Cafetería</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,21 +12,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
-<body class="font-[Inter]">
-  <!-- Header (idéntico al del blog) -->
-  <header class="bg-[#162447] text-white sticky top-0 z-50 shadow-lg">
+<body class="font-[Inter] bg-gray-50">
+  <!-- Header -->
+  <header class="bg-[#6f4e37] text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        <span class="ml-2 text-xl font-bold hidden sm:inline">AFILIADOSPRO</span>
+        <span class="ml-2 text-xl font-bold hidden sm:inline">MI CAFETERÍA</span>
       </a>
       
       <!-- Menú Desktop -->
       <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="text-[#1f4068] font-semibold">Inicio</a>
-        <a href="productos.html" class="hover:text-[#1f4068] transition">Productos</a>
-        <a href="blog.html" class="hover:text-[#1f4068] transition">Blog</a>
-        <a href="contacto.html" class="hover:text-[#1f4068] transition">Contacto</a>
+        <a href="index.html" class="text-white font-semibold">Inicio</a>
+        <a href="menu.html" class="hover:text-[#f8fafc] transition">Menú</a>
+        <a href="contacto.html" class="hover:text-[#f8fafc] transition">Contacto</a>
       </nav>
       
       <!-- Menú Mobile -->
@@ -36,152 +35,253 @@
     </div>
     
     <!-- Menú Mobile Desplegable -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#1f4068] px-4 py-2">
-      <a href="index.html" class="block py-2 text-white bg-[#162447] px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Productos</a>
-      <a href="blog.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Blog</a>
-      <a href="contacto.html" class="block py-2 text-white hover:bg-[#162447] px-2 rounded">Contacto</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#5a3e2b] px-4 py-2">
+      <a href="index.html" class="block py-2 text-white bg-[#6f4e37] px-2 rounded">Inicio</a>
+      <a href="menu.html" class="block py-2 text-white hover:bg-[#6f4e37] px-2 rounded">Menú</a>
+      <a href="contacto.html" class="block py-2 text-white hover:bg-[#6f4e37] px-2 rounded">Contacto</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-[#162447] to-[#1f4068] text-white py-16 text-center">
+  <section class="bg-gradient-to-r from-[#6f4e37] to-[#5a3e2b] text-white py-16 text-center">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Potencia tus Ganancias como Afiliado</h1>
-      <p class="text-xl max-w-2xl mx-auto">Descubre los productos digitales más vendidos y las estrategias más efectivas para 2025</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Bienvenido a Mi Cafetería</h1>
+      <p class="text-xl max-w-2xl mx-auto">Disfruta de los mejores cafés y postres artesanales</p>
       <div class="mt-8">
-        <a href="#productos-destacados" class="bg-[#2563eb] hover:bg-[#1e40af] px-8 py-3 rounded-lg font-medium inline-block">
-          Ver Productos <i class="fas fa-arrow-down ml-2"></i>
+        <a href="#menu" class="bg-[#d4a762] hover:bg-[#b38b4a] px-8 py-3 rounded-lg font-medium inline-block">
+          Ver Menú <i class="fas fa-arrow-down ml-2"></i>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Productos Destacados -->
-  <section id="productos-destacados" class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-center mb-12">Productos Destacados</h2>
+  <!-- Menú -->
+  <section id="menu" class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-12">Nuestro Menú</h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <!-- Producto 1 -->
+      <!-- Café Latte -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
-        <div class="relative">
-          <img src="./assets/img/productos/curso-marketing.jpg" alt="Curso Marketing Digital" class="w-full h-48 object-cover">
-          <span class="absolute top-2 left-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">TOP VENTAS</span>
-        </div>
+        <img src="./assets/img/productos/cafe-latte.jpg" alt="Café Latte" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Curso Completo de Marketing Digital</h3>
-          <p class="text-gray-600 mb-4">Domina las estrategias más efectivas para vender online desde cero.</p>
+          <h3 class="text-xl font-bold mb-2">Café Latte</h3>
+          <p class="text-gray-600 mb-4">Espresso con leche vaporizada y un toque de vainilla.</p>
           <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-[#2563eb]">$49.99</span>
-            <a href="#" class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-4 py-2 rounded-lg font-medium affiliate-btn">
-              Ver Detalles
-            </a>
+            <span class="text-2xl font-bold text-[#6f4e37]">$35.00</span>
+            <button class="add-to-cart bg-[#6f4e37] hover:bg-[#5a3e2b] text-white px-4 py-2 rounded-lg font-medium">
+              Agregar
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Producto 2 -->
+      <!-- Croissant -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
-        <img src="./assets/img/productos/plantillas-web.jpg" alt="Plantillas Web" class="w-full h-48 object-cover">
+        <div class="relative">
+          <img src="./assets/img/productos/croissant.jpg" alt="Croissant" class="w-full h-48 object-cover">
+          <span class="absolute top-2 left-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">RECOMENDADO</span>
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Plantillas Web Premium</h3>
-          <p class="text-gray-600 mb-4">50 diseños profesionales listos para usar en tu negocio.</p>
+          <h3 class="text-xl font-bold mb-2">Croissant Artesanal</h3>
+          <p class="text-gray-600 mb-4">Delicioso croissant horneado diariamente.</p>
           <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-[#2563eb]">$29.99</span>
-            <a href="#" class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-4 py-2 rounded-lg font-medium affiliate-btn">
-              Ver Detalles
-            </a>
+            <span class="text-2xl font-bold text-[#6f4e37]">$25.00</span>
+            <button class="add-to-cart bg-[#6f4e37] hover:bg-[#5a3e2b] text-white px-4 py-2 rounded-lg font-medium">
+              Agregar
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Producto 3 -->
+      <!-- Tarta de Chocolate -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
-        <div class="relative">
-          <img src="./assets/img/productos/guia-ia.jpg" alt="Guía IA" class="w-full h-48 object-cover">
-          <span class="absolute top-2 left-2 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">NUEVO</span>
-        </div>
+        <img src="./assets/img/productos/tarta-chocolate.jpg" alt="Tarta de Chocolate" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Guía de IA para Negocios</h3>
-          <p class="text-gray-600 mb-4">Aprovecha la inteligencia artificial para automatizar tus ventas.</p>
+          <h3 class="text-xl font-bold mb-2">Tarta de Chocolate</h3>
+          <p class="text-gray-600 mb-4">El clásico irresistible con chocolate belga.</p>
           <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-[#2563eb]">$39.99</span>
-            <a href="#" class="bg-[#2563eb] hover:bg-[#1e40af] text-white px-4 py-2 rounded-lg font-medium affiliate-btn">
-              Ver Detalles
-            </a>
+            <span class="text-2xl font-bold text-[#6f4e37]">$45.00</span>
+            <button class="add-to-cart bg-[#6f4e37] hover:bg-[#5a3e2b] text-white px-4 py-2 rounded-lg font-medium">
+              Agregar
+            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="bg-[#162447] text-white py-12">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">¿Quieres Ofertas Exclusivas?</h2>
-      <p class="max-w-2xl mx-auto mb-6">Suscríbete para recibir los mejores productos con descuentos especiales.</p>
-      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-        <input type="email" placeholder="Tu email" class="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-800">
-        <button type="submit" class="bg-[#2563eb] hover:bg-[#1e40af] px-6 py-3 rounded-lg font-medium whitespace-nowrap">
-          Suscribirme <i class="fas fa-paper-plane ml-2"></i>
+  <!-- Carrito Lateral -->
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-[#6f4e37] text-white">
+      <h2 class="text-xl font-bold">🛒 Tu Pedido</h2>
+      <button id="close-cart" class="text-white focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <ul id="cart-items"></ul>
+      <div class="border-t border-gray-200 pt-4 mt-4">
+        <p class="text-lg font-semibold">Total: $<span id="cart-total">0.00</span></p>
+        <button id="send-whatsapp" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg mt-4">
+          <i class="fab fa-whatsapp mr-2"></i> Enviar pedido
         </button>
-      </form>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer (idéntico al del blog) -->
+  <!-- Botón flotante para abrir carrito -->
+  <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-[#6f4e37] hover:bg-[#5a3e2b] text-white p-4 rounded-full shadow-lg z-40">
+    <i class="fas fa-shopping-cart text-xl"></i>
+    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+  </button>
+
+  <!-- Footer -->
   <footer class="bg-[#0f172a] text-white py-12">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <div>
           <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-          <p class="text-gray-400">Las mejores herramientas y estrategias para afiliados digitales.</p>
+          <p class="text-gray-400">Café artesanal y momentos especiales desde 2025.</p>
         </div>
         <div>
-          <h4 class="text-lg font-semibold mb-4">Enlaces</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a></li>
-            <li><a href="productos.html" class="text-gray-400 hover:text-white transition">Productos</a></li>
-            <li><a href="blog.html" class="text-gray-400 hover:text-white transition">Blog</a></li>
-            <li><a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Legal</h4>
-          <ul class="space-y-2">
-            <li><a href="privacidad.html" class="text-gray-400 hover:text-white transition">Política de Privacidad</a></li>
-            <li><a href="cookies.html" class="text-gray-400 hover:text-white transition">Cookies</a></li>
-            <li><a href="afiliados.html" class="text-gray-400 hover:text-white transition">Disclosure de Afiliados</a></li>
+          <h4 class="text-lg font-semibold mb-4">Horario</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>Lunes a Viernes: 7:00 - 20:00</li>
+            <li>Sábado y Domingo: 8:00 - 22:00</li>
           </ul>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4">Contacto</h4>
           <ul class="space-y-2 text-gray-400">
             <li class="flex items-center">
-              <i class="fas fa-envelope mr-2"></i> hola@afiliadospro.com
+              <i class="fas fa-map-marker-alt mr-2"></i> Av. Principal #123
             </li>
-            <li class="flex space-x-4 mt-4">
-              <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-2"></i> +52 55 1234 5678
             </li>
           </ul>
         </div>
       </div>
       <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-        <p>&copy; 2025 AfiliadosPro. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Mi Cafetería. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Script para menú móvil -->
+  <!-- Scripts -->
+  <script src="./assets/js/script.js"></script>
   <script>
+    // Menú móvil
     document.addEventListener('DOMContentLoaded', function() {
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
       
       menuBtn.addEventListener('click', function() {
         mobileMenu.classList.toggle('hidden');
+      });
+
+      // Configuración del carrito
+      const cart = [];
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const openCartBtn = document.getElementById('open-cart-btn');
+      const closeCartBtn = document.getElementById('close-cart');
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+      const cartCountElement = document.getElementById('cart-count');
+      const sendWhatsappBtn = document.getElementById('send-whatsapp');
+
+      // Abrir/cerrar carrito
+      openCartBtn.addEventListener('click', () => {
+        cartSidebar.classList.remove('translate-x-full');
+      });
+
+      closeCartBtn.addEventListener('click', () => {
+        cartSidebar.classList.add('translate-x-full');
+      });
+
+      // Función para agregar productos al carrito
+      function addToCart(productName, productPrice) {
+        cart.push({
+          name: productName,
+          price: parseFloat(productPrice)
+        });
+        updateCart();
+      }
+
+      // Actualizar carrito
+      function updateCart() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+          const li = document.createElement('li');
+          li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+          li.innerHTML = `
+            <span>${item.name}</span>
+            <div class="flex items-center">
+              <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
+              <button class="remove-item text-red-500" data-index="${index}">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+          cartItemsContainer.appendChild(li);
+          total += item.price;
+        });
+
+        cartTotalElement.textContent = total.toFixed(2);
+        cartCountElement.textContent = cart.length;
+
+        // Agregar event listeners a los botones de eliminar
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const index = e.target.closest('button').getAttribute('data-index');
+            cart.splice(index, 1);
+            updateCart();
+          });
+        });
+      }
+
+      // Enviar pedido por WhatsApp
+      sendWhatsappBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+          alert('¡Tu carrito está vacío!');
+          return;
+        }
+
+        let message = '¡Hola! Quiero hacer este pedido:%0A%0A';
+        let total = 0;
+
+        cart.forEach(item => {
+          message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
+          total += item.price;
+        });
+
+        message += `%0ATotal: $${total.toFixed(2)}`;
+        
+        // REEMPLAZA CON TU NÚMERO (ej: 521234567890)
+        const whatsappUrl = `https://wa.me/521234567890?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+      });
+
+      // Event listeners para los botones "Agregar"
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const productCard = e.target.closest('.bg-white');
+          const productName = productCard.querySelector('h3').textContent;
+          const productPrice = productCard.querySelector('span').textContent.replace('$', '');
+          
+          addToCart(productName, productPrice);
+          
+          // Feedback visual
+          e.target.innerHTML = '<i class="fas fa-check mr-2"></i> ¡Agregado!';
+          e.target.classList.add('bg-green-500', 'hover:bg-green-600');
+          
+          setTimeout(() => {
+            e.target.innerHTML = 'Agregar';
+            e.target.classList.remove('bg-green-500', 'hover:bg-green-600');
+            e.target.classList.add('bg-[#6f4e37]', 'hover:bg-[#5a3e2b]');
+          }, 2000);
+        });
       });
     });
   </script>
