@@ -3,115 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Menú digital de Mi Cafetería - Pedidos por WhatsApp">
-  <title>Menú | Mi Cafetería</title>
+  <title>Productos | Kiosc072</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'cafe-oscuro': '#4B382A',
+            'cafe-claro': '#D4A762',
+            'beige': '#F5E6CA',
+            'texto': '#333333',
+            'acento': '#A44A3F'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="font-[Inter] bg-gray-50">
-  <!-- Header -->
-  <header class="bg-[#6f4e37] text-white sticky top-0 z-50 shadow-lg">
+<body class="bg-beige font-sans antialiased">
+  <!-- Header actualizado para Kiosc072 -->
+  <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        <span class="ml-2 text-xl font-bold hidden sm:inline">MI CAFETERÍA</span>
+        <span class="ml-2 text-xl font-bold hidden sm:inline">KIOSC072</span>
       </a>
       
-      <!-- Menú Desktop -->
       <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="text-white font-semibold">Inicio</a>
-        <a href="productos.html" class="hover:text-[#f8fafc] transition">Menú</a>
-        <a href="contacto.html" class="hover:text-[#f8fafc] transition">Contacto</a>
+        <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
+        <a href="productos.html" class="text-cafe-claro font-semibold">Productos</a>
+        <a href="contacto.html" class="hover:text-cafe-claro transition">Contacto</a>
       </nav>
       
-      <!-- Menú Mobile -->
       <button id="menu-btn" class="md:hidden text-white focus:outline-none">
         <i class="fas fa-bars text-2xl"></i>
       </button>
     </div>
     
-    <!-- Menú Mobile Desplegable -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#5a3e2b] px-4 py-2">
-      <a href="index.html" class="block py-2 text-white bg-[#6f4e37] px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white hover:bg-[#6f4e37] px-2 rounded">Menú</a>
-      <a href="contacto.html" class="block py-2 text-white hover:bg-[#6f4e37] px-2 rounded">Contacto</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
+      <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
+      <a href="productos.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Productos</a>
+      <a href="contacto.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Contacto</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-[#6f4e37] to-[#5a3e2b] text-white py-16 text-center">
+  <!-- Hero Section actualizado -->
+  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Bienvenido a Mi Cafetería</h1>
-      <p class="text-xl max-w-2xl mx-auto">Disfruta de los mejores cafés y postres artesanales</p>
-      <div class="mt-8">
-        <a href="#menu" class="bg-[#d4a762] hover:bg-[#b38b4a] px-8 py-3 rounded-lg font-medium inline-block">
-          Ver Menú <i class="fas fa-arrow-down ml-2"></i>
-        </a>
-      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestros Productos</h1>
+      <p class="text-xl max-w-2xl mx-auto">Todo lo que necesitas en un solo lugar</p>
     </div>
   </section>
 
-  <!-- Menú -->
-  <section id="menu" class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-center mb-12">Nuestro Menú</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Café Latte -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
-        <img src="./assets/img/productos/cafe-latte.jpg" alt="Café Latte" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Café Latte</h3>
-          <p class="text-gray-600 mb-4">Espresso con leche vaporizada y un toque de vainilla.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-[#6f4e37]">$35.00</span>
-            <button class="add-to-cart bg-[#6f4e37] hover:bg-[#5a3e2b] text-white px-4 py-2 rounded-lg font-medium">
-              Agregar
-            </button>
-          </div>
-        </div>
-      </div>
+  <!-- Filtros de categoría actualizados -->
+  <div class="container mx-auto px-4 py-6 flex flex-wrap justify-center gap-3">
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="all">Todo</button>
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="bebidas">Bebidas</button>
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="alimentos">Alimentos</button>
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="aseo">Aseo</button>
+  </div>
 
-      <!-- Croissant -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
+  <!-- Lista de productos actualizada -->
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Producto 1 - Refresco -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
         <div class="relative">
-          <img src="./assets/img/productos/croissant.jpg" alt="Croissant" class="w-full h-48 object-cover">
-          <span class="absolute top-2 left-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-bold">RECOMENDADO</span>
+          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="w-full h-48 object-cover">
+          <span class="absolute top-4 right-4 bg-acento text-white text-xs font-bold px-3 py-1 rounded-full">OFERTA</span>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Croissant Artesanal</h3>
-          <p class="text-gray-600 mb-4">Delicioso croissant horneado diariamente.</p>
+          <h3 class="text-xl font-bold mb-2">Refresco en Lata</h3>
+          <p class="text-gray-600 mb-4">Variedad de sabores: Cola, Naranja, Limón</p>
           <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-[#6f4e37]">$25.00</span>
-            <button class="add-to-cart bg-[#6f4e37] hover:bg-[#5a3e2b] text-white px-4 py-2 rounded-lg font-medium">
+            <span class="text-lg font-bold text-cafe-oscuro">$15.00</span>
+            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
               Agregar
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Tarta de Chocolate -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 transition hover:shadow-lg">
-        <img src="./assets/img/productos/tarta-chocolate.jpg" alt="Tarta de Chocolate" class="w-full h-48 object-cover">
+      <!-- Producto 2 - Galletas -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="w-full h-48 object-cover">
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Tarta de Chocolate</h3>
-          <p class="text-gray-600 mb-4">El clásico irresistible con chocolate belga.</p>
+          <h3 class="text-xl font-bold mb-2">Galletas Diversas</h3>
+          <p class="text-gray-600 mb-4">Paquetes de 200g, variedad dulces y saladas</p>
           <div class="flex justify-between items-center">
-            <span class="text-2xl font-bold text-[#6f4e37]">$45.00</span>
-            <button class="add-to-cart bg-[#6f4e37] hover:bg-[#5a3e2b] text-white px-4 py-2 rounded-lg font-medium">
+            <span class="text-lg font-bold text-cafe-oscuro">$28.00</span>
+            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Producto 3 - Artículo de aseo -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+        <div class="relative">
+          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="w-full h-48 object-cover">
+          <span class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">NUEVO</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Jabón de Baño</h3>
+          <p class="text-gray-600 mb-4">Variedad de aromas, 90g por unidad</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-cafe-oscuro">$12.00</span>
+            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
               Agregar
             </button>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <!-- Carrito Lateral -->
+  <!-- Carrito Lateral (funcional) -->
   <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
-    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-[#6f4e37] text-white">
+    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-cafe-oscuro text-white">
       <h2 class="text-xl font-bold">🛒 Tu Pedido</h2>
       <button id="close-cart" class="text-white focus:outline-none">
         <i class="fas fa-times"></i>
@@ -129,159 +147,138 @@
   </div>
 
   <!-- Botón flotante para abrir carrito -->
-  <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-[#6f4e37] hover:bg-[#5a3e2b] text-white p-4 rounded-full shadow-lg z-40">
+  <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-cafe-oscuro hover:bg-cafe-claro text-white p-4 rounded-full shadow-lg z-40">
     <i class="fas fa-shopping-cart text-xl"></i>
-    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+    <span id="cart-count" class="absolute -top-2 -right-2 bg-acento text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
   </button>
 
-  <!-- Footer -->
-  <footer class="bg-[#0f172a] text-white py-12">
+  <!-- Footer actualizado -->
+  <footer class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8">
         <div>
           <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-          <p class="text-gray-400">Café artesanal y momentos especiales desde 2025.</p>
+          <p class="text-gray-300">Tu tienda de conveniencia en Playa del Carmen</p>
         </div>
         <div>
-          <h4 class="text-lg font-semibold mb-4">Horario</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li>Lunes a Viernes: 7:00 - 20:00</li>
-            <li>Sábado y Domingo: 8:00 - 22:00</li>
-          </ul>
+          <h3 class="text-white font-semibold mb-4 text-lg">Horario</h3>
+          <p class="text-gray-300">Abierto 24 horas</p>
         </div>
         <div>
-          <h4 class="text-lg font-semibold mb-4">Contacto</h4>
-          <ul class="space-y-2 text-gray-400">
+          <h3 class="text-white font-semibold mb-4 text-lg">Contacto</h3>
+          <ul class="space-y-2 text-gray-300">
             <li class="flex items-center">
-              <i class="fas fa-map-marker-alt mr-2"></i> Av. Principal #123
+              <i class="fas fa-phone mr-2"></i> 55 975 867 / 54 833 899
             </li>
             <li class="flex items-center">
-              <i class="fas fa-phone mr-2"></i> +52 55 1234 5678
+              <i class="fas fa-map-marker-alt mr-2"></i> Calle 72 entre 29B y 29C
             </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-        <p>&copy; 2025 Mi Cafetería. Todos los derechos reservados.</p>
+      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+        <p>&copy; 2025 Kiosc072. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="./assets/js/script.js"></script>
   <script>
-    // Menú móvil
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      menuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
+    // Configuración básica del carrito
+    let cart = [];
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartTotalElement = document.getElementById("cart-total");
+    const cartCountElement = document.getElementById("cart-count");
+    
+    function addToCart(productName, productPrice) {
+      cart.push({ name: productName, price: parseFloat(productPrice) });
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+        li.innerHTML = `
+          <span>${item.name}</span>
+          <div class="flex items-center">
+            <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
+            <button class="remove-item text-red-500" data-index="${index}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(li);
+        total += item.price;
       });
 
-      // Configuración del carrito
-      const cart = [];
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const openCartBtn = document.getElementById('open-cart-btn');
-      const closeCartBtn = document.getElementById('close-cart');
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotalElement = document.getElementById('cart-total');
-      const cartCountElement = document.getElementById('cart-count');
-      const sendWhatsappBtn = document.getElementById('send-whatsapp');
+      cartTotalElement.textContent = total.toFixed(2);
+      cartCountElement.textContent = cart.length;
 
-      // Abrir/cerrar carrito
-      openCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.remove('translate-x-full');
-      });
-
-      closeCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.add('translate-x-full');
-      });
-
-      // Función para agregar productos al carrito
-      function addToCart(productName, productPrice) {
-        cart.push({
-          name: productName,
-          price: parseFloat(productPrice)
-        });
-        updateCart();
-      }
-
-      // Actualizar carrito
-      function updateCart() {
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        cart.forEach((item, index) => {
-          const li = document.createElement('li');
-          li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
-          li.innerHTML = `
-            <span>${item.name}</span>
-            <div class="flex items-center">
-              <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
-              <button class="remove-item text-red-500" data-index="${index}">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          `;
-          cartItemsContainer.appendChild(li);
-          total += item.price;
-        });
-
-        cartTotalElement.textContent = total.toFixed(2);
-        cartCountElement.textContent = cart.length;
-
-        // Agregar event listeners a los botones de eliminar
-        document.querySelectorAll('.remove-item').forEach(button => {
-          button.addEventListener('click', (e) => {
-            const index = e.target.closest('button').getAttribute('data-index');
-            cart.splice(index, 1);
-            updateCart();
-          });
-        });
-      }
-
-      // Enviar pedido por WhatsApp
-      sendWhatsappBtn.addEventListener('click', () => {
-        if (cart.length === 0) {
-          alert('¡Tu carrito está vacío!');
-          return;
-        }
-
-        let message = '¡Hola! Quiero hacer este pedido:%0A%0A';
-        let total = 0;
-
-        cart.forEach(item => {
-          message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
-          total += item.price;
-        });
-
-        message += `%0ATotal: $${total.toFixed(2)}`;
-        
-        // REEMPLAZA CON TU NÚMERO (ej: 521234567890)
-        const whatsappUrl = `https://wa.me/521234567890?text=${message}`;
-        window.open(whatsappUrl, '_blank');
-      });
-
-      // Event listeners para los botones "Agregar"
-      document.querySelectorAll('.add-to-cart').forEach(button => {
+      // Agregar event listeners a los botones de eliminar
+      document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', (e) => {
-          const productCard = e.target.closest('.bg-white');
-          const productName = productCard.querySelector('h3').textContent;
-          const productPrice = productCard.querySelector('span').textContent.replace('$', '');
-          
-          addToCart(productName, productPrice);
-          
-          // Feedback visual
-          e.target.innerHTML = '<i class="fas fa-check mr-2"></i> ¡Agregado!';
-          e.target.classList.add('bg-green-500', 'hover:bg-green-600');
-          
-          setTimeout(() => {
-            e.target.innerHTML = 'Agregar';
-            e.target.classList.remove('bg-green-500', 'hover:bg-green-600');
-            e.target.classList.add('bg-[#6f4e37]', 'hover:bg-[#5a3e2b]');
-          }, 2000);
+          const index = e.target.closest('button').getAttribute('data-index');
+          cart.splice(index, 1);
+          updateCart();
         });
+      });
+    }
+
+    // Configuración del botón de WhatsApp
+    document.getElementById("send-whatsapp").addEventListener("click", function() {
+      if (cart.length === 0) {
+        alert("¡Tu carrito está vacío!");
+        return;
+      }
+      
+      let message = "¡Hola Kiosc072! Quiero pedir:%0A%0A";
+      let total = 0;
+      
+      cart.forEach(item => {
+        message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
+        total += item.price;
+      });
+      
+      message += `%0ATotal: $${total.toFixed(2)}%0A%0AMi dirección: [ESCRIBE AQUÍ]`;
+      
+      window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
+    });
+
+    // Menú móvil
+    document.getElementById("menu-btn").addEventListener("click", function() {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+
+    // Carrito
+    document.getElementById("open-cart-btn").addEventListener("click", function() {
+      document.getElementById("cart-sidebar").classList.remove("translate-x-full");
+    });
+
+    document.getElementById("close-cart").addEventListener("click", function() {
+      document.getElementById("cart-sidebar").classList.add("translate-x-full");
+    });
+
+    // Botones "Agregar"
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+      button.addEventListener("click", function() {
+        const productCard = this.closest(".bg-white");
+        const productName = productCard.querySelector("h3").textContent;
+        const productPrice = productCard.querySelector("span").textContent.replace("$", "");
+        
+        addToCart(productName, productPrice);
+        
+        // Efecto visual
+        this.innerHTML = '<i class="fas fa-check mr-2"></i> ¡Agregado!';
+        this.classList.add("bg-green-500", "hover:bg-green-600");
+        
+        setTimeout(() => {
+          this.innerHTML = 'Agregar';
+          this.classList.remove("bg-green-500", "hover:bg-green-600");
+          this.classList.add("bg-cafe-oscuro", "hover:bg-cafe-claro");
+        }, 2000);
       });
     });
   </script>
