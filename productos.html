@@ -1,311 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Catálogo de Productos Digitales - Afiliados Hotmart" />
-  <title>Productos Recomendados | Afiliados Hotmart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Menú digital de Mi Cafetería - Pedidos por WhatsApp">
+  <title>Menú | Mi Cafetería</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Enlace al archivo CSS externo -->
   <link rel="stylesheet" href="./assets/css/styles.css">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            'azul-profundo': '#162447',
-            'azul-electrico': '#1F75FE',
-            'azul-electrico-hover': '#0056b3',
-            'blanco-suave': '#F8F9FA',
-            'gris-texto': '#4A5568',
-            'gris-oscuro': '#2D3748',
-            'destacado': '#FF5722'
+            'cafe-oscuro': '#4B382A',
+            'cafe-claro': '#D4A762',
+            'beige': '#F5E6CA',
+            'texto': '#333333',
+            'acento': '#A44A3F'  // Rojo terracota para detalles
           },
           fontFamily: {
             sans: ['Inter', 'sans-serif']
-          },
-          boxShadow: {
-            'card': '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
-            'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.15)'
           }
         }
       }
     }
   </script>
 </head>
-<body class="bg-blanco-suave font-sans antialiased">
-  <!-- Header corregido -->
-  <header class="bg-azul-profundo shadow-lg sticky top-0 z-50">
-    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div>
-        <a href="index.html" class="flex items-center">
-          <!-- Ruta actualizada para tu logo -->
-          <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        </a>
-      </div>
-      <div class="hidden md:flex space-x-8 items-center">
-        <a href="index.html" class="text-gray-300 hover:text-white transition">Inicio</a>
-        <a href="productos.html" class="text-white font-semibold">Productos</a>
-        <a href="blog.html" class="text-gray-300 hover:text-white transition">Blog</a>
-        <a href="contacto.html" class="text-gray-300 hover:text-white transition">Contacto</a>
-        <a href="#" class="bg-azul-electrico hover:bg-azul-electrico-hover text-white font-bold py-2 px-6 rounded-full btn-electrico transition-all">
-          ¡Quiero Comisiones!
-        </a>
-      </div>
-      <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-    <!-- Menú móvil corregido -->
-    <div id="mobile-menu" class="md:hidden hidden bg-azul-profundo px-4 pb-4">
-      <a href="index.html" class="block py-2 text-gray-300 hover:text-white">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white font-semibold">Productos</a>
-      <a href="blog.html" class="block py-2 text-gray-300 hover:text-white">Blog</a>
-      <a href="contacto.html" class="block py-2 text-gray-300 hover:text-white">Contacto</a>
-      <a href="#" class="mt-2 inline-block bg-azul-electrico hover:bg-azul-electrico-hover text-white font-bold py-2 px-4 rounded-full btn-electrico">
-        ¡Quiero Comisiones!
+<body class="bg-beige font-sans antialiased">
+  <!-- Header -->
+  <header class="bg-cafe-oscuro text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="./assets/img/logo.png" alt="Logo" class="h-10">
+        <span class="ml-2 text-xl font-bold hidden sm:inline">MI CAFETERÍA</span>
       </a>
+      
+      <!-- Menú Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-gray-300 hover:text-white transition">Inicio</a>
+        <a href="menu.html" class="text-white font-semibold">Menú</a>
+        <a href="contacto.html" class="text-gray-300 hover:text-white transition">Contacto</a>
+      </nav>
+      
+      <!-- Menú Mobile -->
+      <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- Menú Mobile Desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 pb-4">
+      <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
+      <a href="menu.html" class="block py-2 text-white font-semibold bg-cafe-claro bg-opacity-20 px-2 rounded">Menú</a>
+      <a href="contacto.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Contacto</a>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12">
-    <section class="bg-gradient-to-r from-azul-profundo to-azul-electrico rounded-2xl p-8 md:p-12 mb-16 text-center text-white relative overflow-hidden">
-      <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mt-16 -mr-16"></div>
-      <div class="absolute bottom-0 left-0 w-40 h-40 bg-white opacity-5 rounded-full -mb-20 -ml-20"></div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 relative z-10">Productos Digitales Exclusivos</h1>
-      <p class="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto relative z-10">Descubre los mejores productos para recomendar y gana comisiones con cada venta</p>
-      <div class="relative z-10">
-        <input
-          id="search"
-          type="text"
-          placeholder="Buscar productos..."
-          class="w-full max-w-2xl mx-auto px-6 py-3 rounded-full border-0 shadow-lg focus:ring-2 focus:ring-white focus:ring-opacity-50 text-gray-800"
-        >
-      </div>
-    </section>
-
-    <div class="flex flex-wrap justify-center gap-3 mb-12">
-      <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-azul-electrico hover:text-white transition" data-category="all">Todos</button>
-      <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-azul-electrico hover:text-white transition" data-category="cursos">Cursos</button>
-      <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-azul-electrico hover:text-white transition" data-category="software">Software</button>
-      <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-azul-electrico hover:text-white transition" data-category="ebooks">Ebooks</button>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestro Menú</h1>
+      <p class="text-xl max-w-2xl mx-auto">Deliciosas opciones artesanales para todos los gustos</p>
     </div>
+  </section>
 
-    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+  <!-- Filtros de categoría -->
+  <div class="container mx-auto px-4 py-6 flex flex-wrap justify-center gap-3">
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="all">Todo</button>
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="bebidas">Bebidas</button>
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="comida">Comida</button>
+    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="postres">Postres</button>
+  </div>
 
-    <div class="mt-16 flex justify-center">
-      <nav class="flex items-center space-x-2">
-        <a href="#" class="px-4 py-2 rounded-md bg-white text-azul-profundo hover:bg-azul-electrico hover:text-white transition">&laquo;</a>
-        <a href="#" class="px-4 py-2 rounded-md bg-azul-electrico text-white">1</a>
-        <a href="#" class="px-4 py-2 rounded-md bg-white text-azul-profundo hover:bg-azul-electrico hover:text-white transition">2</a>
-        <a href="#" class="px-4 py-2 rounded-md bg-white text-azul-profundo hover:bg-azul-electrico hover:text-white transition">3</a>
-        <span class="px-4 py-2">...</span>
-        <a href="#" class="px-4 py-2 rounded-md bg-white text-azul-profundo hover:bg-azul-electrico hover:text-white transition">10</a>
-        <a href="#" class="px-4 py-2 rounded-md bg-white text-azul-profundo hover:bg-azul-electrico hover:text-white transition">&raquo;</a>
-      </nav>
-    </div>
+  <!-- Lista de productos -->
+  <main class="container mx-auto px-4 py-8">
+    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
   </main>
 
-  <section class="bg-gray-50 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-azul-profundo mb-12">Lo que dicen nuestros afiliados</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-xl shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="text-yellow-400 text-xl">
-              ★★★★★
-            </div>
-          </div>
-          <p class="text-gray-600 mb-6">"En mi primer mes como afiliado gané $500 recomendando estos productos. ¡La plataforma es increíble!"</p>
-          <div class="flex items-center">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">María González</h4>
-              <p class="text-sm text-gray-500">Afiliada desde 2023</p>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="text-yellow-400 text-xl">
-              ★★★★★
-            </div>
-          </div>
-          <p class="text-gray-600 mb-6">"Los materiales de marketing que proporcionan hacen que sea muy fácil promocionar los productos."</p>
-          <div class="flex items-center">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Carlos Mendoza</h4>
-              <p class="text-sm text-gray-500">Afiliado Top 1%</p>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-8 rounded-xl shadow-md">
-          <div class="flex items-center mb-4">
-            <div class="text-yellow-400 text-xl">
-              ★★★★★
-            </div>
-          </div>
-          <p class="text-gray-600 mb-6">"La capacitación para afiliados me ayudó a multiplicar mis ingresos por 5 en solo 3 meses."</p>
-          <div class="flex items-center">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold">Ana Rodríguez</h4>
-              <p class="text-sm text-gray-500">Afiliada Elite</p>
-            </div>
-          </div>
-        </div>
+  <!-- Carrito Lateral -->
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-cafe-oscuro text-white">
+      <h2 class="text-xl font-bold">🛒 Tu Pedido</h2>
+      <button id="close-cart" class="text-white focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <ul id="cart-items"></ul>
+      <div class="border-t border-gray-200 pt-4 mt-4">
+        <p class="text-lg font-semibold">Total: $<span id="cart-total">0.00</span></p>
+        <button id="send-whatsapp" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg mt-4">
+          <i class="fab fa-whatsapp mr-2"></i> Enviar pedido
+        </button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="bg-azul-profundo text-white py-16">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para empezar a ganar comisiones?</h2>
-      <p class="text-xl opacity-90 mb-8 max-w-3xl mx-auto">Regístrate como afiliado y accede a materiales exclusivos para promocionar estos productos.</p>
-      <a href="#" class="inline-block bg-white text-azul-electrico font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300">
-        Únete Ahora - Es Gratis
-      </a>
-    </div>
-  </section>
+  <!-- Botón flotante para abrir carrito -->
+  <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-cafe-oscuro hover:bg-cafe-claro text-white p-4 rounded-full shadow-lg z-40">
+    <i class="fas fa-shopping-cart text-xl"></i>
+    <span id="cart-count" class="absolute -top-2 -right-2 bg-acento text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+  </button>
 
-  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+  <!-- Footer -->
+  <footer class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      <div class="grid md:grid-cols-3 gap-8">
         <div>
-          <a href="index.html" class="flex items-center mb-4">
-            <img src="./assets/img/logo.png" alt="Logo" class="h-8">
-          </a>
-          <p class="mb-4">La mejor selección de productos digitales para recomendar y ganar comisiones.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
-          </div>
+          <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
+          <p class="text-gray-300">Café artesanal y momentos especiales desde 2025.</p>
         </div>
         <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Productos</h3>
-          <ul class="space-y-2">
-            <li><a href="productos.html" class="hover:text-white transition">Cursos Online</a></li>
-            <li><a href="productos.html" class="hover:text-white transition">Software</a></li>
-            <li><a href="productos.html" class="hover:text-white transition">Ebooks</a></li>
-            <li><a href="productos.html" class="hover:text-white transition">Plantillas</a></li>
+          <h3 class="text-white font-semibold mb-4 text-lg">Horario</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li>Lunes a Viernes: 7:00 - 20:00</li>
+            <li>Sábado y Domingo: 8:00 - 22:00</li>
           </ul>
         </div>
         <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Recursos</h3>
-          <ul class="space-y-2">
-            <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
-            <li><a href="#" class="hover:text-white transition">Guía para Afiliados</a></li>
-            <li><a href="#" class="hover:text-white transition">Materiales de Marketing</a></li>
-            <li><a href="#" class="hover:text-white transition">Preguntas Frecuentes</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Legal</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-white transition">Términos de Servicio</a></li>
-            <li><a href="#" class="hover:text-white transition">Política de Privacidad</a></li>
-            <li><a href="#" class="hover:text-white transition">Política de Cookies</a></li>
-            <li><a href="#" class="hover:text-white transition">Descargo de Responsabilidad</a></li>
+          <h3 class="text-white font-semibold mb-4 text-lg">Contacto</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2"></i> Av. Principal #123
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone mr-2"></i> +52 55 1234 5678
+            </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-800 pt-8 text-center text-sm">
-        <p>&copy; 2023 Afiliados Hotmart. Todos los derechos reservados. <br> Este sitio contiene enlaces de afiliado.</p>
+      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+        <p>&copy; 2025 Mi Cafetería. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    const productos = [
+    // Datos del menú
+    const menuItems = [
       {
-        id: "curso-marketing",
-        titulo: "Curso de Marketing Digital",
-        descripcion: "Domina las estrategias para vender online y generar ingresos pasivos.",
-        imagen: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        categoria: "cursos",
-        precio: 97,
-        enlace: "#",
-        destacado: true,
-        rating: 5
+        id: "cafe-latte",
+        titulo: "Café Latte",
+        descripcion: "Espresso con leche vaporizada y un toque de vainilla.",
+        imagen: "./assets/img/productos/cafe-latte.jpg",
+        categoria: "bebidas",
+        precio: 35,
+        destacado: true
       },
       {
-        id: "plantillas-shopify",
-        titulo: "Plantillas Shopify Premium",
-        descripcion: "20 plantillas optimizadas para conversión listas para usar.",
-        imagen: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        categoria: "software",
-        precio: 47,
-        enlace: "#",
-        destacado: false,
-        rating: 4
+        id: "cappuccino",
+        titulo: "Cappuccino",
+        descripcion: "Espresso, leche vaporizada y espuma de leche.",
+        imagen: "./assets/img/productos/cappuccino.jpg",
+        categoria: "bebidas",
+        precio: 40,
+        destacado: false
       },
       {
-        id: "ebook-seo",
-        titulo: "Guía Definitiva de SEO",
-        descripcion: "Aprende las técnicas de SEO que funcionan en 2023 con casos reales.",
-        imagen: "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        categoria: "ebooks",
-        precio: 27,
-        enlace: "#",
-        destacado: true,
-        rating: 5
+        id: "croissant",
+        titulo: "Croissant Artesanal",
+        descripcion: "Delicioso croissant horneado diariamente.",
+        imagen: "./assets/img/productos/croissant.jpg",
+        categoria: "comida",
+        precio: 25,
+        destacado: true
       },
       {
-        id: "curso-video",
-        titulo: "Edición de Video para Principiantes",
-        descripcion: "Crea videos profesionales sin experiencia previa con este método paso a paso.",
-        imagen: "https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        categoria: "cursos",
-        precio: 67,
-        enlace: "#",
-        destacado: false,
-        rating: 4
+        id: "sandwich",
+        titulo: "Sandwich de Pollo",
+        descripcion: "Pechuga de pollo, aguacate y pan integral.",
+        imagen: "./assets/img/productos/sandwich.jpg",
+        categoria: "comida",
+        precio: 55,
+        destacado: false
       },
       {
-        id: "sistema-afiliados",
-        titulo: "Sistema Automatizado de Afiliados",
-        descripcion: "Herramienta todo-en-uno para gestionar tu negocio de afiliados.",
-        imagen: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        categoria: "software",
-        precio: 147,
-        enlace: "#",
-        destacado: true,
-        rating: 5
+        id: "tarta-chocolate",
+        titulo: "Tarta de Chocolate",
+        descripcion: "El clásico irresistible con chocolate belga.",
+        imagen: "./assets/img/productos/tarta-chocolate.jpg",
+        categoria: "postres",
+        precio: 45,
+        destacado: true
       },
       {
-        id: "audiolibro-productividad",
-        titulo: "Audiolibro: Productividad Extrema",
-        descripcion: "Métodos comprobados para multiplicar tu productividad sin estrés.",
-        imagen: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-        categoria: "ebooks",
-        precio: 19,
-        enlace: "#",
-        destacado: false,
-        rating: 4
+        id: "cheesecake",
+        titulo: "Cheesecake de Frutos Rojos",
+        descripcion: "Suave cheesecake con salsa de frutos rojos.",
+        imagen: "./assets/img/productos/cheesecake.jpg",
+        categoria: "postres",
+        precio: 50,
+        destacado: false
       }
     ];
 
+    // Variables del carrito
+    let cart = [];
     const productList = document.getElementById("product-list");
-    
+    const cartSidebar = document.getElementById("cart-sidebar");
+    const openCartBtn = document.getElementById("open-cart-btn");
+    const closeCartBtn = document.getElementById("close-cart");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartTotalElement = document.getElementById("cart-total");
+    const cartCountElement = document.getElementById("cart-count");
+    const sendWhatsappBtn = document.getElementById("send-whatsapp");
+
+    // Mostrar productos
     function mostrarProductos(products) {
       productList.innerHTML = "";
       
       products.forEach(producto => {
         const card = document.createElement("div");
-        card.className = "bg-white rounded-xl shadow-md overflow-hidden card-hover";
+        card.className = "bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition";
         
         const badge = producto.destacado ? 
-          `<div class="absolute top-4 right-4 bg-destacado text-white text-xs font-bold px-3 py-1 rounded-full badge">DESTACADO</div>` : '';
-        
-        const stars = '★'.repeat(producto.rating) + '☆'.repeat(5 - producto.rating);
+          `<div class="absolute top-4 right-4 bg-acento text-white text-xs font-bold px-3 py-1 rounded-full">RECOMENDADO</div>` : '';
         
         card.innerHTML = `
           <div class="relative">
@@ -315,55 +229,137 @@
           <div class="p-6">
             <div class="flex justify-between items-start mb-2">
               <h3 class="text-xl font-bold text-gray-800">${producto.titulo}</h3>
-              <span class="text-lg font-bold text-azul-electrico price">$${producto.precio}</span>
-            </div>
-            <div class="flex items-center mb-3 text-yellow-400">
-              ${stars}
+              <span class="text-lg font-bold text-cafe-oscuro">$${producto.precio}</span>
             </div>
             <p class="text-gray-600 mb-4">${producto.descripcion}</p>
             <div class="flex justify-between items-center">
               <span class="text-sm text-gray-500">${producto.categoria.toUpperCase()}</span>
-              <a href="${producto.enlace}" class="bg-azul-electrico hover:bg-azul-electrico-hover text-white font-semibold py-2 px-4 rounded-full btn-electrico transition-all">
-                Ver Oferta
-              </a>
+              <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition" data-id="${producto.id}">
+                Agregar
+              </button>
             </div>
           </div>
         `;
         
         productList.appendChild(card);
       });
+
+      // Agregar event listeners a los botones
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const productId = e.target.getAttribute('data-id');
+          const product = menuItems.find(item => item.id === productId);
+          addToCart(product.titulo, product.precio);
+          
+          // Feedback visual
+          e.target.innerHTML = '<i class="fas fa-check mr-2"></i> ¡Agregado!';
+          e.target.classList.add('bg-green-500', 'hover:bg-green-600');
+          
+          setTimeout(() => {
+            e.target.innerHTML = 'Agregar';
+            e.target.classList.remove('bg-green-500', 'hover:bg-green-600');
+            e.target.classList.add('bg-cafe-oscuro', 'hover:bg-cafe-claro');
+          }, 2000);
+        });
+      });
     }
 
-    document.getElementById("search").addEventListener("input", function(e) {
-      const searchTerm = e.target.value.toLowerCase();
-      const filtered = productos.filter(p => 
-        p.titulo.toLowerCase().includes(searchTerm) || 
-        p.descripcion.toLowerCase().includes(searchTerm) ||
-        p.categoria.toLowerCase().includes(searchTerm)
-      );
-      mostrarProductos(filtered);
+    // Funciones del carrito
+    function addToCart(productName, productPrice) {
+      cart.push({
+        name: productName,
+        price: parseFloat(productPrice)
+      });
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+        li.innerHTML = `
+          <span>${item.name}</span>
+          <div class="flex items-center">
+            <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
+            <button class="remove-item text-red-500" data-index="${index}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(li);
+        total += item.price;
+      });
+
+      cartTotalElement.textContent = total.toFixed(2);
+      cartCountElement.textContent = cart.length;
+
+      // Agregar event listeners a los botones de eliminar
+      document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const index = e.target.closest('button').getAttribute('data-index');
+          cart.splice(index, 1);
+          updateCart();
+        });
+      });
+    }
+
+    // Enviar pedido por WhatsApp
+    sendWhatsappBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('¡Tu carrito está vacío!');
+        return;
+      }
+
+      let message = '¡Hola! Quiero hacer este pedido:%0A%0A';
+      let total = 0;
+
+      cart.forEach(item => {
+        message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
+        total += item.price;
+      });
+
+      message += `%0ATotal: $${total.toFixed(2)}`;
+      
+      // REEMPLAZA CON TU NÚMERO (ej: 521234567890)
+      const whatsappUrl = `https://wa.me/521234567890?text=${message}`;
+      window.open(whatsappUrl, '_blank');
     });
 
+    // Filtros de categoría
     document.querySelectorAll(".category-filter").forEach(button => {
       button.addEventListener("click", function() {
         const category = this.dataset.category;
         const filtered = category === "all" 
-          ? productos 
-          : productos.filter(p => p.categoria === category);
+          ? menuItems 
+          : menuItems.filter(item => item.categoria === category);
         mostrarProductos(filtered);
         
         document.querySelectorAll(".category-filter").forEach(btn => {
-          btn.classList.remove("bg-azul-electrico", "text-white");
+          btn.classList.remove("bg-cafe-claro", "text-white");
         });
-        this.classList.add("bg-azul-electrico", "text-white");
+        this.classList.add("bg-cafe-claro", "text-white");
       });
     });
 
+    // Menú móvil
     document.getElementById("mobile-menu-button").addEventListener("click", function() {
       document.getElementById("mobile-menu").classList.toggle("hidden");
     });
 
-    mostrarProductos(productos);
+    // Abrir/cerrar carrito
+    openCartBtn.addEventListener('click', () => {
+      cartSidebar.classList.remove('translate-x-full');
+    });
+
+    closeCartBtn.addEventListener('click', () => {
+      cartSidebar.classList.add('translate-x-full');
+    });
+
+    // Mostrar todos los productos al cargar
+    mostrarProductos(menuItems);
   </script>
 </body>
 </html>
