@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos | Kiosc072</title>
+  <title>Inicio | Kiosc072</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
   </script>
 </head>
 <body class="bg-beige font-sans antialiased">
-  <!-- Header actualizado para Kiosc072 -->
+  <!-- Header -->
   <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
@@ -38,8 +38,8 @@
       </a>
       
       <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
-        <a href="productos.html" class="text-cafe-claro font-semibold">Productos</a>
+        <a href="index.html" class="text-cafe-claro font-semibold">Inicio</a>
+        <a href="productos.html" class="hover:text-cafe-claro transition">Productos</a>
         <a href="contacto.html" class="hover:text-cafe-claro transition">Contacto</a>
       </nav>
       
@@ -49,110 +49,121 @@
     </div>
     
     <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
-      <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Productos</a>
+      <a href="index.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Inicio</a>
+      <a href="productos.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Productos</a>
       <a href="contacto.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Contacto</a>
     </div>
   </header>
 
-  <!-- Hero Section actualizado -->
-  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-20 text-center">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestros Productos</h1>
-      <p class="text-xl max-w-2xl mx-auto">Todo lo que necesitas en un solo lugar</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Bienvenido a Kiosc072</h1>
+      <p class="text-xl max-w-2xl mx-auto">Tu tienda de conveniencia en Playa del Carmen</p>
+      <a href="productos.html" class="inline-block mt-8 bg-white text-cafe-oscuro font-semibold py-3 px-8 rounded-full hover:bg-opacity-90 transition">
+        Ver productos
+      </a>
     </div>
   </section>
 
-  <!-- Filtros de categoría actualizados -->
-  <div class="container mx-auto px-4 py-6 flex flex-wrap justify-center gap-3">
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="all">Todo</button>
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="bebidas">Bebidas</button>
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="alimentos">Alimentos</button>
-    <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="aseo">Aseo</button>
-  </div>
+  <!-- Sección de características -->
+  <section class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-cafe-oscuro mb-4">¿Por qué elegirnos?</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Ofrecemos los mejores productos a precios competitivos con servicio 24/7</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <div class="text-cafe-claro text-4xl mb-4">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3 class="text-xl font-bold text-cafe-oscuro mb-2">Abierto 24 horas</h3>
+        <p class="text-gray-600">Atendemos tus necesidades a cualquier hora del día</p>
+      </div>
+      
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <div class="text-cafe-claro text-4xl mb-4">
+          <i class="fas fa-tags"></i>
+        </div>
+        <h3 class="text-xl font-bold text-cafe-oscuro mb-2">Precios competitivos</h3>
+        <p class="text-gray-600">Los mejores precios en productos de primera necesidad</p>
+      </div>
+      
+      <div class="bg-white p-6 rounded-xl shadow-md text-center">
+        <div class="text-cafe-claro text-4xl mb-4">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3 class="text-xl font-bold text-cafe-oscuro mb-2">Ubicación conveniente</h3>
+        <p class="text-gray-600">En el corazón de Playa del Carmen, Calle 72 entre 29B y 29C</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Lista de productos actualizada -->
-  <main class="container mx-auto px-4 py-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Producto 1 - Refresco -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-        <div class="relative">
+  <!-- Sección de productos destacados -->
+  <section class="bg-cafe-oscuro bg-opacity-5 py-16">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-cafe-oscuro mb-4">Productos destacados</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Algunos de nuestros productos más populares</p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Producto destacado 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="w-full h-48 object-cover">
-          <span class="absolute top-4 right-4 bg-acento text-white text-xs font-bold px-3 py-1 rounded-full">OFERTA</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Refresco en Lata</h3>
-          <p class="text-gray-600 mb-4">Variedad de sabores: Cola, Naranja, Limón</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-cafe-oscuro">$15.00</span>
-            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-              Agregar
-            </button>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Refresco en Lata</h3>
+            <p class="text-gray-600 mb-4">Variedad de sabores: Cola, Naranja, Limón</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-cafe-oscuro">$15.00</span>
+              <a href="productos.html" class="bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
+                Ver más
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Producto 2 - Galletas -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Galletas Diversas</h3>
-          <p class="text-gray-600 mb-4">Paquetes de 200g, variedad dulces y saladas</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-cafe-oscuro">$28.00</span>
-            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-              Agregar
-            </button>
+        
+        <!-- Producto destacado 2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Galletas Diversas</h3>
+            <p class="text-gray-600 mb-4">Paquetes de 200g, variedad dulces y saladas</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-cafe-oscuro">$28.00</span>
+              <a href="productos.html" class="bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
+                Ver más
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Producto 3 - Artículo de aseo -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-        <div class="relative">
+        
+        <!-- Producto destacado 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
           <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="w-full h-48 object-cover">
-          <span class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">NUEVO</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Jabón de Baño</h3>
-          <p class="text-gray-600 mb-4">Variedad de aromas, 90g por unidad</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-cafe-oscuro">$12.00</span>
-            <button class="add-to-cart bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-              Agregar
-            </button>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Jabón de Baño</h3>
+            <p class="text-gray-600 mb-4">Variedad de aromas, 90g por unidad</p>
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold text-cafe-oscuro">$12.00</span>
+              <a href="productos.html" class="bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
+                Ver más
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-
-  <!-- Carrito Lateral (funcional) -->
-  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
-    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-cafe-oscuro text-white">
-      <h2 class="text-xl font-bold">🛒 Tu Pedido</h2>
-      <button id="close-cart" class="text-white focus:outline-none">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <div class="p-4">
-      <ul id="cart-items"></ul>
-      <div class="border-t border-gray-200 pt-4 mt-4">
-        <p class="text-lg font-semibold">Total: $<span id="cart-total">0.00</span></p>
-        <button id="send-whatsapp" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg mt-4">
-          <i class="fab fa-whatsapp mr-2"></i> Enviar pedido
-        </button>
+      
+      <div class="text-center mt-12">
+        <a href="productos.html" class="inline-block bg-cafe-claro hover:bg-cafe-oscuro text-white font-semibold py-3 px-8 rounded-full transition">
+          Ver todos los productos
+        </a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Botón flotante para abrir carrito -->
-  <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-cafe-oscuro hover:bg-cafe-claro text-white p-4 rounded-full shadow-lg z-40">
-    <i class="fas fa-shopping-cart text-xl"></i>
-    <span id="cart-count" class="absolute -top-2 -right-2 bg-acento text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
-  </button>
-
-  <!-- Footer actualizado -->
+  <!-- Footer -->
   <footer class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8">
@@ -183,103 +194,9 @@
   </footer>
 
   <script>
-    // Configuración básica del carrito
-    let cart = [];
-    const cartItemsContainer = document.getElementById("cart-items");
-    const cartTotalElement = document.getElementById("cart-total");
-    const cartCountElement = document.getElementById("cart-count");
-    
-    function addToCart(productName, productPrice) {
-      cart.push({ name: productName, price: parseFloat(productPrice) });
-      updateCart();
-    }
-
-    function updateCart() {
-      cartItemsContainer.innerHTML = '';
-      let total = 0;
-
-      cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
-        li.innerHTML = `
-          <span>${item.name}</span>
-          <div class="flex items-center">
-            <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
-            <button class="remove-item text-red-500" data-index="${index}">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        `;
-        cartItemsContainer.appendChild(li);
-        total += item.price;
-      });
-
-      cartTotalElement.textContent = total.toFixed(2);
-      cartCountElement.textContent = cart.length;
-
-      // Agregar event listeners a los botones de eliminar
-      document.querySelectorAll('.remove-item').forEach(button => {
-        button.addEventListener('click', (e) => {
-          const index = e.target.closest('button').getAttribute('data-index');
-          cart.splice(index, 1);
-          updateCart();
-        });
-      });
-    }
-
-    // Configuración del botón de WhatsApp
-    document.getElementById("send-whatsapp").addEventListener("click", function() {
-      if (cart.length === 0) {
-        alert("¡Tu carrito está vacío!");
-        return;
-      }
-      
-      let message = "¡Hola Kiosc072! Quiero pedir:%0A%0A";
-      let total = 0;
-      
-      cart.forEach(item => {
-        message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
-        total += item.price;
-      });
-      
-      message += `%0ATotal: $${total.toFixed(2)}%0A%0AMi dirección: [ESCRIBE AQUÍ]`;
-      
-      window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
-    });
-
     // Menú móvil
     document.getElementById("menu-btn").addEventListener("click", function() {
       document.getElementById("mobile-menu").classList.toggle("hidden");
-    });
-
-    // Carrito
-    document.getElementById("open-cart-btn").addEventListener("click", function() {
-      document.getElementById("cart-sidebar").classList.remove("translate-x-full");
-    });
-
-    document.getElementById("close-cart").addEventListener("click", function() {
-      document.getElementById("cart-sidebar").classList.add("translate-x-full");
-    });
-
-    // Botones "Agregar"
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-      button.addEventListener("click", function() {
-        const productCard = this.closest(".bg-white");
-        const productName = productCard.querySelector("h3").textContent;
-        const productPrice = productCard.querySelector("span").textContent.replace("$", "");
-        
-        addToCart(productName, productPrice);
-        
-        // Efecto visual
-        this.innerHTML = '<i class="fas fa-check mr-2"></i> ¡Agregado!';
-        this.classList.add("bg-green-500", "hover:bg-green-600");
-        
-        setTimeout(() => {
-          this.innerHTML = 'Agregar';
-          this.classList.remove("bg-green-500", "hover:bg-green-600");
-          this.classList.add("bg-cafe-oscuro", "hover:bg-cafe-claro");
-        }, 2000);
-      });
     });
   </script>
 </body>
