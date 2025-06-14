@@ -4,190 +4,170 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio | Kiosc072</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'cafe-oscuro': '#4B382A',
-            'cafe-claro': '#D4A762',
-            'beige': '#F5E6CA',
-            'texto': '#333333',
-            'acento': '#A44A3F'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 </head>
-<body class="bg-beige font-sans antialiased">
+<body>
   <!-- Header -->
-  <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        <span class="ml-2 text-xl font-bold hidden sm:inline">KIOSC072</span>
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.png" alt="Logo Kiosc072" class="logo-img">
+        <span class="logo-text">KIOSC072</span>
       </a>
       
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="text-cafe-claro font-semibold">Inicio</a>
-        <a href="productos.html" class="hover:text-cafe-claro transition">Productos</a>
-        <a href="contacto.html" class="hover:text-cafe-claro transition">Contacto</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
       </nav>
       
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
+      <button id="menu-btn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
       </button>
     </div>
     
-    <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
-      <a href="index.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Productos</a>
-      <a href="contacto.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Contacto</a>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html" class="mobile-menu-link active">Inicio</a>
+      <a href="productos.html" class="mobile-menu-link">Productos</a>
+      <a href="contacto.html" class="mobile-menu-link">Contacto</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-20 text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Bienvenido a Kiosc072</h1>
-      <p class="text-xl max-w-2xl mx-auto">Tu tienda de conveniencia en Playa del Carmen</p>
-      <a href="productos.html" class="inline-block mt-8 bg-white text-cafe-oscuro font-semibold py-3 px-8 rounded-full hover:bg-opacity-90 transition">
-        Ver productos
-      </a>
+  <section class="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title">Bienvenido a Kiosc072</h1>
+      <p class="hero-subtitle">Tu tienda de conveniencia en Playa del Carmen</p>
+      <a href="productos.html" class="btn btn-hero">Ver productos</a>
     </div>
   </section>
 
   <!-- Sección de características -->
-  <section class="container mx-auto px-4 py-16">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-cafe-oscuro mb-4">¿Por qué elegirnos?</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">Ofrecemos los mejores productos a precios competitivos con servicio 24/7</p>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow-md text-center">
-        <div class="text-cafe-claro text-4xl mb-4">
-          <i class="fas fa-clock"></i>
-        </div>
-        <h3 class="text-xl font-bold text-cafe-oscuro mb-2">Abierto 24 horas</h3>
-        <p class="text-gray-600">Atendemos tus necesidades a cualquier hora del día</p>
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <p class="section-description">Ofrecemos los mejores productos a precios competitivos con servicio 24/7</p>
       </div>
       
-      <div class="bg-white p-6 rounded-xl shadow-md text-center">
-        <div class="text-cafe-claro text-4xl mb-4">
-          <i class="fas fa-tags"></i>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="feature-title">Abierto 24 horas</h3>
+          <p class="feature-text">Atendemos tus necesidades a cualquier hora del día</p>
         </div>
-        <h3 class="text-xl font-bold text-cafe-oscuro mb-2">Precios competitivos</h3>
-        <p class="text-gray-600">Los mejores precios en productos de primera necesidad</p>
-      </div>
-      
-      <div class="bg-white p-6 rounded-xl shadow-md text-center">
-        <div class="text-cafe-claro text-4xl mb-4">
-          <i class="fas fa-map-marker-alt"></i>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          <h3 class="feature-title">Precios competitivos</h3>
+          <p class="feature-text">Los mejores precios en productos de primera necesidad</p>
         </div>
-        <h3 class="text-xl font-bold text-cafe-oscuro mb-2">Ubicación conveniente</h3>
-        <p class="text-gray-600">En el corazón de Playa del Carmen, Calle 72 entre 29B y 29C</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3 class="feature-title">Ubicación conveniente</h3>
+          <p class="feature-text">En el corazón de Playa del Carmen, Calle 72 entre 29B y 29C</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Sección de productos destacados -->
-  <section class="bg-cafe-oscuro bg-opacity-5 py-16">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-cafe-oscuro mb-4">Productos destacados</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Algunos de nuestros productos más populares</p>
+  <section class="featured-products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Productos destacados</h2>
+        <p class="section-description">Algunos de nuestros productos más populares</p>
       </div>
       
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="products-grid">
         <!-- Producto destacado 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Refresco en Lata</h3>
-            <p class="text-gray-600 mb-4">Variedad de sabores: Cola, Naranja, Limón</p>
-            <div class="flex justify-between items-center">
-              <span class="text-lg font-bold text-cafe-oscuro">$15.00</span>
-              <a href="productos.html" class="bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-                Ver más
-              </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="./assets/img/productos/refresco.jpg" alt="Refresco en Lata" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Refresco en Lata</h3>
+            <p class="product-description">Variedad de sabores: Cola, Naranja, Limón</p>
+            <div class="product-footer">
+              <span class="product-price">$15.00</span>
+              <a href="productos.html" class="btn btn-product">Ver más</a>
             </div>
           </div>
         </div>
         
         <!-- Producto destacado 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Galletas Diversas</h3>
-            <p class="text-gray-600 mb-4">Paquetes de 200g, variedad dulces y saladas</p>
-            <div class="flex justify-between items-center">
-              <span class="text-lg font-bold text-cafe-oscuro">$28.00</span>
-              <a href="productos.html" class="bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-                Ver más
-              </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="./assets/img/productos/galletas.jpg" alt="Galletas Diversas" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Galletas Diversas</h3>
+            <p class="product-description">Paquetes de 200g, variedad dulces y saladas</p>
+            <div class="product-footer">
+              <span class="product-price">$28.00</span>
+              <a href="productos.html" class="btn btn-product">Ver más</a>
             </div>
           </div>
         </div>
         
         <!-- Producto destacado 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
-          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Jabón de Baño</h3>
-            <p class="text-gray-600 mb-4">Variedad de aromas, 90g por unidad</p>
-            <div class="flex justify-between items-center">
-              <span class="text-lg font-bold text-cafe-oscuro">$12.00</span>
-              <a href="productos.html" class="bg-cafe-oscuro hover:bg-cafe-claro text-white font-semibold py-2 px-4 rounded-full transition">
-                Ver más
-              </a>
+        <div class="product-card">
+          <div class="product-image-container">
+            <img src="./assets/img/productos/jabon.jpg" alt="Jabón de Baño" class="product-image">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Jabón de Baño</h3>
+            <p class="product-description">Variedad de aromas, 90g por unidad</p>
+            <div class="product-footer">
+              <span class="product-price">$12.00</span>
+              <a href="productos.html" class="btn btn-product">Ver más</a>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="text-center mt-12">
-        <a href="productos.html" class="inline-block bg-cafe-claro hover:bg-cafe-oscuro text-white font-semibold py-3 px-8 rounded-full transition">
-          Ver todos los productos
-        </a>
+      <div class="text-center">
+        <a href="productos.html" class="btn btn-primary">Ver todos los productos</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-cafe-oscuro text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-          <p class="text-gray-300">Tu tienda de conveniencia en Playa del Carmen</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosc072" class="footer-logo">
+          <p class="footer-text">Tu tienda de conveniencia en Playa del Carmen</p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Horario</h3>
-          <p class="text-gray-300">Abierto 24 horas</p>
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Horario</h4>
+          <p class="footer-text">Abierto 24 horas</p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Contacto</h3>
-          <ul class="space-y-2 text-gray-300">
-            <li class="flex items-center">
-              <i class="fas fa-phone mr-2"></i> 55 975 867 / 54 833 899
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Contacto</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-map-marker-alt mr-2"></i> Calle 72 entre 29B y 29C
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
             </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+      
+      <div class="footer-bottom">
         <p>&copy; 2025 Kiosc072. Todos los derechos reservados.</p>
       </div>
     </div>
@@ -195,8 +175,16 @@
 
   <script>
     // Menú móvil
-    document.getElementById("menu-btn").addEventListener("click", function() {
-      document.getElementById("mobile-menu").classList.toggle("hidden");
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('show');
+        const icon = menuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
     });
   </script>
 </body>
