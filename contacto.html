@@ -4,159 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | Kiosc072</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'cafe-oscuro': '#4B382A',
-            'cafe-claro': '#D4A762',
-            'beige': '#F5E6CA',
-            'texto': '#333333',
-            'acento': '#A44A3F'
-          },
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
 </head>
-<body class="bg-beige font-sans antialiased">
+<body>
   <!-- Header -->
-  <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="flex items-center">
-        <img src="./assets/img/logo.png" alt="Logo" class="h-10">
-        <span class="ml-2 text-xl font-bold hidden sm:inline">KIOSC072</span>
+  <header class="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.png" alt="Logo Kiosc072" class="logo-img">
+        <span class="logo-text">KIOSC072</span>
       </a>
       
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-cafe-claro transition">Inicio</a>
-        <a href="productos.html" class="hover:text-cafe-claro transition">Productos</a>
-        <a href="contacto.html" class="text-cafe-claro font-semibold">Contacto</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
       </nav>
       
-      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
+      <button id="menu-btn" class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
       </button>
     </div>
     
-    <div id="mobile-menu" class="hidden md:hidden bg-cafe-oscuro px-4 py-2">
-      <a href="index.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Inicio</a>
-      <a href="productos.html" class="block py-2 text-white hover:bg-cafe-claro hover:bg-opacity-20 px-2 rounded">Productos</a>
-      <a href="contacto.html" class="block py-2 text-white bg-cafe-claro bg-opacity-20 px-2 rounded">Contacto</a>
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="index.html" class="mobile-menu-link">Inicio</a>
+      <a href="productos.html" class="mobile-menu-link">Productos</a>
+      <a href="contacto.html" class="mobile-menu-link active">Contacto</a>
     </div>
   </header>
 
-  <!-- Resto del código permanece igual -->
-  <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Contáctanos</h1>
-      <p class="text-xl max-w-2xl mx-auto">Servicio rápido y atención personalizada</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title">Contáctanos</h1>
+      <p class="hero-subtitle">Servicio rápido y atención personalizada</p>
     </div>
   </section>
 
   <!-- Contenido Principal -->
-  <main class="container mx-auto px-4 py-12">
-    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-      <div class="md:flex">
-        <!-- Sección de información -->
-        <div class="md:w-1/2 p-8 md:p-10 bg-cafe-oscuro text-white">
-          <h2 class="text-2xl font-bold mb-6">Información de contacto</h2>
-          
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <i class="fas fa-map-marker-alt mt-1 text-cafe-claro"></i>
-              <div>
-                <h3 class="font-semibold">Dirección</h3>
-                <p>Calle 72 entre 29B y 29C<br>Playa del Carmen</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start gap-4">
-              <i class="fas fa-phone-alt mt-1 text-cafe-claro"></i>
-              <div>
-                <h3 class="font-semibold">Teléfonos</h3>
-                <p>55 975 867</p>
-                <p>54 833 899</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start gap-4">
-              <i class="fas fa-clock mt-1 text-cafe-claro"></i>
-              <div>
-                <h3 class="font-semibold">Horario</h3>
-                <p>24 horas / 7 días</p>
-              </div>
-            </div>
-            
-            <div class="pt-4">
-              <h3 class="font-semibold mb-3">Síguenos</h3>
-              <div class="flex space-x-4">
-                <a href="https://www.facebook.com/profile.php?id=61550303826129" target="_blank" class="bg-white text-cafe-oscuro p-2 rounded-full hover:bg-gray-100 transition">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/lynx7326?igsh=YzljYTk1ODg3Zg==" target="_blank" class="bg-white text-cafe-oscuro p-2 rounded-full hover:bg-gray-100 transition">
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/5358472672" target="_blank" class="bg-white text-cafe-oscuro p-2 rounded-full hover:bg-gray-100 transition">
-                  <i class="fab fa-whatsapp"></i>
-                </a>
-              </div>
+  <main class="container contact-container">
+    <div class="contact-card">
+      <div class="contact-info-section">
+        <h2 class="contact-section-title">Información de contacto</h2>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <div>
+              <h3 class="contact-item-title">Dirección</h3>
+              <p>Calle 72 entre 29B y 29C<br>Playa del Carmen</p>
             </div>
           </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone-alt contact-icon"></i>
+            <div>
+              <h3 class="contact-item-title">Teléfonos</h3>
+              <p>55 975 867</p>
+              <p>54 833 899</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-clock contact-icon"></i>
+            <div>
+              <h3 class="contact-item-title">Horario</h3>
+              <p>24 horas / 7 días</p>
+            </div>
+          </div>
+          
+          <div class="social-section">
+            <h3 class="social-title">Síguenos</h3>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/profile.php?id=61550303826129" target="_blank" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/lynx7326?igsh=YzljYTk1ODg3Zg==" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://wa.me/5358472672" target="_blank" class="social-link">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sección de WhatsApp -->
+      <div class="whatsapp-section">
+        <div class="whatsapp-header">
+          <i class="fas fa-shopping-basket whatsapp-icon"></i>
+          <h2 class="whatsapp-title">¿Necesitas algo?</h2>
+          <p class="whatsapp-subtitle">Haz tu pedido directamente por WhatsApp</p>
         </div>
         
-        <!-- Sección de WhatsApp -->
-        <div class="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
-          <div class="text-center mb-6">
-            <i class="fas fa-shopping-basket text-5xl text-cafe-claro mb-4"></i>
-            <h2 class="text-2xl font-bold text-cafe-oscuro">¿Necesitas algo?</h2>
-            <p class="text-gray-600 mt-2">Haz tu pedido directamente por WhatsApp</p>
-          </div>
-          
-          <a href="https://wa.me/5358472672" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-center px-6 py-4 rounded-lg font-medium transition duration-300 mb-4">
-            <i class="fab fa-whatsapp mr-2 text-xl"></i> Pedir por WhatsApp
-          </a>
-          
-          <p class="text-sm text-gray-500 text-center">Responde en menos de 10 minutos</p>
-        </div>
+        <a href="https://wa.me/5358472672" target="_blank" class="btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+        </a>
+        
+        <p class="whatsapp-note">Responde en menos de 10 minutos</p>
       </div>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-cafe-oscuro text-white py-12">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div>
-          <img src="./assets/img/logo-white.png" alt="Logo" class="h-10 mb-4">
-          <p class="text-gray-300">Tu tienda de conveniencia en Playa del Carmen</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosc072" class="footer-logo">
+          <p class="footer-text">Tu tienda de conveniencia en Playa del Carmen</p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Horario</h3>
-          <p class="text-gray-300">Abierto 24 horas</p>
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Horario</h4>
+          <p class="footer-text">Abierto 24 horas</p>
         </div>
-        <div>
-          <h3 class="text-white font-semibold mb-4 text-lg">Contacto</h3>
-          <ul class="space-y-2 text-gray-300">
-            <li class="flex items-center">
-              <i class="fas fa-phone mr-2"></i> 55 975 867 / 54 833 899
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Contacto</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
             </li>
-            <li class="flex items-center">
-              <i class="fas fa-map-marker-alt mr-2"></i> Calle 72 entre 29B y 29C
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
             </li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-300">
+      
+      <div class="footer-bottom">
         <p>&copy; 2025 Kiosc072. Todos los derechos reservados.</p>
       </div>
     </div>
@@ -168,21 +147,15 @@
       const mobileMenu = document.getElementById('mobile-menu');
       
       menuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-        
-        const icon = menuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('hidden')) {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        } else {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        }
+        mobileMenu.classList.toggle('show');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
       });
       
-      document.querySelectorAll('#mobile-menu a').forEach(link => {
+      document.querySelectorAll('.mobile-menu-link').forEach(link => {
         link.addEventListener('click', function() {
-          mobileMenu.classList.add('hidden');
+          mobileMenu.classList.remove('show');
           menuBtn.querySelector('i').classList.remove('fa-times');
           menuBtn.querySelector('i').classList.add('fa-bars');
         });
