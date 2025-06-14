@@ -1,16 +1,20 @@
-// Función para el menú móvil
 document.addEventListener('DOMContentLoaded', function() {
+  // Menú móvil
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   
   menuBtn.addEventListener('click', function() {
     mobileMenu.classList.toggle('show');
-    const icon = menuBtn.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
+    const icon = this.querySelector('i');
+    
+    if (mobileMenu.classList.contains('show')) {
+      icon.classList.replace('fa-bars', 'fa-times');
+    } else {
+      icon.classList.replace('fa-times', 'fa-bars');
+    }
   });
 
-  // Cerrar menú al hacer clic en un enlace
+  // Cerrar menú al hacer clic en enlace
   document.querySelectorAll('.mobile-menu-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('show');
@@ -18,36 +22,46 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Sistema de carrito (para productos.html)
+  // Carrito de compras (solo en página de productos)
   if (document.getElementById('cart-sidebar')) {
-    let cart = [];
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalElement = document.getElementById('cart-total');
-    const cartCountElement = document.getElementById('cart-count');
-
-    function updateCart() {
+    let cart = JSON.parse(localStorage.getItem('kiosc072-cart')) || [];
+    
+    const updateCart = () => {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+      const cartCountElement = document.getElementById('cart-count');
+      const cartEmptyElement = document.getElementById('cart-empty');
+      
       cartItemsContainer.innerHTML = '';
       let total = 0;
 
-      cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.className = 'cart-item';
-        li.innerHTML = `
-          <span>${item.name}</span>
-          <div class="cart-item-price">
-            <span>$${item.price.toFixed(2)}</span>
-            <button class="remove-item" data-index="${index}">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        `;
-        cartItemsContainer.appendChild(li);
-        total += item.price;
-      });
+      if (cart.length === 0) {
+        cartEmptyElement.style.display = 'flex';
+      } else {
+        cartEmptyElement.style.display = 'none';
+        
+        cart.forEach((item, index) => {
+          const li = document.createElement('li');
+          li.className = 'cart-item';
+          li.innerHTML = `
+            <span>${item.name}</span>
+            <div class="cart-item-price">
+              <span>$${item.price.toFixed(2)}</span>
+              <button class="remove-item" data-index="${index}">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+          cartItemsContainer.appendChild(li);
+          total += item.price;
+        });
+      }
 
       cartTotalElement.textContent = total.toFixed(2);
       cartCountElement.textContent = cart.length;
+      localStorage.setItem('kiosc072-cart', JSON.stringify(cart));
 
+      // Event listeners para botones de eliminar
       document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', (e) => {
           const index = e.target.closest('button').getAttribute('data-index');
@@ -55,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
           updateCart();
         });
       });
-    }
+    };
 
+    // Botones "Agregar al carrito"
     document.querySelectorAll('.add-to-cart').forEach(button => {
       button.addEventListener('click', function() {
         const productCard = this.closest('.product-card');
@@ -106,5 +121,8 @@ document.addEventListener('DOMContentLoaded', function() {
       message += `%0ATotal: $${total.toFixed(2)}%0A%0AMi dirección: [ESCRIBE AQUÍ]`;
       window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
     });
+
+    // Inicializar carrito
+    updateCart();
   }
 });
