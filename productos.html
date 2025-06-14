@@ -29,8 +29,8 @@
   </script>
 </head>
 <body class="bg-beige font-sans antialiased">
-  <!-- Header actualizado -->
-  <header class="bg-cafe-oscuro text-white shadow-lg sticky top-0 z-50">
+  <!-- Header -->
+  <header class="bg-cafe-oscuro text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="./assets/img/logo.png" alt="Logo" class="h-10">
@@ -55,7 +55,7 @@
     </div>
   </header>
 
-  <!-- Hero Section actualizado -->
+  <!-- Hero Section -->
   <section class="bg-gradient-to-r from-cafe-oscuro to-cafe-claro text-white py-16 text-center">
     <div class="container mx-auto px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestros Productos</h1>
@@ -63,7 +63,7 @@
     </div>
   </section>
 
-  <!-- Filtros actualizados para tu tienda -->
+  <!-- Filtros de categoría -->
   <div class="container mx-auto px-4 py-6 flex flex-wrap justify-center gap-3">
     <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="all">Todo</button>
     <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="bebidas">Bebidas</button>
@@ -71,10 +71,10 @@
     <button class="category-filter px-4 py-2 rounded-full bg-white shadow-md hover:bg-cafe-claro hover:text-white transition" data-category="aseo">Aseo</button>
   </div>
 
-  <!-- Lista de productos actualizada -->
+  <!-- Lista de productos -->
   <main class="container mx-auto px-4 py-8">
-    <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Producto 1 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Producto 1 - Refresco -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
         <div class="relative">
           <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="w-full h-48 object-cover">
@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <!-- Producto 2 -->
+      <!-- Producto 2 - Galletas -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
         <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="w-full h-48 object-cover">
         <div class="p-6">
@@ -107,7 +107,7 @@
         </div>
       </div>
 
-      <!-- Producto 3 -->
+      <!-- Producto 3 - Artículo de aseo -->
       <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
         <div class="relative">
           <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="w-full h-48 object-cover">
@@ -127,17 +127,32 @@
     </div>
   </main>
 
-  <!-- Carrito Lateral (conserva la misma funcionalidad) -->
+  <!-- Carrito Lateral -->
   <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
-    <!-- ... (mantén el mismo código del carrito) ... -->
+    <div class="p-4 border-b border-gray-200 flex justify-between items-center bg-cafe-oscuro text-white">
+      <h2 class="text-xl font-bold">🛒 Tu Pedido</h2>
+      <button id="close-cart" class="text-white focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="p-4">
+      <ul id="cart-items"></ul>
+      <div class="border-t border-gray-200 pt-4 mt-4">
+        <p class="text-lg font-semibold">Total: $<span id="cart-total">0.00</span></p>
+        <button id="send-whatsapp" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg mt-4">
+          <i class="fab fa-whatsapp mr-2"></i> Enviar pedido
+        </button>
+      </div>
+    </div>
   </div>
 
+  <!-- Botón flotante para abrir carrito -->
   <button id="open-cart-btn" class="fixed bottom-6 right-6 bg-cafe-oscuro hover:bg-cafe-claro text-white p-4 rounded-full shadow-lg z-40">
     <i class="fas fa-shopping-cart text-xl"></i>
     <span id="cart-count" class="absolute -top-2 -right-2 bg-acento text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
   </button>
 
-  <!-- Footer actualizado -->
+  <!-- Footer -->
   <footer class="bg-cafe-oscuro text-white py-12">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8">
@@ -168,7 +183,7 @@
   </footer>
 
   <script>
-    // Configuración básica del carrito (conserva la misma lógica)
+    // Configuración básica del carrito
     let cart = [];
     const cartItemsContainer = document.getElementById("cart-items");
     const cartTotalElement = document.getElementById("cart-total");
@@ -180,7 +195,36 @@
     }
 
     function updateCart() {
-      // ... (mantén la misma función)
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+        li.innerHTML = `
+          <span>${item.name}</span>
+          <div class="flex items-center">
+            <span class="font-medium mr-4">$${item.price.toFixed(2)}</span>
+            <button class="remove-item text-red-500" data-index="${index}">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        `;
+        cartItemsContainer.appendChild(li);
+        total += item.price;
+      });
+
+      cartTotalElement.textContent = total.toFixed(2);
+      cartCountElement.textContent = cart.length;
+
+      // Agregar event listeners a los botones de eliminar
+      document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const index = e.target.closest('button').getAttribute('data-index');
+          cart.splice(index, 1);
+          updateCart();
+        });
+      });
     }
 
     // Configuración del botón de WhatsApp
