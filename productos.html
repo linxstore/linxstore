@@ -6,6 +6,7 @@
   <title>Productos | Kiosc072</title>
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
@@ -44,38 +45,50 @@
 
   <!-- Filtros de categoría -->
   <div class="category-filters container">
-    <button class="category-filter" data-category="all">Todo</button>
+    <button class="category-filter active" data-category="all">Todo</button>
     <button class="category-filter" data-category="bebidas">Bebidas</button>
     <button class="category-filter" data-category="alimentos">Alimentos</button>
     <button class="category-filter" data-category="aseo">Aseo</button>
+    <button class="category-filter" data-category="ofertas">Ofertas</button>
   </div>
 
   <!-- Lista de productos -->
   <main class="products-main container">
     <div class="products-grid">
       <!-- Producto 1 - Refresco -->
-      <div class="product-card">
+      <div class="product-card" data-category="bebidas ofertas">
         <div class="product-image-container">
           <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="product-image">
-          <span class="product-badge product-badge-offer">OFERTA</span>
+          <span class="product-badge product-badge-offer">20% OFF</span>
         </div>
         <div class="product-info">
           <h3 class="product-title">Refresco en Lata</h3>
-          <p class="product-description">Variedad de sabores: Cola, Naranja, Limón</p>
+          <div class="product-meta">
+            <span class="product-category">Bebidas</span>
+            <span class="product-stock">Disponible</span>
+          </div>
+          <p class="product-description">Variedad de sabores: Cola, Naranja, Limón. 355ml por lata.</p>
           <div class="product-footer">
-            <span class="product-price">$15.00</span>
+            <div class="price-container">
+              <span class="product-price">$15.00</span>
+              <span class="product-old-price">$18.00</span>
+            </div>
             <button class="btn btn-product add-to-cart">Agregar</button>
           </div>
         </div>
       </div>
 
       <!-- Producto 2 - Galletas -->
-      <div class="product-card">
+      <div class="product-card" data-category="alimentos">
         <div class="product-image-container">
           <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="product-image">
         </div>
         <div class="product-info">
           <h3 class="product-title">Galletas Diversas</h3>
+          <div class="product-meta">
+            <span class="product-category">Alimentos</span>
+            <span class="product-stock">Disponible</span>
+          </div>
           <p class="product-description">Paquetes de 200g, variedad dulces y saladas</p>
           <div class="product-footer">
             <span class="product-price">$28.00</span>
@@ -85,13 +98,17 @@
       </div>
 
       <!-- Producto 3 - Artículo de aseo -->
-      <div class="product-card">
+      <div class="product-card" data-category="aseo">
         <div class="product-image-container">
           <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="product-image">
           <span class="product-badge product-badge-new">NUEVO</span>
         </div>
         <div class="product-info">
           <h3 class="product-title">Jabón de Baño</h3>
+          <div class="product-meta">
+            <span class="product-category">Aseo</span>
+            <span class="product-stock">Disponible</span>
+          </div>
           <p class="product-description">Variedad de aromas, 90g por unidad</p>
           <div class="product-footer">
             <span class="product-price">$12.00</span>
@@ -105,24 +122,35 @@
   <!-- Carrito Lateral -->
   <div id="cart-sidebar" class="cart-sidebar">
     <div class="cart-header">
-      <h2 class="cart-title">🛒 Tu Pedido</h2>
-      <button id="close-cart" class="cart-close-btn">
+      <h2 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Pedido</h2>
+      <button id="close-cart" class="cart-close-btn" aria-label="Cerrar carrito">
         <i class="fas fa-times"></i>
       </button>
     </div>
     <div class="cart-content">
+      <div class="cart-empty-state" id="cart-empty">
+        <i class="fas fa-shopping-basket"></i>
+        <p>Tu carrito está vacío</p>
+      </div>
       <ul id="cart-items" class="cart-items-list"></ul>
       <div class="cart-summary">
-        <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
-        <button id="send-whatsapp" class="btn btn-whatsapp">
-          <i class="fab fa-whatsapp mr-2"></i> Enviar pedido
+        <div class="cart-total-line">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-total-line">
+          <span>Total:</span>
+          <span id="cart-total">$0.00</span>
+        </div>
+        <button id="send-whatsapp" class="btn btn-whatsapp btn-block">
+          <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Botón flotante para abrir carrito -->
-  <button id="open-cart-btn" class="cart-floating-btn">
+  <!-- Botón flotante del carrito -->
+  <button id="open-cart-btn" class="cart-floating-btn" aria-label="Ver carrito">
     <i class="fas fa-shopping-cart"></i>
     <span id="cart-count" class="cart-count-badge">0</span>
   </button>
@@ -160,107 +188,6 @@
     </div>
   </footer>
 
-  <script>
-    // Configuración básica del carrito
-    let cart = [];
-    const cartItemsContainer = document.getElementById("cart-items");
-    const cartTotalElement = document.getElementById("cart-total");
-    const cartCountElement = document.getElementById("cart-count");
-    
-    function addToCart(productName, productPrice) {
-      cart.push({ name: productName, price: parseFloat(productPrice) });
-      updateCart();
-    }
-
-    function updateCart() {
-      cartItemsContainer.innerHTML = '';
-      let total = 0;
-
-      cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.className = 'cart-item';
-        li.innerHTML = `
-          <span>${item.name}</span>
-          <div class="cart-item-price">
-            <span>$${item.price.toFixed(2)}</span>
-            <button class="remove-item" data-index="${index}">
-              <i class="fas fa-trash"></i>
-            </button>
-          </div>
-        `;
-        cartItemsContainer.appendChild(li);
-        total += item.price;
-      });
-
-      cartTotalElement.textContent = total.toFixed(2);
-      cartCountElement.textContent = cart.length;
-
-      // Agregar event listeners a los botones de eliminar
-      document.querySelectorAll('.remove-item').forEach(button => {
-        button.addEventListener('click', (e) => {
-          const index = e.target.closest('button').getAttribute('data-index');
-          cart.splice(index, 1);
-          updateCart();
-        });
-      });
-    }
-
-    // Configuración del botón de WhatsApp
-    document.getElementById("send-whatsapp").addEventListener("click", function() {
-      if (cart.length === 0) {
-        alert("¡Tu carrito está vacío!");
-        return;
-      }
-      
-      let message = "¡Hola Kiosc072! Quiero pedir:%0A%0A";
-      let total = 0;
-      
-      cart.forEach(item => {
-        message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
-        total += item.price;
-      });
-      
-      message += `%0ATotal: $${total.toFixed(2)}%0A%0AMi dirección: [ESCRIBE AQUÍ]`;
-      
-      window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
-    });
-
-    // Menú móvil
-    document.getElementById("menu-btn").addEventListener("click", function() {
-      document.getElementById("mobile-menu").classList.toggle("show");
-      const icon = this.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-    });
-
-    // Carrito
-    document.getElementById("open-cart-btn").addEventListener("click", function() {
-      document.getElementById("cart-sidebar").classList.add("show");
-    });
-
-    document.getElementById("close-cart").addEventListener("click", function() {
-      document.getElementById("cart-sidebar").classList.remove("show");
-    });
-
-    // Botones "Agregar"
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-      button.addEventListener("click", function() {
-        const productCard = this.closest(".product-card");
-        const productName = productCard.querySelector(".product-title").textContent;
-        const productPrice = productCard.querySelector(".product-price").textContent.replace("$", "");
-        
-        addToCart(productName, productPrice);
-        
-        // Efecto visual
-        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
-        this.classList.add("btn-success");
-        
-        setTimeout(() => {
-          this.innerHTML = 'Agregar';
-          this.classList.remove("btn-success");
-        }, 2000);
-      });
-    });
   <script src="./js/main.js"></script>
 </body>
 </html>
