@@ -13,7 +13,7 @@
   <header class="header">
     <div class="container header-container">
       <a href="index.html" class="logo">
-        <img src="./assets/img/logo.png" alt="Logo Kiosc072" class="logo-img">
+        <img src="./assets/img/logo.png" alt="Logo Kiosc072" class="logo-img" loading="lazy">
         <span class="logo-text">KIOSC072</span>
       </a>
       
@@ -23,7 +23,7 @@
         <a href="contacto.html" class="nav-link">Contacto</a>
       </nav>
       
-      <button id="menu-btn" class="mobile-menu-btn">
+      <button id="menu-btn" class="mobile-menu-btn" aria-label="Menú móvil">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -39,7 +39,7 @@
   <section class="hero">
     <div class="container hero-content">
       <h1 class="hero-title">Bienvenido a Kiosc072</h1>
-      <p class="hero-subtitle">Tu tienda de conveniencia en Playa del Carmen</p>
+      <p class="hero-subtitle">Tu tienda de conveniencia 24/7 en Playa del Carmen</p>
       <a href="productos.html" class="btn btn-hero">Ver productos</a>
     </div>
   </section>
@@ -49,7 +49,7 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">¿Por qué elegirnos?</h2>
-        <p class="section-description">Ofrecemos los mejores productos a precios competitivos con servicio 24/7</p>
+        <p class="section-description">Productos esenciales a precios competitivos</p>
       </div>
       
       <div class="features-grid">
@@ -58,87 +58,89 @@
             <i class="fas fa-clock"></i>
           </div>
           <h3 class="feature-title">Abierto 24 horas</h3>
-          <p class="feature-text">Atendemos tus necesidades a cualquier hora del día</p>
+          <p class="feature-text">Atendemos tus necesidades a cualquier hora</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
             <i class="fas fa-tags"></i>
           </div>
-          <h3 class="feature-title">Precios competitivos</h3>
-          <p class="feature-text">Los mejores precios en productos de primera necesidad</p>
+          <h3 class="feature-title">Precios bajos</h3>
+          <p class="feature-text">Los mejores precios en productos básicos</p>
         </div>
         
         <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-store"></i>
           </div>
-          <h3 class="feature-title">Ubicación conveniente</h3>
-          <p class="feature-text">En el corazón de Playa del Carmen, Calle 72 entre 29B y 29C</p>
+          <h3 class="feature-title">Variedad</h3>
+          <p class="feature-text">Desde alimentos hasta artículos de aseo</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección de productos destacados -->
+  <!-- Sección de productos destacados (actualizada) -->
   <section class="featured-products">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Productos destacados</h2>
-        <p class="section-description">Algunos de nuestros productos más populares</p>
+        <p class="section-description">Lo más solicitado por nuestros clientes</p>
       </div>
       
       <div class="products-grid">
-        <!-- Producto destacado 1 -->
-        <div class="product-card">
+        <!-- Producto 1 - Galletas María -->
+        <div class="product-card" data-category="alimentos">
           <div class="product-image-container">
-            <img src="./assets/img/productos/refresco.jpg" alt="Refresco en Lata" class="product-image">
+            <img src="./assets/img/productos/galletas_maría.jpg" alt="Galletas María 400g" class="product-image" loading="lazy">
+            <span class="product-badge">Popular</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Galletas María</h3>
+            <p class="product-description">Paquete de 400g, clásicas y deliciosas</p>
+            <div class="product-footer">
+              <span class="product-price">$25.00</span>
+              <a href="productos.html#galletas" class="btn btn-product">Ver más</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Producto 2 - Refresco -->
+        <div class="product-card" data-category="bebidas">
+          <div class="product-image-container">
+            <img src="./assets/img/productos/refresco.jpg" alt="Refresco en lata 355ml" class="product-image" loading="lazy">
             <span class="product-badge">Oferta</span>
           </div>
           <div class="product-info">
-            <h3 class="product-title">Refresco en Lata</h3>
-            <p class="product-description">Variedad de sabores: Cola, Naranja, Limón</p>
+            <h3 class="product-title">Refrescos</h3>
+            <p class="product-description">Variedad de sabores, 355ml por lata</p>
             <div class="product-footer">
               <span class="product-price">$15.00</span>
-              <a href="productos.html" class="btn btn-product">Ver más</a>
+              <a href="productos.html#bebidas" class="btn btn-product">Ver más</a>
             </div>
           </div>
         </div>
         
-        <!-- Producto destacado 2 -->
-        <div class="product-card">
+        <!-- Producto 3 - Crokantinas -->
+        <div class="product-card" data-category="alimentos">
           <div class="product-image-container">
-            <img src="./assets/img/productos/galletas.jpg" alt="Galletas Diversas" class="product-image">
+            <img src="./assets/img/productos/crokantinas.jpg" alt="Crokantinas 150g" class="product-image" loading="lazy">
           </div>
           <div class="product-info">
-            <h3 class="product-title">Galletas Diversas</h3>
-            <p class="product-description">Paquetes de 200g, variedad dulces y saladas</p>
+            <h3 class="product-title">Crokantinas</h3>
+            <p class="product-description">Galletas con chispas de chocolate</p>
             <div class="product-footer">
-              <span class="product-price">$28.00</span>
-              <a href="productos.html" class="btn btn-product">Ver más</a>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Producto destacado 3 -->
-        <div class="product-card">
-          <div class="product-image-container">
-            <img src="./assets/img/productos/jabon.jpg" alt="Jabón de Baño" class="product-image">
-            <span class="product-badge">Nuevo</span>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Jabón de Baño</h3>
-            <p class="product-description">Variedad de aromas, 90g por unidad</p>
-            <div class="product-footer">
-              <span class="product-price">$12.00</span>
-              <a href="productos.html" class="btn btn-product">Ver más</a>
+              <span class="product-price">$30.00</span>
+              <a href="productos.html#galletas" class="btn btn-product">Ver más</a>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="text-center">
-        <a href="productos.html" class="btn btn-primary">Ver todos los productos</a>
+      <div class="text-center" style="margin-top: 2rem;">
+        <a href="productos.html" class="btn btn-primary">
+          <i class="fas fa-store-alt"></i> Ver todos los productos
+        </a>
       </div>
     </div>
   </section>
@@ -148,13 +150,14 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="./assets/img/logo-white.png" alt="Logo Kiosc072" class="footer-logo">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosc072" class="footer-logo" loading="lazy">
           <p class="footer-text">Tu tienda de conveniencia en Playa del Carmen</p>
         </div>
         
         <div class="footer-col">
           <h4 class="footer-title">Horario</h4>
-          <p class="footer-text">Abierto 24 horas</p>
+          <p class="footer-text">Abierto las 24 horas</p>
+          <p class="footer-text">Todos los días</p>
         </div>
         
         <div class="footer-col">
@@ -162,6 +165,9 @@
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
+            </li>
+            <li class="footer-contact-item">
+              <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5255975867">Envíanos un mensaje</a>
             </li>
             <li class="footer-contact-item">
               <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
