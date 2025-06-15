@@ -472,6 +472,12 @@ button {
   color: var(--cafe-oscuro);
 }
 
+/* Nuevo estilo para badges "Popular" */
+.product-badge.popular {
+  background-color: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+}
+
 .product-info {
   padding: 1rem;
 }
@@ -1020,4 +1026,33 @@ button {
   .hero-title {
     font-size: 3.5rem;
   }
+}
+
+/* Ajustes específicos para la página de inicio (index.html) */
+.featured-products .products-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Mejoras para badges de productos */
+.product-badge {
+  background-color: var(--acento);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Estilo para badges "Popular" */
+.product-badge.popular {
+  background-color: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .featured-products .products-grid {
+    grid-template-columns: 1fr;
   }
+}
