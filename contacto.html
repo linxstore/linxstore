@@ -7,15 +7,256 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos para el logo centrado y animado */
+    .header-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .logo-img {
+      height: 80px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: logoEntrance 0.8s ease-out forwards;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--blanco);
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    @keyframes logoEntrance {
+      0% {
+        transform: scale(0.8) rotate(-10deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+      }
+    }
+    
+    /* Efecto hover para el logo */
+    .logo:hover .logo-img {
+      transform: rotate(-5deg) scale(1.1);
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    .logo:hover .logo-text {
+      color: var(--cafe-claro);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Ajustes para pantallas grandes */
+    @media (min-width: 768px) {
+      .header-logo-container {
+        width: auto;
+        margin-bottom: 0;
+        flex-direction: row;
+        gap: 15px;
+      }
+      
+      .logo-img {
+        height: 70px;
+      }
+      
+      .logo-text {
+        font-size: 1.5rem;
+        margin-top: 0;
+      }
+      
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    /* Estilos específicos para la página de contacto */
+    .contact-hero {
+      background: linear-gradient(135deg, var(--cafe-oscuro) 0%, var(--acento) 100%);
+    }
+    
+    .contact-container {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .contact-card {
+      background-color: var(--blanco);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+    }
+    
+    .contact-info-section {
+      background-color: var(--cafe-oscuro);
+      color: var(--blanco);
+      padding: 2rem;
+    }
+    
+    .contact-section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .contact-section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--cafe-claro);
+    }
+    
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+    
+    .contact-icon {
+      color: var(--cafe-claro);
+      font-size: 1.2rem;
+      margin-top: 0.2rem;
+    }
+    
+    .contact-item-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .social-section {
+      margin-top: 2rem;
+    }
+    
+    .social-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem;
+      height: 2.2rem;
+      background-color: var(--blanco);
+      color: var(--cafe-oscuro);
+      border-radius: 50%;
+      transition: var(--transicion);
+      font-size: 1rem;
+    }
+    
+    .social-link:hover {
+      transform: scale(1.1);
+      background-color: var(--cafe-claro);
+    }
+    
+    .whatsapp-section {
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .whatsapp-icon {
+      font-size: 3rem;
+      color: var(--cafe-claro);
+      margin-bottom: 1rem;
+    }
+    
+    .whatsapp-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cafe-oscuro);
+      margin-bottom: 0.5rem;
+    }
+    
+    .whatsapp-subtitle {
+      color: var(--texto);
+      margin-bottom: 1.5rem;
+      max-width: 300px;
+    }
+    
+    .btn-whatsapp {
+      background-color: var(--verde-whatsapp);
+      color: var(--blanco);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transicion);
+    }
+    
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+      transform: translateY(-2px);
+    }
+    
+    .whatsapp-note {
+      font-size: 0.875rem;
+      color: var(--texto);
+      margin-top: 1rem;
+      font-style: italic;
+    }
+    
+    .whatsapp-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      color: var(--cafe-oscuro);
+      font-weight: 500;
+    }
+    
+    @media (min-width: 768px) {
+      .contact-card {
+        display: flex;
+      }
+      
+      .contact-info-section {
+        width: 50%;
+        padding: 2rem;
+      }
+      
+      .whatsapp-section {
+        width: 50%;
+        padding: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header con logo centrado -->
   <header class="header">
     <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="./assets/img/logo.png" alt="Logo Kiosc072" class="logo-img">
-        <span class="logo-text">KIOSCO72</span>
-      </a>
+      <div class="header-logo-container">
+        <a href="index.html" class="logo">
+          <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img">
+          <span class="logo-text">KIOSCO72</span>
+        </a>
+      </div>
       
       <nav class="main-nav">
         <a href="index.html" class="nav-link">Inicio</a>
@@ -23,7 +264,7 @@
         <a href="contacto.html" class="nav-link active">Contacto</a>
       </nav>
       
-      <button id="menu-btn" class="mobile-menu-btn">
+      <button id="menu-btn" class="mobile-menu-btn" aria-label="Menú móvil">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -148,6 +389,52 @@
     </div>
   </footer>
 
-  <script src="./js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ==================== MENÚ MÓVIL ====================
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('show');
+          const icon = this.querySelector('i');
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+
+          // Cerrar menú al hacer clic fuera de él
+          if (mobileMenu.classList.contains('show')) {
+            document.addEventListener('click', closeMenuOnClickOutside);
+          } else {
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          }
+        });
+
+        function closeMenuOnClickOutside(e) {
+          if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
+            mobileMenu.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-times', 'fa-bars');
+            }
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          }
+        }
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-times', 'fa-bars');
+            }
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          });
+        });
+      }
+    });
+  </script>
 </body>
-  </html>
+</html>
