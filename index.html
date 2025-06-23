@@ -8,6 +8,77 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Estilos para el logo centrado y animado */
+    .header-logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .logo-img {
+      height: 80px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: logoEntrance 0.8s ease-out forwards;
+    }
+    
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--blanco);
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    @keyframes logoEntrance {
+      0% {
+        transform: scale(0.8) rotate(-10deg);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+      }
+    }
+    
+    /* Efecto hover para el logo */
+    .logo:hover .logo-img {
+      transform: rotate(-5deg) scale(1.1);
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    .logo:hover .logo-text {
+      color: var(--cafe-claro);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Ajustes para pantallas grandes */
+    @media (min-width: 768px) {
+      .header-logo-container {
+        width: auto;
+        margin-bottom: 0;
+        flex-direction: row;
+        gap: 15px;
+      }
+      
+      .logo-img {
+        height: 70px;
+      }
+      
+      .logo-text {
+        font-size: 1.5rem;
+        margin-top: 0;
+      }
+      
+      .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
     /* Estilos adicionales para el carrito */
     .cart-sidebar {
       position: fixed;
@@ -107,6 +178,12 @@
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       z-index: 998;
+      transition: all 0.3s ease;
+    }
+    
+    .cart-btn:hover {
+      transform: scale(1.1);
+      background: var(--cafe-oscuro);
     }
     
     .cart-count {
@@ -126,13 +203,15 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header con logo centrado -->
   <header class="header">
     <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img" loading="lazy">
-        <span class="logo-text">KIOSCO72</span>
-      </a>
+      <div class="header-logo-container">
+        <a href="index.html" class="logo">
+          <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img" loading="lazy">
+          <span class="logo-text">KIOSCO72</span>
+        </a>
+      </div>
       
       <nav class="main-nav">
         <a href="index.html" class="nav-link active">Inicio</a>
@@ -197,7 +276,7 @@
     </div>
   </section>
 
-  <!-- Sección de productos destacados (actualizada) -->
+  <!-- Sección de productos destacados -->
   <section class="featured-products">
     <div class="container">
       <div class="section-header">
