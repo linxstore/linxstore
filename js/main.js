@@ -1,17 +1,20 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Menú móvil - Funcionalidad mejorada
+  // MenÃº mÃ³vil - Funcionalidad mejorada
   const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
+  const mobileMenu = document.getElementById('mobile-menu') || document.querySelector('.main-nav');
+
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', function() {
       mobileMenu.classList.toggle('show');
+      mobileMenu.classList.toggle('active'); // Soporte adicional para .active en lugar de .show
+
       const icon = this.querySelector('i');
       icon.classList.toggle('fa-bars');
       icon.classList.toggle('fa-times');
-      
-      // Cerrar menú al hacer clic fuera de él
-      if (mobileMenu.classList.contains('show')) {
+
+      // Cerrar menÃº al hacer clic fuera de Ã©l
+      if (mobileMenu.classList.contains('show') || mobileMenu.classList.contains('active')) {
         document.addEventListener('click', closeMenuOnClickOutside);
       } else {
         document.removeEventListener('click', closeMenuOnClickOutside);
@@ -20,16 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeMenuOnClickOutside(e) {
       if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
-        mobileMenu.classList.remove('show');
+        mobileMenu.classList.remove('show', 'active');
         menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
         document.removeEventListener('click', closeMenuOnClickOutside);
       }
     }
 
-    // Cerrar menú al hacer clic en enlace
-    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+    // Cerrar menÃº al hacer clic en enlace
+    document.querySelectorAll('.mobile-menu-link, .nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        mobileMenu.classList.remove('show');
+        mobileMenu.classList.remove('show', 'active');
         menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
         document.removeEventListener('click', closeMenuOnClickOutside);
       });
@@ -39,13 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Sistema de carrito mejorado
   if (document.getElementById('cart-sidebar')) {
     let cart = JSON.parse(localStorage.getItem('kiosc072-cart')) || [];
-    
+
     const updateCart = () => {
       const cartItemsContainer = document.getElementById('cart-items');
       const cartTotalElement = document.getElementById('cart-total');
       const cartCountElement = document.getElementById('cart-count');
       const cartEmptyElement = document.getElementById('cart-empty');
-      
+
       cartItemsContainer.innerHTML = '';
       let total = 0;
 
@@ -80,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const index = e.target.closest('button').getAttribute('data-index');
           cart.splice(index, 1);
           updateCart();
-          
+
           // Feedback visual
           e.target.closest('button').innerHTML = '<i class="fas fa-check"></i>';
           setTimeout(() => {
@@ -90,25 +93,25 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     };
 
-    // Botones "Agregar al carrito" con prevención de doble clic
+    // Botones "Agregar al carrito" con prevenciÃ³n de doble clic
     document.querySelectorAll('.add-to-cart').forEach(button => {
       button.addEventListener('click', function() {
         if (this.classList.contains('adding')) return;
-        
+
         this.classList.add('adding');
         const productCard = this.closest('.product-card');
         const productName = productCard.querySelector('.product-title').textContent;
         const productPrice = parseFloat(
           productCard.querySelector('.product-price').textContent.replace('$', '')
         );
-        
+
         cart.push({ name: productName, price: productPrice });
         updateCart();
-        
+
         // Efecto visual mejorado
-        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+        this.innerHTML = '<i class="fas fa-check"></i> Â¡Agregado!';
         this.classList.add('btn-success');
-        
+
         setTimeout(() => {
           this.innerHTML = 'Agregar';
           this.classList.remove('btn-success', 'adding');
@@ -125,23 +128,23 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('cart-sidebar').classList.remove('show');
     });
 
-    // WhatsApp con validación mejorada
+    // WhatsApp con validaciÃ³n mejorada
     document.getElementById('send-whatsapp')?.addEventListener('click', function() {
       if (cart.length === 0) {
-        alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
+        alert("Â¡Tu carrito estÃ¡ vacÃ­o! Agrega productos antes de enviar el pedido.");
         return;
       }
-      
-      let message = "¡Hola Kiosc072! Quiero hacer este pedido:%0A%0A";
+
+      let message = "Â¡Hola Kiosc072! Quiero hacer este pedido:%0A%0A";
       let total = 0;
-      
+
       cart.forEach(item => {
         message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
         total += item.price;
       });
-      
-      message += `%0A*Total:* $${total.toFixed(2)}%0A%0A*Dirección de entrega:*%0A[Por favor escribe tu dirección aquí]%0A%0A*Notas adicionales:*%0A[Indica si tienes alguna instrucción especial]`;
-      
+
+      message += `%0A*Total:* $${total.toFixed(2)}%0A%0A*DirecciÃ³n de entrega:*%0A[Por favor escribe tu direcciÃ³n aquÃ­]%0A%0A*Notas adicionales:*%0A[Indica si tienes alguna instrucciÃ³n especial]`;
+
       window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
     });
 
@@ -152,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', (e) => {
       const cartSidebar = document.getElementById('cart-sidebar');
       const openCartBtn = document.getElementById('open-cart-btn');
-      
+
       if (cartSidebar.classList.contains('show') && 
           !cartSidebar.contains(e.target) && 
           e.target !== openCartBtn) {
