@@ -7,6 +7,123 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos adicionales para el carrito */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 350px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      transition: right 0.3s ease;
+      z-index: 1000;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    
+    .cart-sidebar.show {
+      right: 0;
+    }
+    
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    #close-cart {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .cart-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0;
+      text-align: center;
+    }
+    
+    .cart-empty i {
+      font-size: 2.5rem;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+    
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 15px;
+      width: 100%;
+      cursor: pointer;
+    }
+    
+    .cart-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      display: none;
+    }
+    
+    .cart-overlay.show {
+      display: block;
+    }
+    
+    /* Estilo para el botón del carrito */
+    .cart-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2c3e50;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 998;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #e74c3c;
+      color: white;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -100,7 +217,7 @@
             <p class="product-description">Paquete de 400g, clásicas y deliciosas</p>
             <div class="product-footer">
               <span class="product-price">$25.00</span>
-              <a href="productos.html#galletas" class="btn btn-product">Ver más</a>
+              <button class="btn btn-product add-to-cart" data-name="Galletas María" data-price="25.00">Agregar</button>
             </div>
           </div>
         </div>
@@ -116,7 +233,7 @@
             <p class="product-description">Variedad de sabores, 355ml por lata</p>
             <div class="product-footer">
               <span class="product-price">$15.00</span>
-              <a href="productos.html#bebidas" class="btn btn-product">Ver más</a>
+              <button class="btn btn-product add-to-cart" data-name="Refresco" data-price="15.00">Agregar</button>
             </div>
           </div>
         </div>
@@ -131,7 +248,7 @@
             <p class="product-description">Galletas con chispas de chocolate</p>
             <div class="product-footer">
               <span class="product-price">$30.00</span>
-              <a href="productos.html#galletas" class="btn btn-product">Ver más</a>
+              <button class="btn btn-product add-to-cart" data-name="Crokantinas" data-price="30.00">Agregar</button>
             </div>
           </div>
         </div>
@@ -182,6 +299,199 @@
     </div>
   </footer>
 
-  <script src="./js/main.js"></script>
+  <!-- Botón flotante del carrito -->
+  <div class="cart-btn" id="open-cart-btn">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cart-count">0</span>
+  </div>
+
+  <!-- Sidebar del carrito -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button id="close-cart"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="cart-empty" class="cart-empty">
+      <i class="fas fa-shopping-cart"></i>
+      <p>Tu carrito está vacío</p>
+    </div>
+    <ul id="cart-items"></ul>
+    <div class="cart-footer">
+      <p>Total: $<span id="cart-total">0.00</span></p>
+      <button id="send-whatsapp" class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Enviar pedido
+      </button>
+    </div>
+  </div>
+
+  <!-- Overlay para el carrito -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // ==================== MENÚ MÓVIL ====================
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('show');
+          const icon = this.querySelector('i');
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+
+          // Cerrar menú al hacer clic fuera de él
+          if (mobileMenu.classList.contains('show')) {
+            document.addEventListener('click', closeMenuOnClickOutside);
+          } else {
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          }
+        });
+
+        function closeMenuOnClickOutside(e) {
+          if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
+            mobileMenu.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-times', 'fa-bars');
+            }
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          }
+        }
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-times', 'fa-bars');
+            }
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          });
+        });
+      }
+
+      // ==================== SISTEMA DE CARRITO ====================
+      let cart = JSON.parse(localStorage.getItem('kiosc072-cart')) || [];
+
+      const updateCart = () => {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartEmptyElement = document.getElementById('cart-empty');
+        
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+          cartEmptyElement.style.display = 'flex';
+        } else {
+          cartEmptyElement.style.display = 'none';
+          cart.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.className = 'cart-item';
+            li.innerHTML = `
+              <span>${item.name}</span>
+              <div class="cart-item-price">
+                <span>$${item.price.toFixed(2)}</span>
+                <button class="remove-item" data-index="${index}" aria-label="Eliminar producto">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            `;
+            cartItemsContainer.appendChild(li);
+            total += item.price;
+          });
+        }
+
+        cartTotalElement.textContent = total.toFixed(2);
+        cartCountElement.textContent = cart.length;
+        localStorage.setItem('kiosc072-cart', JSON.stringify(cart));
+
+        // Event listeners para botones de eliminar
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const index = e.target.closest('button').getAttribute('data-index');
+            cart.splice(index, 1);
+            updateCart();
+            
+            // Feedback visual
+            const icon = e.target.closest('button').querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-trash', 'fa-check');
+              setTimeout(() => {
+                updateCart();
+              }, 500);
+            }
+          });
+        });
+      };
+
+      // Botones "Agregar al carrito"
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          if (this.classList.contains('adding')) return;
+          
+          this.classList.add('adding');
+          const productName = this.getAttribute('data-name');
+          const productPrice = parseFloat(this.getAttribute('data-price'));
+          
+          cart.push({ name: productName, price: productPrice });
+          updateCart();
+          
+          // Efecto visual
+          this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+          this.classList.add('btn-success');
+          
+          setTimeout(() => {
+            this.innerHTML = 'Agregar';
+            this.classList.remove('btn-success', 'adding');
+          }, 2000);
+        });
+      });
+
+      // Botones del carrito
+      document.getElementById('open-cart-btn')?.addEventListener('click', () => {
+        document.getElementById('cart-sidebar').classList.add('show');
+        document.getElementById('cart-overlay').classList.add('show');
+      });
+
+      document.getElementById('close-cart')?.addEventListener('click', () => {
+        document.getElementById('cart-sidebar').classList.remove('show');
+        document.getElementById('cart-overlay').classList.remove('show');
+      });
+
+      // Cerrar carrito al hacer clic en el overlay
+      document.getElementById('cart-overlay')?.addEventListener('click', () => {
+        document.getElementById('cart-sidebar').classList.remove('show');
+        document.getElementById('cart-overlay').classList.remove('show');
+      });
+
+      // WhatsApp con validación mejorada
+      document.getElementById('send-whatsapp')?.addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
+          return;
+        }
+        
+        let message = "¡Hola Kiosco72! Quiero hacer este pedido:%0A%0A";
+        let total = 0;
+        
+        cart.forEach(item => {
+          message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
+          total += item.price;
+        });
+        
+        message += `%0A*Total:* $${total.toFixed(2)}%0A%0A*Dirección de entrega:*%0A[Por favor escribe tu dirección aquí]%0A%0A*Notas adicionales:*%0A[Indica si tienes alguna instrucción especial]`;
+        
+        window.open(`https://wa.me/5255975867?text=${message}`, "_blank");
+      });
+
+      // Inicializar carrito
+      updateCart();
+    });
+  </script>
 </body>
 </html>
