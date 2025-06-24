@@ -1,4 +1,4 @@
-/* styles.css - Estilos optimizados para Kiosco72 */
+/* styles.css - Estilos optimizados para Kiosco72 - Versión Mejorada */
 :root {
   /* Colores */
   --cafe-oscuro: #4B382A;
@@ -12,7 +12,7 @@
   --verde-whatsapp: #25D366;
   
   /* Tipografía */
-  --fuente: 'Inter', sans-serif;
+  --fuente: 'Inter', system-ui, sans-serif;
   
   /* Efectos */
   --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -23,6 +23,12 @@
 /* -----------------------------------------------------------
    Estructura base
    ----------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -37,6 +43,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
+  padding-top: 70px; /* Espacio para header fijo */
 }
 
 main {
@@ -57,8 +65,10 @@ main {
 .header {
   background-color: var(--cafe-oscuro);
   color: var(--blanco);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: var(--sombra);
   padding: 0.5rem 0;
@@ -66,9 +76,10 @@ main {
 
 .header-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centramos el logo */
   align-items: center;
   position: relative;
+  padding: 0 1rem;
 }
 
 .logo {
@@ -80,11 +91,20 @@ main {
 
 .logo:hover {
   opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Animación para el logo */
+@keyframes logoFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
 }
 
 .logo-img {
-  height: 50px;
+  height: 60px;
   transition: var(--transicion);
+  animation: logoFloat 3s ease-in-out infinite;
 }
 
 .logo-text {
@@ -93,41 +113,10 @@ main {
   display: none;
 }
 
-/* Menú principal */
-.main-nav {
-  display: none;
-  gap: 1.5rem;
-}
-
-.nav-link {
-  color: var(--blanco);
-  position: relative;
-  padding: 0.5rem 0;
-  font-weight: 500;
-  transition: var(--transicion);
-}
-
-.nav-link:hover {
-  color: var(--cafe-claro);
-}
-
-.nav-link.active {
-  color: var(--cafe-claro);
-  font-weight: 600;
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--cafe-claro);
-}
-
 /* Menú móvil mejorado */
 .mobile-menu-btn {
+  position: absolute;
+  right: 1rem;
   background: none;
   border: none;
   color: var(--blanco);
@@ -168,6 +157,8 @@ main {
   padding: 0.8rem 1.5rem;
   color: var(--blanco);
   transition: var(--transicion);
+  text-align: center;
+  font-size: 1.1rem;
 }
 
 .mobile-menu-link:hover,
@@ -185,6 +176,21 @@ main {
   text-align: center;
   padding: 3rem 1rem;
   margin-bottom: 2rem;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+  background-size: cover;
+  opacity: 0.2;
 }
 
 .hero-title {
@@ -192,6 +198,8 @@ main {
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  position: relative;
 }
 
 .hero-subtitle {
@@ -199,6 +207,19 @@ main {
   max-width: 600px;
   margin: 0 auto;
   opacity: 0.9;
+  position: relative;
+}
+
+/* Decoración para Hero */
+.hero-decoration {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  bottom: -30px;
+  right: -30px;
+  z-index: 0;
 }
 
 /* -----------------------------------------------------------
@@ -215,6 +236,7 @@ main {
   padding: 1rem 0;
   margin-bottom: 1rem;
   scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .category-filters::-webkit-scrollbar {
@@ -230,6 +252,7 @@ main {
   cursor: pointer;
   transition: var(--transicion);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .category-filter:hover {
@@ -251,10 +274,13 @@ main {
 
 .product-card {
   background: var(--blanco);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--sombra);
   transition: var(--transicion);
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
@@ -284,6 +310,7 @@ main {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--blanco);
+  z-index: 2;
 }
 
 .product-badge-offer {
@@ -297,6 +324,9 @@ main {
 
 .product-info {
   padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-title {
@@ -329,12 +359,14 @@ main {
   color: var(--texto);
   margin-bottom: 1rem;
   line-height: 1.5;
+  flex-grow: 1;
 }
 
 .product-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .price-container {
@@ -362,13 +394,14 @@ main {
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.2rem;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 500;
   font-size: 0.9rem;
   transition: var(--transicion);
   cursor: pointer;
   border: none;
   gap: 0.5rem;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -379,11 +412,13 @@ main {
   background-color: var(--cafe-claro);
   color: var(--cafe-oscuro);
   font-weight: 600;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
 
 .btn-product:hover {
   background-color: var(--cafe-oscuro);
   color: var(--blanco);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 /* Estado de botón al agregar producto */
@@ -420,6 +455,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: var(--cafe-oscuro);
+  color: var(--blanco);
 }
 
 .cart-title {
@@ -427,20 +464,20 @@ main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--cafe-oscuro);
+  color: var(--blanco);
 }
 
 .cart-close-btn {
   background: none;
   border: none;
   font-size: 1.2rem;
-  color: #666;
+  color: var(--blanco);
   cursor: pointer;
   transition: var(--transicion);
 }
 
 .cart-close-btn:hover {
-  color: var(--acento);
+  color: var(--cafe-claro);
 }
 
 .cart-content {
@@ -517,12 +554,21 @@ main {
 .cart-summary {
   padding: 1rem;
   border-top: 1px solid var(--gris-medio);
+  background: var(--gris-claro);
 }
 
 .cart-total-line {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.cart-total-line.total {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cafe-oscuro);
+  margin-top: 0.5rem;
 }
 
 .btn-whatsapp {
@@ -536,10 +582,14 @@ main {
   justify-content: center;
   gap: 0.5rem;
   font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
 
 .btn-whatsapp:hover {
   background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
 .cart-floating-btn {
@@ -566,6 +616,7 @@ main {
   transform: scale(1.1);
   background: var(--cafe-claro);
   color: var(--cafe-oscuro);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
 .cart-count-badge {
@@ -607,11 +658,13 @@ main {
 
 .footer-col {
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .footer-logo {
   height: 50px;
   margin-bottom: 1rem;
+  filter: brightness(0) invert(1);
 }
 
 .footer-title {
@@ -634,6 +687,7 @@ main {
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-size: 0.9rem;
   opacity: 0.8;
@@ -660,6 +714,25 @@ main {
 /* -----------------------------------------------------------
    Media Queries - Responsive Design
    ----------------------------------------------------------- */
+@media (max-width: 767px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .product-image-container {
+    height: 200px;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
 @media (min-width: 640px) {
   .logo-text {
     display: inline;
@@ -673,22 +746,23 @@ main {
     font-size: 2.5rem;
   }
   
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  }
-  
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-col {
+    text-align: left;
+  }
+  
+  .footer-contact-item {
+    justify-content: flex-start;
   }
 }
 
 @media (min-width: 768px) {
   .header-container {
     padding: 0.5rem 1rem;
-  }
-  
-  .main-nav {
-    display: flex;
+    justify-content: space-between;
   }
   
   .mobile-menu-btn {
@@ -851,4 +925,31 @@ main {
   .contact-container {
     grid-template-columns: 1fr 1fr;
   }
-  }
+}
+
+/* -----------------------------------------------------------
+   Mejoras adicionales
+   ----------------------------------------------------------- */
+/* Mejora para inputs en móviles */
+input, select, textarea {
+  font-size: 16px; /* Evita zoom automático en iOS */
+}
+
+/* Mejora de scroll en móviles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gris-claro);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cafe-claro);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cafe-oscuro);
+}
