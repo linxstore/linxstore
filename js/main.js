@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileMenu = document.getElementById('mobile-menu');
 
   if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', function() {
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
       mobileMenu.classList.toggle('show');
       const icon = this.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-
-      // Cerrar menú al hacer clic fuera de él
+      
       if (mobileMenu.classList.contains('show')) {
+        icon.classList.replace('fa-bars', 'fa-times');
         document.addEventListener('click', closeMenuOnClickOutside);
       } else {
+        icon.classList.replace('fa-times', 'fa-bars');
         document.removeEventListener('click', closeMenuOnClickOutside);
       }
     });
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ==================== SISTEMA DE CARRITO ====================
   if (document.getElementById('cart-sidebar')) {
-    let cart = JSON.parse(localStorage.getItem('kiosc072-cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
 
     const updateCart = () => {
       const cartItemsContainer = document.getElementById('cart-items');
@@ -56,36 +56,46 @@ document.addEventListener('DOMContentLoaded', function() {
       
       cartItemsContainer.innerHTML = '';
       let total = 0;
+      let itemCount = 0;
 
       if (cart.length === 0) {
         cartEmptyElement.style.display = 'flex';
+        cartItemsContainer.style.display = 'none';
       } else {
         cartEmptyElement.style.display = 'none';
+        cartItemsContainer.style.display = 'block';
+        
         cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          itemCount += item.quantity;
+          
           const li = document.createElement('li');
           li.className = 'cart-item';
           li.innerHTML = `
-            <span>${item.name}</span>
-            <div class="cart-item-price">
-              <span>$${item.price.toFixed(2)}</span>
-              <button class="remove-item" data-index="${index}" aria-label="Eliminar producto">
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+            </div>
+            <div class="cart-item-actions">
+              <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
+              <button class="remove-item" data-index="${index}">
                 <i class="fas fa-trash"></i>
               </button>
             </div>
           `;
           cartItemsContainer.appendChild(li);
-          total += item.price;
         });
       }
 
       cartTotalElement.textContent = total.toFixed(2);
-      cartCountElement.textContent = cart.length;
-      localStorage.setItem('kiosc072-cart', JSON.stringify(cart));
+      cartCountElement.textContent = itemCount;
+      localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
 
       // Event listeners para botones de eliminar
       document.querySelectorAll('.remove-item').forEach(button => {
         button.addEventListener('click', (e) => {
-          const index = e.target.closest('button').getAttribute('data-index');
+          const index = parseInt(e.target.closest('button').getAttribute('data-index'));
           cart.splice(index, 1);
           updateCart();
           
@@ -107,24 +117,44 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this.classList.contains('adding')) return;
         
         this.classList.add('adding');
-        const productCard = this.closest('.product-card');
-        const productName = productCard?.querySelector('.product-title')?.textContent;
-        const priceText = productCard?.querySelector('.product-price')?.textContent;
-        const productPrice = priceText ? parseFloat(priceText.replace('$', '')) : 0;
-
-        if (productName && productPrice) {
-          cart.push({ name: productName, price: productPrice });
-          updateCart();
-          
-          // Efecto visual
-          this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
-          this.classList.add('btn-success');
-          
-          setTimeout(() => {
-            this.innerHTML = 'Agregar';
-            this.classList.remove('btn-success', 'adding');
-          }, 2000);
+        const productId = this.getAttribute('data-id');
+        const productName = this.getAttribute('data-name');
+        const productPrice = parseFloat(this.getAttribute('data-price'));
+        
+        // Verificar si el producto ya está en el carrito
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ 
+            id: productId,
+            name: productName, 
+            price: productPrice,
+            quantity: 1
+          });
         }
+        
+        updateCart();
+        
+        // Efecto visual
+        const originalHTML = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+        this.classList.add('btn-success');
+        
+        // Animación de botón de carrito
+        const cartCount = document.getElementById('cart-count');
+        if (cartCount) {
+          cartCount.classList.add('pulse');
+          setTimeout(() => {
+            cartCount.classList.remove('pulse');
+          }, 500);
+        }
+        
+        setTimeout(() => {
+          this.innerHTML = originalHTML;
+          this.classList.remove('btn-success', 'adding');
+        }, 2000);
       });
     });
 
@@ -144,21 +174,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      let message = "¡Hola Kiosc072! Quiero hacer este pedido:%0A%0A";
+      let message = "¡Hola Kiosco72! Quiero hacer este pedido:%0A%0A";
       let total = 0;
       
       cart.forEach(item => {
-        message += `- ${item.name}: $${item.price.toFixed(2)}%0A`;
-        total += item.price;
+        const itemTotal = item.price * item.quantity;
+        message += `- ${item.name} x${item.quantity}: $${itemTotal.toFixed(2)}%0A`;
+        total += itemTotal;
       });
       
       message += `%0A*Total:* $${total.toFixed(2)}%0A%0A*Dirección de entrega:*%0A[Por favor escribe tu dirección aquí]%0A%0A*Notas adicionales:*%0A[Indica si tienes alguna instrucción especial]`;
       
       window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
     });
-
-    // Inicializar carrito
-    updateCart();
 
     // Cerrar carrito al hacer clic fuera
     document.addEventListener('click', (e) => {
@@ -167,9 +195,13 @@ document.addEventListener('DOMContentLoaded', function() {
       
       if (cartSidebar?.classList.contains('show') && 
           !cartSidebar.contains(e.target) && 
-          e.target !== openCartBtn) {
+          e.target !== openCartBtn && 
+          !openCartBtn?.contains(e.target)) {
         cartSidebar.classList.remove('show');
       }
     });
+
+    // Inicializar carrito
+    updateCart();
   }
 });
