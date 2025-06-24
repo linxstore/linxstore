@@ -145,6 +145,11 @@
       margin-top: 15px;
       width: 100%;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .btn-whatsapp:hover {
+      background: #128C7E;
     }
     
     .cart-overlay {
@@ -177,7 +182,7 @@
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 998;
+      z-index: 1001; /* Aseguramos que esté sobre todo */
       transition: all 0.3s ease;
     }
     
@@ -199,6 +204,76 @@
       align-items: center;
       justify-content: center;
       font-size: 12px;
+    }
+
+    /* ===== CORRECCIONES ADICIONALES ===== */
+    /* Menú móvil - Estilos faltantes */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--cafe-oscuro);
+      z-index: 100;
+      flex-direction: column;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    
+    .mobile-menu.show {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .mobile-menu-link {
+      padding: 0.8rem 1.5rem;
+      color: var(--blanco);
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    
+    .mobile-menu-link:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    
+    /* Responsive: Ocultar menú principal en móviles */
+    @media (max-width: 767px) {
+      .main-nav {
+        display: none;
+      }
+      
+      .header-logo-container {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+    
+    /* Estilo para botón de éxito */
+    .btn-success {
+      background-color: #28a745 !important;
+      border-color: #28a745 !important;
+    }
+    
+    /* Animaciones para acciones de carrito */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse {
+      animation: pulse 0.5s ease;
     }
   </style>
 </head>
@@ -235,7 +310,7 @@
   <section class="hero">
     <div class="container hero-content">
       <h1 class="hero-title">Bienvenido a Kiosco72</h1>
-      <p class="hero-subtitle">Tu tienda de conveniencia 24/7 en Playa , Buenavista</p>
+      <p class="hero-subtitle">Tu tienda de conveniencia 24/7 en Playa, Buenavista</p>
       <a href="productos.html" class="btn btn-hero">Ver productos</a>
     </div>
   </section>
@@ -347,7 +422,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo" loading="lazy">
-          <p class="footer-text">Tu tienda de conveniencia en Playa , Buenavista</p>
+          <p class="footer-text">Tu tienda de conveniencia en Playa, Buenavista</p>
         </div>
         
         <div class="footer-col">
@@ -408,7 +483,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // ==================== MENÚ MÓVIL ====================
+      // ==================== MENÚ MÓVIL CORREGIDO ====================
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
 
@@ -417,13 +492,12 @@
           e.stopPropagation();
           mobileMenu.classList.toggle('show');
           const icon = this.querySelector('i');
-          icon.classList.toggle('fa-bars');
-          icon.classList.toggle('fa-times');
-
-          // Cerrar menú al hacer clic fuera de él
+          
           if (mobileMenu.classList.contains('show')) {
+            icon.classList.replace('fa-bars', 'fa-times');
             document.addEventListener('click', closeMenuOnClickOutside);
           } else {
+            icon.classList.replace('fa-times', 'fa-bars');
             document.removeEventListener('click', closeMenuOnClickOutside);
           }
         });
@@ -452,8 +526,8 @@
         });
       }
 
-      // ==================== SISTEMA DE CARRITO ====================
-      let cart = JSON.parse(localStorage.getItem('kiosc072-cart')) || [];
+      // ==================== CARRITO CORREGIDO ====================
+      let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
 
       const updateCart = () => {
         const cartItemsContainer = document.getElementById('cart-items');
@@ -466,8 +540,13 @@
 
         if (cart.length === 0) {
           cartEmptyElement.style.display = 'flex';
+          cartItemsContainer.style.display = 'none';
+          document.querySelector('.cart-footer').style.display = 'none';
         } else {
           cartEmptyElement.style.display = 'none';
+          cartItemsContainer.style.display = 'block';
+          document.querySelector('.cart-footer').style.display = 'block';
+          
           cart.forEach((item, index) => {
             const li = document.createElement('li');
             li.className = 'cart-item';
@@ -487,25 +566,7 @@
 
         cartTotalElement.textContent = total.toFixed(2);
         cartCountElement.textContent = cart.length;
-        localStorage.setItem('kiosc072-cart', JSON.stringify(cart));
-
-        // Event listeners para botones de eliminar
-        document.querySelectorAll('.remove-item').forEach(button => {
-          button.addEventListener('click', (e) => {
-            const index = e.target.closest('button').getAttribute('data-index');
-            cart.splice(index, 1);
-            updateCart();
-            
-            // Feedback visual
-            const icon = e.target.closest('button').querySelector('i');
-            if (icon) {
-              icon.classList.replace('fa-trash', 'fa-check');
-              setTimeout(() => {
-                updateCart();
-              }, 500);
-            }
-          });
-        });
+        localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
       };
 
       // Botones "Agregar al carrito"
@@ -521,35 +582,59 @@
           updateCart();
           
           // Efecto visual
+          const originalHTML = this.innerHTML;
           this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
           this.classList.add('btn-success');
           
+          // Animación de botón de carrito
+          document.getElementById('cart-count').classList.add('pulse');
           setTimeout(() => {
-            this.innerHTML = 'Agregar';
+            document.getElementById('cart-count').classList.remove('pulse');
+          }, 500);
+          
+          setTimeout(() => {
+            this.innerHTML = originalHTML;
             this.classList.remove('btn-success', 'adding');
           }, 2000);
         });
       });
 
+      // Eliminar items del carrito
+      document.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-item')) {
+          const button = e.target.closest('.remove-item');
+          const index = parseInt(button.getAttribute('data-index'));
+          
+          // Animación de confirmación
+          const icon = button.querySelector('i');
+          icon.classList.replace('fa-trash', 'fa-check');
+          
+          setTimeout(() => {
+            cart.splice(index, 1);
+            updateCart();
+          }, 300);
+        }
+      });
+
       // Botones del carrito
-      document.getElementById('open-cart-btn')?.addEventListener('click', () => {
+      document.getElementById('open-cart-btn').addEventListener('click', () => {
         document.getElementById('cart-sidebar').classList.add('show');
         document.getElementById('cart-overlay').classList.add('show');
       });
 
-      document.getElementById('close-cart')?.addEventListener('click', () => {
+      document.getElementById('close-cart').addEventListener('click', () => {
         document.getElementById('cart-sidebar').classList.remove('show');
         document.getElementById('cart-overlay').classList.remove('show');
       });
 
       // Cerrar carrito al hacer clic en el overlay
-      document.getElementById('cart-overlay')?.addEventListener('click', () => {
+      document.getElementById('cart-overlay').addEventListener('click', () => {
         document.getElementById('cart-sidebar').classList.remove('show');
         document.getElementById('cart-overlay').classList.remove('show');
       });
 
-      // WhatsApp con validación mejorada
-      document.getElementById('send-whatsapp')?.addEventListener('click', function() {
+      // WhatsApp con validación
+      document.getElementById('send-whatsapp').addEventListener('click', function() {
         if (cart.length === 0) {
           alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
           return;
