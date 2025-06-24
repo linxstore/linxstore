@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilos base que deben funcionar incluso si el CSS externo falla */
+    /* Estilos base */
     :root {
       --cafe-oscuro: #5D4037;
       --cafe-claro: #8D6E63;
@@ -57,7 +57,6 @@
     .logo-img {
       height: 80px;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      animation: logoEntrance 0.8s ease-out forwards;
     }
     
     .logo-text {
@@ -65,18 +64,6 @@
       font-weight: 700;
       color: var(--blanco);
       margin-top: 0.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    @keyframes logoEntrance {
-      0% {
-        transform: scale(0.8) rotate(-10deg);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1) rotate(0);
-        opacity: 1;
-      }
     }
     
     /* Menú principal */
@@ -119,18 +106,31 @@
       background: var(--cafe-oscuro);
       padding: 1rem;
       width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 100;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateY(-10px);
+      opacity: 0;
     }
     
     .mobile-menu.show {
       display: block;
+      transform: translateY(0);
+      opacity: 1;
     }
     
     .mobile-menu-link {
       display: block;
       color: var(--blanco);
-      padding: 0.5rem 0;
+      padding: 0.8rem 1.5rem;
       text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.3s;
+    }
+    
+    .mobile-menu-link:hover {
+      background: rgba(255,255,255,0.1);
     }
     
     /* Hero Section */
@@ -169,6 +169,11 @@
       padding: 0.5rem 1rem;
       white-space: nowrap;
       cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .category-filter:hover {
+      background: #f0f0f0;
     }
     
     .category-filter.active {
@@ -407,6 +412,11 @@
       font-size: 1.2rem;
       cursor: pointer;
       padding: 0 0.5rem;
+      transition: transform 0.3s;
+    }
+    
+    .remove-item:hover {
+      transform: scale(1.1);
     }
     
     .cart-summary {
@@ -430,6 +440,15 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .btn-whatsapp:hover {
+      background: #128C7E;
     }
     
     .cart-floating-btn {
@@ -446,9 +465,15 @@
       justify-content: center;
       font-size: 1.5rem;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 999;
+      z-index: 1001;
       border: none;
       cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .cart-floating-btn:hover {
+      transform: scale(1.1);
+      background: var(--cafe-claro);
     }
     
     .cart-count-badge {
@@ -520,6 +545,15 @@
       gap: 0.5rem;
     }
     
+    .footer-contact-item a {
+      color: var(--blanco);
+      text-decoration: none;
+    }
+    
+    .footer-contact-item a:hover {
+      text-decoration: underline;
+    }
+    
     .footer-bottom {
       text-align: center;
       margin-top: 2rem;
@@ -559,6 +593,10 @@
       
       .footer-grid {
         grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
     }
   </style>
@@ -742,343 +780,4 @@
             <span class="product-stock">Disponible</span>
           </div>
           <p class="product-description">Lata de 200g, listo para consumir</p>
-          <div class="product-footer">
-            <span class="product-price">$35.00</span>
-            <button class="btn btn-product add-to-cart" data-id="7" data-name="Picadillo de Pollo" data-price="35.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 8 - Chupa Chupa -->
-      <div class="product-card" data-category="alimentos">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/chupa_chupa.jpg" alt="Chupa Chupa" class="product-image">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Chupa Chupa</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Caramelos surtidos, paquete de 10 unidades</p>
-          <div class="product-footer">
-            <span class="product-price">$12.00</span>
-            <button class="btn btn-product add-to-cart" data-id="8" data-name="Chupa Chupa" data-price="12.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 9 - Galletas -->
-      <div class="product-card" data-category="alimentos">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="product-image">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Galletas Diversas</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Paquetes de 200g, variedad dulces y saladas</p>
-          <div class="product-footer">
-            <span class="product-price">$28.00</span>
-            <button class="btn btn-product add-to-cart" data-id="9" data-name="Galletas Diversas" data-price="28.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 10 - Sopa Instantánea -->
-      <div class="product-card" data-category="alimentos">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/sopa_instantanea.jpg" alt="Sopa Instantánea" class="product-image">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Sopa Instantánea</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Variedad de sabores, paquete individual</p>
-          <div class="product-footer">
-            <span class="product-price">$10.00</span>
-            <button class="btn btn-product add-to-cart" data-id="10" data-name="Sopa Instantánea" data-price="10.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 11 - Mentaplus -->
-      <div class="product-card" data-category="alimentos">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/mentaplus.jpg" alt="Mentaplus" class="product-image">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Mentaplus</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Caramelos de menta, paquete de 15 unidades</p>
-          <div class="product-footer">
-            <span class="product-price">$15.00</span>
-            <button class="btn btn-product add-to-cart" data-id="11" data-name="Mentaplus" data-price="15.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 12 - Jabón de Baño -->
-      <div class="product-card" data-category="aseo">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="product-image">
-          <span class="product-badge product-badge-new">NUEVO</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Jabón de Baño</h3>
-          <div class="product-meta">
-            <span class="product-category">Aseo</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Variedad de aromas, 90g por unidad</p>
-          <div class="product-footer">
-            <span class="product-price">$12.00</span>
-            <button class="btn btn-product add-to-cart" data-id="12" data-name="Jabón de Baño" data-price="12.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Carrito Lateral -->
-  <div id="cart-sidebar" class="cart-sidebar">
-    <div class="cart-header">
-      <h2 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Pedido</h2>
-      <button id="close-cart" class="cart-close-btn" aria-label="Cerrar carrito">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <div class="cart-content">
-      <div class="cart-empty-state" id="cart-empty">
-        <i class="fas fa-shopping-basket"></i>
-        <p>Tu carrito está vacío</p>
-      </div>
-      <ul id="cart-items" class="cart-items-list"></ul>
-      <div class="cart-summary">
-        <div class="cart-total-line">
-          <span>Subtotal:</span>
-          <span id="cart-subtotal">$0.00</span>
-        </div>
-        <div class="cart-total-line">
-          <span>Total:</span>
-          <span id="cart-total">$0.00</span>
-        </div>
-        <button id="send-whatsapp" class="btn btn-whatsapp btn-block">
-          <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Botón flotante del carrito -->
-  <button id="open-cart-btn" class="cart-floating-btn" aria-label="Ver carrito">
-    <i class="fas fa-shopping-cart"></i>
-    <span id="cart-count" class="cart-count-badge">0</span>
-  </button>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <img src="./assets/img/logo-white.png" alt="Logo Kiosc072" class="footer-logo">
-          <p class="footer-text">Tu tienda de conveniencia en Playa , Buenavista</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4 class="footer-title">Horario</h4>
-          <p class="footer-text">Abierto 24 horas</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4 class="footer-title">Contacto</h4>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item">
-              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Kiosco72. Todos los derechos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Carrito de compras
-      let cart = [];
-      const cartButton = document.getElementById('open-cart-btn');
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const closeCart = document.getElementById('close-cart');
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotal = document.getElementById('cart-total');
-      const cartSubtotal = document.getElementById('cart-subtotal');
-      const cartCount = document.getElementById('cart-count');
-      const emptyCart = document.getElementById('cart-empty');
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-      const sendWhatsappBtn = document.getElementById('send-whatsapp');
-
-      // Menú móvil
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      // Abrir/cerrar carrito
-      cartButton.addEventListener('click', openCart);
-      closeCart.addEventListener('click', closeCart);
-
-      // Menú móvil
-      menuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('show');
-        this.classList.toggle('open');
-      });
-
-      function openCart() {
-        cartSidebar.classList.add('show');
-        updateCart();
-      }
-
-      function closeCart() {
-        cartSidebar.classList.remove('show');
-      }
-
-      // Añadir productos al carrito
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', addToCart);
-      });
-
-      function addToCart(e) {
-        const button = e.target;
-        const productId = button.getAttribute('data-id');
-        const productName = button.getAttribute('data-name');
-        const productPrice = parseFloat(button.getAttribute('data-price'));
-
-        const existingItem = cart.find(item => item.id === productId);
-
-        if (existingItem) {
-          existingItem.quantity += 1;
-        } else {
-          cart.push({
-            id: productId,
-            name: productName,
-            price: productPrice,
-            quantity: 1
-          });
-        }
-
-        updateCart();
-        
-        // Feedback visual
-        button.textContent = '✓ Añadido';
-        button.style.backgroundColor = '#28a745';
-        setTimeout(() => {
-          button.textContent = 'Agregar';
-          button.style.backgroundColor = '';
-        }, 1000);
-      }
-
-      function updateCart() {
-        cartItemsContainer.innerHTML = '';
-        
-        if (cart.length === 0) {
-          emptyCart.style.display = 'flex';
-          cartCount.textContent = '0';
-          cartSubtotal.textContent = '$0.00';
-          cartTotal.textContent = '$0.00';
-          return;
-        }
-
-        emptyCart.style.display = 'none';
-        let subtotal = 0;
-
-        cart.forEach(item => {
-          const itemTotal = item.price * item.quantity;
-          subtotal += itemTotal;
-
-          const li = document.createElement('li');
-          li.className = 'cart-item';
-          li.innerHTML = `
-            <div class="cart-item-info">
-              <h4>${item.name}</h4>
-              <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
-            </div>
-            <div class="cart-item-actions">
-              <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
-              <button class="remove-item" data-id="${item.id}">×</button>
-            </div>
-          `;
-          cartItemsContainer.appendChild(li);
-        });
-
-        // Actualizar totales
-        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-        cartTotal.textContent = `$${subtotal.toFixed(2)}`;
-
-        // Eventos para eliminar items
-        document.querySelectorAll('.remove-item').forEach(button => {
-          button.addEventListener('click', function() {
-            const itemId = this.getAttribute('data-id');
-            cart = cart.filter(item => item.id !== itemId);
-            updateCart();
-          });
-        });
-      }
-
-      // Enviar pedido por WhatsApp
-      sendWhatsappBtn.addEventListener('click', function() {
-        if (cart.length === 0) return;
-        
-        let message = "¡Hola! Quiero hacer este pedido:\n\n";
-        cart.forEach(item => {
-          message += `- ${item.name} x${item.quantity}: $${(item.price * item.quantity).toFixed(2)}\n`;
-        });
-        
-        message += `\nTotal: $${cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2)}`;
-        
-        const phone = "549123456789"; // Reemplaza con tu número
-        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-      });
-
-      // Filtros de categoría
-      const categoryFilters = document.querySelectorAll('.category-filter');
-      categoryFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
-          // Remover clase active de todos los filtros
-          categoryFilters.forEach(f => f.classList.remove('active'));
-          // Añadir clase active al filtro seleccionado
-          this.classList.add('active');
-          
-          const category = this.getAttribute('data-category');
-          filterProducts(category);
-        });
-      });
-
-      function filterProducts(category) {
-        const products = document.querySelectorAll('.product-card');
-        
-        products.forEach(product => {
-          if (category === 'all' || product.getAttribute('data-category').includes(category)) {
-            product.style.display = 'block';
-          } else {
-            product.style.display = 'none';
-          }
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+          <div clas
