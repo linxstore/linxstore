@@ -7,194 +7,13 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Estilos específicos para la página de contacto */
-    .contact-section {
-      padding: 3rem 1rem;
-      background-color: var(--beige);
-    }
-    
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .contact-info {
-      background: var(--blanco);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--sombra);
-    }
-    
-    .contact-title {
-      font-size: 1.8rem;
-      color: var(--cafe-oscuro);
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    
-    .contact-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 70px;
-      height: 4px;
-      background: var(--cafe-claro);
-      border-radius: 2px;
-    }
-    
-    .contact-details {
-      margin-top: 2rem;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--gris-medio);
-    }
-    
-    .contact-icon {
-      background: var(--cafe-claro);
-      color: var(--cafe-oscuro);
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-right: 1rem;
-      flex-shrink: 0;
-    }
-    
-    .contact-text {
-      flex: 1;
-    }
-    
-    .contact-text h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-      color: var(--cafe-oscuro);
-    }
-    
-    .contact-text p, .contact-text a {
-      font-size: 1rem;
-      color: var(--texto);
-      margin: 0;
-      transition: var(--transicion);
-    }
-    
-    .contact-text a:hover {
-      color: var(--cafe-claro);
-    }
-    
-    .contact-form {
-      background: var(--blanco);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--sombra);
-    }
-    
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: var(--cafe-oscuro);
-    }
-    
-    .form-input,
-    .form-textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 2px solid var(--gris-medio);
-      border-radius: 8px;
-      font-family: var(--fuente);
-      font-size: 1rem;
-      transition: var(--transicion);
-    }
-    
-    .form-input:focus,
-    .form-textarea:focus {
-      border-color: var(--cafe-claro);
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(212, 167, 98, 0.2);
-    }
-    
-    .form-textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    
-    .btn-submit {
-      background: var(--cafe-oscuro);
-      color: var(--blanco);
-      padding: 0.9rem 1.8rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: var(--transicion);
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
-    }
-    
-    .btn-submit:hover {
-      background: var(--cafe-claro);
-      color: var(--cafe-oscuro);
-    }
-    
-    .map-container {
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--sombra);
-      height: 350px;
-      margin-top: 3rem;
-    }
-    
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    
-    @media (min-width: 768px) {
-      .contact-container {
-        grid-template-columns: 1fr 1fr;
-      }
-      
-      .contact-title {
-        font-size: 2rem;
-      }
-    }
-    
-    @media (min-width: 992px) {
-      .contact-section {
-        padding: 4rem 1rem;
-      }
-    }
-  </style>
 </head>
 <body>
-  <!-- Header con logo centrado -->
+  <!-- Header -->
   <header class="header">
     <div class="container header-container">
       <a href="index.html" class="logo">
-        <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img">
+        <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img" loading="lazy">
         <span class="logo-text">KIOSCO72</span>
       </a>
       
@@ -225,7 +44,7 @@
   </section>
 
   <!-- Sección de Contacto -->
-  <section class="contact-section">
+  <section class="container">
     <div class="contact-container">
       <!-- Información de Contacto -->
       <div class="contact-info">
@@ -319,6 +138,43 @@
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo" loading="lazy">
+          <p class="footer-text">Tu tienda de conveniencia en Playa, Buenavista</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Horario</h4>
+          <p class="footer-text">Abierto las 24 horas</p>
+          <p class="footer-text">Todos los días</p>
+        </div>
+        
+        <div class="footer-col">
+          <h4 class="footer-title">Contacto</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
+            </li>
+            <li class="footer-contact-item">
+              <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5354833899" target="_blank">Envíanos un mensaje</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Kiosco72. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
   <!-- Botón flotante del carrito -->
   <button class="cart-floating-btn" id="open-cart-btn">
     <i class="fas fa-shopping-cart"></i>
@@ -355,254 +211,7 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo">
-          <p class="footer-text">Tu tienda de conveniencia en Playa, Buenavista</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4 class="footer-title">Horario</h4>
-          <p class="footer-text">Abierto las 24 horas</p>
-          <p class="footer-text">Todos los días</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4 class="footer-title">Contacto</h4>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item">
-              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
-            </li>
-            <li class="footer-contact-item">
-              <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5354833899" target="_blank">Envíanos un mensaje</a>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Kiosco72. Todos los derechos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
   <!-- JavaScript -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // ==================== MENÚ MÓVIL ====================
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          mobileMenu.classList.toggle('show');
-          const icon = this.querySelector('i');
-          
-          if (mobileMenu.classList.contains('show')) {
-            icon.classList.replace('fa-bars', 'fa-times');
-            document.addEventListener('click', closeMenuOnClickOutside);
-          } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-            document.removeEventListener('click', closeMenuOnClickOutside);
-          }
-        });
-
-        function closeMenuOnClickOutside(e) {
-          if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
-            mobileMenu.classList.remove('show');
-            const icon = menuBtn.querySelector('i');
-            if (icon) {
-              icon.classList.replace('fa-times', 'fa-bars');
-            }
-            document.removeEventListener('click', closeMenuOnClickOutside);
-          }
-        }
-
-        // Cerrar menú al hacer clic en enlace
-        document.querySelectorAll('.mobile-menu-link').forEach(link => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.remove('show');
-            const icon = menuBtn.querySelector('i');
-            if (icon) {
-              icon.classList.replace('fa-times', 'fa-bars');
-            }
-            document.removeEventListener('click', closeMenuOnClickOutside);
-          });
-        });
-      }
-
-      // ==================== SISTEMA DE CARRITO ====================
-      let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
-
-      const updateCart = () => {
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartTotalElement = document.getElementById('cart-total');
-        const cartSubtotalElement = document.getElementById('cart-subtotal');
-        const cartCountElement = document.getElementById('cart-count');
-        const cartEmptyState = document.getElementById('cart-empty-state');
-        
-        // Verificar elementos existentes
-        if (!cartItemsContainer || !cartTotalElement || !cartCountElement) return;
-        
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-        let itemCount = 0;
-
-        if (cart.length === 0) {
-          // Mostrar estado vacío
-          if (cartEmptyState) cartEmptyState.style.display = 'flex';
-          if (cartItemsContainer) cartItemsContainer.style.display = 'none';
-        } else {
-          // Ocultar estado vacío
-          if (cartEmptyState) cartEmptyState.style.display = 'none';
-          if (cartItemsContainer) cartItemsContainer.style.display = 'block';
-          
-          cart.forEach((item, index) => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            itemCount += item.quantity;
-            
-            const li = document.createElement('li');
-            li.className = 'cart-item';
-            li.innerHTML = `
-              <div class="cart-item-info">
-                <h4>${item.name}</h4>
-                <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
-              </div>
-              <div class="cart-item-actions">
-                <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
-                <button class="remove-item" data-index="${index}">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </div>
-            `;
-            cartItemsContainer.appendChild(li);
-          });
-        }
-
-        // Actualizar totales
-        cartTotalElement.textContent = total.toFixed(2);
-        if (cartSubtotalElement) cartSubtotalElement.textContent = total.toFixed(2);
-        cartCountElement.textContent = itemCount;
-        localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
-
-        // Event listeners para botones de eliminar
-        document.querySelectorAll('.remove-item').forEach(button => {
-          button.addEventListener('click', (e) => {
-            const index = parseInt(e.target.closest('button').getAttribute('data-index'));
-            cart.splice(index, 1);
-            updateCart();
-          });
-        });
-      };
-
-      // Botones "Agregar al carrito" (si existen en esta página)
-      document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', function() {
-          if (this.classList.contains('adding')) return;
-          
-          this.classList.add('adding');
-          const productId = this.getAttribute('data-id');
-          const productName = this.getAttribute('data-name');
-          const productPrice = parseFloat(this.getAttribute('data-price'));
-          
-          // Verificar si el producto ya está en el carrito
-          const existingItem = cart.find(item => item.id === productId);
-          
-          if (existingItem) {
-            existingItem.quantity += 1;
-          } else {
-            cart.push({ 
-              id: productId,
-              name: productName, 
-              price: productPrice,
-              quantity: 1
-            });
-          }
-          
-          updateCart();
-          
-          // Efecto visual
-          const originalHTML = this.innerHTML;
-          this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
-          this.classList.add('btn-success');
-          
-          // Animación de botón de carrito
-          const cartCount = document.getElementById('cart-count');
-          if (cartCount) {
-            cartCount.classList.add('pulse');
-            setTimeout(() => {
-              cartCount.classList.remove('pulse');
-            }, 500);
-          }
-          
-          setTimeout(() => {
-            this.innerHTML = originalHTML;
-            this.classList.remove('btn-success', 'adding');
-          }, 2000);
-        });
-      });
-
-      // Botones del carrito
-      document.getElementById('open-cart-btn')?.addEventListener('click', () => {
-        document.getElementById('cart-sidebar').classList.add('show');
-      });
-
-      document.getElementById('close-cart')?.addEventListener('click', () => {
-        document.getElementById('cart-sidebar').classList.remove('show');
-      });
-
-      // WhatsApp
-      document.getElementById('send-whatsapp')?.addEventListener('click', function() {
-        if (cart.length === 0) {
-          alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
-          return;
-        }
-        
-        let message = "¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n";
-        let total = 0;
-        
-        cart.forEach(item => {
-          const itemTotal = item.price * item.quantity;
-          message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
-          total += itemTotal;
-        });
-        
-        message += `\nTotal: $${total.toFixed(2)}`;
-        message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
-        
-        const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-      });
-
-      // Cerrar carrito al hacer clic fuera
-      document.addEventListener('click', (e) => {
-        const cartSidebar = document.getElementById('cart-sidebar');
-        const openCartBtn = document.getElementById('open-cart-btn');
-        
-        if (cartSidebar?.classList.contains('show') && 
-            !cartSidebar.contains(e.target) && 
-            e.target !== openCartBtn && 
-            !openCartBtn?.contains(e.target)) {
-          cartSidebar.classList.remove('show');
-        }
-      });
-
-      // Inicializar carrito
-      updateCart();
-
-      // ==================== FORMULARIO DE CONTACTO ====================
-      const contactForm = document.getElementById('contact-form');
-      
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const
+  <script src="./js/main.js"></script>
+</body>
+</html>
