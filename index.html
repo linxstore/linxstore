@@ -1,314 +1,75 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio | Kiosco72</title>
-  <link rel="stylesheet" href="./css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Header con logo centrado -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img" loading="lazy">
-        <span class="logo-text">KIOSCO72</span>
-      </a>
-      
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link active">Inicio</a>
-        <a href="productos.html" class="nav-link">Productos</a>
-        <a href="contacto.html" class="nav-link">Contacto</a>
-      </nav>
-      
-      <button id="menu-btn" class="mobile-menu-btn" aria-label="Menú móvil">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-    
-    <div id="mobile-menu" class="mobile-menu">
-      <a href="index.html" class="mobile-menu-link active">Inicio</a>
-      <a href="productos.html" class="mobile-menu-link">Productos</a>
-      <a href="contacto.html" class="mobile-menu-link">Contacto</a>
-    </div>
-  </header>
+document.addEventListener('DOMContentLoaded', function() {
+  // ==================== MENÚ MÓVIL ====================
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1 class="hero-title">Bienvenido a Kiosco72</h1>
-      <p class="hero-subtitle">Tu tienda de conveniencia 24/7 en Playa, Buenavista</p>
-      <a href="productos.html" class="btn btn-hero">Ver productos</a>
-    </div>
-  </section>
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('show');
+      const icon = this.querySelector('i');
+      
+      if (mobileMenu.classList.contains('show')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+        document.addEventListener('click', closeMenuOnClickOutside);
+      } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+        document.removeEventListener('click', closeMenuOnClickOutside);
+      }
+    });
 
-  <!-- Sección de características -->
-  <section class="features-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">¿Por qué elegirnos?</h2>
-        <p class="section-description">Productos esenciales a precios competitivos</p>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <h3 class="feature-title">Abierto 24 horas</h3>
-          <p class="feature-text">Atendemos tus necesidades a cualquier hora</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-tags"></i>
-          </div>
-          <h3 class="feature-title">Precios bajos</h3>
-          <p class="feature-text">Los mejores precios en productos básicos</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-store"></i>
-          </div>
-          <h3 class="feature-title">Variedad</h3>
-          <p class="feature-text">Desde alimentos hasta artículos de aseo</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sección de productos destacados -->
-  <section class="featured-products">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Productos destacados</h2>
-        <p class="section-description">Lo más solicitado por nuestros clientes</p>
-      </div>
-      
-      <div class="products-grid">
-        <!-- Producto 1 - Galletas María -->
-        <div class="product-card" data-category="alimentos">
-          <div class="product-image-container">
-            <img src="./assets/img/productos/galletas_maría.jpg" alt="Galletas María 400g" class="product-image" loading="lazy">
-            <span class="product-badge">Popular</span>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Galletas María</h3>
-            <p class="product-description">Paquete de 400g, clásicas y deliciosas</p>
-            <div class="product-footer">
-              <span class="product-price">$25.00</span>
-              <button class="btn btn-product add-to-cart" data-id="1" data-name="Galletas María" data-price="25.00">Agregar</button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Producto 2 - Refresco -->
-        <div class="product-card" data-category="bebidas">
-          <div class="product-image-container">
-            <img src="./assets/img/productos/refresco.jpg" alt="Refresco en lata 355ml" class="product-image" loading="lazy">
-            <span class="product-badge">Oferta</span>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Refrescos</h3>
-            <p class="product-description">Variedad de sabores, 355ml por lata</p>
-            <div class="product-footer">
-              <span class="product-price">$15.00</span>
-              <button class="btn btn-product add-to-cart" data-id="2" data-name="Refresco" data-price="15.00">Agregar</button>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Producto 3 - Crokantinas -->
-        <div class="product-card" data-category="alimentos">
-          <div class="product-image-container">
-            <img src="./assets/img/productos/crokantinas.jpg" alt="Crokantinas 150g" class="product-image" loading="lazy">
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Crokantinas</h3>
-            <p class="product-description">Galletas con chispas de chocolate</p>
-            <div class="product-footer">
-              <span class="product-price">$30.00</span>
-              <button class="btn btn-product add-to-cart" data-id="3" data-name="Crokantinas" data-price="30.00">Agregar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center" style="margin-top: 2rem;">
-        <a href="productos.html" class="btn btn-primary">
-          <i class="fas fa-store-alt"></i> Ver todos los productos
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo" loading="lazy">
-          <p class="footer-text">Tu tienda de conveniencia en Playa, Buenavista</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4 class="footer-title">Horario</h4>
-          <p class="footer-text">Abierto las 24 horas</p>
-          <p class="footer-text">Todos los días</p>
-        </div>
-        
-        <div class="footer-col">
-          <h4 class="footer-title">Contacto</h4>
-          <ul class="footer-contact-list">
-            <li class="footer-contact-item">
-              <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
-            </li>
-            <li class="footer-contact-item">
-              <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5354833899">Envíanos un mensaje</a>
-            </li>
-            <li class="footer-contact-item">
-              <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; 2025 Kiosco72. Todos los derechos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Botón flotante del carrito -->
-  <button class="cart-floating-btn" id="open-cart-btn">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="cart-count-badge" id="cart-count">0</span>
-  </button>
-
-  <!-- Sidebar del carrito -->
-  <div id="cart-sidebar" class="cart-sidebar">
-    <div class="cart-header">
-      <h3 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
-      <button class="cart-close-btn" id="close-cart"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="cart-content">
-      <div id="cart-empty-state" class="cart-empty-state">
-        <i class="fas fa-shopping-cart"></i>
-        <p>Tu carrito está vacío</p>
-      </div>
-      <ul class="cart-items-list" id="cart-items"></ul>
-    </div>
-    <div class="cart-summary">
-      <div class="cart-total-line">
-        <span>Subtotal:</span>
-        <span>$<span id="cart-subtotal">0.00</span></span>
-      </div>
-      <div class="cart-total-line total">
-        <span>Total:</span>
-        <span>$<span id="cart-total">0.00</span></span>
-      </div>
-      <button id="send-whatsapp" class="btn btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
-      </button>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    // Función para abrir/cerrar menú móvil
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      menuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('show');
-      });
-      
-      // Cerrar menú al hacer clic en un enlace
-      const menuLinks = document.querySelectorAll('.mobile-menu-link');
-      menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('show');
-        });
-      });
-      
-      // Funcionalidad del carrito
-      const cart = [];
-      const openCartBtn = document.getElementById('open-cart-btn');
-      const closeCartBtn = document.getElementById('close-cart');
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const cartItems = document.getElementById('cart-items');
-      const cartCount = document.getElementById('cart-count');
-      const cartTotal = document.getElementById('cart-total');
-      const cartSubtotal = document.getElementById('cart-subtotal');
-      const cartEmptyState = document.getElementById('cart-empty-state');
-      const sendWhatsappBtn = document.getElementById('send-whatsapp');
-      
-      // Abrir carrito
-      openCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.add('show');
-      });
-      
-      // Cerrar carrito
-      closeCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.remove('show');
-      });
-      
-      // Agregar productos al carrito
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const id = this.dataset.id;
-          const name = this.dataset.name;
-          const price = parseFloat(this.dataset.price);
-          
-          // Buscar si el producto ya está en el carrito
-          const existingItem = cart.find(item => item.id === id);
-          
-          if (existingItem) {
-            existingItem.quantity++;
-          } else {
-            cart.push({
-              id,
-              name,
-              price,
-              quantity: 1
-            });
-          }
-          
-          updateCart();
-          
-          // Animación de éxito
-          this.classList.add('btn-success');
-          this.innerHTML = '<i class="fas fa-check"></i> Agregado';
-          
-          setTimeout(() => {
-            this.classList.remove('btn-success');
-            this.innerHTML = 'Agregar';
-          }, 1500);
-        });
-      });
-      
-      // Actualizar carrito
-      function updateCart() {
-        cartItems.innerHTML = '';
-        let total = 0;
-        let count = 0;
-        
-        if (cart.length === 0) {
-          cartEmptyState.style.display = 'flex';
-          cartCount.innerText = '0';
-          cartTotal.innerText = '0.00';
-          cartSubtotal.innerText = '0.00';
-          return;
+    function closeMenuOnClickOutside(e) {
+      if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
+        mobileMenu.classList.remove('show');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          icon.classList.replace('fa-times', 'fa-bars');
         }
+        document.removeEventListener('click', closeMenuOnClickOutside);
+      }
+    }
+
+    // Cerrar menú al hacer clic en enlace
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('show');
+        const icon = menuBtn.querySelector('i');
+        if (icon) {
+          icon.classList.replace('fa-times', 'fa-bars');
+        }
+        document.removeEventListener('click', closeMenuOnClickOutside);
+      });
+    });
+  }
+
+  // ==================== SISTEMA DE CARRITO ====================
+  if (document.getElementById('cart-sidebar')) {
+    let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
+
+    const updateCart = () => {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+      const cartSubtotalElement = document.getElementById('cart-subtotal');
+      const cartCountElement = document.getElementById('cart-count');
+      const cartEmptyState = document.getElementById('cart-empty-state');
+      
+      // Verificar elementos existentes
+      if (!cartItemsContainer || !cartTotalElement || !cartCountElement) return;
+      
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+      let count = 0;
+
+      if (cart.length === 0) {
+        // Mostrar estado vacío
+        if (cartEmptyState) cartEmptyState.style.display = 'flex';
+        if (cartItemsContainer) cartItemsContainer.style.display = 'none';
+      } else {
+        // Ocultar estado vacío
+        if (cartEmptyState) cartEmptyState.style.display = 'none';
+        if (cartItemsContainer) cartItemsContainer.style.display = 'block';
         
-        cartEmptyState.style.display = 'none';
-        
-        cart.forEach(item => {
+        cart.forEach((item, index) => {
           const itemTotal = item.price * item.quantity;
           total += itemTotal;
           count += item.quantity;
@@ -322,68 +83,195 @@
             </div>
             <div class="cart-item-actions">
               <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
-              <button class="remove-item" data-id="${item.id}">
+              <button class="remove-item" data-index="${index}">
                 <i class="fas fa-trash"></i>
               </button>
             </div>
           `;
-          cartItems.appendChild(li);
-        });
-        
-        cartCount.innerText = count;
-        cartCount.classList.add('pulse');
-        setTimeout(() => cartCount.classList.remove('pulse'), 500);
-        
-        cartTotal.innerText = total.toFixed(2);
-        cartSubtotal.innerText = total.toFixed(2);
-        
-        // Actualizar botones de eliminar
-        const removeButtons = document.querySelectorAll('.remove-item');
-        removeButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const itemId = this.dataset.id;
-            const itemIndex = cart.findIndex(item => item.id === itemId);
-            
-            if (itemIndex !== -1) {
-              cart.splice(itemIndex, 1);
-              updateCart();
-            }
-          });
+          cartItemsContainer.appendChild(li);
         });
       }
+
+      // Actualizar totales
+      cartTotalElement.textContent = total.toFixed(2);
+      if (cartSubtotalElement) cartSubtotalElement.textContent = total.toFixed(2);
+      cartCountElement.textContent = count;
+      cartCountElement.classList.add('pulse');
+      setTimeout(() => cartCountElement.classList.remove('pulse'), 500);
       
-      // Enviar pedido por WhatsApp
-      sendWhatsappBtn.addEventListener('click', function() {
-        if (cart.length === 0) {
-          alert('Tu carrito está vacío');
-          return;
-        }
-        
-        let message = '¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n';
-        let total = 0;
-        
-        cart.forEach(item => {
-          const itemTotal = item.price * item.quantity;
-          total += itemTotal;
-          message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
+      localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
+
+      // Event listeners para botones de eliminar
+      document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const index = parseInt(e.target.closest('button').getAttribute('data-index'));
+          cart.splice(index, 1);
+          updateCart();
         });
-        
-        message += `\nTotal: $${total.toFixed(2)}`;
-        message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
-        
-        const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
       });
-      
-      // Cerrar carrito al hacer clic fuera de él
-      document.addEventListener('click', (e) => {
-        if (!cartSidebar.contains(e.target) && 
-            !openCartBtn.contains(e.target) && 
-            cartSidebar.classList.contains('show')) {
-          cartSidebar.classList.remove('show');
+    };
+
+    // Botones "Agregar al carrito"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        if (this.classList.contains('adding')) return;
+        
+        this.classList.add('adding');
+        const id = this.dataset.id;
+        const name = this.dataset.name;
+        const price = parseFloat(this.dataset.price);
+        
+        // Buscar si el producto ya está en el carrito
+        const existingItem = cart.find(item => item.id === id);
+        
+        if (existingItem) {
+          existingItem.quantity++;
+        } else {
+          cart.push({
+            id,
+            name,
+            price,
+            quantity: 1
+          });
         }
+        
+        updateCart();
+        
+        // Animación de éxito
+        this.classList.add('btn-success');
+        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+        
+        setTimeout(() => {
+          this.classList.remove('btn-success', 'adding');
+          this.innerHTML = 'Agregar';
+        }, 2000);
       });
     });
-  </script>
-</body>
-</html>
+
+    // Botones del carrito
+    document.getElementById('open-cart-btn')?.addEventListener('click', () => {
+      document.getElementById('cart-sidebar').classList.add('show');
+    });
+
+    document.getElementById('close-cart')?.addEventListener('click', () => {
+      document.getElementById('cart-sidebar').classList.remove('show');
+    });
+
+    // WhatsApp
+    document.getElementById('send-whatsapp')?.addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
+        return;
+      }
+      
+      let message = "¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n";
+      let total = 0;
+      
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
+        total += itemTotal;
+      });
+      
+      message += `\nTotal: $${total.toFixed(2)}`;
+      message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
+      
+      const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    });
+
+    // Cerrar carrito al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const openCartBtn = document.getElementById('open-cart-btn');
+      
+      if (cartSidebar?.classList.contains('show') && 
+          !cartSidebar.contains(e.target) && 
+          e.target !== openCartBtn && 
+          !openCartBtn?.contains(e.target)) {
+        cartSidebar.classList.remove('show');
+      }
+    });
+
+    // Inicializar carrito
+    updateCart();
+  }
+
+  // ==================== FILTRADO DE PRODUCTOS ====================
+  // Solo ejecutar en la página de productos
+  if (document.querySelector('.category-filters')) {
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const products = document.querySelectorAll('.product-card');
+    
+    categoryFilters.forEach(filter => {
+      filter.addEventListener('click', function() {
+        const category = this.dataset.category;
+        
+        // Actualizar estado activo
+        categoryFilters.forEach(f => f.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filtrar productos
+        products.forEach(product => {
+          if (category === 'all') {
+            product.style.display = 'block';
+          } else {
+            const categories = product.dataset.category.split(' ');
+            if (categories.includes(category)) {
+              product.style.display = 'block';
+            } else {
+              product.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+    
+    // Búsqueda de productos
+    const searchInput = document.getElementById('product-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        products.forEach(product => {
+          const productName = product.dataset.name.toLowerCase();
+          const isVisible = productName.includes(searchTerm);
+          
+          if (isVisible) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      });
+    }
+  }
+
+  // ==================== FORMULARIO DE CONTACTO ====================
+  const contactForm = document.getElementById('contact-form');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      // Simular envío
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        // Mostrar mensaje de éxito
+        alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+        
+        // Restaurar botón
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        
+        // Limpiar formulario
+        contactForm.reset();
+      }, 1500);
+    });
+  }
+});
