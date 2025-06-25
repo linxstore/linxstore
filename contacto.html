@@ -3,74 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos | Kiosco72</title>
+  <title>Contacto | Kiosco72</title>
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilos adicionales para la página de productos */
-    .search-container {
-      margin: 1rem auto 2rem;
-      max-width: 600px;
+    /* Estilos específicos para la página de contacto */
+    .contact-section {
+      padding: 3rem 1rem;
+      background-color: var(--beige);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      background: var(--blanco);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+    }
+    
+    .contact-title {
+      font-size: 1.8rem;
+      color: var(--cafe-oscuro);
+      margin-bottom: 1.5rem;
       position: relative;
+      padding-bottom: 0.5rem;
     }
     
-    .search-container input {
-      width: 100%;
-      padding: 0.8rem 1.2rem;
-      border: 2px solid var(--cafe-claro);
-      border-radius: 30px;
-      font-family: var(--fuente);
-      font-size: 1rem;
-      padding-left: 45px;
-    }
-    
-    .search-container i {
+    .contact-title::after {
+      content: '';
       position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--cafe-oscuro);
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background: var(--cafe-claro);
+      border-radius: 2px;
     }
     
-    .no-results {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 3rem;
-      color: var(--cafe-oscuro);
-    }
-    
-    .no-results i {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--gris-medio);
-    }
-    
-    .pagination {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
+    .contact-details {
       margin-top: 2rem;
     }
     
-    .page-btn {
-      width: 40px;
-      height: 40px;
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--gris-medio);
+    }
+    
+    .contact-icon {
+      background: var(--cafe-claro);
+      color: var(--cafe-oscuro);
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--cafe-claro);
-      background: var(--blanco);
-      font-weight: 600;
-      cursor: pointer;
+      font-size: 1.2rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-text {
+      flex: 1;
+    }
+    
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--cafe-oscuro);
+    }
+    
+    .contact-text p, .contact-text a {
+      font-size: 1rem;
+      color: var(--texto);
+      margin: 0;
       transition: var(--transicion);
     }
     
-    .page-btn:hover, .page-btn.active {
+    .contact-text a:hover {
+      color: var(--cafe-claro);
+    }
+    
+    .contact-form {
+      background: var(--blanco);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--sombra);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--cafe-oscuro);
+    }
+    
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--gris-medio);
+      border-radius: 8px;
+      font-family: var(--fuente);
+      font-size: 1rem;
+      transition: var(--transicion);
+    }
+    
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--cafe-claro);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212, 167, 98, 0.2);
+    }
+    
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn-submit {
       background: var(--cafe-oscuro);
       color: var(--blanco);
-      border-color: var(--cafe-oscuro);
+      padding: 0.9rem 1.8rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transicion);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+    
+    .btn-submit:hover {
+      background: var(--cafe-claro);
+      color: var(--cafe-oscuro);
+    }
+    
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      height: 350px;
+      margin-top: 3rem;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    @media (min-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .contact-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .contact-section {
+        padding: 4rem 1rem;
+      }
     }
   </style>
 </head>
@@ -85,8 +200,8 @@
       
       <nav class="main-nav">
         <a href="index.html" class="nav-link">Inicio</a>
-        <a href="productos.html" class="nav-link active">Productos</a>
-        <a href="contacto.html" class="nav-link">Contacto</a>
+        <a href="productos.html" class="nav-link">Productos</a>
+        <a href="contacto.html" class="nav-link active">Contacto</a>
       </nav>
       
       <button id="menu-btn" class="mobile-menu-btn" aria-label="Menú móvil">
@@ -96,281 +211,121 @@
     
     <div id="mobile-menu" class="mobile-menu">
       <a href="index.html" class="mobile-menu-link">Inicio</a>
-      <a href="productos.html" class="mobile-menu-link active">Productos</a>
-      <a href="contacto.html" class="mobile-menu-link">Contacto</a>
+      <a href="productos.html" class="mobile-menu-link">Productos</a>
+      <a href="contacto.html" class="mobile-menu-link active">Contacto</a>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1 class="hero-title">Nuestros Productos</h1>
-      <p class="hero-subtitle">Todo lo que necesitas en un solo lugar</p>
+      <h1 class="hero-title">Contáctanos</h1>
+      <p class="hero-subtitle">Estamos aquí para atenderte</p>
     </div>
   </section>
 
-  <!-- Barra de búsqueda y filtros -->
-  <div class="container">
-    <div class="search-container">
-      <i class="fas fa-search"></i>
-      <input type="text" id="product-search" placeholder="Buscar productos..." autocomplete="off">
-    </div>
-    
-    <div class="category-filters">
-      <button class="category-filter active" data-category="all">Todo</button>
-      <button class="category-filter" data-category="bebidas">Bebidas</button>
-      <button class="category-filter" data-category="alimentos">Alimentos</button>
-      <button class="category-filter" data-category="aseo">Aseo</button>
-      <button class="category-filter" data-category="ofertas">Ofertas</button>
-    </div>
-  </div>
-
-  <!-- Lista de productos -->
-  <main class="products-main container">
-    <div class="products-grid" id="products-container">
-      <!-- Producto 1 - Refresco -->
-      <div class="product-card" data-category="bebidas ofertas" data-name="refresco en lata">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="product-image" loading="lazy">
-          <span class="product-badge product-badge-offer">20% OFF</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Refresco en Lata</h3>
-          <div class="product-meta">
-            <span class="product-category">Bebidas</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Variedad de sabores: Cola, Naranja, Limón. 355ml por lata.</p>
-          <div class="product-footer">
-            <div class="price-container">
-              <span class="product-price">$15.00</span>
-              <span class="product-old-price">$18.00</span>
+  <!-- Sección de Contacto -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <!-- Información de Contacto -->
+      <div class="contact-info">
+        <h2 class="contact-title">Información de Contacto</h2>
+        <p class="footer-text">¿Tienes alguna pregunta o necesitas ayuda? No dudes en contactarnos.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
             </div>
-            <button class="btn btn-product add-to-cart" data-id="1" data-name="Refresco en Lata" data-price="15.00">Agregar</button>
+            <div class="contact-text">
+              <h4>Dirección</h4>
+              <p>Calle 72 entre 29B y 29C, Playa, Buenavista</p>
+            </div>
           </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Teléfono</h4>
+              <p>55 975 867 / 54 833 899</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="contact-text">
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/5354833899">Envíanos un mensaje</a>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Horario</h4>
+              <p>Abierto las 24 horas, todos los días</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mapa de Ubicación -->
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.1439871420617!2d-99.16164129999999!3d19.2833023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce01d5b0a9c7b1%3A0x5c5f1c9d6d5f5d5d!2sCalle%2072%2C%20Playa%2C%20Buenavista%2C%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1655141234567!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
-
-      <!-- Producto 2 - Galletas María -->
-      <div class="product-card" data-category="alimentos" data-name="galletas maría">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/galletas_maría.jpg" alt="Galletas María" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Galletas María</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
+      
+      <!-- Formulario de Contacto -->
+      <div class="contact-form">
+        <h2 class="contact-title">Envíanos un Mensaje</h2>
+        <p class="footer-text">Completa el formulario y nos pondremos en contacto contigo</p>
+        
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Nombre Completo</label>
+            <input type="text" id="name" class="form-input" placeholder="Tu nombre" required>
           </div>
-          <p class="product-description">Paquete de 400g, clásicas y deliciosas</p>
-          <div class="product-footer">
-            <span class="product-price">$25.00</span>
-            <button class="btn btn-product add-to-cart" data-id="2" data-name="Galletas María" data-price="25.00">Agregar</button>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">Teléfono</label>
+            <input type="tel" id="phone" class="form-input" placeholder="Tu número de teléfono" required>
           </div>
-        </div>
-      </div>
-
-      <!-- Producto 3 - Crokantinas -->
-      <div class="product-card" data-category="alimentos" data-name="crokantinas">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/crokantinas.jpg" alt="Crokantinas" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Crokantinas</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email (opcional)</label>
+            <input type="email" id="email" class="form-input" placeholder="Tu correo electrónico">
           </div>
-          <p class="product-description">Galletas con chispas de chocolate, paquete de 150g</p>
-          <div class="product-footer">
-            <span class="product-price">$30.00</span>
-            <button class="btn btn-product add-to-cart" data-id="3" data-name="Crokantinas" data-price="30.00">Agregar</button>
+          
+          <div class="form-group">
+            <label for="subject" class="form-label">Asunto</label>
+            <input type="text" id="subject" class="form-input" placeholder="Asunto del mensaje" required>
           </div>
-        </div>
-      </div>
-
-      <!-- Producto 4 - Azúcar -->
-      <div class="product-card" data-category="alimentos" data-name="azúcar">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/azúcar.jpg" alt="Azúcar" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Azúcar</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Mensaje</label>
+            <textarea id="message" class="form-textarea" placeholder="Escribe tu mensaje aquí..." required></textarea>
           </div>
-          <p class="product-description">Paquete de 1kg, blanca refinada</p>
-          <div class="product-footer">
-            <span class="product-price">$22.00</span>
-            <button class="btn btn-product add-to-cart" data-id="4" data-name="Azúcar" data-price="22.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 5 - Arroz -->
-      <div class="product-card" data-category="alimentos" data-name="arroz">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/arroz.jpg" alt="Arroz" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Arroz</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Bolsa de 500g, grano largo</p>
-          <div class="product-footer">
-            <span class="product-price">$18.00</span>
-            <button class="btn btn-product add-to-cart" data-id="5" data-name="Arroz" data-price="18.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 6 - Medallones -->
-      <div class="product-card" data-category="alimentos" data-name="medallones">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/medallones.jpg" alt="Medallones" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Medallones</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Galletas sabor vainilla, paquete de 200g</p>
-          <div class="product-footer">
-            <span class="product-price">$28.00</span>
-            <button class="btn btn-product add-to-cart" data-id="6" data-name="Medallones" data-price="28.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 7 - Picadillo de Pollo -->
-      <div class="product-card" data-category="alimentos" data-name="picadillo de pollo">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/picadillo_de_pollo.jpg" alt="Picadillo de Pollo" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Picadillo de Pollo</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Lata de 200g, listo para consumir</p>
-          <div class="product-footer">
-            <span class="product-price">$35.00</span>
-            <button class="btn btn-product add-to-cart" data-id="7" data-name="Picadillo de Pollo" data-price="35.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 8 - Chupa Chupa -->
-      <div class="product-card" data-category="alimentos" data-name="chupa chupa">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/chupa_chupa.jpg" alt="Chupa Chupa" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Chupa Chupa</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Caramelos surtidos, paquete de 10 unidades</p>
-          <div class="product-footer">
-            <span class="product-price">$12.00</span>
-            <button class="btn btn-product add-to-cart" data-id="8" data-name="Chupa Chupa" data-price="12.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 9 - Galletas -->
-      <div class="product-card" data-category="alimentos" data-name="galletas diversas">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Galletas Diversas</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Paquetes de 200g, variedad dulces y saladas</p>
-          <div class="product-footer">
-            <span class="product-price">$28.00</span>
-            <button class="btn btn-product add-to-cart" data-id="9" data-name="Galletas Diversas" data-price="28.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 10 - Sopa Instantánea -->
-      <div class="product-card" data-category="alimentos" data-name="sopa instantánea">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/sopa_instantanea.jpg" alt="Sopa Instantánea" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Sopa Instantánea</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Variedad de sabores, paquete individual</p>
-          <div class="product-footer">
-            <span class="product-price">$10.00</span>
-            <button class="btn btn-product add-to-cart" data-id="10" data-name="Sopa Instantánea" data-price="10.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 11 - Mentaplus -->
-      <div class="product-card" data-category="alimentos" data-name="mentaplus">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/mentaplus.jpg" alt="Mentaplus" class="product-image" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Mentaplus</h3>
-          <div class="product-meta">
-            <span class="product-category">Alimentos</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Caramelos de menta, paquete de 15 unidades</p>
-          <div class="product-footer">
-            <span class="product-price">$15.00</span>
-            <button class="btn btn-product add-to-cart" data-id="11" data-name="Mentaplus" data-price="15.00">Agregar</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Producto 12 - Jabón de Baño -->
-      <div class="product-card" data-category="aseo" data-name="jabón de baño">
-        <div class="product-image-container">
-          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="product-image" loading="lazy">
-          <span class="product-badge product-badge-new">NUEVO</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Jabón de Baño</h3>
-          <div class="product-meta">
-            <span class="product-category">Aseo</span>
-            <span class="product-stock">Disponible</span>
-          </div>
-          <p class="product-description">Variedad de aromas, 90g por unidad</p>
-          <div class="product-footer">
-            <span class="product-price">$12.00</span>
-            <button class="btn btn-product add-to-cart" data-id="12" data-name="Jabón de Baño" data-price="12.00">Agregar</button>
-          </div>
-        </div>
+          
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+          </button>
+        </form>
       </div>
     </div>
-    
-    <!-- Paginación -->
-    <div class="pagination">
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-    </div>
-  </main>
+  </section>
 
-  <!-- Carrito Lateral -->
+  <!-- Botón flotante del carrito -->
+  <button class="cart-floating-btn" id="open-cart-btn">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count-badge" id="cart-count">0</span>
+  </button>
+
+  <!-- Sidebar del carrito -->
   <div id="cart-sidebar" class="cart-sidebar">
     <div class="cart-header">
       <h3 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
@@ -400,18 +355,12 @@
     </div>
   </div>
 
-  <!-- Botón flotante del carrito -->
-  <button class="cart-floating-btn" id="open-cart-btn">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="cart-count-badge" id="cart-count">0</span>
-  </button>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo" loading="lazy">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo">
           <p class="footer-text">Tu tienda de conveniencia en Playa, Buenavista</p>
         </div>
         
@@ -428,7 +377,7 @@
               <i class="fas fa-phone"></i> 55 975 867 / 54 833 899
             </li>
             <li class="footer-contact-item">
-              <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5354833899">Envíanos un mensaje</a>
+              <i class="fab fa-whatsapp"></i> <a href="https://wa.me/5354833899" target="_blank">Envíanos un mensaje</a>
             </li>
             <li class="footer-contact-item">
               <i class="fas fa-map-marker-alt"></i> Calle 72 entre 29B y 29C
@@ -443,156 +392,187 @@
     </div>
   </footer>
 
-  <!-- JavaScript integrado -->
+  <!-- JavaScript -->
   <script>
-    // Función para abrir/cerrar menú móvil
     document.addEventListener('DOMContentLoaded', function() {
+      // ==================== MENÚ MÓVIL ====================
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
-      
-      menuBtn.addEventListener('click', function() {
-        mobileMenu.classList.toggle('show');
-      });
-      
-      // Cerrar menú al hacer clic en un enlace
-      const menuLinks = document.querySelectorAll('.mobile-menu-link');
-      menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('show');
-        });
-      });
-      
-      // Funcionalidad del carrito
-      const cart = [];
-      const openCartBtn = document.getElementById('open-cart-btn');
-      const closeCartBtn = document.getElementById('close-cart');
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const cartItems = document.getElementById('cart-items');
-      const cartCount = document.getElementById('cart-count');
-      const cartTotal = document.getElementById('cart-total');
-      const cartSubtotal = document.getElementById('cart-subtotal');
-      const cartEmptyState = document.getElementById('cart-empty-state');
-      const sendWhatsappBtn = document.getElementById('send-whatsapp');
-      
-      // Abrir carrito
-      openCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.add('show');
-      });
-      
-      // Cerrar carrito
-      closeCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.remove('show');
-      });
-      
-      // Agregar productos al carrito
-      const addToCartButtons = document.querySelectorAll('.add-to-cart');
-      addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const id = this.dataset.id;
-          const name = this.dataset.name;
-          const price = parseFloat(this.dataset.price);
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('show');
+          const icon = this.querySelector('i');
           
-          // Buscar si el producto ya está en el carrito
-          const existingItem = cart.find(item => item.id === id);
+          if (mobileMenu.classList.contains('show')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+            document.addEventListener('click', closeMenuOnClickOutside);
+          } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          }
+        });
+
+        function closeMenuOnClickOutside(e) {
+          if (!mobileMenu.contains(e.target) && e.target !== menuBtn) {
+            mobileMenu.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-times', 'fa-bars');
+            }
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          }
+        }
+
+        // Cerrar menú al hacer clic en enlace
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            const icon = menuBtn.querySelector('i');
+            if (icon) {
+              icon.classList.replace('fa-times', 'fa-bars');
+            }
+            document.removeEventListener('click', closeMenuOnClickOutside);
+          });
+        });
+      }
+
+      // ==================== SISTEMA DE CARRITO ====================
+      let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
+
+      const updateCart = () => {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        const cartSubtotalElement = document.getElementById('cart-subtotal');
+        const cartCountElement = document.getElementById('cart-count');
+        const cartEmptyState = document.getElementById('cart-empty-state');
+        
+        // Verificar elementos existentes
+        if (!cartItemsContainer || !cartTotalElement || !cartCountElement) return;
+        
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        let itemCount = 0;
+
+        if (cart.length === 0) {
+          // Mostrar estado vacío
+          if (cartEmptyState) cartEmptyState.style.display = 'flex';
+          if (cartItemsContainer) cartItemsContainer.style.display = 'none';
+        } else {
+          // Ocultar estado vacío
+          if (cartEmptyState) cartEmptyState.style.display = 'none';
+          if (cartItemsContainer) cartItemsContainer.style.display = 'block';
+          
+          cart.forEach((item, index) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            itemCount += item.quantity;
+            
+            const li = document.createElement('li');
+            li.className = 'cart-item';
+            li.innerHTML = `
+              <div class="cart-item-info">
+                <h4>${item.name}</h4>
+                <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+              </div>
+              <div class="cart-item-actions">
+                <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
+                <button class="remove-item" data-index="${index}">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            `;
+            cartItemsContainer.appendChild(li);
+          });
+        }
+
+        // Actualizar totales
+        cartTotalElement.textContent = total.toFixed(2);
+        if (cartSubtotalElement) cartSubtotalElement.textContent = total.toFixed(2);
+        cartCountElement.textContent = itemCount;
+        localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
+
+        // Event listeners para botones de eliminar
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const index = parseInt(e.target.closest('button').getAttribute('data-index'));
+            cart.splice(index, 1);
+            updateCart();
+          });
+        });
+      };
+
+      // Botones "Agregar al carrito" (si existen en esta página)
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          if (this.classList.contains('adding')) return;
+          
+          this.classList.add('adding');
+          const productId = this.getAttribute('data-id');
+          const productName = this.getAttribute('data-name');
+          const productPrice = parseFloat(this.getAttribute('data-price'));
+          
+          // Verificar si el producto ya está en el carrito
+          const existingItem = cart.find(item => item.id === productId);
           
           if (existingItem) {
-            existingItem.quantity++;
+            existingItem.quantity += 1;
           } else {
-            cart.push({
-              id,
-              name,
-              price,
+            cart.push({ 
+              id: productId,
+              name: productName, 
+              price: productPrice,
               quantity: 1
             });
           }
           
           updateCart();
           
-          // Animación de éxito
+          // Efecto visual
+          const originalHTML = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
           this.classList.add('btn-success');
-          this.innerHTML = '<i class="fas fa-check"></i> Agregado';
+          
+          // Animación de botón de carrito
+          const cartCount = document.getElementById('cart-count');
+          if (cartCount) {
+            cartCount.classList.add('pulse');
+            setTimeout(() => {
+              cartCount.classList.remove('pulse');
+            }, 500);
+          }
           
           setTimeout(() => {
-            this.classList.remove('btn-success');
-            this.innerHTML = 'Agregar';
-          }, 1500);
+            this.innerHTML = originalHTML;
+            this.classList.remove('btn-success', 'adding');
+          }, 2000);
         });
       });
-      
-      // Actualizar carrito
-      function updateCart() {
-        cartItems.innerHTML = '';
-        let total = 0;
-        let count = 0;
-        
+
+      // Botones del carrito
+      document.getElementById('open-cart-btn')?.addEventListener('click', () => {
+        document.getElementById('cart-sidebar').classList.add('show');
+      });
+
+      document.getElementById('close-cart')?.addEventListener('click', () => {
+        document.getElementById('cart-sidebar').classList.remove('show');
+      });
+
+      // WhatsApp
+      document.getElementById('send-whatsapp')?.addEventListener('click', function() {
         if (cart.length === 0) {
-          cartEmptyState.style.display = 'flex';
-          cartCount.innerText = '0';
-          cartTotal.innerText = '0.00';
-          cartSubtotal.innerText = '0.00';
+          alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
           return;
         }
         
-        cartEmptyState.style.display = 'none';
-        
-        cart.forEach(item => {
-          const itemTotal = item.price * item.quantity;
-          total += itemTotal;
-          count += item.quantity;
-          
-          const li = document.createElement('li');
-          li.className = 'cart-item';
-          li.innerHTML = `
-            <div class="cart-item-info">
-              <h4>${item.name}</h4>
-              <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
-            </div>
-            <div class="cart-item-actions">
-              <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
-              <button class="remove-item" data-id="${item.id}">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
-          `;
-          cartItems.appendChild(li);
-        });
-        
-        cartCount.innerText = count;
-        cartCount.classList.add('pulse');
-        setTimeout(() => cartCount.classList.remove('pulse'), 500);
-        
-        cartTotal.innerText = total.toFixed(2);
-        cartSubtotal.innerText = total.toFixed(2);
-        
-        // Actualizar botones de eliminar
-        const removeButtons = document.querySelectorAll('.remove-item');
-        removeButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const itemId = this.dataset.id;
-            const itemIndex = cart.findIndex(item => item.id === itemId);
-            
-            if (itemIndex !== -1) {
-              cart.splice(itemIndex, 1);
-              updateCart();
-            }
-          });
-        });
-      }
-      
-      // Enviar pedido por WhatsApp
-      sendWhatsappBtn.addEventListener('click', function() {
-        if (cart.length === 0) {
-          alert('Tu carrito está vacío');
-          return;
-        }
-        
-        let message = '¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n';
+        let message = "¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n";
         let total = 0;
         
         cart.forEach(item => {
           const itemTotal = item.price * item.quantity;
-          total += itemTotal;
           message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
+          total += itemTotal;
         });
         
         message += `\nTotal: $${total.toFixed(2)}`;
@@ -601,62 +581,28 @@
         const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
       });
-      
-      // Cerrar carrito al hacer clic fuera de él
+
+      // Cerrar carrito al hacer clic fuera
       document.addEventListener('click', (e) => {
-        if (!cartSidebar.contains(e.target) && 
-            !openCartBtn.contains(e.target) && 
-            cartSidebar.classList.contains('show')) {
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        
+        if (cartSidebar?.classList.contains('show') && 
+            !cartSidebar.contains(e.target) && 
+            e.target !== openCartBtn && 
+            !openCartBtn?.contains(e.target)) {
           cartSidebar.classList.remove('show');
         }
       });
+
+      // Inicializar carrito
+      updateCart();
+
+      // ==================== FORMULARIO DE CONTACTO ====================
+      const contactForm = document.getElementById('contact-form');
       
-      // Filtrado de productos por categoría
-      const categoryFilters = document.querySelectorAll('.category-filter');
-      const products = document.querySelectorAll('.product-card');
-      
-      categoryFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
-          const category = this.dataset.category;
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
           
-          // Actualizar estado activo
-          categoryFilters.forEach(f => f.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Filtrar productos
-          products.forEach(product => {
-            if (category === 'all') {
-              product.style.display = 'block';
-            } else {
-              const categories = product.dataset.category.split(' ');
-              if (categories.includes(category)) {
-                product.style.display = 'block';
-              } else {
-                product.style.display = 'none';
-              }
-            }
-          });
-        });
-      });
-      
-      // Búsqueda de productos
-      const searchInput = document.getElementById('product-search');
-      const productsContainer = document.getElementById('products-container');
-      
-      searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase().trim();
-        
-        products.forEach(product => {
-          const productName = product.dataset.name.toLowerCase();
-          
-          if (productName.includes(searchTerm)) {
-            product.style.display = 'block';
-          } else {
-            product.style.display = 'none';
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+          const
