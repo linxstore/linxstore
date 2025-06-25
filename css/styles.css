@@ -148,7 +148,7 @@ section {
   background-color: var(--cafe-claro);
 }
 
-/* Menú móvil mejorado */
+/* Menú móvil mejorado - CORRECCIÓN IMPORTANTE */
 .mobile-menu-btn {
   position: absolute;
   right: 15px;
@@ -180,6 +180,7 @@ section {
   overflow: hidden;
   transition: max-height 0.4s ease;
   z-index: 999;
+  display: block; /* Asegurar que siempre esté presente */
 }
 
 .mobile-menu.show {
@@ -449,6 +450,30 @@ section {
   color: #999;
 }
 
+/* Botón de agregar al carrito - CORRECCIÓN IMPORTANTE */
+.agregar-carrito {
+  background-color: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicion);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.agregar-carrito:hover {
+  background-color: var(--cafe-oscuro);
+  color: var(--blanco);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
 /* -----------------------------------------------------------
    SECCIÓN DE CONTACTO UNIFICADA
    ----------------------------------------------------------- */
@@ -588,7 +613,7 @@ section {
 }
 
 /* -----------------------------------------------------------
-   CARRITO UNIFICADO
+   CARRITO UNIFICADO - CORRECCIONES IMPORTANTES
    ----------------------------------------------------------- */
 .cart-sidebar {
   position: fixed;
@@ -1054,4 +1079,4 @@ section {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
-}
+    }
