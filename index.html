@@ -12,12 +12,10 @@
   <!-- Header con logo centrado -->
   <header class="header">
     <div class="container header-container">
-      <div class="header-logo-container">
-        <a href="index.html" class="logo">
-          <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img" loading="lazy">
-          <span class="logo-text">KIOSCO72</span>
-        </a>
-      </div>
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img" loading="lazy">
+        <span class="logo-text">KIOSCO72</span>
+      </a>
       
       <nav class="main-nav">
         <a href="index.html" class="nav-link active">Inicio</a>
@@ -185,31 +183,207 @@
   </footer>
 
   <!-- Botón flotante del carrito -->
-  <div class="cart-btn" id="open-cart-btn">
+  <button class="cart-floating-btn" id="open-cart-btn">
     <i class="fas fa-shopping-cart"></i>
-    <span class="cart-count" id="cart-count">0</span>
-  </div>
+    <span class="cart-count-badge" id="cart-count">0</span>
+  </button>
 
   <!-- Sidebar del carrito -->
   <div id="cart-sidebar" class="cart-sidebar">
     <div class="cart-header">
-      <h3>Tu Carrito</h3>
-      <button id="close-cart"><i class="fas fa-times"></i></button>
+      <h3 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Carrito</h3>
+      <button class="cart-close-btn" id="close-cart"><i class="fas fa-times"></i></button>
     </div>
-    <div id="cart-empty" class="cart-empty">
-      <i class="fas fa-shopping-cart"></i>
-      <p>Tu carrito está vacío</p>
+    <div class="cart-content">
+      <div id="cart-empty-state" class="cart-empty-state">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Tu carrito está vacío</p>
+      </div>
+      <ul class="cart-items-list" id="cart-items"></ul>
     </div>
-    <ul id="cart-items"></ul>
-    <div class="cart-footer">
-      <p>Total: $<span id="cart-total">0.00</span></p>
-      <button id="send-whatsapp" class="btn-whatsapp">
-        <i class="fab fa-whatsapp"></i> Enviar pedido
+    <div class="cart-summary">
+      <div class="cart-total-line">
+        <span>Subtotal:</span>
+        <span>$<span id="cart-subtotal">0.00</span></span>
+      </div>
+      <div class="cart-total-line total">
+        <span>Total:</span>
+        <span>$<span id="cart-total">0.00</span></span>
+      </div>
+      <button id="send-whatsapp" class="btn btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
       </button>
     </div>
   </div>
 
   <!-- JavaScript -->
-  <script src="./js/main.js"></script>
+  <script>
+    // Función para abrir/cerrar menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('show');
+      });
+      
+      // Cerrar menú al hacer clic en un enlace
+      const menuLinks = document.querySelectorAll('.mobile-menu-link');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('show');
+        });
+      });
+      
+      // Funcionalidad del carrito
+      const cart = [];
+      const openCartBtn = document.getElementById('open-cart-btn');
+      const closeCartBtn = document.getElementById('close-cart');
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      const cartSubtotal = document.getElementById('cart-subtotal');
+      const cartEmptyState = document.getElementById('cart-empty-state');
+      const sendWhatsappBtn = document.getElementById('send-whatsapp');
+      
+      // Abrir carrito
+      openCartBtn.addEventListener('click', () => {
+        cartSidebar.classList.add('show');
+      });
+      
+      // Cerrar carrito
+      closeCartBtn.addEventListener('click', () => {
+        cartSidebar.classList.remove('show');
+      });
+      
+      // Agregar productos al carrito
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const id = this.dataset.id;
+          const name = this.dataset.name;
+          const price = parseFloat(this.dataset.price);
+          
+          // Buscar si el producto ya está en el carrito
+          const existingItem = cart.find(item => item.id === id);
+          
+          if (existingItem) {
+            existingItem.quantity++;
+          } else {
+            cart.push({
+              id,
+              name,
+              price,
+              quantity: 1
+            });
+          }
+          
+          updateCart();
+          
+          // Animación de éxito
+          this.classList.add('btn-success');
+          this.innerHTML = '<i class="fas fa-check"></i> Agregado';
+          
+          setTimeout(() => {
+            this.classList.remove('btn-success');
+            this.innerHTML = 'Agregar';
+          }, 1500);
+        });
+      });
+      
+      // Actualizar carrito
+      function updateCart() {
+        cartItems.innerHTML = '';
+        let total = 0;
+        let count = 0;
+        
+        if (cart.length === 0) {
+          cartEmptyState.style.display = 'flex';
+          cartCount.innerText = '0';
+          cartTotal.innerText = '0.00';
+          cartSubtotal.innerText = '0.00';
+          return;
+        }
+        
+        cartEmptyState.style.display = 'none';
+        
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          count += item.quantity;
+          
+          const li = document.createElement('li');
+          li.className = 'cart-item';
+          li.innerHTML = `
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+            </div>
+            <div class="cart-item-actions">
+              <span class="cart-item-total">$${itemTotal.toFixed(2)}</span>
+              <button class="remove-item" data-id="${item.id}">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          `;
+          cartItems.appendChild(li);
+        });
+        
+        cartCount.innerText = count;
+        cartCount.classList.add('pulse');
+        setTimeout(() => cartCount.classList.remove('pulse'), 500);
+        
+        cartTotal.innerText = total.toFixed(2);
+        cartSubtotal.innerText = total.toFixed(2);
+        
+        // Actualizar botones de eliminar
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const itemId = this.dataset.id;
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            
+            if (itemIndex !== -1) {
+              cart.splice(itemIndex, 1);
+              updateCart();
+            }
+          });
+        });
+      }
+      
+      // Enviar pedido por WhatsApp
+      sendWhatsappBtn.addEventListener('click', function() {
+        if (cart.length === 0) {
+          alert('Tu carrito está vacío');
+          return;
+        }
+        
+        let message = '¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n';
+        let total = 0;
+        
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
+        });
+        
+        message += `\nTotal: $${total.toFixed(2)}`;
+        message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
+        
+        const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+      });
+      
+      // Cerrar carrito al hacer clic fuera de él
+      document.addEventListener('click', (e) => {
+        if (!cartSidebar.contains(e.target) && 
+            !openCartBtn.contains(e.target) && 
+            cartSidebar.classList.contains('show')) {
+          cartSidebar.classList.remove('show');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
