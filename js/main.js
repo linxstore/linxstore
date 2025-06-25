@@ -49,21 +49,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const updateCart = () => {
       const cartItemsContainer = document.getElementById('cart-items');
       const cartTotalElement = document.getElementById('cart-total');
+      const cartSubtotalElement = document.getElementById('cart-subtotal');
       const cartCountElement = document.getElementById('cart-count');
       const cartEmptyElement = document.getElementById('cart-empty');
+      const cartEmptyState = document.getElementById('cart-empty-state');
       
-      if (!cartItemsContainer || !cartTotalElement || !cartCountElement || !cartEmptyElement) return;
+      // Verificar elementos existentes
+      if (!cartItemsContainer || !cartTotalElement || !cartCountElement) return;
       
       cartItemsContainer.innerHTML = '';
       let total = 0;
       let itemCount = 0;
 
       if (cart.length === 0) {
-        cartEmptyElement.style.display = 'flex';
-        cartItemsContainer.style.display = 'none';
+        // Mostrar estado vacío
+        if (cartEmptyElement) cartEmptyElement.style.display = 'flex';
+        if (cartEmptyState) cartEmptyState.style.display = 'flex';
+        if (cartItemsContainer) cartItemsContainer.style.display = 'none';
       } else {
-        cartEmptyElement.style.display = 'none';
-        cartItemsContainer.style.display = 'block';
+        // Ocultar estado vacío
+        if (cartEmptyElement) cartEmptyElement.style.display = 'none';
+        if (cartEmptyState) cartEmptyState.style.display = 'none';
+        if (cartItemsContainer) cartItemsContainer.style.display = 'block';
         
         cart.forEach((item, index) => {
           const itemTotal = item.price * item.quantity;
@@ -88,7 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
 
+      // Actualizar totales
       cartTotalElement.textContent = total.toFixed(2);
+      if (cartSubtotalElement) cartSubtotalElement.textContent = total.toFixed(2);
       cartCountElement.textContent = itemCount;
       localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
 
@@ -98,15 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
           const index = parseInt(e.target.closest('button').getAttribute('data-index'));
           cart.splice(index, 1);
           updateCart();
-          
-          // Feedback visual
-          const icon = e.target.closest('button').querySelector('i');
-          if (icon) {
-            icon.classList.replace('fa-trash', 'fa-check');
-            setTimeout(() => {
-              updateCart();
-            }, 500);
-          }
         });
       });
     };
@@ -174,18 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      let message = "¡Hola Kiosco72! Quiero hacer este pedido:%0A%0A";
+      let message = "¡Hola Kiosco72! Quiero hacer este pedido:\n\n";
       let total = 0;
       
       cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
-        message += `- ${item.name} x${item.quantity}: $${itemTotal.toFixed(2)}%0A`;
+        message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
         total += itemTotal;
       });
       
-      message += `%0A*Total:* $${total.toFixed(2)}%0A%0A*Dirección de entrega:*%0A[Por favor escribe tu dirección aquí]%0A%0A*Notas adicionales:*%0A[Indica si tienes alguna instrucción especial]`;
+      message += `\nTotal: $${total.toFixed(2)}`;
+      message += "\n\nDirección de entrega:\n[Por favor escribe tu dirección aquí]";
+      message += "\n\nNotas adicionales:\n[Indica si tienes alguna instrucción especial]";
       
-      window.open(`https://wa.me/5255975867?text=${encodeURIComponent(message)}`, "_blank");
+      const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
     });
 
     // Cerrar carrito al hacer clic fuera
@@ -203,5 +206,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar carrito
     updateCart();
+  }
+
+  // ==================== FILTRADO DE PRODUCTOS ====================
+  // Solo ejecutar en la página de productos
+  if (document.querySelector('.category-filters')) {
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const products = document.querySelectorAll('.product-card');
+    
+    categoryFilters.forEach(filter => {
+      filter.addEventListener('click', function() {
+        const category = this.dataset.category;
+        
+        // Actualizar estado activo
+        categoryFilters.forEach(f => f.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filtrar productos
+        products.forEach(product => {
+          if (category === 'all') {
+            product.style.display = 'block';
+          } else {
+            const categories = product.dataset.category.split(' ');
+            if (categories.includes(category)) {
+              product.style.display = 'block';
+            } else {
+              product.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+    
+    // Búsqueda de productos
+    const searchInput = document.getElementById('product-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        products.forEach(product => {
+          const productName = product.dataset.name.toLowerCase();
+          const isVisible = productName.includes(searchTerm);
+          
+          if (isVisible) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      });
+    }
   }
 });
