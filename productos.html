@@ -7,17 +7,81 @@
   <link rel="stylesheet" href="./css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos adicionales para la página de productos */
+    .search-container {
+      margin: 1rem auto 2rem;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    .search-container input {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      border: 2px solid var(--cafe-claro);
+      border-radius: 30px;
+      font-family: var(--fuente);
+      font-size: 1rem;
+      padding-left: 45px;
+    }
+    
+    .search-container i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cafe-oscuro);
+    }
+    
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: var(--cafe-oscuro);
+    }
+    
+    .no-results i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--gris-medio);
+    }
+    
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--cafe-claro);
+      background: var(--blanco);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transicion);
+    }
+    
+    .page-btn:hover, .page-btn.active {
+      background: var(--cafe-oscuro);
+      color: var(--blanco);
+      border-color: var(--cafe-oscuro);
+    }
+  </style>
 </head>
 <body>
   <!-- Header con logo centrado -->
   <header class="header">
     <div class="container header-container">
-      <div class="header-logo-container">
-        <a href="index.html" class="logo">
-          <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img">
-          <span class="logo-text">KIOSCO72</span>
-        </a>
-      </div>
+      <a href="index.html" class="logo">
+        <img src="./assets/img/logo.png" alt="Logo Kiosco72" class="logo-img">
+        <span class="logo-text">KIOSCO72</span>
+      </a>
       
       <nav class="main-nav">
         <a href="index.html" class="nav-link">Inicio</a>
@@ -45,22 +109,29 @@
     </div>
   </section>
 
-  <!-- Filtros de categoría -->
-  <div class="category-filters container">
-    <button class="category-filter active" data-category="all">Todo</button>
-    <button class="category-filter" data-category="bebidas">Bebidas</button>
-    <button class="category-filter" data-category="alimentos">Alimentos</button>
-    <button class="category-filter" data-category="aseo">Aseo</button>
-    <button class="category-filter" data-category="ofertas">Ofertas</button>
+  <!-- Barra de búsqueda y filtros -->
+  <div class="container">
+    <div class="search-container">
+      <i class="fas fa-search"></i>
+      <input type="text" id="product-search" placeholder="Buscar productos..." autocomplete="off">
+    </div>
+    
+    <div class="category-filters">
+      <button class="category-filter active" data-category="all">Todo</button>
+      <button class="category-filter" data-category="bebidas">Bebidas</button>
+      <button class="category-filter" data-category="alimentos">Alimentos</button>
+      <button class="category-filter" data-category="aseo">Aseo</button>
+      <button class="category-filter" data-category="ofertas">Ofertas</button>
+    </div>
   </div>
 
   <!-- Lista de productos -->
   <main class="products-main container">
-    <div class="products-grid">
+    <div class="products-grid" id="products-container">
       <!-- Producto 1 - Refresco -->
-      <div class="product-card" data-category="bebidas ofertas">
+      <div class="product-card" data-category="bebidas ofertas" data-name="refresco en lata">
         <div class="product-image-container">
-          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="product-image">
+          <img src="./assets/img/productos/refresco.jpg" alt="Refresco" class="product-image" loading="lazy">
           <span class="product-badge product-badge-offer">20% OFF</span>
         </div>
         <div class="product-info">
@@ -81,9 +152,9 @@
       </div>
 
       <!-- Producto 2 - Galletas María -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="galletas maría">
         <div class="product-image-container">
-          <img src="./assets/img/productos/galletas_maría.jpg" alt="Galletas María" class="product-image">
+          <img src="./assets/img/productos/galletas_maría.jpg" alt="Galletas María" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Galletas María</h3>
@@ -100,9 +171,9 @@
       </div>
 
       <!-- Producto 3 - Crokantinas -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="crokantinas">
         <div class="product-image-container">
-          <img src="./assets/img/productos/crokantinas.jpg" alt="Crokantinas" class="product-image">
+          <img src="./assets/img/productos/crokantinas.jpg" alt="Crokantinas" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Crokantinas</h3>
@@ -119,9 +190,9 @@
       </div>
 
       <!-- Producto 4 - Azúcar -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="azúcar">
         <div class="product-image-container">
-          <img src="./assets/img/productos/azúcar.jpg" alt="Azúcar" class="product-image">
+          <img src="./assets/img/productos/azúcar.jpg" alt="Azúcar" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Azúcar</h3>
@@ -138,9 +209,9 @@
       </div>
 
       <!-- Producto 5 - Arroz -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="arroz">
         <div class="product-image-container">
-          <img src="./assets/img/productos/arroz.jpg" alt="Arroz" class="product-image">
+          <img src="./assets/img/productos/arroz.jpg" alt="Arroz" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Arroz</h3>
@@ -157,9 +228,9 @@
       </div>
 
       <!-- Producto 6 - Medallones -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="medallones">
         <div class="product-image-container">
-          <img src="./assets/img/productos/medallones.jpg" alt="Medallones" class="product-image">
+          <img src="./assets/img/productos/medallones.jpg" alt="Medallones" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Medallones</h3>
@@ -176,9 +247,9 @@
       </div>
 
       <!-- Producto 7 - Picadillo de Pollo -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="picadillo de pollo">
         <div class="product-image-container">
-          <img src="./assets/img/productos/picadillo_de_pollo.jpg" alt="Picadillo de Pollo" class="product-image">
+          <img src="./assets/img/productos/picadillo_de_pollo.jpg" alt="Picadillo de Pollo" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Picadillo de Pollo</h3>
@@ -195,9 +266,9 @@
       </div>
 
       <!-- Producto 8 - Chupa Chupa -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="chupa chupa">
         <div class="product-image-container">
-          <img src="./assets/img/productos/chupa_chupa.jpg" alt="Chupa Chupa" class="product-image">
+          <img src="./assets/img/productos/chupa_chupa.jpg" alt="Chupa Chupa" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Chupa Chupa</h3>
@@ -214,9 +285,9 @@
       </div>
 
       <!-- Producto 9 - Galletas -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="galletas diversas">
         <div class="product-image-container">
-          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="product-image">
+          <img src="./assets/img/productos/galletas.jpg" alt="Galletas" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Galletas Diversas</h3>
@@ -233,9 +304,9 @@
       </div>
 
       <!-- Producto 10 - Sopa Instantánea -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="sopa instantánea">
         <div class="product-image-container">
-          <img src="./assets/img/productos/sopa_instantanea.jpg" alt="Sopa Instantánea" class="product-image">
+          <img src="./assets/img/productos/sopa_instantanea.jpg" alt="Sopa Instantánea" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Sopa Instantánea</h3>
@@ -252,9 +323,9 @@
       </div>
 
       <!-- Producto 11 - Mentaplus -->
-      <div class="product-card" data-category="alimentos">
+      <div class="product-card" data-category="alimentos" data-name="mentaplus">
         <div class="product-image-container">
-          <img src="./assets/img/productos/mentaplus.jpg" alt="Mentaplus" class="product-image">
+          <img src="./assets/img/productos/mentaplus.jpg" alt="Mentaplus" class="product-image" loading="lazy">
         </div>
         <div class="product-info">
           <h3 class="product-title">Mentaplus</h3>
@@ -271,9 +342,9 @@
       </div>
 
       <!-- Producto 12 - Jabón de Baño -->
-      <div class="product-card" data-category="aseo">
+      <div class="product-card" data-category="aseo" data-name="jabón de baño">
         <div class="product-image-container">
-          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="product-image">
+          <img src="./assets/img/productos/jabon.jpg" alt="Jabón" class="product-image" loading="lazy">
           <span class="product-badge product-badge-new">NUEVO</span>
         </div>
         <div class="product-info">
@@ -290,42 +361,49 @@
         </div>
       </div>
     </div>
+    
+    <!-- Paginación -->
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+    </div>
   </main>
 
   <!-- Carrito Lateral -->
   <div id="cart-sidebar" class="cart-sidebar">
     <div class="cart-header">
-      <h2 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Pedido</h2>
-      <button id="close-cart" class="cart-close-btn" aria-label="Cerrar carrito">
+      <h3 class="cart-title"><i class="fas fa-shopping-cart"></i> Tu Pedido</h3>
+      <button class="cart-close-btn" id="close-cart" aria-label="Cerrar carrito">
         <i class="fas fa-times"></i>
       </button>
     </div>
     <div class="cart-content">
-      <div class="cart-empty-state" id="cart-empty">
-        <i class="fas fa-shopping-basket"></i>
+      <div id="cart-empty-state" class="cart-empty-state">
+        <i class="fas fa-shopping-cart"></i>
         <p>Tu carrito está vacío</p>
       </div>
-      <ul id="cart-items" class="cart-items-list"></ul>
-      <div class="cart-summary">
-        <div class="cart-total-line">
-          <span>Subtotal:</span>
-          <span id="cart-subtotal">$0.00</span>
-        </div>
-        <div class="cart-total-line">
-          <span>Total:</span>
-          <span id="cart-total">$0.00</span>
-        </div>
-        <button id="send-whatsapp" class="btn btn-whatsapp btn-block">
-          <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
-        </button>
+      <ul class="cart-items-list" id="cart-items"></ul>
+    </div>
+    <div class="cart-summary">
+      <div class="cart-total-line">
+        <span>Subtotal:</span>
+        <span>$<span id="cart-subtotal">0.00</span></span>
       </div>
+      <div class="cart-total-line total">
+        <span>Total:</span>
+        <span>$<span id="cart-total">0.00</span></span>
+      </div>
+      <button id="send-whatsapp" class="btn btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Enviar pedido
+      </button>
     </div>
   </div>
 
   <!-- Botón flotante del carrito -->
-  <button id="open-cart-btn" class="cart-floating-btn" aria-label="Ver carrito">
+  <button class="cart-floating-btn" id="open-cart-btn">
     <i class="fas fa-shopping-cart"></i>
-    <span id="cart-count" class="cart-count-badge">0</span>
+    <span class="cart-count-badge" id="cart-count">0</span>
   </button>
 
   <!-- Footer -->
@@ -333,13 +411,14 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo">
+          <img src="./assets/img/logo-white.png" alt="Logo Kiosco72" class="footer-logo" loading="lazy">
           <p class="footer-text">Tu tienda de conveniencia en Playa, Buenavista</p>
         </div>
         
         <div class="footer-col">
           <h4 class="footer-title">Horario</h4>
-          <p class="footer-text">Abierto 24 horas</p>
+          <p class="footer-text">Abierto las 24 horas</p>
+          <p class="footer-text">Todos los días</p>
         </div>
         
         <div class="footer-col">
@@ -364,7 +443,53 @@
     </div>
   </footer>
 
-  <!-- JavaScript -->
-  <script src="./js/main.js"></script>
-</body>
-</html>
+  <!-- JavaScript integrado -->
+  <script>
+    // Función para abrir/cerrar menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('show');
+      });
+      
+      // Cerrar menú al hacer clic en un enlace
+      const menuLinks = document.querySelectorAll('.mobile-menu-link');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('show');
+        });
+      });
+      
+      // Funcionalidad del carrito
+      const cart = [];
+      const openCartBtn = document.getElementById('open-cart-btn');
+      const closeCartBtn = document.getElementById('close-cart');
+      const cartSidebar = document.getElementById('cart-sidebar');
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      const cartSubtotal = document.getElementById('cart-subtotal');
+      const cartEmptyState = document.getElementById('cart-empty-state');
+      const sendWhatsappBtn = document.getElementById('send-whatsapp');
+      
+      // Abrir carrito
+      openCartBtn.addEventListener('click', () => {
+        cartSidebar.classList.add('show');
+      });
+      
+      // Cerrar carrito
+      closeCartBtn.addEventListener('click', () => {
+        cartSidebar.classList.remove('show');
+      });
+      
+      // Agregar productos al carrito
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const id = this.dataset.id;
+          const name = this.dataset.name;
+          const price = parseFloat(this.dataset.price);
+          
+          // Buscar si el producto ya está en el carrito
