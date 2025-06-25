@@ -1,3 +1,4 @@
+// app.js - Solución completa para Kiosco72
 document.addEventListener('DOMContentLoaded', function() {
   // ==================== MENÚ MÓVIL ====================
   const menuBtn = document.getElementById('menu-btn');
@@ -112,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Botones "Agregar al carrito"
-    document.querySelectorAll('.add-to-cart').forEach(button => {
+    document.querySelectorAll('.agregar-carrito').forEach(button => {
       button.addEventListener('click', function() {
         if (this.classList.contains('adding')) return;
         
@@ -149,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Botones del carrito
-    document.getElementById('open-cart-btn')?.addEventListener('click', () => {
+    document.getElementById('carrito-icono')?.addEventListener('click', () => {
       document.getElementById('cart-sidebar').classList.add('show');
     });
 
@@ -183,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cerrar carrito al hacer clic fuera
     document.addEventListener('click', (e) => {
       const cartSidebar = document.getElementById('cart-sidebar');
-      const openCartBtn = document.getElementById('open-cart-btn');
+      const openCartBtn = document.getElementById('carrito-icono');
       
       if (cartSidebar?.classList.contains('show') && 
           !cartSidebar.contains(e.target) && 
@@ -198,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ==================== FILTRADO DE PRODUCTOS ====================
-  // Solo ejecutar en la página de productos
   if (document.querySelector('.category-filters')) {
     const categoryFilters = document.querySelectorAll('.category-filter');
     const products = document.querySelectorAll('.product-card');
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchTerm = this.value.toLowerCase().trim();
         
         products.forEach(product => {
-          const productName = product.dataset.name.toLowerCase();
+          const productName = product.querySelector('h3').textContent.toLowerCase();
           const isVisible = productName.includes(searchTerm);
           
           if (isVisible) {
@@ -245,33 +245,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
     }
-  }
-
-  // ==================== FORMULARIO DE CONTACTO ====================
-  const contactForm = document.getElementById('contact-form');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const submitBtn = this.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.innerHTML;
-      
-      // Simular envío
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-      submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        // Mostrar mensaje de éxito
-        alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
-        
-        // Restaurar botón
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-        
-        // Limpiar formulario
-        contactForm.reset();
-      }, 1500);
-    });
   }
 });
