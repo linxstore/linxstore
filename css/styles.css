@@ -1,4 +1,4 @@
-/* styles.css - Estilos optimizados para Kiosco72 - Versión Mejorada */
+/* styles.css - Sistema Unificado para Kiosco72 */
 :root {
   /* Colores */
   --cafe-oscuro: #4B382A;
@@ -21,7 +21,7 @@
 }
 
 /* -----------------------------------------------------------
-   Estructura base
+   RESET Y ESTRUCTURA BASE
    ----------------------------------------------------------- */
 * {
   box-sizing: border-box;
@@ -47,20 +47,20 @@ body {
   padding-top: 70px; /* Espacio para header fijo */
 }
 
-main {
-  flex: 1;
-  padding-bottom: 2rem;
-}
-
+/* Contenedor universal */
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 15px;
+}
+
+section {
+  padding: 3rem 0;
 }
 
 /* -----------------------------------------------------------
-   Header y navegación - Versión optimizada
+   HEADER UNIFICADO
    ----------------------------------------------------------- */
 .header {
   background-color: var(--cafe-oscuro);
@@ -76,10 +76,10 @@ main {
 
 .header-container {
   display: flex;
-  justify-content: center; /* Centramos el logo */
+  justify-content: space-between;
   align-items: center;
   position: relative;
-  padding: 0 1rem;
+  padding: 0 15px;
 }
 
 .logo {
@@ -87,6 +87,7 @@ main {
   align-items: center;
   gap: 0.5rem;
   transition: var(--transicion);
+  text-decoration: none;
 }
 
 .logo:hover {
@@ -102,7 +103,7 @@ main {
 }
 
 .logo-img {
-  height: 60px;
+  height: 50px;
   transition: var(--transicion);
   animation: logoFloat 3s ease-in-out infinite;
 }
@@ -110,13 +111,47 @@ main {
 .logo-text {
   font-weight: 700;
   font-size: 1.25rem;
+  color: var(--blanco);
+}
+
+/* Menú principal */
+.main-nav {
   display: none;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--blanco);
+  position: relative;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  transition: var(--transicion);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--cafe-claro);
+}
+
+.nav-link.active {
+  color: var(--cafe-claro);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--cafe-claro);
 }
 
 /* Menú móvil mejorado */
 .mobile-menu-btn {
   position: absolute;
-  right: 1rem;
+  right: 15px;
   background: none;
   border: none;
   color: var(--blanco);
@@ -128,6 +163,7 @@ main {
   justify-content: center;
   transition: var(--transicion);
   cursor: pointer;
+  z-index: 1001;
 }
 
 .mobile-menu-btn:hover {
@@ -159,6 +195,7 @@ main {
   transition: var(--transicion);
   text-align: center;
   font-size: 1.1rem;
+  text-decoration: none;
 }
 
 .mobile-menu-link:hover,
@@ -168,7 +205,7 @@ main {
 }
 
 /* -----------------------------------------------------------
-   Hero Section optimizada
+   HERO SECTION UNIFICADA
    ----------------------------------------------------------- */
 .hero {
   background: linear-gradient(135deg, var(--cafe-oscuro) 0%, var(--cafe-claro) 100%);
@@ -210,23 +247,48 @@ main {
   position: relative;
 }
 
-/* Decoración para Hero */
-.hero-decoration {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 50%;
-  bottom: -30px;
-  right: -30px;
-  z-index: 0;
+/* -----------------------------------------------------------
+   SECCIÓN DE PRODUCTOS UNIFICADA
+   ----------------------------------------------------------- */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-/* -----------------------------------------------------------
-   Productos - Estilos optimizados
-   ----------------------------------------------------------- */
-.products-main {
-  padding: 1rem 0 3rem;
+.section-title {
+  font-size: 2rem;
+  color: var(--cafe-oscuro);
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  color: var(--texto);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search-container {
+  margin: 1rem auto 2rem;
+  max-width: 600px;
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid var(--cafe-claro);
+  border-radius: 30px;
+  font-family: var(--fuente);
+  font-size: 1rem;
+  padding-left: 45px;
+}
+
+.search-container i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cafe-oscuro);
 }
 
 .category-filters {
@@ -237,6 +299,7 @@ main {
   margin-bottom: 1rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  justify-content: center;
 }
 
 .category-filters::-webkit-scrollbar {
@@ -387,48 +450,145 @@ main {
 }
 
 /* -----------------------------------------------------------
-   Botones optimizados
+   SECCIÓN DE CONTACTO UNIFICADA
    ----------------------------------------------------------- */
-.btn {
-  display: inline-flex;
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.contact-info {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+}
+
+.contact-title {
+  font-size: 1.8rem;
+  color: var(--cafe-oscuro);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.contact-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: var(--cafe-claro);
+  border-radius: 2px;
+}
+
+.contact-details {
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gris-medio);
+}
+
+.contact-icon {
+  background: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-text {
+  flex: 1;
+}
+
+.contact-text h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: var(--cafe-oscuro);
+}
+
+.contact-text p, .contact-text a {
+  font-size: 1rem;
+  color: var(--texto);
+  margin: 0;
   transition: var(--transicion);
-  cursor: pointer;
-  border: none;
-  gap: 0.5rem;
   text-decoration: none;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+.contact-text a:hover {
+  color: var(--cafe-claro);
 }
 
-.btn-product {
-  background-color: var(--cafe-claro);
+.contact-form {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
   color: var(--cafe-oscuro);
-  font-weight: 600;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
 
-.btn-product:hover {
-  background-color: var(--cafe-oscuro);
-  color: var(--blanco);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--gris-medio);
+  border-radius: 8px;
+  font-family: var(--fuente);
+  font-size: 1rem;
+  transition: var(--transicion);
 }
 
-/* Estado de botón al agregar producto */
-.btn-success {
-  background-color: #28a745 !important;
-  color: white !important;
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--cafe-claro);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 167, 98, 0.2);
+}
+
+.form-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  height: 350px;
+  margin-top: 3rem;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* -----------------------------------------------------------
-   Carrito de compras - Versión optimizada
+   CARRITO UNIFICADO
    ----------------------------------------------------------- */
 .cart-sidebar {
   position: fixed;
@@ -571,6 +731,41 @@ main {
   margin-top: 0.5rem;
 }
 
+/* -----------------------------------------------------------
+   BOTONES UNIFICADOS
+   ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transicion);
+  cursor: pointer;
+  border: none;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-product {
+  background-color: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+  font-weight: 600;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.btn-product:hover {
+  background-color: var(--cafe-oscuro);
+  color: var(--blanco);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+
 .btn-whatsapp {
   background: var(--verde-whatsapp);
   color: var(--blanco);
@@ -592,6 +787,35 @@ main {
   box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
 
+.btn-submit {
+  background: var(--cafe-oscuro);
+  color: var(--blanco);
+  padding: 0.9rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transicion);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.btn-submit:hover {
+  background: var(--cafe-claro);
+  color: var(--cafe-oscuro);
+}
+
+/* Estado de botón al agregar producto */
+.btn-success {
+  background-color: #28a745 !important;
+  color: white !important;
+}
+
+/* Botón flotante del carrito */
 .cart-floating-btn {
   position: fixed;
   bottom: 30px;
@@ -641,13 +865,13 @@ main {
 }
 
 /* -----------------------------------------------------------
-   Footer optimizado
+   FOOTER UNIFICADO
    ----------------------------------------------------------- */
 .footer {
   background: var(--cafe-oscuro);
   color: var(--blanco);
   padding: 2rem 0 0;
-  margin-top: 3rem;
+  margin-top: auto;
 }
 
 .footer-grid {
@@ -712,7 +936,7 @@ main {
 }
 
 /* -----------------------------------------------------------
-   Media Queries - Responsive Design
+   MEDIA QUERIES - RESPONSIVE DESIGN
    ----------------------------------------------------------- */
 @media (max-width: 767px) {
   .products-grid {
@@ -765,6 +989,10 @@ main {
     justify-content: space-between;
   }
   
+  .main-nav {
+    display: flex;
+  }
+  
   .mobile-menu-btn {
     display: none;
   }
@@ -784,6 +1012,10 @@ main {
   
   .footer-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -806,7 +1038,7 @@ main {
 }
 
 /* -----------------------------------------------------------
-   Animaciones clave
+   ANIMACIONES CLAVE
    ----------------------------------------------------------- */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -822,134 +1054,4 @@ main {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
-}
-
-/* -----------------------------------------------------------
-   Estilos para página de contacto
-   ----------------------------------------------------------- */
-.contact-section {
-  padding: 3rem 1rem;
-}
-
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-.contact-info {
-  background: var(--blanco);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: var(--sombra);
-}
-
-.contact-title {
-  font-size: 1.5rem;
-  color: var(--cafe-oscuro);
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.contact-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background: var(--cafe-claro);
-}
-
-.contact-form {
-  background: var(--blanco);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: var(--sombra);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: var(--cafe-oscuro);
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--gris-medio);
-  border-radius: 4px;
-  font-family: var(--fuente);
-  font-size: 1rem;
-  transition: border-color 0.3s;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  border-color: var(--cafe-claro);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(212, 167, 98, 0.2);
-}
-
-.form-textarea {
-  min-height: 150px;
-  resize: vertical;
-}
-
-.btn-submit {
-  background: var(--cafe-oscuro);
-  color: var(--blanco);
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: var(--transicion);
-  width: 100%;
-}
-
-.btn-submit:hover {
-  background: var(--cafe-claro);
-  color: var(--cafe-oscuro);
-}
-
-@media (min-width: 768px) {
-  .contact-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* -----------------------------------------------------------
-   Mejoras adicionales
-   ----------------------------------------------------------- */
-/* Mejora para inputs en móviles */
-input, select, textarea {
-  font-size: 16px; /* Evita zoom automático en iOS */
-}
-
-/* Mejora de scroll en móviles */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--gris-claro);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--cafe-claro);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--cafe-oscuro);
 }
