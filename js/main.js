@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const cartTotalElement = document.getElementById('cart-total');
       const cartSubtotalElement = document.getElementById('cart-subtotal');
       const cartCountElement = document.getElementById('cart-count');
-      const cartEmptyElement = document.getElementById('cart-empty');
       const cartEmptyState = document.getElementById('cart-empty-state');
       
       // Verificar elementos existentes
@@ -59,23 +58,21 @@ document.addEventListener('DOMContentLoaded', function() {
       
       cartItemsContainer.innerHTML = '';
       let total = 0;
-      let itemCount = 0;
+      let count = 0;
 
       if (cart.length === 0) {
         // Mostrar estado vacío
-        if (cartEmptyElement) cartEmptyElement.style.display = 'flex';
         if (cartEmptyState) cartEmptyState.style.display = 'flex';
         if (cartItemsContainer) cartItemsContainer.style.display = 'none';
       } else {
         // Ocultar estado vacío
-        if (cartEmptyElement) cartEmptyElement.style.display = 'none';
         if (cartEmptyState) cartEmptyState.style.display = 'none';
         if (cartItemsContainer) cartItemsContainer.style.display = 'block';
         
         cart.forEach((item, index) => {
           const itemTotal = item.price * item.quantity;
           total += itemTotal;
-          itemCount += item.quantity;
+          count += item.quantity;
           
           const li = document.createElement('li');
           li.className = 'cart-item';
@@ -98,7 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // Actualizar totales
       cartTotalElement.textContent = total.toFixed(2);
       if (cartSubtotalElement) cartSubtotalElement.textContent = total.toFixed(2);
-      cartCountElement.textContent = itemCount;
+      cartCountElement.textContent = count;
+      cartCountElement.classList.add('pulse');
+      setTimeout(() => cartCountElement.classList.remove('pulse'), 500);
+      
       localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
 
       // Event listeners para botones de eliminar
@@ -117,43 +117,33 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this.classList.contains('adding')) return;
         
         this.classList.add('adding');
-        const productId = this.getAttribute('data-id');
-        const productName = this.getAttribute('data-name');
-        const productPrice = parseFloat(this.getAttribute('data-price'));
+        const id = this.dataset.id;
+        const name = this.dataset.name;
+        const price = parseFloat(this.dataset.price);
         
-        // Verificar si el producto ya está en el carrito
-        const existingItem = cart.find(item => item.id === productId);
+        // Buscar si el producto ya está en el carrito
+        const existingItem = cart.find(item => item.id === id);
         
         if (existingItem) {
-          existingItem.quantity += 1;
+          existingItem.quantity++;
         } else {
-          cart.push({ 
-            id: productId,
-            name: productName, 
-            price: productPrice,
+          cart.push({
+            id,
+            name,
+            price,
             quantity: 1
           });
         }
         
         updateCart();
         
-        // Efecto visual
-        const originalHTML = this.innerHTML;
-        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
+        // Animación de éxito
         this.classList.add('btn-success');
-        
-        // Animación de botón de carrito
-        const cartCount = document.getElementById('cart-count');
-        if (cartCount) {
-          cartCount.classList.add('pulse');
-          setTimeout(() => {
-            cartCount.classList.remove('pulse');
-          }, 500);
-        }
+        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
         
         setTimeout(() => {
-          this.innerHTML = originalHTML;
           this.classList.remove('btn-success', 'adding');
+          this.innerHTML = 'Agregar';
         }, 2000);
       });
     });
@@ -174,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      let message = "¡Hola Kiosco72! Quiero hacer este pedido:\n\n";
+      let message = "¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n";
       let total = 0;
       
       cart.forEach(item => {
@@ -184,11 +174,10 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       
       message += `\nTotal: $${total.toFixed(2)}`;
-      message += "\n\nDirección de entrega:\n[Por favor escribe tu dirección aquí]";
-      message += "\n\nNotas adicionales:\n[Indica si tienes alguna instrucción especial]";
+      message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
       
       const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, "_blank");
+      window.open(whatsappUrl, '_blank');
     });
 
     // Cerrar carrito al hacer clic fuera
@@ -256,5 +245,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
     }
+  }
+
+  // ==================== FORMULARIO DE CONTACTO ====================
+  const contactForm = document.getElementById('contact-form');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      // Simular envío
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        // Mostrar mensaje de éxito
+        alert('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.');
+        
+        // Restaurar botón
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        
+        // Limpiar formulario
+        contactForm.reset();
+      }, 1500);
+    });
   }
 });
