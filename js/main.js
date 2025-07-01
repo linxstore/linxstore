@@ -1,4 +1,4 @@
-// app.js - Solución completa para Kiosco72
+// app.js - Solución completa para Kiosco72 (Corregido)
 document.addEventListener('DOMContentLoaded', function() {
   // ==================== MENÚ MÓVIL ====================
   const menuBtn = document.getElementById('menu-btn');
@@ -10,12 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
       mobileMenu.classList.toggle('show');
       const icon = this.querySelector('i');
       
-      if (mobileMenu.classList.contains('show')) {
-        icon.classList.replace('fa-bars', 'fa-times');
-        document.addEventListener('click', closeMenuOnClickOutside);
-      } else {
-        icon.classList.replace('fa-times', 'fa-bars');
-        document.removeEventListener('click', closeMenuOnClickOutside);
+      if (icon) {
+        if (mobileMenu.classList.contains('show')) {
+          icon.classList.replace('fa-bars', 'fa-times');
+          document.addEventListener('click', closeMenuOnClickOutside);
+        } else {
+          icon.classList.replace('fa-times', 'fa-bars');
+          document.removeEventListener('click', closeMenuOnClickOutside);
+        }
       }
     });
 
@@ -44,37 +46,46 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ==================== SISTEMA DE CARRITO ====================
-  if (document.getElementById('cart-sidebar')) {
-    let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
+  let cart = JSON.parse(localStorage.getItem('kiosco72-cart')) || [];
 
-    const updateCart = () => {
-      const cartItemsContainer = document.getElementById('cart-items');
-      const cartTotalElement = document.getElementById('cart-total');
-      const cartSubtotalElement = document.getElementById('cart-subtotal');
-      const cartCountElement = document.getElementById('cart-count');
-      const cartEmptyState = document.getElementById('cart-empty-state');
-      
-      // Verificar elementos existentes
-      if (!cartItemsContainer || !cartTotalElement || !cartCountElement) return;
-      
+  // Función para actualizar el carrito (ahora es global)
+  window.updateCart = function() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    const cartSubtotalElement = document.getElementById('cart-subtotal');
+    const cartCountElement = document.getElementById('cart-count');
+    const cartEmptyState = document.getElementById('cart-empty-state');
+    
+    // Actualizar contador del carrito en todas las páginas
+    let total = 0;
+    let count = 0;
+
+    cart.forEach(item => {
+      total += item.price * item.quantity;
+      count += item.quantity;
+    });
+
+    if (cartCountElement) {
+      cartCountElement.textContent = count;
+      cartCountElement.classList.add('pulse');
+      setTimeout(() => cartCountElement.classList.remove('pulse'), 500);
+    }
+    
+    localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
+
+    // Actualizar sidebar solo si existe
+    if (cartItemsContainer) {
       cartItemsContainer.innerHTML = '';
-      let total = 0;
-      let count = 0;
-
+      
       if (cart.length === 0) {
-        // Mostrar estado vacío
         if (cartEmptyState) cartEmptyState.style.display = 'flex';
         if (cartItemsContainer) cartItemsContainer.style.display = 'none';
       } else {
-        // Ocultar estado vacío
         if (cartEmptyState) cartEmptyState.style.display = 'none';
         if (cartItemsContainer) cartItemsContainer.style.display = 'block';
         
         cart.forEach((item, index) => {
           const itemTotal = item.price * item.quantity;
-          total += itemTotal;
-          count += item.quantity;
-          
           const li = document.createElement('li');
           li.className = 'cart-item';
           li.innerHTML = `
@@ -93,14 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
 
-      // Actualizar totales
-      cartTotalElement.textContent = total.toFixed(2);
+      if (cartTotalElement) cartTotalElement.textContent = total.toFixed(2);
       if (cartSubtotalElement) cartSubtotalElement.textContent = total.toFixed(2);
-      cartCountElement.textContent = count;
-      cartCountElement.classList.add('pulse');
-      setTimeout(() => cartCountElement.classList.remove('pulse'), 500);
-      
-      localStorage.setItem('kiosco72-cart', JSON.stringify(cart));
 
       // Event listeners para botones de eliminar
       document.querySelectorAll('.remove-item').forEach(button => {
@@ -110,93 +115,93 @@ document.addEventListener('DOMContentLoaded', function() {
           updateCart();
         });
       });
-    };
+    }
+  };
 
-    // Botones "Agregar al carrito"
-    document.querySelectorAll('.agregar-carrito').forEach(button => {
-      button.addEventListener('click', function() {
-        if (this.classList.contains('adding')) return;
-        
-        this.classList.add('adding');
-        const id = this.dataset.id;
-        const name = this.dataset.name;
-        const price = parseFloat(this.dataset.price);
-        
-        // Buscar si el producto ya está en el carrito
-        const existingItem = cart.find(item => item.id === id);
-        
-        if (existingItem) {
-          existingItem.quantity++;
-        } else {
-          cart.push({
-            id,
-            name,
-            price,
-            quantity: 1
-          });
-        }
-        
-        updateCart();
-        
-        // Animación de éxito
-        this.classList.add('btn-success');
-        this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
-        
-        setTimeout(() => {
-          this.classList.remove('btn-success', 'adding');
-          this.innerHTML = 'Agregar';
-        }, 2000);
-      });
-    });
-
-    // Botones del carrito
-    document.getElementById('carrito-icono')?.addEventListener('click', () => {
-      document.getElementById('cart-sidebar').classList.add('show');
-    });
-
-    document.getElementById('close-cart')?.addEventListener('click', () => {
-      document.getElementById('cart-sidebar').classList.remove('show');
-    });
-
-    // WhatsApp
-    document.getElementById('send-whatsapp')?.addEventListener('click', function() {
-      if (cart.length === 0) {
-        alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
-        return;
+  // Botones "Agregar al carrito" (siempre disponibles)
+  document.querySelectorAll('.agregar-carrito').forEach(button => {
+    button.addEventListener('click', function() {
+      if (this.classList.contains('adding')) return;
+      
+      this.classList.add('adding');
+      const id = this.dataset.id;
+      const name = this.dataset.name;
+      const price = parseFloat(this.dataset.price);
+      
+      // Buscar si el producto ya está en el carrito
+      const existingItem = cart.find(item => item.id === id);
+      
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cart.push({
+          id,
+          name,
+          price,
+          quantity: 1
+        });
       }
       
-      let message = "¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n";
-      let total = 0;
+      updateCart();
       
-      cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
-        total += itemTotal;
-      });
+      // Animación de éxito
+      this.classList.add('btn-success');
+      this.innerHTML = '<i class="fas fa-check"></i> ¡Agregado!';
       
-      message += `\nTotal: $${total.toFixed(2)}`;
-      message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
-      
-      const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
+      setTimeout(() => {
+        this.classList.remove('btn-success', 'adding');
+        this.innerHTML = 'Agregar';
+      }, 2000);
     });
+  });
 
-    // Cerrar carrito al hacer clic fuera
-    document.addEventListener('click', (e) => {
-      const cartSidebar = document.getElementById('cart-sidebar');
-      const openCartBtn = document.getElementById('carrito-icono');
-      
-      if (cartSidebar?.classList.contains('show') && 
-          !cartSidebar.contains(e.target) && 
-          e.target !== openCartBtn && 
-          !openCartBtn?.contains(e.target)) {
-        cartSidebar.classList.remove('show');
-      }
+  // Inicializar carrito
+  updateCart();
+
+  // Botones del carrito (solo si existen en la página)
+  document.getElementById('carrito-icono')?.addEventListener('click', () => {
+    document.getElementById('cart-sidebar')?.classList.add('show');
+  });
+
+  document.getElementById('close-cart')?.addEventListener('click', () => {
+    document.getElementById('cart-sidebar')?.classList.remove('show');
+  });
+
+  // WhatsApp
+  document.getElementById('send-whatsapp')?.addEventListener('click', function() {
+    if (cart.length === 0) {
+      alert("¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.");
+      return;
+    }
+    
+    let message = "¡Hola Kiosco72! Quiero realizar el siguiente pedido:\n\n";
+    let total = 0;
+    
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      message += `- ${item.name} x ${item.quantity}: $${itemTotal.toFixed(2)}\n`;
+      total += itemTotal;
     });
+    
+    message += `\nTotal: $${total.toFixed(2)}`;
+    message += '\n\nPor favor, confírmenme cuando esté listo para recoger. ¡Gracias!';
+    
+    const whatsappUrl = `https://wa.me/5354833899?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  });
 
-    // Inicializar carrito
-    updateCart();
-  }
+  // Cerrar carrito al hacer clic fuera
+  document.addEventListener('click', (e) => {
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const openCartBtn = document.getElementById('carrito-icono');
+    
+    if (cartSidebar?.classList.contains('show') && 
+        !cartSidebar.contains(e.target) && 
+        e.target !== openCartBtn && 
+        !openCartBtn?.contains(e.target)) {
+      cartSidebar.classList.remove('show');
+    }
+  });
 
   // ==================== FILTRADO DE PRODUCTOS ====================
   if (document.querySelector('.category-filters')) {
